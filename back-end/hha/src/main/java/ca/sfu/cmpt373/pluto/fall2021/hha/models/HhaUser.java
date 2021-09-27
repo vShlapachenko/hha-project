@@ -21,7 +21,7 @@ public class HhaUser {
     private String firstName;
     private String lastName;
     private String password;
-    private String activationLinkId;
+    private String activationLink;
     @DBRef(lazy = true)
     private Collection<Role> roles = new ArrayList<>();
     @DBRef

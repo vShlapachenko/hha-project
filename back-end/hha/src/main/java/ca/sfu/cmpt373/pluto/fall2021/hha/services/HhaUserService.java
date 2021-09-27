@@ -1,9 +1,6 @@
 package ca.sfu.cmpt373.pluto.fall2021.hha.services;
 
-import ca.sfu.cmpt373.pluto.fall2021.hha.models.ActivationStatus;
-import ca.sfu.cmpt373.pluto.fall2021.hha.models.HhaUser;
-import ca.sfu.cmpt373.pluto.fall2021.hha.models.Role;
-import ca.sfu.cmpt373.pluto.fall2021.hha.models.UserInvitation;
+import ca.sfu.cmpt373.pluto.fall2021.hha.models.*;
 import ca.sfu.cmpt373.pluto.fall2021.hha.repositories.HhaUserRepository;
 import ca.sfu.cmpt373.pluto.fall2021.hha.repositories.RoleRepository;
 import lombok.RequiredArgsConstructor;
@@ -87,13 +84,25 @@ public class HhaUserService implements UserDetailsService {
         if (userRepository.findByEmail(userInvitation.email()) != null){
             throw new IllegalArgumentException("User already exists");
         }
+        var activationLink = UUID.randomUUID().toString();
         try {
-            emailService.invite(userInvitation);
+            emailService.invite(userInvitation, activationLink);
         } catch (MessagingException e) {
             e.printStackTrace();
             throw new IllegalArgumentException("Something is wrong");
         }
         userRepository.save(new HhaUser(null, userInvitation.email(), null, null, null,
-                UUID.randomUUID().toString(), null, null, ActivationStatus.CREATED_BY_ADMIN));
+                activationLink, null, null, ActivationStatus.CREATED_BY_ADMIN));
+    }
+
+    public void acceptInvite(String activationLink, UserRegistrationCredentials userRegistrationCredentials) {
+        var user = userRepository.findByActivationLink(activationLink);
+        if (user == null) {
+            throw new IllegalArgumentException("User with activation link " + activationLink + " was not found");
+        }
+        user.setPassword(userRegistrationCredentials.getPassword());
+        user.setFirstName(userRegistrationCredentials.getFirstName());
+        user.setLastName(userRegistrationCredentials.getLastName());
+        saveUser(user);
     }
 }

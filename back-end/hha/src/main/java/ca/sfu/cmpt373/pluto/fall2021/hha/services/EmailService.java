@@ -24,8 +24,7 @@ public class EmailService {
     @Value("${spring.mail.username}")
     private String emailFrom;
 
-    public void invite(UserInvitation userInvitation) throws MessagingException {
-
+    public void invite(UserInvitation userInvitation, String activationLink) throws MessagingException {
         var message = mailSender.createMimeMessage();
         var helper = new MimeMessageHelper(message, true, "UTF-8");
         helper.setTo("valentyn.shlapachenko@gmail.com");
@@ -38,10 +37,5 @@ public class EmailService {
 
         helper.setText(htmlBody, true);
         mailSender.send(message);
-//        var message = new SimpleMailMessage();
-//        message.setFrom(emailFrom);
-//        message.setTo(userInvitation.email());
-//        message.setSubject("Invitation To Join Hha");
-//        message.setText();
     }
 }
