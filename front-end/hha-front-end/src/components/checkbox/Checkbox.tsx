@@ -4,13 +4,20 @@ import FormGroup from '@mui/material/FormGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import checkboxStyle from "./Checkbox.module.css"
 
-const Checkbox = (props: any) => {
-    const { disabled, defaultChecked, label} = props;
+
+interface CheckboxAttributes {
+    disabled: boolean;
+    defaultChecked: boolean;
+    label: string;
+}
+
+const Checkbox = ({ disabled, defaultChecked, label}: CheckboxAttributes) => {
+
     return (
         <div>
             <FormGroup  className = {checkboxStyle.checkbox} >
                 <FormControlLabel label={label} disabled={disabled} control={<MaterialCheckbox defaultChecked={defaultChecked} />} />
-                {/* label must be passed from the parent for checkbox to work */}
+                {/* all attributes must be passed from the parent for checkbox to work */}
             </FormGroup>
         </div> 
     );
