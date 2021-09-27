@@ -27,7 +27,7 @@ public class EmailService {
     public void invite(UserInvitation userInvitation, String activationLink) throws MessagingException {
         var message = mailSender.createMimeMessage();
         var helper = new MimeMessageHelper(message, true, "UTF-8");
-        helper.setTo("valentyn.shlapachenko@gmail.com");
+        helper.setTo(userInvitation.email());
         helper.setFrom(emailFrom);
         helper.setSubject("Invitation To Join Hha");
 
