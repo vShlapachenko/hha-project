@@ -1,5 +1,6 @@
 package ca.sfu.cmpt373.pluto.fall2021.hha.services;
 
+import ca.sfu.cmpt373.pluto.fall2021.hha.models.ActivationStatus;
 import ca.sfu.cmpt373.pluto.fall2021.hha.models.HhaUser;
 import ca.sfu.cmpt373.pluto.fall2021.hha.models.Role;
 import ca.sfu.cmpt373.pluto.fall2021.hha.models.UserInvitation;
@@ -26,6 +27,7 @@ import javax.mail.MessagingException;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
+import java.util.UUID;
 import java.util.stream.Collectors;
 
 @Service
@@ -82,15 +84,16 @@ public class HhaUserService implements UserDetailsService {
         if (!passwordEncoder.matches(userInvitation.password(), password)){
             throw new IllegalArgumentException("Supplied password is incorrect");
         }
+        if (userRepository.findByEmail(userInvitation.email()) != null){
+            throw new IllegalArgumentException("User already exists");
+        }
         try {
             emailService.invite(userInvitation);
         } catch (MessagingException e) {
             e.printStackTrace();
             throw new IllegalArgumentException("Something is wrong");
         }
-
-//        authenticationManager.authenticate(
-//                new UsernamePasswordAuthenticationToken(userInvitation.email(), userInvitation.password()));
-//
+        userRepository.save(new HhaUser(null, userInvitation.email(), null, null, null,
+                UUID.randomUUID().toString(), null, null, ActivationStatus.CREATED_BY_ADMIN));
     }
 }

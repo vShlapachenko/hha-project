@@ -4,6 +4,8 @@ import ca.sfu.cmpt373.pluto.fall2021.hha.repositories.HhaUserRepository;
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.JWTVerifier;
 import com.auth0.jwt.algorithms.Algorithm;
+import com.auth0.jwt.exceptions.JWTDecodeException;
+import com.auth0.jwt.exceptions.JWTVerificationException;
 import com.auth0.jwt.interfaces.DecodedJWT;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
@@ -55,7 +57,7 @@ public class CustomAuthorizationFilter extends OncePerRequestFilter {
                     var authenticationToken = new UsernamePasswordAuthenticationToken(email, user.getPassword(), authorities);
                     SecurityContextHolder.getContext().setAuthentication(authenticationToken);
                     filterChain.doFilter(httpServletRequest, httpServletResponse);
-                } catch (Exception e) {
+                } catch (JWTDecodeException e) {
                     System.out.println(e.getMessage());
                     httpServletResponse.sendError(SC_FORBIDDEN);
                 }
