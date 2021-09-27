@@ -25,7 +25,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     private final CustomAuthorizationFilter customAuthorizationFilter;
 
     @Value("${secret.key.jwt}")
-    private String jwtToken;
+    private String jwtSecret;
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
@@ -34,7 +34,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        var customAuthenticationFilter = new CustomAuthenticationFilter(authenticationManagerBean(), jwtToken);
+        var customAuthenticationFilter = new CustomAuthenticationFilter(authenticationManagerBean(), jwtSecret);
         customAuthenticationFilter.setFilterProcessesUrl("/api/login");
 
         http
