@@ -1,10 +1,29 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 </head>
-<body>
-
+<body style="margin: auto;
+    width: 800px;
+    padding: 0;
+    background-color: white;
+    text-align: center">
+<div style="background-color: #E5E5E5;
+    border-radius: 5px;
+    padding: 40px;">
+    <h1> Hi! You are invited to join HHA organization!</h1>
+    <h2>If you are not connected to HHA organization please disregard this email</h2>
+    <table border="0" cellspacing="0" cellpadding="0">
+        <tr>
+            <td align="center" style="border-radius: 5px; background-color: #009CC4;">
+                <a th:href="google.com" style="font-size: 18px; color: #ffffff; font-weight: bold; text-decoration: none;border-radius: 5px; padding: 12px 18px; display: inline-block;">Join HHA &rarr;</a>
+            </td>
+        </tr>
+    </table>
+    <p>Kind Regards,</p>
+    <p>
+        <em>HHA Team</em> <br/>
+    </p>
+</div>
 </body>
 </html>
