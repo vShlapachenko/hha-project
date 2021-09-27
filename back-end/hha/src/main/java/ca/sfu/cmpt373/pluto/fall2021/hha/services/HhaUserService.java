@@ -103,6 +103,7 @@ public class HhaUserService implements UserDetailsService {
         user.setPassword(userRegistrationCredentials.getPassword());
         user.setFirstName(userRegistrationCredentials.getFirstName());
         user.setLastName(userRegistrationCredentials.getLastName());
+        user.setActivationStatus(ActivationStatus.FILLED_INFO);
         saveUser(user);
     }
 }
