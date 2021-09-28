@@ -20,14 +20,4 @@ public class HhaApplication {
     public static void main(String[] args) {
         SpringApplication.run(HhaApplication.class, args);
     }
-
-//    @Bean
-//    CommandLineRunner runner(){
-//        return args -> {
-//            userService.saveRole(new Role(null, "ROLE_STAFF"));
-//
-//            userService.saveUser(new HhaUser(null, "email@email.com", "firstName", "lastName",
-//                    "1234", List.of(userService.getRole("ROLE_STAFF")), null, ActivationStatus.ACTIVATED));
-//        };
-//    }
 }
