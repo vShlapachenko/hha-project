@@ -18,7 +18,7 @@ db.hhaUser.insert([
         email: "cmpt373.hha.project@gmail.com", firstName: "firstName", lastName: "lastName",
         password: "$2a$10$f/W5HK1BU/97RztYfZ531u/jxXb3GuPDlE6Qao/FOVSldXaXQSg3S",
         activationLink: null, roles: [
-            new DBRef('role', roles[0]._id)
+            new DBRef('role', roles[1]._id)
         ],
         deparment: null,
         activationStatus: "ACTIVATED"
