@@ -1,20 +1,27 @@
 import React from 'react';
-import TextField from '@material-ui/core/TextField';
-import { useForm, SubmitHandler } from "react-hook-form";
+import TextField from '@mui/material/TextField';
+import FormControl from '@mui/material/FormControl';
+import FormHelperText from '@mui/material/FormHelperText'
 
 interface InputAttributes {
-  userInput: string;
+  userInput: string,
+  error: boolean,
+  errorMessage: string,
+  label: string
 }
 
-const Input = ({userInput}: InputAttributes) => {
+const Input = ({userInput, error, errorMessage, label}: InputAttributes) => {
   
   const handleChange = (event: any) => {
     event.preventDefault();
     userInput = event.target.value;
   };
   return (
-      <div>
-              <TextField onChangeCapture = {handleChange} id="filled-basic" label="input here" variant="filled" />
+      <div>   
+        <FormControl >
+          <TextField onChangeCapture = {handleChange} id="filled-basic" label={label} variant="filled" />
+          {error &&  <FormHelperText id="component-error-text">{errorMessage}</FormHelperText>}
+        </FormControl>
       </div>
   )
 }
