@@ -5,12 +5,12 @@ import FormHelperText from '@mui/material/FormHelperText'
 
 interface InputAttributes {
   userInput: string,
-  error: boolean,
-  errorMessage: string,
+  error?: boolean,
+  errorMessage?: string,
   label: string
 }
 
-const Input = ({userInput, error, errorMessage, label}: InputAttributes) => {
+const Input = ({userInput, error = false, errorMessage = '', label}: InputAttributes) => {
   
   const handleChange = (event: any) => {
     event.preventDefault();
