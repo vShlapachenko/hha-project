@@ -35,13 +35,13 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         var customAuthenticationFilter = new CustomAuthenticationFilter(authenticationManagerBean(), jwtSecret);
-        customAuthenticationFilter.setFilterProcessesUrl("/api/login");
+        customAuthenticationFilter.setFilterProcessesUrl("/api/auth/login");
 
         http
                 .csrf().disable()
                 .sessionManagement().sessionCreationPolicy(STATELESS)
                 .and()
-                .authorizeRequests().antMatchers("/api/login").permitAll()
+                .authorizeRequests().antMatchers("/api/auth/login", "/api/auth/refresh").permitAll()
                 .and()
                 .authorizeRequests().anyRequest().authenticated()
                 .and()
