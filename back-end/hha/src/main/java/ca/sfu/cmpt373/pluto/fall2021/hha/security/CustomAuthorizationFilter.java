@@ -5,7 +5,6 @@ import com.auth0.jwt.JWT;
 import com.auth0.jwt.JWTVerifier;
 import com.auth0.jwt.algorithms.Algorithm;
 import com.auth0.jwt.exceptions.JWTDecodeException;
-import com.auth0.jwt.exceptions.JWTVerificationException;
 import com.auth0.jwt.interfaces.DecodedJWT;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
@@ -24,7 +23,7 @@ import java.util.Collection;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import static javax.servlet.http.HttpServletResponse.SC_FORBIDDEN;
+import static javax.servlet.http.HttpServletResponse.SC_UNAUTHORIZED;
 import static org.springframework.http.HttpHeaders.AUTHORIZATION;
 
 @Component
@@ -38,7 +37,8 @@ public class CustomAuthorizationFilter extends OncePerRequestFilter {
 
     @Override
     protected void doFilterInternal(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, FilterChain filterChain) throws ServletException, IOException {
-        if (httpServletRequest.getServletPath().equals("/api/login")) {
+        if (httpServletRequest.getServletPath().equals("/api/auth/login")
+                || httpServletRequest.getServletPath().equals("/api/auth/refresh")) {
             filterChain.doFilter(httpServletRequest, httpServletResponse);
         } else {
             var authHeader = httpServletRequest.getHeader(AUTHORIZATION);
@@ -58,8 +58,7 @@ public class CustomAuthorizationFilter extends OncePerRequestFilter {
                     SecurityContextHolder.getContext().setAuthentication(authenticationToken);
                     filterChain.doFilter(httpServletRequest, httpServletResponse);
                 } catch (JWTDecodeException e) {
-                    System.out.println(e.getMessage());
-                    httpServletResponse.sendError(SC_FORBIDDEN);
+                    httpServletResponse.sendError(SC_UNAUTHORIZED);
                 }
             } else {
                 filterChain.doFilter(httpServletRequest, httpServletResponse);
