@@ -35,4 +35,9 @@ public class HhaUserController {
     public void saveUser(@RequestBody HhaUser user) {
         userService.saveUser(user);
     }
+
+    @PostMapping("confirm/{confirmationLink}")
+    public void confirmRegistration(@PathVariable String confirmationLink) {
+        userService.confirm(confirmationLink);
+    }
 }

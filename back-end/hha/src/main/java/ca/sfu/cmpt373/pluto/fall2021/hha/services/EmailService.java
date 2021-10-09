@@ -1,5 +1,6 @@
 package ca.sfu.cmpt373.pluto.fall2021.hha.services;
 
+import ca.sfu.cmpt373.pluto.fall2021.hha.models.HhaUser;
 import ca.sfu.cmpt373.pluto.fall2021.hha.models.UserInvitation;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
@@ -33,6 +34,16 @@ public class EmailService {
         var htmlBody = thymeleafTemplateEngine.process("invite.html", thymeleafContext);
 
         helper.setText(htmlBody, true);
+        mailSender.send(message);
+    }
+
+    public void confirm(String email, String confirmationLink) throws MessagingException{
+        var message = mailSender.createMimeMessage();
+        var helper = new MimeMessageHelper(message, true, "UTF-8");
+        helper.setTo(email);
+        helper.setFrom(emailFrom);
+        helper.setSubject("Please Verify Your Registration");
+
         mailSender.send(message);
     }
 }

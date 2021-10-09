@@ -84,7 +84,7 @@ public class HhaUserService implements UserDetailsService {
             throw new IllegalArgumentException("Something is wrong");
         }
         userRepository.save(new HhaUser(null, userInvitation.email(), null, null, null,
-                activationLink, null, null, ActivationStatus.CREATED_BY_ADMIN));
+                activationLink, null, null, ActivationStatus.CREATED_BY_ADMIN, null));
     }
 
     public void acceptInvite(String activationLink, UserRegistrationCredentials userRegistrationCredentials) {
@@ -96,6 +96,28 @@ public class HhaUserService implements UserDetailsService {
         user.setFirstName(userRegistrationCredentials.getFirstName());
         user.setLastName(userRegistrationCredentials.getLastName());
         user.setActivationStatus(ActivationStatus.FILLED_INFO);
+
+        var confirmationLink = UUID.randomUUID().toString();
+        user.setConfirmationLink(confirmationLink);
+
         saveUser(user);
+
+        try {
+            emailService.confirm(user.getEmail(), confirmationLink);
+        } catch (MessagingException e) {
+            e.printStackTrace();
+            throw new IllegalArgumentException("Something is wrong");
+        }
+    }
+
+    public void confirm(String confirmationLink) {
+        var user = userRepository.findByConfirmationLink(confirmationLink);
+
+        if (user == null || user.getActivationStatus() == ActivationStatus.ACTIVATED) {
+            throw new IllegalArgumentException("User with confirmation link " + confirmationLink + " was not found");
+        }
+        user.setConfirmationLink(null);
+        user.setActivationStatus(ActivationStatus.ACTIVATED);
+        userRepository.save(user);
     }
 }
