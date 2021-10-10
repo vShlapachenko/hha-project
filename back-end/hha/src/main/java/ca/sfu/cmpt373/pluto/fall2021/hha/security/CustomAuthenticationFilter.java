@@ -53,7 +53,7 @@ public class CustomAuthenticationFilter extends UsernamePasswordAuthenticationFi
         var algorithm = Algorithm.HMAC256(jwtSecret);
         var accessToken = JWT.create()
                 .withSubject(user.getUsername())
-                .withExpiresAt(new Date(Instant.now().plus(30, ChronoUnit.MINUTES).toEpochMilli()))
+                .withExpiresAt(new Date(Instant.now().plus(10, ChronoUnit.MINUTES).toEpochMilli()))
                 .withIssuer(request.getRequestURL().toString())
                 .withClaim("roles",
                         user.getAuthorities().stream()
