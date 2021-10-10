@@ -1,0 +1,259 @@
+.logo {
+    width: 328px;
+    height: 184px;
+    left: 35px;
+    top: 0px;
+}
+
+.header {
+    position: absolute;
+    width: 488px;
+    height: 26px;
+    left: calc(50% - 488px/2);
+    top: 181px;
+
+/* Inter/H5 */
+
+    font-family: Inter;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 150%;
+/* or 36px */
+
+
+/* Gray / 100 */
+    color: #19191D;
+}
+
+.subHeader {
+    position: absolute;
+    width: 488px;
+    height: 24px;
+    left: calc(50% - 488px/2);
+    top: 229px;
+
+    /* Inter / Body Large */
+
+    font-family: Inter;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 20px;
+    line-height: 158%;
+    /* or 32px */
+
+    letter-spacing: 0.0075em;
+
+    /* Gray / 50 */
+
+    color: #787885;
+}
+
+.name {
+    position: absolute;
+    display: flex;
+    top: 330px;
+    width: 488px;
+    left: calc(50% - 488px/2);
+}
+
+.firstName {
+    flex: 1;
+    width: 236px;
+    height: 20px;   
+   
+
+/* Inter / Body Small */
+    font-family: Inter;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 143%;
+/* identical to box height, or 20px */
+    letter-spacing: 0.018em;
+
+/* Gray / 50 */
+
+    color: #787885;
+}
+
+.lastName {
+    flex: 1;
+
+    width: 236px;
+    height: 20px;   
+   
+
+/* Inter / Body Small */
+    font-family: Inter;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 143%;
+/* identical to box height, or 20px */
+    letter-spacing: 0.018em;
+
+/* Gray / 50 */
+
+    color: #787885;
+ }
+
+
+ .nameInput {
+    position: absolute;
+    display: flex;
+    top: 350px;
+    width: 488px;
+    left: calc(50% - 488px/2);
+}
+
+.firstNameInput {
+    margin: 5px;
+}
+
+.lastNameInput {
+    margin: 5px;
+}
+
+.assignEmail {
+    position: absolute;
+    top: 430px;
+    width: 488px;
+    left: calc(50% - 488px/2);
+
+    /* Inter / Body Small */
+    font-family: Inter;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 143%;
+/* identical to box height, or 20px */
+    letter-spacing: 0.018em;
+
+/* Gray / 50 */
+
+    color: #787885;
+}
+
+.disableInput {
+    position: absolute;
+    width: 400px;
+    height: 40px;
+    left: calc(50% - 488px/2);
+    top: 460px;
+
+    background: #B4B4BB;
+    /* Gray / 30 */
+
+    border: 1px solid #B4B4BB;
+    box-sizing: border-box;
+    border-radius: 4px;
+}
+
+.password {
+
+    position: absolute;
+    top: 520px;
+    width: 488px;
+    left: calc(50% - 488px/2);
+
+     /* Inter / Body Small */
+     font-family: Inter;
+     font-style: normal;
+     font-weight: normal;
+     font-size: 14px;
+     line-height: 143%;
+ /* identical to box height, or 20px */
+     letter-spacing: 0.018em;
+ 
+ /* Gray / 50 */
+ 
+     color: #787885;
+}
+
+.enterPassword {
+    position: absolute;
+    top: 520px;
+    width: 488px;
+    left: calc(50% - 488px/2);
+
+     /* Inter / Body Small */
+     font-family: Inter;
+     font-style: normal;
+     font-weight: normal;
+     font-size: 14px;
+     line-height: 143%;
+ /* identical to box height, or 20px */
+     letter-spacing: 0.018em;
+ 
+ /* Gray / 50 */
+ 
+     color: #787885;
+}
+
+.confirmPassword {
+    position: absolute;
+    top: 600px;
+    width: 488px;
+    left: calc(50% - 488px/2);
+
+     /* Inter / Body Small */
+     font-family: Inter;
+     font-style: normal;
+     font-weight: normal;
+     font-size: 14px;
+     line-height: 143%;
+ /* identical to box height, or 20px */
+     letter-spacing: 0.018em;
+ 
+ /* Gray / 50 */
+ 
+     color: #787885;
+}
+
+.enterPersonalStaffNumber {
+    position: absolute;
+    top: 700px;
+    width: 488px;
+    left: calc(50% - 488px/2);
+
+     /* Inter / Body Small */
+     font-family: Inter;
+     font-style: normal;
+     font-weight: normal;
+     font-size: 14px;
+     line-height: 143%;
+ /* identical to box height, or 20px */
+     letter-spacing: 0.018em;
+ 
+ /* Gray / 50 */
+ 
+     color: #787885;
+}
+
+.choosePreferredLanguage {
+    position: absolute;
+    top: 800px;
+    width: 488px;
+    left: calc(50% - 488px/2);
+
+     /* Inter / Body Small */
+     font-family: Inter;
+     font-style: normal;
+     font-weight: normal;
+     font-size: 14px;
+     line-height: 143%;
+ /* identical to box height, or 20px */
+     letter-spacing: 0.018em;
+ 
+ /* Gray / 50 */
+ 
+     color: #787885;
+}
+
+.submitButton {
+    position: absolute;
+    top: 900px;
+    width: 488px;
+    left: calc(50% - 488px/2);
+}
