@@ -22,9 +22,12 @@ const Login: FC = () => {
                 type="password"
                 placeholder="Password"
             />
+
             <button onClick={() => store.login(email, password)}>
                 Login
             </button>
+
+            <a href={"./forgotPassword"}>Forgot your password?</a>
         </div>
     );
 };

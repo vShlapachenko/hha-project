@@ -8,27 +8,26 @@ const ForgotPassword: React.FC<{}> = () => {
     const { store } = useContext(Context);
     const [showOTP, setShowOtp] = useState(false);
     const history = useHistory();
+    const [errorMessage, setErrorMessage] = React.useState("");
 
     const handleSendOTP = () => {
-        //navjot
-        //to check whteher the email is valid or not.
-        //email laike backend ch bhej dena mail te otp bhejna
-        //write code for invalid email and return from the function with an alert("invalid email")
 
-        //If email is valid ->
-        //store.forgotPassword(email);
-        // if (store.otp?.length === 6) {
-        //   setShowOtp(true);
-        // }
+        let emailCheckExpression = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
-        //remove line below after implementing backend api and uncomment above code
-        setShowOtp(true);
-    };
+        if (!emailCheckExpression.test(email)){
+            alert("Enter a valid email.");
+        }
+        else{
+            store.setForgotPasswordEmail(email);
+            setShowOtp(true);
+        }
+    }
 
     const disableOtpPage = () => {
         setEmail("");
         setShowOtp(false);
     };
+
     return (
         <div className="forgot_password_parent">
             {showOTP ? (
@@ -39,7 +38,7 @@ const ForgotPassword: React.FC<{}> = () => {
                     <input
                         onChange={(e) => setEmail(e.target.value)}
                         value={email}
-                        type="text"
+                        type="email"
                         placeholder="Email"
                     />
 
