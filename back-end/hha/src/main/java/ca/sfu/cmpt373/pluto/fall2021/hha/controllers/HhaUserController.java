@@ -1,5 +1,6 @@
 package ca.sfu.cmpt373.pluto.fall2021.hha.controllers;
 
+import ca.sfu.cmpt373.pluto.fall2021.hha.models.EmailDto;
 import ca.sfu.cmpt373.pluto.fall2021.hha.models.HhaUser;
 import ca.sfu.cmpt373.pluto.fall2021.hha.models.UserInvitation;
 import ca.sfu.cmpt373.pluto.fall2021.hha.models.UserRegistrationCredentials;
@@ -8,6 +9,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Random;
 
 @RestController
 @RequiredArgsConstructor
@@ -34,5 +36,12 @@ public class HhaUserController {
     @PostMapping("saveUser")
     public void saveUser(@RequestBody HhaUser user) {
         userService.saveUser(user);
+    }
+
+    @PostMapping("/forgotPassword")
+    public String sendOtp(@RequestBody EmailDto email){
+
+        userService.sendOtp(email);
+        return "EnterOTP";
     }
 }
