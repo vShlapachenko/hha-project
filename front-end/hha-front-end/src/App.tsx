@@ -8,7 +8,7 @@ import Navbar from './components/Navbar/Navbar';
 function App() {
   return (
     <Switch>
-      <Route exact path="/" component={ Navbar } />
+      <Route exact path="/" component={ Login } />
       <Route exact path="/login" component={ Login } />
       {/* temp path for testing*/}
       <Redirect from="*" to="/" />
