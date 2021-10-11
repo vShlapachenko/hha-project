@@ -1,0 +1,56 @@
+*{
+    margin: 1px;
+    padding: 1px;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #f1ebeb;
+  }
+  
+  .allignment{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: fit-content;
+    width: 500px;
+  }
+  
+  .allignment h1{
+    padding: 20px 0;
+    color: rgb(86, 86, 90);
+    font-weight: bolder;
+    font-size: 35px;
+  }
+  
+  .textInput input{
+    width: 95%;
+    padding: 10px 10px;
+    height: 42px;
+    font-size: 15px;
+    border-color: #ffffff;
+    border-radius: 5px;
+    background-color: rgb(245, 245, 245);
+  }
+  
+  .loginButton{
+    width: 95%;
+    padding: 10px 10px;
+    height: 42px;
+    font-size: 15px;
+    border: none;
+    border-radius: 50px;
+    background-color: #4d4b4e;
+    color: #fff;
+  }
+  
+  .logoHHA{
+      height: 80px;
+      width: auto;
+      object-fit: contain;
+      margin: 20px 20px;
+  }
+  
+  .plainText{
+      color: rgb(86, 86, 90);
+      font-size: 17px;
+  }
