@@ -1,4 +1,5 @@
 import React, {useState, useContext} from "react";
+import { useHistory } from "react-router-dom";
 import  { ReactComponent as Logo }  from "../../assets/Logo.svg";
 import registrationStyle from "./Registration.module.css";
 import Input  from "../../components/input/Input";
@@ -7,7 +8,7 @@ import { Button } from "@mui/material";
 import UserService from "../../service/UserService";
 import {Context} from "../../index";
 import {User} from "../../models/User";
-
+import Navbar from "../../components/Navbar/Navbar";
 
 const Registration = () => {
     const listItems = [ "English", "French"];
@@ -18,30 +19,15 @@ const Registration = () => {
     const [personalStaffNumber, setPersonalStaffNumber] = useState("");
     const [dropdown, setDropdown] = useState("");
     const {store} = useContext(Context);
-
-//     const hhaUser = {
-//         "firstName": firstName,
-//         "last": lastName,
-//         "password": password,
-//         "confirmPassword": confirmPassword,
-//         "personalStaffNumber": personalStaffNumber,
-//         "languageOption": dropdown
-       
-//    };
-
-   const hhaUsers = {
-    "id": "",
-    "email": "",
-    "firstName": "",
-    "lastName": "",
-    "password": "",
-    "activationLink": "",
-    "roles": [],
-    "department": null,
-    "activationStatus": "ACTIVATED",
-    "confirmationLink": ""
-   
-    };
+    const history = useHistory();
+    const hhaUser = {
+        "firstName": firstName,
+        "lastName": lastName,
+        "password": password,
+        "confirmPassword": confirmPassword,
+        "personalStaffNumber": personalStaffNumber,
+        "languageOption": dropdown
+   };
 
     
     const [users, setUsers] = useState<User[]>([]);
@@ -57,8 +43,9 @@ const Registration = () => {
 
     async function saveUser() {
         try {
-          const response = await UserService.saveUser(hhaUsers.email, hhaUsers.firstName, hhaUsers.lastName, hhaUsers.password, hhaUsers.activationLink, hhaUsers.roles, hhaUsers.department, hhaUsers.activationStatus);
+          const response = await UserService.saveUser(hhaUser.firstName, hhaUser.lastName, hhaUser.password);
           console.log(response);
+          history.push("/");
         } catch (e) {
             console.log(e);
             
@@ -102,7 +89,7 @@ const Registration = () => {
     return (
         <div>
              <div>
-                <Logo className={registrationStyle.logo} />
+                <Navbar />
                 <h5 className={registrationStyle.header}>Personal Information</h5>
                 <h6 className={registrationStyle.subHeader}>Enter your personal information below</h6>
             </div>
@@ -144,18 +131,7 @@ const Registration = () => {
             </div>
             <div className={registrationStyle.submitButton }>
                 <Button variant="contained" onClick={saveUser} >Submit</Button>
-            </div> 
-
-            <div className={registrationStyle.authorized }>
-                <h1>You are authorized</h1>
-                <button onClick={() => store.logout()}>Logout</button>
-                <div>
-                    <button onClick={getUsers}> Get Users</button>
-                 </div>
-                    {users.map(user =>
-                <div key={user.email}>THIS IS USER EMAIL {user.email}</div>)}
             </div>
-            
         </div>
     );
 };
