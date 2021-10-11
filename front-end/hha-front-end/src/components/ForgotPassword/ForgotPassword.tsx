@@ -8,14 +8,14 @@ const ForgotPassword: React.FC<{}> = () => {
     const { store } = useContext(Context);
     const [showOTP, setShowOtp] = useState(false);
     const history = useHistory();
-    const [errorMessage, setErrorMessage] = React.useState("");
 
     const handleSendOTP = () => {
 
         let emailCheckExpression = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
         if (!emailCheckExpression.test(email)){
-            alert("Enter a valid email.");
+            Error("Enter a valid email.");
+            alert("Enter a valid email.")
         }
         else{
             store.setForgotPasswordEmail(email);
@@ -34,12 +34,13 @@ const ForgotPassword: React.FC<{}> = () => {
                 <EnterOTP disableOtpPage={disableOtpPage} email={email} />
             ) : (
                 <div className="forget_col">
-                    <h1>Forgot Password Page</h1>
+                    <h1>Enter your email</h1>
                     <input
                         onChange={(e) => setEmail(e.target.value)}
                         value={email}
                         type="email"
                         placeholder="Email"
+                        required = {true}
                     />
 
                     <button onClick={handleSendOTP}>Click to recieve OTP by email</button>
