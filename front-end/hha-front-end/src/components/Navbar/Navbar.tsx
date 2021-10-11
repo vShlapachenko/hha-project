@@ -1,12 +1,8 @@
 import React, { Component } from "react";
-import { MenuItems } from "./MenuItems";
 import "./Navbar.css";
 import logo from "./logo.svg";
 import Button from '@mui/material/Button';
-import { createTheme } from "@mui/material/styles";
-import { AppBar, Box, IconButton, selectClasses, Toolbar, Typography } from "@mui/material";
-import { sizeHeight } from "@mui/system";
-import {  } from '@mui/system';
+import { AppBar, Box, IconButton, Toolbar, Typography } from "@mui/material";
 import MenuIcon from '@mui/icons-material/Menu';
 import ClickAwayListener from '@mui/material/ClickAwayListener';
 import Grow from '@mui/material/Grow';
@@ -14,7 +10,22 @@ import Paper from '@mui/material/Paper';
 import Popper from '@mui/material/Popper';
 import MenuItem from '@mui/material/MenuItem';
 import MenuList from '@mui/material/MenuList';
-import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+import useMediaQuery from '@mui/material/useMediaQuery';
+
+const MenuItems = [
+    {
+        title: 'Home',
+    },
+    {
+        title: 'Departments',
+    },
+    {
+        title: 'Forms',
+    },
+    {
+        title: 'Case Study',
+    },
+]
 
 const navStyle = {
     background: '#ffffff',
@@ -34,10 +45,10 @@ const textStyle = {
 };
 
 const Navbar = (email : String) => {
-
-    var state = {clicked : false, chosen: false};
+    const isMobile = useMediaQuery('(max-width:900px)');
 
     const [open, setOpen] = React.useState(false);
+    const [chosenIndex, setIndex] = React.useState(0);
     const anchorRef = React.useRef<HTMLButtonElement>(null);
     
 
@@ -55,6 +66,11 @@ const Navbar = (email : String) => {
 
         setOpen(false);
     };
+
+    const handleClick = (index: number) => {
+        if(index == chosenIndex) return;
+        setIndex(index);
+    }
 
     function handleListKeyDown(event: React.KeyboardEvent) {
         if (event.key === 'Tab') {
@@ -79,68 +95,139 @@ const Navbar = (email : String) => {
         <Box sx={{ flexGrow: 1, fontFamily: 'Arial', fontWeight: 'light' }} >
             <AppBar position="static" style={navStyle}>
                 <Toolbar>
-                <img src={logo} height={80} ></img>
-                <Box sx={{flexGrow: 1,}} display="flex" justifyContent="center" alignItems="center">
-                {MenuItems.map((item, index) => {
-                       return (
-                           <Box mr={4}>
-                                <Button sx={{fontFamily: 'Arial', fontWeight: 400}}
-                                style={item.isChoosen ? buttonStyleChoosen : buttonStyle}
+                        { isMobile ?
+                            <React.Fragment>
+                            <IconButton
+                                ref={anchorRef}
+                                id="composition-button"
+                                aria-controls={open ? 'composition-menu' : undefined}
+                                aria-expanded={open ? 'true' : undefined}
+                                aria-haspopup="true"
+                                onClick={handleToggle}
+                            >
+                                <MenuIcon fontSize='large' style={{color: '#009CC4'}} />
+                            </IconButton>
+                            <Popper
+                                open={open}
+                                anchorEl={anchorRef.current}
+                                role={undefined}
+                                placement="bottom-start"
+                                transition
+                                disablePortal
+                            >
+                                {({ TransitionProps, placement }) => (
+                                <Grow
+                                    {...TransitionProps}
+                                    style={{
+                                    transformOrigin:
+                                        placement === 'bottom-start' ? 'left top' : 'left bottom',
+                                    }}
                                 >
-                                    {item.title}
-                                </Button>
+                                    <Paper>
+                                    <ClickAwayListener onClickAway={handleClose}>
+                                        <MenuList
+                                        autoFocusItem={open}
+                                        id="composition-menu"
+                                        aria-labelledby="composition-button"
+                                        onKeyDown={handleListKeyDown}
+                                        >
+                                        {MenuItems.map((item, index) => {
+                                        return (
+                                                <Box ml={2}>
+                                                    <Button sx={{fontFamily: 'Arial', fontWeight: 400, flexGrow: 1}}
+                                                    style={chosenIndex == index ? buttonStyleChoosen : buttonStyle}
+                                                    onClick={() => handleClick(index)}
+                                                    >
+                                                        {item.title}
+                                                    </Button>
+                                                </Box>
+                                            
+                                        ) 
+                                        })}
+                                        <Box mt={2}>
+                                            <MenuItem>Create Account</MenuItem>
+                                            <MenuItem>Settings</MenuItem>
+                                            <MenuItem>Logout</MenuItem>
+                                        </Box>
+                                        </MenuList>
+                                    </ClickAwayListener>
+                                    </Paper>
+                                </Grow>
+                                )}
+                            </Popper>
+                        </React.Fragment>
+                        :
+                        null
+                        }
+                    <img src={logo} height={80} ></img>
+                    {!isMobile ?
+                        <React.Fragment>
+                            <Box sx={{flexGrow: 1,}} display="flex" justifyContent="center" alignItems="center">
+                            {MenuItems.map((item, index) => {
+                                return (
+                                    <Box mr={4}>
+                                            <Button sx={{fontFamily: 'Arial', fontWeight: 400}}
+                                            style={chosenIndex == index ? buttonStyleChoosen : buttonStyle}
+                                            onClick={() => handleClick(index)}
+                                            >
+                                                {item.title}
+                                            </Button>
+                                        </Box>
+                                ) 
+                                })}
                             </Box>
-                       ) 
-                    })}
-                </Box>
-                <Typography variant="subtitle1" style={textStyle}>
-                    {/* {email != null ? email : 'staff@hha.com'} */}
-                </Typography>
-                <IconButton
-                    ref={anchorRef}
-                    id="composition-button"
-                    aria-controls={open ? 'composition-menu' : undefined}
-                    aria-expanded={open ? 'true' : undefined}
-                    aria-haspopup="true"
-                    onClick={handleToggle}
-                >
-                    <MenuIcon fontSize='large' style={{color: '#009CC4'}} />
-                </IconButton>
-                    <Popper
-                        open={open}
-                        anchorEl={anchorRef.current}
-                        role={undefined}
-                        placement="bottom-start"
-                        transition
-                        disablePortal
-                    >
-                        {({ TransitionProps, placement }) => (
-                        <Grow
-                            {...TransitionProps}
-                            style={{
-                            transformOrigin:
-                                placement === 'bottom-start' ? 'left top' : 'left bottom',
-                            }}
-                        >
-                            <Paper>
-                            <ClickAwayListener onClickAway={handleClose}>
-                                <MenuList
-                                autoFocusItem={open}
-                                id="composition-menu"
-                                aria-labelledby="composition-button"
-                                onKeyDown={handleListKeyDown}
+                            <Typography variant="subtitle1" style={textStyle}>
+                                {/* {email != null ? email : 'staff@hha.com'} */}
+                            </Typography>
+                            <IconButton
+                                ref={anchorRef}
+                                id="composition-button"
+                                aria-controls={open ? 'composition-menu' : undefined}
+                                aria-expanded={open ? 'true' : undefined}
+                                aria-haspopup="true"
+                                onClick={handleToggle}
+                            >
+                                <MenuIcon fontSize='large' style={{color: '#009CC4'}} />
+                            </IconButton>
+                            <Popper
+                                open={open}
+                                anchorEl={anchorRef.current}
+                                role={undefined}
+                                placement="bottom-start"
+                                transition
+                                disablePortal
+                            >
+                                {({ TransitionProps, placement }) => (
+                                <Grow
+                                    {...TransitionProps}
+                                    style={{
+                                    transformOrigin:
+                                        placement === 'bottom-start' ? 'left top' : 'left bottom',
+                                    }}
                                 >
-                                <MenuItem>
-                                    Create Account
-                                </MenuItem>
-                                <MenuItem>Settings</MenuItem>
-                                <MenuItem>Logout</MenuItem>
-                                </MenuList>
-                            </ClickAwayListener>
-                            </Paper>
-                        </Grow>
-                        )}
-                    </Popper>
+                                    <Paper>
+                                    <ClickAwayListener onClickAway={handleClose}>
+                                        <MenuList
+                                        autoFocusItem={open}
+                                        id="composition-menu"
+                                        aria-labelledby="composition-button"
+                                        onKeyDown={handleListKeyDown}
+                                        >
+                                        <MenuItem>
+                                            Create Account
+                                        </MenuItem>
+                                        <MenuItem>Settings</MenuItem>
+                                        <MenuItem>Logout</MenuItem>
+                                        </MenuList>
+                                    </ClickAwayListener>
+                                    </Paper>
+                                </Grow>
+                                )}
+                            </Popper>
+                        </React.Fragment>
+                        :
+                        null
+                    }
                 </Toolbar>
             </AppBar>
         </Box>
