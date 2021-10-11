@@ -5,6 +5,7 @@ import com.auth0.jwt.JWT;
 import com.auth0.jwt.JWTVerifier;
 import com.auth0.jwt.algorithms.Algorithm;
 import com.auth0.jwt.exceptions.JWTDecodeException;
+import com.auth0.jwt.exceptions.JWTVerificationException;
 import com.auth0.jwt.interfaces.DecodedJWT;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
@@ -23,6 +24,7 @@ import java.util.Collection;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import static javax.servlet.http.HttpServletResponse.SC_FORBIDDEN;
 import static javax.servlet.http.HttpServletResponse.SC_UNAUTHORIZED;
 import static org.springframework.http.HttpHeaders.AUTHORIZATION;
 
@@ -57,8 +59,8 @@ public class CustomAuthorizationFilter extends OncePerRequestFilter {
                     var authenticationToken = new UsernamePasswordAuthenticationToken(email, user.getPassword(), authorities);
                     SecurityContextHolder.getContext().setAuthentication(authenticationToken);
                     filterChain.doFilter(httpServletRequest, httpServletResponse);
-                } catch (JWTDecodeException e) {
-                    httpServletResponse.sendError(SC_UNAUTHORIZED);
+                } catch (Exception e) {
+                    httpServletResponse.sendError(SC_FORBIDDEN);
                 }
             } else {
                 filterChain.doFilter(httpServletRequest, httpServletResponse);
