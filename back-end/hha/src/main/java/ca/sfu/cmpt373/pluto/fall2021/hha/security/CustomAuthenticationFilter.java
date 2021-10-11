@@ -16,6 +16,7 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 
 import javax.servlet.FilterChain;
 import javax.servlet.ServletException;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
@@ -52,7 +53,7 @@ public class CustomAuthenticationFilter extends UsernamePasswordAuthenticationFi
         var algorithm = Algorithm.HMAC256(jwtSecret);
         var accessToken = JWT.create()
                 .withSubject(user.getUsername())
-                .withExpiresAt(new Date(Instant.now().plus(30, ChronoUnit.MINUTES).toEpochMilli()))
+                .withExpiresAt(new Date(Instant.now().plus(10, ChronoUnit.MINUTES).toEpochMilli()))
                 .withIssuer(request.getRequestURL().toString())
                 .withClaim("roles",
                         user.getAuthorities().stream()
@@ -63,8 +64,10 @@ public class CustomAuthenticationFilter extends UsernamePasswordAuthenticationFi
                 .withExpiresAt(new Date(Instant.now().plus(30, ChronoUnit.DAYS).toEpochMilli()))
                 .withIssuer(request.getRequestURL().toString())
                 .sign(algorithm);
-        Map<String, String> tokens = Map.ofEntries(Map.entry("accessToken", accessToken),
-                Map.entry("refreshToken", refreshToken));
+        Map<String, String> tokens = Map.ofEntries(Map.entry("accessToken", accessToken));
+        var cookie = new Cookie("refresh-token", refreshToken);
+        cookie.setHttpOnly(true);
+        response.addCookie(cookie);
 
         response.setContentType(APPLICATION_JSON_VALUE);
         new ObjectMapper().writeValue(response.getOutputStream(), tokens);

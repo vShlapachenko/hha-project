@@ -5,7 +5,6 @@ import ca.sfu.cmpt373.pluto.fall2021.hha.models.UserInvitation;
 import ca.sfu.cmpt373.pluto.fall2021.hha.models.UserRegistrationCredentials;
 import ca.sfu.cmpt373.pluto.fall2021.hha.services.HhaUserService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
