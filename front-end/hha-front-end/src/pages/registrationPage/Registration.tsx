@@ -1,10 +1,14 @@
-import React, {useState} from "react";
+import React, {useState, useContext} from "react";
 import  { ReactComponent as Logo }  from "../../assets/Logo.svg";
 import registrationStyle from "./Registration.module.css";
 import Input  from "../../components/input/Input";
 import Dropdown from "../../components/dropdown/Dropdown";
 import { Button } from "@mui/material";
-import axios from "axios";
+import UserService from "../../service/UserService";
+import {Context} from "../../index";
+import {User} from "../../models/User";
+
+
 const Registration = () => {
     const listItems = [ "English", "French"];
     const [firstName, setFirstName] = useState("");
@@ -13,36 +17,55 @@ const Registration = () => {
     const [confirmPassword, setConfirmPassword] = useState("");
     const [personalStaffNumber, setPersonalStaffNumber] = useState("");
     const [dropdown, setDropdown] = useState("");
+    const {store} = useContext(Context);
 
-    const hhaUsers = {
-         "id": "",
-         "email": "",
-         "firstName": "",
-         "last": "",
-         "password": "",
-         "activationLink": null,
-         "roles": [],
-         "department": null,
-         "activationStatus": "ACTIVATED",
-         "confirmationLink": null
-        
+//     const hhaUser = {
+//         "firstName": firstName,
+//         "last": lastName,
+//         "password": password,
+//         "confirmPassword": confirmPassword,
+//         "personalStaffNumber": personalStaffNumber,
+//         "languageOption": dropdown
+       
+//    };
+
+   const hhaUsers = {
+    "id": "",
+    "email": "",
+    "firstName": "",
+    "lastName": "",
+    "password": "",
+    "activationLink": "",
+    "roles": [],
+    "department": null,
+    "activationStatus": "ACTIVATED",
+    "confirmationLink": ""
+   
     };
 
-    const jwt = "XXXXXX"; // for i get the token from the url?
-
-    const submitInfo = () => {
-        axios.post("http://localhost:8080/api/hha-user/saveUser" , { hhaUsers, jwt }).then(() => {
-            console.log("first name is " + firstName);
-            console.log("last name is " + lastName);
-            console.log("password is " + password);
-            console.log("confirm password is " + confirmPassword);
-            console.log("personal staff number is " + personalStaffNumber);
-            console.log("dropdown is " + dropdown);
-            //// if successful, pass the above params to the backend for processing
-        }).catch(() => {
-            console.log("error passing to backend!");
-        })
+    
+    const [users, setUsers] = useState<User[]>([]);
+  
+    async function getUsers() {
+      try {
+        const response = await UserService.fetchUsers();
+        setUsers(response.data)
+      } catch (e) {
+  
+      }
     }
+
+    async function saveUser() {
+        try {
+          const response = await UserService.saveUser(hhaUsers.email, hhaUsers.firstName, hhaUsers.lastName, hhaUsers.password, hhaUsers.activationLink, hhaUsers.roles, hhaUsers.department, hhaUsers.activationStatus);
+          console.log(response);
+        } catch (e) {
+            console.log(e);
+            
+        }
+      }
+
+        
     
 
     const setFirstNameFunc = (event: any) => {
@@ -120,8 +143,19 @@ const Registration = () => {
                 <Dropdown listItems={listItems} itemName={""} onChangeFunc={setDropdownFunc} initialValue={dropdown} />
             </div>
             <div className={registrationStyle.submitButton }>
-                <Button variant="contained" onClick={submitInfo} >Submit</Button>
+                <Button variant="contained" onClick={saveUser} >Submit</Button>
             </div> 
+
+            <div className={registrationStyle.authorized }>
+                <h1>You are authorized</h1>
+                <button onClick={() => store.logout()}>Logout</button>
+                <div>
+                    <button onClick={getUsers}> Get Users</button>
+                 </div>
+                    {users.map(user =>
+                <div key={user.email}>THIS IS USER EMAIL {user.email}</div>)}
+            </div>
+            
         </div>
     );
 };

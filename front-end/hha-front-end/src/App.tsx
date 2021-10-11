@@ -4,43 +4,26 @@ import {Switch, Route, Redirect} from 'react-router-dom';
 import Login from './components/Login';
 import {Context} from "./index";
 import {observer} from "mobx-react-lite"
-import UserService from "./service/UserService";
-import {User} from "./models/User";
+import Registration from './pages/registrationPage/Registration';
 
 
 function App() {
   const {store} = useContext(Context)
-  const [users, setUsers] = useState<User[]>([])
   useEffect(() => {
     if (localStorage.getItem('token')) {
       store.checkAuth()
     }
   }, [])
 
-  async function getUsers() {
-    try {
-      const response = await UserService.fetchUsers();
-      setUsers(response.data)
-    } catch (e) {
-
-    }
-  }
-
   if (!store.isAuthorized) {
     return (
       <Login/>
     )
-  }
+  } else 
   return (
-    <div>
-      <h1>You are authorized</h1>
-      <button onClick={() => store.logout()}>Logout</button>
-      <div>
-        <button onClick={getUsers}> Get Users</button>
-      </div>
-      {users.map(user =>
-        <div key={user.email}>THIS IS USER EMAIL {user.email}</div>)}
-    </div>
+    <Switch>
+        <Route exact path="/register" component={ Registration } />
+    </Switch>
   );
 }
 
