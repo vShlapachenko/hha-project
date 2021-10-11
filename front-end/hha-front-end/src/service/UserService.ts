@@ -12,7 +12,7 @@ export default class UserService {
     }
 }
 
-
+// i am following the following schema:
 // public class HhaUser {
 //     @Id
 //     private String id;
@@ -27,17 +27,3 @@ export default class UserService {
 //     private Department department;
 //     private ActivationStatus activationStatus;
 // }
-
-// const hhaUsers = {
-//     "id": "",
-//     "email": "",
-//     "firstName": "",
-//     "last": "",
-//     "password": "",
-//     "activationLink": null,
-//     "roles": [],
-//     "department": null,
-//     "activationStatus": "ACTIVATED",
-//     "confirmationLink": null
-   
-//     };
