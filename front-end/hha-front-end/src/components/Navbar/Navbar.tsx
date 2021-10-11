@@ -44,7 +44,7 @@ const textStyle = {
     color: '#000000',
 };
 
-const Navbar = (email : String) => {
+const Navbar = () => {
     const isMobile = useMediaQuery('(max-width:900px)');
 
     const [open, setOpen] = React.useState(false);
