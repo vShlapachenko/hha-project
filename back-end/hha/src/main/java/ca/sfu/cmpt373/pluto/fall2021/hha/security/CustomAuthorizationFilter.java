@@ -25,6 +25,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import static javax.servlet.http.HttpServletResponse.SC_FORBIDDEN;
+import static javax.servlet.http.HttpServletResponse.SC_UNAUTHORIZED;
 import static org.springframework.http.HttpHeaders.AUTHORIZATION;
 
 @Component
@@ -38,7 +39,8 @@ public class CustomAuthorizationFilter extends OncePerRequestFilter {
 
     @Override
     protected void doFilterInternal(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, FilterChain filterChain) throws ServletException, IOException {
-        if (httpServletRequest.getServletPath().equals("/api/login")) {
+        if (httpServletRequest.getServletPath().equals("/api/auth/login")
+                || httpServletRequest.getServletPath().equals("/api/auth/refresh")) {
             filterChain.doFilter(httpServletRequest, httpServletResponse);
         } else {
             var authHeader = httpServletRequest.getHeader(AUTHORIZATION);
@@ -57,8 +59,7 @@ public class CustomAuthorizationFilter extends OncePerRequestFilter {
                     var authenticationToken = new UsernamePasswordAuthenticationToken(email, user.getPassword(), authorities);
                     SecurityContextHolder.getContext().setAuthentication(authenticationToken);
                     filterChain.doFilter(httpServletRequest, httpServletResponse);
-                } catch (JWTDecodeException e) {
-                    System.out.println(e.getMessage());
+                } catch (Exception e) {
                     httpServletResponse.sendError(SC_FORBIDDEN);
                 }
             } else {
