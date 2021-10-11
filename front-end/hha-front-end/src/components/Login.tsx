@@ -8,7 +8,21 @@ const Login: FC = () => {
     const {store} = useContext(Context);
     return (
         <div>
-            <h1>Login page</h1>
+            <Post image={"https://t4.ftcdn.net/jpg/02/19/63/31/360_F_219633151_BW6TD8D1EA9OqZu4JgdmeJGg4JBaiAHj.jpg"}
+            heading={}
+            patient_name={}
+            patient_age={}
+            patient_location={}
+            reason_hcbh={}
+            duration_hcbh={}
+            diagnosisyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy
+            
+            
+            
+            
+            
+            />
+            {/* <h1>Login page</h1>
             <input
                 onChange={e => setEmail(e.target.value)}
                 value={email}
@@ -23,7 +37,7 @@ const Login: FC = () => {
             />
             <button onClick={() => store.login(email, password)}>
                 Login
-            </button>
+            </button> */}
         </div>
 
     );
