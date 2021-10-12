@@ -104,8 +104,8 @@ public class HhaUserService implements UserDetailsService {
 
     public int sendOtp(EmailDto email) {
         if (!userRepository.existsByEmail(email.getEmail())){
-            return 0;
-//            throw new IllegalArgumentException("This email does not exist in DB = " + email.getEmail());
+//            return 0;
+            throw new IllegalArgumentException("This email does not exist in DB = " + email.getEmail());
         }
 
         Random random = new Random();
