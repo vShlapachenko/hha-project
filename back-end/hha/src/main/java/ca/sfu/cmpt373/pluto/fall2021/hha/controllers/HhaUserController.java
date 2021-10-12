@@ -4,9 +4,11 @@ import ca.sfu.cmpt373.pluto.fall2021.hha.models.HhaUser;
 import ca.sfu.cmpt373.pluto.fall2021.hha.models.UserInvitation;
 import ca.sfu.cmpt373.pluto.fall2021.hha.models.UserRegistrationCredentials;
 import ca.sfu.cmpt373.pluto.fall2021.hha.services.HhaUserService;
+import com.sun.net.httpserver.HttpServer;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 @RestController

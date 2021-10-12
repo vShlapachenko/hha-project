@@ -30,7 +30,7 @@ public class EmailService {
         helper.setSubject("Invitation To Join Hha");
 
         var thymeleafContext = new Context();
-        thymeleafContext.setVariables(Map.of("recipientName", userInvitation.email()));
+        thymeleafContext.setVariable("activationLink", activationLink);
         var htmlBody = thymeleafTemplateEngine.process("invite.html", thymeleafContext);
 
         helper.setText(htmlBody, true);
@@ -43,6 +43,12 @@ public class EmailService {
         helper.setTo(email);
         helper.setFrom(emailFrom);
         helper.setSubject("Please Verify Your Registration");
+
+        var thymeleafContext = new Context();
+        thymeleafContext.setVariable("confirmationLink", confirmationLink);
+        var htmlBody = thymeleafTemplateEngine.process("invite.html", thymeleafContext);
+
+        helper.setText(htmlBody, true);
 
         mailSender.send(message);
     }

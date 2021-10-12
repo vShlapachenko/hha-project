@@ -14,6 +14,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import javax.mail.MessagingException;
+import javax.servlet.http.HttpServletRequest;
 import java.util.Collection;
 import java.util.List;
 import java.util.UUID;
@@ -118,6 +119,7 @@ public class HhaUserService implements UserDetailsService {
         }
         user.setConfirmationLink(null);
         user.setActivationStatus(ActivationStatus.ACTIVATED);
-        userRepository.save(user);
+
+        saveUser(user);
     }
 }
