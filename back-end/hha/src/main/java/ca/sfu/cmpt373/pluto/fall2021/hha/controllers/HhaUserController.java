@@ -39,7 +39,9 @@ public class HhaUserController {
     }
 
     @PostMapping("confirm/{confirmationLink}")
-    public void confirmRegistration(@PathVariable String confirmationLink) {
+    @ResponseBody
+    public String confirmRegistration(@PathVariable String confirmationLink) {
         userService.confirm(confirmationLink);
+        return "confirmSuccess";
     }
 }
