@@ -9,6 +9,11 @@ interface LeaderboardAttribute {
 
 const Leaderboard = ({departmentName}:LeaderboardAttribute) => {
     return (
+      <Grid container
+        direction="row"
+        justifyContent="center"
+        alignItems="center"
+      >
         <Box
           sx={{
             width:300,
@@ -43,6 +48,7 @@ const Leaderboard = ({departmentName}:LeaderboardAttribute) => {
             </Typography>
           </div>
         </Box>
+        </Grid>
     );
 };
 
