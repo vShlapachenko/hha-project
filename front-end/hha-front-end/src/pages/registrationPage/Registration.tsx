@@ -1,6 +1,6 @@
 import React, {useState, useContext} from "react";
 import { useHistory } from "react-router-dom";
-import  { ReactComponent as Logo }  from "../../assets/Logo.svg";
+import logo_HHA from "../loginPage/logo.svg"
 import registrationStyle from "./Registration.module.css";
 import Input  from "../../components/Input/Input";
 import Dropdown from "../../components/dropdown/Dropdown";
@@ -89,7 +89,9 @@ const Registration = () => {
     return (
         <div>
              <div>
-                <Navbar />
+                 <div>
+                    <img src={logo_HHA} className="logoHHA" alt="logo" />
+                 </div>
                 <h5 className={registrationStyle.header}>Personal Information</h5>
                 <h6 className={registrationStyle.subHeader}>Enter your personal information below</h6>
             </div>
