@@ -102,13 +102,14 @@ public class HhaUserService implements UserDetailsService {
         saveUser(user);
     }
 
-    public void sendOtp(EmailDto email) {
+    public int sendOtp(EmailDto email) {
         if (!userRepository.existsByEmail(email.getEmail())){
-            throw new IllegalArgumentException("This email does not exist in DB = " + email.getEmail());
+            return 0;
+//            throw new IllegalArgumentException("This email does not exist in DB = " + email.getEmail());
         }
 
-        Random random = new Random(1000);
-        int otp = random.nextInt(999999);
+        Random random = new Random();
+        int otp = 100000 + random.nextInt(999999);
 
         try {
             emailService.sendOtp(email, otp);
@@ -117,5 +118,6 @@ public class HhaUserService implements UserDetailsService {
             throw new RuntimeException("Something went wrong in sending the email");
         }
         forgotPasswordRepository.save(new ForgotPassword(otp, userRepository.findByEmail(email.getEmail())));
+        return otp;
     }
 }

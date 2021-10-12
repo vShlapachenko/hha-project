@@ -43,14 +43,34 @@ function App() {
         )
     } else
         return (
-            <><Navbar /><div>
-                <h1>You are authorized</h1>
-                <button onClick={() => store.logout()}>Logout</button>
-                <div>
-                    <button onClick={getUsers}> Get Users</button>
-                </div>
-                {users.map(user => <div key={user.email}>email:{user.email?user.email: "staff@hha.com"} firstName:{user.firstName} lastName: {user.lastName} </div>)}
-            </div></>
+            <>
+                <Switch>
+                    <Route exact path="/forgotPassword" component={ForgotPassword} />
+                    <Route exact path="/forgotPassword/enterNewPassword" component={EnterNewPassword}/>
+                    <Route path="/" exact render={(props) => {
+                        return (
+                            <>
+                                <Navbar />
+                                <div>
+                                    <h1>You are authorized</h1>
+                                    <button onClick={() => store.logout()}>Logout</button>
+                                    <div>
+                                        <button onClick={getUsers}> Get Users</button>
+                                    </div>
+                                    {users.map((user) => (
+                                        <div key={user.email}>
+                                            email:{user.email ? user.email : "staff@hha.com"}{" "}
+                                            firstName:
+                                            {user.firstName} lastName: {user.lastName}{" "}
+                                        </div>
+                                    ))}
+                                </div>
+                            </>
+                        );
+                    }}
+                    />
+                </Switch>
+            </>
         );
 }
 

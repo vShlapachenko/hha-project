@@ -1,7 +1,8 @@
 export interface ForgotPasswordResponse {
-    otp: string;
+    data: number;
 }
 
 export interface newPasswordResponse {
     status: string;
 }
+

@@ -1,6 +1,8 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import { Context } from "../../index";
+import { observer } from "mobx-react-lite";
 import { Link, useHistory } from "react-router-dom";
+import "./ForgotPassword.css";
 
 interface PropsInterface {
     disableOtpPage: () => void;
@@ -10,36 +12,46 @@ const EnterOTP: React.FC<PropsInterface> = (props): JSX.Element => {
     let [userOtp, setUserOtp] = useState<string>("");
     const { store } = useContext(Context);
     const history = useHistory();
+    const [storeOtp, setStoreOtp] = useState<string>("");
 
     const redirectToForgotPassword = () => {
         props.disableOtpPage();
     };
 
+    useEffect(() => {
+        const stringOtpResponse = store.otp.toString();
+        setStoreOtp(stringOtpResponse);
+    }, [store.otp]);
+
     const validateOTP = () => {
+        console.log("real otp", storeOtp);
+        console.log("userotp ", userOtp);
 
-        let otpExpression = /^[0-9]{1,6}$/
-        if (!otpExpression.test(userOtp)){
+        let otpExpression = /^[0-9]{1,6}$/;
+        if (!otpExpression.test(userOtp)) {
             Error("Enter a valid OTP.");
-            alert("OTP must be a 6-digit number.")
-        }
-
-        if (store.otp?.length === 6 && userOtp.length === 6) {
-          if (store.otp === userOtp) {
-            store.setForgotPasswordEmail(props.email);
-            history.push({
-              pathname: "/forgotPassword/enterNewPassword",
-            });
-          } else {
-            alert("Incorrect otp, Press Ok to redirect");
-            redirectToForgotPassword();
-          }
+            alert("OTP must be a 6-digit number.");
         } else {
-          alert("Error in otp, Press Ok to redirect");
-          setUserOtp("");
-          // redirectToForgotPassword();
+            if (storeOtp?.length === 6 && userOtp.length === 6) {
+                if (storeOtp === userOtp) {
+                    store.setForgotPasswordEmail(props.email);
+                    history.push({
+                        pathname: "/forgotPassword/enterNewPassword",
+                    });
+                } else {
+                    alert("Incorrect otp, Press Ok to enter again");
+                    setUserOtp("");
+                }
+            } else {
+                alert("Error in otp,Press Ok to enter again");
+                setUserOtp("");
+            }
         }
     };
 
+    if (storeOtp.length < 2) {
+        return <p>Loading</p>;
+    }
     return (
         <div className="forgot_password_parent">
             <div className="forget_col">
@@ -52,7 +64,9 @@ const EnterOTP: React.FC<PropsInterface> = (props): JSX.Element => {
                     required={true}
                 />
 
-                <button onClick={validateOTP}>Validate OTP</button>
+                <button className="ForgotButton" onClick={validateOTP}>
+                    Validate OTP
+                </button>
                 <Link to="#" onClick={redirectToForgotPassword}>
                     Enter email again ?
                 </Link>
@@ -62,4 +76,4 @@ const EnterOTP: React.FC<PropsInterface> = (props): JSX.Element => {
     );
 };
 
-export default EnterOTP;
+export default observer(EnterOTP);

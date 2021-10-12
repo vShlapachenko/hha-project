@@ -1,6 +1,7 @@
 import React, { useState, useContext, useEffect } from "react";
 import { Context } from "../../index";
 import { Link } from "react-router-dom";
+import "./ForgotPassword.css";
 
 const EnterNewPassword: React.FC<{}> = () => {
     const [password, setPassword] = useState<string>("");
@@ -15,34 +16,36 @@ const EnterNewPassword: React.FC<{}> = () => {
     }, []);
 
     const handleSetNewPassword = () => {
-
-        // if (password === confirmPassword) {
-        //   store.setNewPasswordService(userEmail, password);
-        // } else {
-        //   alert("Passwords don't match");
-        //   setPassword("");
-        //   setConfirmPassword("");
-        // }
+        if (password === confirmPassword) {
+            store.setNewPassword(userEmail, password);
+        } else {
+            alert("Passwords don't match");
+            setPassword("");
+            setConfirmPassword("");
+        }
     };
+
     return (
         <div className="forgot_password_parent">
-            <div className="forget_col">
+            <div className="allignment-forgot">
                 <h1>Enter New Password</h1>
                 <p>user email - {userEmail || "unknown"}</p>
                 <input
                     onChange={(e) => setPassword(e.target.value)}
                     value={password}
-                    type="text"
+                    type="password"
                     placeholder="Enter new password"
                 />
                 <input
                     onChange={(e) => setConfirmPassword(e.target.value)}
                     value={confirmPassword}
-                    type="text"
+                    type="password"
                     placeholder="Confirm new password"
                 />
 
-                <button onClick={handleSetNewPassword}>Set New Password</button>
+                <button className="ForgotButton" onClick={handleSetNewPassword}>
+                    Set New Password
+                </button>
                 <Link to="/">Login Page?</Link>
             </div>
         </div>

@@ -9,7 +9,7 @@ import setNewPasswordService from "../service/NewPasswordService";
 
 export default class Store {
     isAuthorized = false;
-    otp = "";
+    otp = 0;
     forgotPasswordEmail = "";
 
     constructor() {
@@ -20,7 +20,7 @@ export default class Store {
         this.isAuthorized = bool;
     }
 
-    setOtp(value: string) {
+    setOtp(value: number) {
         this.otp = value;
     }
     setForgotPasswordEmail(value: string) {
@@ -57,35 +57,35 @@ export default class Store {
         }
     }
 
-    async forgotPassword(email: string, otp:string) {
+    async forgotPassword(email: string) {
+        try {
+            console.log("email", email);
 
-      try {
-        const response = await ForgotPasswordService.ForgotPassword(email, otp);
-        console.log(response);
+            const response = await ForgotPasswordService.ForgotPassword(email);
 
-        if (response) {
-          this.setOtp(response.data.otp);
-        } else {
-          console.log("Error in store.forgotPassword");
+            if (response) {
+                if (response.data === 0){
+                    this.setOtp(403)
+                }else {
+                    this.setOtp(response.data);
+                }
+            } else {
+                console.log("Error in store.forgotPassword");
+            }
+        } catch (e: any) {
+            console.log(e.response?.data?.message);
         }
-      } catch (e: any) {
-        console.log(e.response?.data?.message);
-      }
     }
 
     async setNewPassword(email: string, password: string) {
-      try {
-        const response = await setNewPasswordService.setNewPassword(email,password);
-        console.log(response);
-
-        if (response) {
-            // this.setOtp(response.otp);
-        } else {
-          console.log("Error in store.forgotPassword");
+        try {
+            const response = await setNewPasswordService.setNewPassword(
+                email,
+                password
+            );
+        } catch (e: any) {
+            console.log(e.response?.data?.message);
         }
-      } catch (e: any) {
-        console.log(e.response?.data?.message);
-      }
     }
 
 }
