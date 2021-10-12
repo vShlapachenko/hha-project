@@ -10,7 +10,6 @@ interface ToDoAttribute{
     firstLine: string;
     secondLine: string;
     thirdLine: string;
-    link: string;
 }
 
 const ToDo = ({firstLine, secondLine, thirdLine}:ToDoAttribute) => {
