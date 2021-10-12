@@ -11,13 +11,13 @@
 <div style="background-color: #E5E5E5;
     border-radius: 5px;
     padding: 40px;">
-    <h1> Hi We are sorry that you forgot your password!</h1>
+    <h1>thank you for the confirmation.</h1>
+    <h2>Please click the link below to login.</h2>
     <table border="0" cellspacing="0" cellpadding="0">
         <tr>
             <td align="center" style="border-radius: 5px; background-color: #009CC4;">
-                <a th:href="@{http://localhost:3000/fogotPassword}" style="font-size: 18px; color: #ffffff; font-weight: bold; text-decoration: none;border-radius: 5px; padding: 12px 18px; display: inline-block;">Change Password! &rarr;</a>
+                <a th:href="@{/api/auth/login}" style="font-size: 18px; color: #ffffff; font-weight: bold; text-decoration: none;border-radius: 5px; padding: 12px 18px; display: inline-block;">Login &rarr;</a>
             </td>
-            <td> Your otp password = <span th:text="${otp}"></span></td>
         </tr>
     </table>
     <p>Kind Regards,</p>

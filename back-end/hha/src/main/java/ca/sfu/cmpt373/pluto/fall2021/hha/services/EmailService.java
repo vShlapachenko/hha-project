@@ -1,7 +1,7 @@
 package ca.sfu.cmpt373.pluto.fall2021.hha.services;
 
-import ca.sfu.cmpt373.pluto.fall2021.hha.models.EmailDto;
 import ca.sfu.cmpt373.pluto.fall2021.hha.models.UserInvitation;
+import ca.sfu.cmpt373.pluto.fall2021.hha.models.EmailDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.mail.javamail.JavaMailSender;
@@ -30,7 +30,22 @@ public class EmailService {
         helper.setSubject("Invitation To Join Hha");
 
         var thymeleafContext = new Context();
-        thymeleafContext.setVariables(Map.of("recipientName", userInvitation.email()));
+        thymeleafContext.setVariable("active", activationLink);
+        var htmlBody = thymeleafTemplateEngine.process("invite.html", thymeleafContext);
+
+        helper.setText(htmlBody, true);
+        mailSender.send(message);
+    }
+
+    public void confirm(String email, String confirmationLink) throws MessagingException{
+        var message = mailSender.createMimeMessage();
+        var helper = new MimeMessageHelper(message, true, "UTF-8");
+        helper.setTo(email);
+        helper.setFrom(emailFrom);
+        helper.setSubject("Please Verify Your Registration");
+
+        var thymeleafContext = new Context();
+        thymeleafContext.setVariable("confirm", confirmationLink);
         var htmlBody = thymeleafTemplateEngine.process("invite.html", thymeleafContext);
 
         helper.setText(htmlBody, true);
@@ -45,7 +60,7 @@ public class EmailService {
         helper.setSubject("One Time password for HHA");
 
         var thymeleafContext = new Context();
-        thymeleafContext.setVariables(Map.of("otp", otp));
+        thymeleafContext.setVariable("otp", otp);
         var htmlBody = thymeleafTemplateEngine.process("otp.html", thymeleafContext);
 
         helper.setText(htmlBody, true);

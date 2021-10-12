@@ -8,6 +8,8 @@ public interface HhaUserRepository extends MongoRepository<HhaUser, String> {
 
     HhaUser findByActivationLink(String activationLink);
 
+    HhaUser findByConfirmationLink(String confirmationLink);
+
     Boolean existsByEmail(String email);
 
 }
