@@ -39,7 +39,7 @@ public class AuthorizationService {
             DecodedJWT decodedJWT = verifier.verify(refreshToken);
             var email = decodedJWT.getSubject();
             var user = userService.getUser(email);
-            var accessToken = JWT.create()
+                     var accessToken = JWT.create()
                     .withSubject(user.getEmail())
                     .withExpiresAt(new Date(Instant.now().plus(10, ChronoUnit.MINUTES).toEpochMilli()))
                     .withIssuer(request.getRequestURL().toString())

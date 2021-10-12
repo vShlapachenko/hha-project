@@ -3,12 +3,11 @@ package ca.sfu.cmpt373.pluto.fall2021.hha.controllers;
 import ca.sfu.cmpt373.pluto.fall2021.hha.models.HhaUser;
 import ca.sfu.cmpt373.pluto.fall2021.hha.models.UserInvitation;
 import ca.sfu.cmpt373.pluto.fall2021.hha.models.UserRegistrationCredentials;
+import ca.sfu.cmpt373.pluto.fall2021.hha.models.EmailDto;
 import ca.sfu.cmpt373.pluto.fall2021.hha.services.HhaUserService;
-import com.sun.net.httpserver.HttpServer;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
-import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 @RestController
@@ -43,5 +42,13 @@ public class HhaUserController {
     public String confirmRegistration(@PathVariable String confirmationLink) {
         userService.confirm(confirmationLink);
         return "confirmSuccess";
+    }
+
+    @PostMapping("forgotPassword")
+    public int sendOtp(@RequestBody EmailDto email){
+
+        int getOtp = userService.sendOtp(email);
+
+        return getOtp;
     }
 }
