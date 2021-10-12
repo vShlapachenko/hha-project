@@ -3,15 +3,17 @@ import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button'
+import { Link } from 'react-router-dom'
 
 
 interface ToDoAttribute{
     firstLine: string;
     secondLine: string;
-    button: string;
+    thirdLine: string;
+    link: string;
 }
 
-const ToDo = ({firstLine, secondLine, button}:ToDoAttribute) => {
+const ToDo = ({firstLine, secondLine, thirdLine}:ToDoAttribute) => {
 
     return(
       <Grid container
@@ -50,14 +52,14 @@ const ToDo = ({firstLine, secondLine, button}:ToDoAttribute) => {
               </Typography>
             </div>
             <Box pt={2}>
-              <Button
-                onClick = {() => console.log('onclick')}
-                type = "button"
-                variant="contained"
-                style = {{minWidth: '400px'}}
-                >
-                {button}
-              </Button>
+              <Link to = "/login" style ={{textDecoration:'none'}}>
+                <Button
+                  variant="contained"
+                  style = {{minWidth: '400px', backgroundColor: '#009CC4',}}
+                  >
+                  {thirdLine}
+                </Button>
+              </Link>
             </Box>
         </Box>
       </Grid>
