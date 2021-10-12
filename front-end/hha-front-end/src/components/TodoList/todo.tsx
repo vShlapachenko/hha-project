@@ -52,7 +52,7 @@ const ToDo = ({firstLine, secondLine, button}:ToDoAttribute) => {
             <Box pt={2}>
               <Button
                 onClick = {() => console.log('onclick')}
-                type = {button}
+                type = "button"
                 variant="contained"
                 style = {{minWidth: '400px'}}
                 >
