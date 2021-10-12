@@ -15,7 +15,7 @@
   <table border="0" cellspacing="0" cellpadding="0">
     <tr>
       <td align="center" style="border-radius: 5px; background-color: #009CC4;">
-        <a th:href="@{/confirm/${confirmationLink}}" style="font-size: 18px; color: #ffffff; font-weight: bold; text-decoration: none;border-radius: 5px; padding: 12px 18px; display: inline-block;">Confirm &rarr;</a>
+        <a th:href="@{/api/hha-user/confirm/{confirmationLink}(confirmationLink=${confirm})}" style="font-size: 18px; color: #ffffff; font-weight: bold; text-decoration: none;border-radius: 5px; padding: 12px 18px; display: inline-block;">Confirm &rarr;</a>
       </td>
     </tr>
   </table>
