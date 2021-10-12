@@ -5,6 +5,8 @@ import org.springframework.data.mongodb.repository.MongoRepository;
 
 public interface HhaUserRepository extends MongoRepository<HhaUser, String> {
     HhaUser findByEmail(String email);
+
     HhaUser findByActivationLink(String activationLink);
+
     HhaUser findByConfirmationLink(String confirmationLink);
 }
