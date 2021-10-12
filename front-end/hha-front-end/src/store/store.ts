@@ -4,8 +4,13 @@ import axios from 'axios'
 import {AuthResponse} from "../models/response/AuthResponse";
 import {API_URL} from "../http";
 
+import ForgotPasswordService from "../service/ForgotPasswordService";
+import setNewPasswordService from "../service/NewPasswordService";
+
 export default class Store {
     isAuthorized = false;
+    otp = 0;
+    forgotPasswordEmail = "";
 
     constructor() {
         makeAutoObservable(this)
@@ -13,6 +18,13 @@ export default class Store {
 
     setIsAuthorized(bool: boolean){
         this.isAuthorized = bool;
+    }
+
+    setOtp(value: number) {
+        this.otp = value;
+    }
+    setForgotPasswordEmail(value: string) {
+        this.forgotPasswordEmail = value;
     }
 
     async login (email: string, password: string){
@@ -44,4 +56,36 @@ export default class Store {
             console.log(e.response?.data?.message)
         }
     }
+
+    async forgotPassword(email: string) {
+        try {
+            console.log("email", email);
+
+            const response = await ForgotPasswordService.ForgotPassword(email);
+
+            if (response) {
+                if (response.data === 0){
+                    this.setOtp(403)
+                }else {
+                    this.setOtp(response.data);
+                }
+            } else {
+                console.log("Error in store.forgotPassword");
+            }
+        } catch (e: any) {
+            console.log(e.response?.data?.message);
+        }
+    }
+
+    async setNewPassword(email: string, password: string) {
+        try {
+            const response = await setNewPasswordService.setNewPassword(
+                email,
+                password
+            );
+        } catch (e: any) {
+            console.log(e.response?.data?.message);
+        }
+    }
+
 }

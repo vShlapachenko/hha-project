@@ -36,7 +36,8 @@ const Login: FC = () => {
                     placeholder="Password"
                 />
             </div>
-            <a href="">Forgot Password</a>
+            {/*<a href="./forgotPassword">Forgot Password</a>*/}
+                <a href="">Forgot Password</a>
             <br />
             <br />
             <button className= "loginButton" onClick={() => store.login(email, password)}>

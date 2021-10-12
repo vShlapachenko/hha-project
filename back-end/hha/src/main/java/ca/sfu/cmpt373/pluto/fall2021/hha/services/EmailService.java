@@ -1,5 +1,6 @@
 package ca.sfu.cmpt373.pluto.fall2021.hha.services;
 
+import ca.sfu.cmpt373.pluto.fall2021.hha.models.EmailDto;
 import ca.sfu.cmpt373.pluto.fall2021.hha.models.UserInvitation;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
@@ -31,6 +32,21 @@ public class EmailService {
         var thymeleafContext = new Context();
         thymeleafContext.setVariables(Map.of("recipientName", userInvitation.email()));
         var htmlBody = thymeleafTemplateEngine.process("invite.html", thymeleafContext);
+
+        helper.setText(htmlBody, true);
+        mailSender.send(message);
+    }
+
+    public void sendOtp(EmailDto email, int otp) throws MessagingException{
+        var message = mailSender.createMimeMessage();
+        var helper = new MimeMessageHelper(message, true, "UTF-8");
+        helper.setTo(email.getEmail());
+        helper.setFrom(emailFrom);
+        helper.setSubject("One Time password for HHA");
+
+        var thymeleafContext = new Context();
+        thymeleafContext.setVariables(Map.of("otp", otp));
+        var htmlBody = thymeleafTemplateEngine.process("otp.html", thymeleafContext);
 
         helper.setText(htmlBody, true);
         mailSender.send(message);
