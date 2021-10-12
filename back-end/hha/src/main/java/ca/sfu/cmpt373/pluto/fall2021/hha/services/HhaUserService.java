@@ -109,10 +109,7 @@ public class HhaUserService implements UserDetailsService {
 
         Random random = new Random(1000);
         int otp = random.nextInt(999999);
-        // 102, 99956, 10
-        //send otp to 100 emails
-        //every time random int
-        // ints will overlap
+
         try {
             emailService.sendOtp(email, otp);
         } catch (MessagingException e) {

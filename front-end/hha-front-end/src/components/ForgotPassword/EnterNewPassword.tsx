@@ -16,7 +16,6 @@ const EnterNewPassword: React.FC<{}> = () => {
 
     const handleSetNewPassword = () => {
 
-        //navjot
         // if (password === confirmPassword) {
         //   store.setNewPasswordService(userEmail, password);
         // } else {

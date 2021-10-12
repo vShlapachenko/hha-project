@@ -7,7 +7,7 @@ interface PropsInterface {
     email: string;
 }
 const EnterOTP: React.FC<PropsInterface> = (props): JSX.Element => {
-    const [userOtp, setUserOtp] = useState<string>("");
+    let [userOtp, setUserOtp] = useState<string>("");
     const { store } = useContext(Context);
     const history = useHistory();
 
@@ -16,28 +16,28 @@ const EnterOTP: React.FC<PropsInterface> = (props): JSX.Element => {
     };
 
     const validateOTP = () => {
-        //navjot
-        // if (store.otp?.length === 6 && userOtp.length === 6) {
-        //   if (store.otp === userOtp) {
-        //     store.setForgotPasswordEmail(props.email);
-        //     history.push({
-        //       pathname: "/forgotPassword/enterNewPassword",
-        //     });
-        //   } else {
-        //     alert("Incorrect otp, Press Ok to redirect");
-        //     redirectToForgotPassword();
-        //   }
-        // } else {
-        //   alert("Error in otp, Press Ok to redirect");
-        //   redirectToForgotPassword();
-        // }
 
+        let otpExpression = /^[0-9]{1,6}$/
+        if (!otpExpression.test(userOtp)){
+            Error("Enter a valid OTP.");
+            alert("OTP must be a 6-digit number.")
+        }
 
-        //Remove line below when backend is made
-        store.setForgotPasswordEmail(props.email);
-        history.push({
-            pathname: "/forgotPassword/enterNewPassword",
-        });
+        if (store.otp?.length === 6 && userOtp.length === 6) {
+          if (store.otp === userOtp) {
+            store.setForgotPasswordEmail(props.email);
+            history.push({
+              pathname: "/forgotPassword/enterNewPassword",
+            });
+          } else {
+            alert("Incorrect otp, Press Ok to redirect");
+            redirectToForgotPassword();
+          }
+        } else {
+          alert("Error in otp, Press Ok to redirect");
+          setUserOtp("");
+          // redirectToForgotPassword();
+        }
     };
 
     return (

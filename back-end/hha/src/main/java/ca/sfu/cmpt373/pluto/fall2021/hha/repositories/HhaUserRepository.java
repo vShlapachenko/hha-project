@@ -10,5 +10,4 @@ public interface HhaUserRepository extends MongoRepository<HhaUser, String> {
 
     Boolean existsByEmail(String email);
 
-    HhaUser findByEmailAndId(String email, String id);
 }

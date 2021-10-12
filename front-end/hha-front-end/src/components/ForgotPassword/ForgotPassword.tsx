@@ -11,7 +11,7 @@ const ForgotPassword: React.FC<{}> = () => {
 
     const handleSendOTP = () => {
 
-        let emailCheckExpression = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        let emailCheckExpression = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{1,}))$/;
 
         if (!emailCheckExpression.test(email)){
             Error("Enter a valid email.");
@@ -52,3 +52,5 @@ const ForgotPassword: React.FC<{}> = () => {
 };
 
 export default ForgotPassword;
+
+

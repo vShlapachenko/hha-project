@@ -1,6 +1,6 @@
 .login_col {
     margin-bottom: 150px;
-    background-color: aquamarine;
+    background-color: white;
     border-radius: 20px;
     padding: 20px;
     display: flex;
@@ -12,7 +12,7 @@
 
 .forget_col {
     margin-bottom: 150px;
-    background-color: aquamarine;
+    background-color: white;
     border-radius: 20px;
     padding: 20px;
     display: flex;

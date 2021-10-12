@@ -2,7 +2,7 @@ import React, {useState, useContext} from "react";
 import { useHistory } from "react-router-dom";
 import  { ReactComponent as Logo }  from "../../assets/Logo.svg";
 import registrationStyle from "./Registration.module.css";
-import Input  from "../../components/input/Input";
+import Input  from "../../components/Input/Input";
 import Dropdown from "../../components/dropdown/Dropdown";
 import { Button } from "@mui/material";
 import UserService from "../../service/UserService";
