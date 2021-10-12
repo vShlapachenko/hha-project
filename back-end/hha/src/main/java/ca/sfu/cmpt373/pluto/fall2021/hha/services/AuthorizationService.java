@@ -41,7 +41,7 @@ public class AuthorizationService {
             var user = userService.getUser(email);
             var accessToken = JWT.create()
                     .withSubject(user.getEmail())
-                    .withExpiresAt(new Date(Instant.now().plus(30, ChronoUnit.MINUTES).toEpochMilli()))
+                    .withExpiresAt(new Date(Instant.now().plus(10, ChronoUnit.MINUTES).toEpochMilli()))
                     .withIssuer(request.getRequestURL().toString())
                     .withClaim("roles",
                             user.getRoles().stream()
