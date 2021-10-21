@@ -25,3 +25,38 @@ db.hhaUser.insert([
         confirmationLink: null
     }
 ])
+
+db.createCollection('mspp', {capped: false});
+
+db.mspp.insert([
+    {
+        column: [{
+            label: "MSPP",
+            columns: [{
+                label: "Quantity",
+                columns: null,
+                isUsable: true,
+                cells: null
+            }]
+        }],
+        comCol: [{
+            label: "MSPP",
+            values: [
+                "Beds available",
+                "Bed days",
+                "Patient days",
+                "Hospitalized",
+                "Discharged alive",
+                "Died before 48h",
+                "Died after 48h",
+                "Days hospitalised",
+                "Referrals",
+                "Transfers",
+                "Self-discharged",
+                "Stayed in the ward",
+                "Admissions"
+            ]
+        }],
+        label: "MSPP"
+    }
+])
