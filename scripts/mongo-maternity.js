@@ -1,5 +1,3 @@
-db = new Mongo().getDB("hha");
-
 db.createCollection('maternity', {capped: false});
 
 db.maternity.insert([

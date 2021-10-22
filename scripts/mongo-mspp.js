@@ -1,5 +1,3 @@
-db = new Mongo().getDB("hha");
-
 db.createCollection('mspp', {capped: false});
 
 // Insert basic MSPP data.

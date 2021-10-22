@@ -1,5 +1,3 @@
-db = new Mongo().getDB("hha");
-
 db.createCollection('communityHealth', {capped: false});
 
 // TODO: 3 tables left

@@ -25,3 +25,7 @@ db.hhaUser.insert([
         confirmationLink: null
     }
 ])
+
+load("/scripts/mongo-communityHealth.js")
+load("/scripts/mongo-maternity.js")
+load("/scripts/mongo-mspp.js")
