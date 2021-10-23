@@ -11,6 +11,7 @@ export default class Store {
     isAuthorized = false;
     otp = 0;
     forgotPasswordEmail = "";
+    new_password = "";
 
     constructor() {
         makeAutoObservable(this)
@@ -25,6 +26,9 @@ export default class Store {
     }
     setForgotPasswordEmail(value: string) {
         this.forgotPasswordEmail = value;
+    }
+    setPassword(value: string){
+        this.new_password = value;
     }
 
     async login (email: string, password: string){
@@ -79,10 +83,13 @@ export default class Store {
 
     async setNewPassword(email: string, password: string) {
         try {
-            const response = await setNewPasswordService.setNewPassword(
-                email,
-                password
-            );
+            const response = await setNewPasswordService.setNewPassword(email, password);
+
+            if(response) {
+                this.setPassword(password);
+            }else {
+                console.log("Error in store.setNewPassword");
+            }
         } catch (e: any) {
             console.log(e.response?.data?.message);
         }

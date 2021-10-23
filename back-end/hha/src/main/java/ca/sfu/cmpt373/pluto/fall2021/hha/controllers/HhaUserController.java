@@ -50,8 +50,9 @@ public class HhaUserController {
         return userService.sendOtp(email);
     }
 
-    @PostMapping("forgotPassword/sendNewPassword")
+    @PostMapping("forgotPassword/setNewPassword")
     public void saveNewPassword(@RequestBody HhaUser user){
+
 
         userService.saveUser(user);
 
