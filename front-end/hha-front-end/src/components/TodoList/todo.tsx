@@ -20,11 +20,11 @@ const ToDo = ({firstLine, secondLine, thirdLine}:ToDoAttribute) => {
         justifyContent="center"
         alignItems="center"
       >
-        <Box mx={2}
+        <Box mx={5}
         textAlign='center'
           sx={{
-            width:3000,
-            height:150,
+            width:2500,
+            height:175,
             bgcolor: '#EEEEEE',
             boxShadow: 1,
             fontWeight: 'bold',
