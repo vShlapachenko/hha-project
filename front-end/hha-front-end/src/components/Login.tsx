@@ -2,6 +2,7 @@ import React, {FC, useContext, useState} from "react";
 import {Context} from "../index";
 import {observer} from "mobx-react-lite"
 import Post from './case_studies/case_study'
+import UP from './user_profile/userProfile'
 
 const Login: FC = () => {
     const [email, setEmail] = useState<string>('');
@@ -21,6 +22,15 @@ const Login: FC = () => {
             breif = {'Patient cured in record time with your help'}
             caseImage = {'https://upload.wikimedia.org/wikipedia/commons/6/69/Mukesh_Ambani.jpg'}
             /> */}
+
+            <UP 
+            firstName={"JYOTIR"}
+            lastName={"MAYOR"} 
+            email={"JMAYOR@HHA.CA"}
+            staffNumber={"69"}
+            
+            />
+
             <h1>Login page</h1>
             <input
                 onChange={e => setEmail(e.target.value)}

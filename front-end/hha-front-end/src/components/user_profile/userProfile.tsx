@@ -4,6 +4,7 @@ import "./user_profile.css"
 import Button from '@mui/material/Button'
 import Box from '@mui/material/Box'
 import TextField from '@mui/material/TextField'
+import { makeStyles } from "@mui/styles";
 
 interface ProfileAttributes {
   firstName: string,
@@ -13,19 +14,33 @@ interface ProfileAttributes {
   profileImage?: string,
   department?: string
 }
+
+const useStyles = makeStyles({
+  text: {
+    background: 'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)',
+    margin: '20 20 20 20'
+  },
+  box: {
+    background: '#EEEEEE',
+  },
+});
   
 const Profile = ({firstName, lastName, email, staffNumber, profileImage, department}: ProfileAttributes) => {
-    
+    const classes = useStyles();
   return (
-    <Box sx={{width: 500, height: 800}}>   
+    <div>
+    <h1>Profile</h1>
+
+    <Box sx={{width: 660, height: 397, color: '#EEEEEE'} }>   
       {/* {profileImage && <Avatar alt={firstName} src={profileImage} sx={{ width: 100, height: 100 }} />} */}
     
       {/* <Chip label={department}/> */}
 
-      <h3 className="header" >User Profile</h3>
+      <h3 className="header">Personal Information</h3>
 
       <TextField
-        className="text"
+       sx={{width: 316, height: 62}}
+        className={classes.text}
         label="First Name"
         defaultValue={firstName}
         InputProps={{
@@ -59,12 +74,10 @@ const Profile = ({firstName, lastName, email, staffNumber, profileImage, departm
           readOnly: true
         }}
       />
-
-      <Box p={2} ml={18}>
         <Button variant="contained">Change Password</Button>
-      </Box>
-      
     </Box>
+
+    </div>
     )
   }
   
