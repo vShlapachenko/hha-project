@@ -2,6 +2,6 @@ import { Table } from "./Table";
 
 export interface Form {
   label: string;
-  tables?: Table[];
+  tables: Table[];
   date?: string 
 }
