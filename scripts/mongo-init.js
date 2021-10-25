@@ -26,6 +26,20 @@ db.hhaUser.insert([
     }
 ])
 
-load("/scripts/mongo-communityHealth.js")
-load("/scripts/mongo-maternity.js")
-load("/scripts/mongo-mspp.js")
+db.createCollection('data', {capped: false});
+
+db.data.insert([
+    {
+        column: {
+            label: null,
+            columns: [],
+            isUsable: false,
+            cells: null
+        },
+        comCol: {
+            label: null,
+            values: []
+        },
+        label: null
+    }
+])
