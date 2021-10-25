@@ -1,0 +1,36 @@
+{
+  "form": {
+    "label": "Community Health",
+    "date": "Septemper 2021",
+    "tables": [
+      {
+        "label": "Age Of Mothers",
+        "commonColumn": {
+          "label": "Age Of Mothers",
+          "values": [
+            "<15 years",
+            "15-19 years",
+            "20-24 years",
+            "25-29 years",
+            "30 years plus",
+            "Unknown"
+          ]
+        },
+        "columns": [
+          {
+            "label": "Matrones",
+            "columns": [],
+            "cells": [],
+            "isUsable": true 
+          },
+          {
+            "label": "Autres",
+            "columns": [],
+            "cells": [],
+            "isUsable": true 
+          }
+        ]
+      }
+    ]
+  }
+}

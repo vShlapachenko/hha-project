@@ -1,5 +1,5 @@
 import React, {useContext, useEffect, useState} from 'react';
-import './App.css';
+// import './App.css';
 import {Switch, Route, Redirect} from 'react-router-dom';
 import Login from './pages/loginPage/Login';
 import Navbar from './components/Navbar/Navbar';
@@ -10,6 +10,7 @@ import {User} from "./models/User";
 import Registration from './pages/registrationPage/Registration';
 import ForgotPassword from "./components/ForgotPassword/ForgotPassword";
 import EnterNewPassword from "./components/ForgotPassword/EnterNewPassword";
+import Forms from "./pages/formsPage/Forms"
 
 
 function App() {
@@ -33,7 +34,7 @@ function App() {
     if (!store.isAuthorized) {
         return (
             <Switch>
-                <Route exact path="/" component={ Login } />
+                <Route exact path="/" component={ Forms } />
                 <Route exact path="/login" component={ Login } />
                 <Route exact path="/register" component={Registration} />
                 <Route exact path="/forgotPassword" component={ForgotPassword}/>
