@@ -3,6 +3,6 @@ import { CommonColumn } from "./CommonColumn";
 
 export interface Table {
   label: string;
-  commonColumns: CommonColumn[];
+  commonColumn: CommonColumn;
   columns: Column[];
 }

@@ -30,6 +30,60 @@
             "isUsable": true 
           }
         ]
+      },
+      {
+        "label": "Births",
+        "commonColumn": {
+          "label": "Births",
+          "values": [
+            "Weight < 1.5kg",
+            "1.5kg < Weight < 2.5kg",
+            "2.5kg and over",
+            "Not weighed",
+            "Immediately breastfed",
+            "Skin to skin therapy"
+          ]
+        },
+        "columns": [
+          {
+            "label": "Matrones",
+            "columns": [],
+            "cells": [],
+            "isUsable": true 
+          },
+          {
+            "label": "Autres",
+            "columns": [],
+            "cells": [],
+            "isUsable": true 
+          }
+        ]
+      },
+      {
+        "label": "Postal Natal",
+        "commonColumn": {
+          "label": "Postal Natal",
+          "values": [
+            "Breastfeeding women receiving vitamin A",
+            "Breastfeeding women with MUAC <210mm",
+            "Breastfeeding women with malnutrition support",
+            "Domestic visits in 0-3 days"
+          ]
+        },
+        "columns": [
+          {
+            "label": "Matrones",
+            "columns": [],
+            "cells": [],
+            "isUsable": true 
+          },
+          {
+            "label": "Autres",
+            "columns": [],
+            "cells": [],
+            "isUsable": true 
+          }
+        ]
       }
     ]
   }

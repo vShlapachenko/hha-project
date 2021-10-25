@@ -1,4 +1,4 @@
 export interface CommonColumn {
-  label: string;
+  label: string
   values: string[];
 }
