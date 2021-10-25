@@ -22,7 +22,6 @@ function App() {
           <Route exact path="/login" component={ Login } />
           <Route exact path="/forgotPassword" component={ForgotPassword}/>
           <Route exact path="/forgotPassword/enterNewPassword" component={EnterNewPassword}/>
-          <Route exact path="/addUser" component={AddUser} />
           <Redirect from="*" to="/" />
           <PrivateRoute path="/register" Component={Registration} />
           <PrivateRoute path="/addUser" Component={AddUser} />
