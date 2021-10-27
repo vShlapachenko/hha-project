@@ -33,7 +33,7 @@ function App() {
     }
 
     if (!store.isAuthorized) {
-        return (
+        return (         
             <Switch>
                 <Route exact path="/" component={ Login } />
                 <Route exact path="/login" component={ Login } />
@@ -47,55 +47,28 @@ function App() {
         return (
             <>
                 <Navbar />
-                <div>
-                    <Typography
-                        mt = {2}
-                        align='center'
-                        variant = 'h4'
-                        color = '#823B8A'
-                        fontWeight = 'bold'
-                    >
-                        Leaderboard
-                    </Typography>
-                </div>
-                <div>
-                    <Typography
-                        align='center'
-                        variant = 'body1'
-                        color = '#823B8A'
-                        fontWeight = 'bold'
-                        mb = {2}
-                    >
-                        Best department of the month
-                    </Typography>
-                </div>
-                <div>
-                    <Leaderboard departmentName = {"Maternity"} />
-                </div>
-                <div>
-                    <Typography
-                        color = '#000000'
-                        align = 'left'
-                        mt = {5}
-                        ml = {2}
-                        mb = {3}
-                        fontWeight = 'bold'
-                        variant = 'h4'
-                    >
-                        What's TODO List
-                    </Typography>
-                </div>
-                <div>
-                    <ToDo firstLine = {"Form for Sep, 2021 is ready to fill in."} 
-                    secondLine = {"Click on the button to start filling in the form for Sep, 2021 or go to Forms Tab to start the form."}
-                    thirdLine = {"Start the form"}/>
+                <h1 className = "textLeaderboard">
+                    Leaderboard
+                </h1>
+                <h2 className = "textBest">
+                    Best department of the month
+                </h2>
 
-                    <ToDo firstLine = {"Create New Story"}
-                    secondLine = {"Click on the button to createa new story or go to Case Study Tab"}
-                    thirdLine = {"Create New Story"}/>
-                </div>
+                <Leaderboard departmentName = {"Maternity"} />
+                
+                <h1 className = "textTODO">
+                    What's TODO List
+                </h1>
+                
+                <ToDo firstLine = {"Form for Sep, 2021 is ready to fill in."} 
+                secondLine = {"Click on the button to start filling in the form for Sep, 2021 or go to Forms Tab to start the form."}
+                thirdLine = {"Start the form"}/>
+
+                <ToDo firstLine = {"Create New Story"}
+                secondLine = {"Click on the button to create a new story or go to Case Study Tab"}
+                thirdLine = {"Create New Story"}/>
                     
-
+                <div>
                     <button onClick={() => store.logout()}>Logout</button>
                     <div>
                         <button onClick={getUsers}> Get Users</button>
