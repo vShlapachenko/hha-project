@@ -28,64 +28,6 @@ function App() {
       </Switch>
 
     );
-    // const {store} = useContext(Context)
-    // const [users, setUsers] = useState<User[]>([])
-    // useEffect(() => {
-    //     if (localStorage.getItem('token')) {
-    //         store.checkAuth()
-    //     }
-    // }, [])
-    //
-    // async function getUsers() {
-    //     try {
-    //         const response = await UserService.fetchUsers();
-    //         setUsers(response.data)
-    //     } catch (e) {
-    //
-    //     }
-    // }
-    //
-    // if (!store.isAuthorized) {
-    //     return (
-    //         <Switch>
-    //             <Route exact path="/" component={ Login } />
-    //             <Route exact path="/login" component={ Login } />
-    //             <Route exact path="/register" component={Registration} />
-    //             <Route exact path="/forgotPassword" component={ForgotPassword}/>
-    //             <Route exact path="/forgotPassword/enterNewPassword" component={EnterNewPassword}/>
-    //             <Redirect from="*" to="/" />
-    //         </Switch>
-    //     )
-    // } else
-    //     return (
-    //         <>
-    //             <Navbar />
-    //             <div>
-    //                 <h1>You are authorized</h1>
-    //                 <button onClick={() => store.logout()}>Logout</button>
-    //                 <div>
-    //                     <button onClick={getUsers}> Get Users</button>
-    //                 </div>
-    //                 {users.map((user) => (
-    //                     <div key={user.email}>
-    //                         email:{user.email ? user.email : "staff@hha.com"}{" "}
-    //                         firstName:
-    //                         {user.firstName} lastName: {user.lastName}{" "}
-    //                     </div>
-    //                 ))}
-    //             </div>
-    //         </>
-    //         // <>
-    //         //     <Switch>
-    //         //         <Route exact path="/forgotPassword" component={ForgotPassword} />
-    //         //         <Route exact path="/forgotPassword/enterNewPassword" component={EnterNewPassword}/>
-    //         //         <Route path="/" exact render={(props) => {
-    //         //
-    //         //         }}
-    //         //         />
-    //         //     </Switch>
-    //         // </>
-    //     );
 }
 
 export default observer(App);
