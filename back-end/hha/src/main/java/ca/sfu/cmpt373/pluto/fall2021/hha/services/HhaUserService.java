@@ -133,7 +133,7 @@ public class HhaUserService implements UserDetailsService {
         }
 
         Random random = new Random();
-        int otp = 100000 + random.nextInt(999999);
+        int otp = random.nextInt(999999);
 
         try {
             emailService.sendOtp(email, otp);

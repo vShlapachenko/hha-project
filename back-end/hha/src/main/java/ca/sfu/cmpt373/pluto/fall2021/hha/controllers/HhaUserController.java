@@ -46,7 +46,6 @@ public class HhaUserController {
 
     @PostMapping("forgotPassword")
     public int sendOtp(@RequestBody EmailDto email){
-
         return userService.sendOtp(email);
     }
 
