@@ -1,3 +1,21 @@
-.board{
-    
+/* .grid{
+    /* display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: stretch; */
+    /* color: red;
+    background-color: royalblue;
+} */
+
+/* .box{
+    width:300px;
+    height: 150px;
+    background-color: #009CC4;
+    color: red;
+    box-shadow: 1;
+    border-radius: 12px;
+} */
+
+.grid{
+    color: red;
 }
