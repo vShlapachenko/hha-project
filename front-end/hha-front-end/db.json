@@ -16,18 +16,19 @@
             "Unknown"
           ]
         },
-        "columns": [
+        "subTables": [
           {
-            "label": "Matrones",
-            "columns": [],
-            "cells": [],
-            "isUsable": true
-          },
-          {
-            "label": "Autres",
-            "columns": [],
-            "cells": [],
-            "isUsable": true
+            "label": "",
+            "columns": [
+              {
+                "label": "Matrones",
+                "cells": []
+              },
+              {
+                "label": "Autres",
+                "cells": []              
+              }
+            ]
           }
         ]
       },
@@ -44,18 +45,19 @@
             "Skin to skin therapy"
           ]
         },
-        "columns": [
+        "subTables": [
           {
-            "label": "Matrones",
-            "columns": [],
-            "cells": [],
-            "isUsable": true
-          },
-          {
-            "label": "Autres",
-            "columns": [],
-            "cells": [],
-            "isUsable": true
+            "label": "",
+            "columns": [
+              {
+                "label": "Matrones",
+                "cells": []
+              },
+              {
+                "label": "Autres",
+                "cells": []
+              }
+            ]
           }
         ]
       },
@@ -70,18 +72,302 @@
             "Domestic visits in 0-3 days"
           ]
         },
-        "columns": [
+        "subTables": [
           {
-            "label": "Matrones",
-            "columns": [],
-            "cells": [],
-            "isUsable": true
+            "label": "",
+            "columns": [
+              {
+                "label": "Matrones",
+                "cells": []
+              },
+              {
+                "label": "Autres",
+                "cells": []
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "Birth Control",
+        "commonColumn": {
+          "label": "Methods/Sex",
+          "values": [
+            "OCP",
+            "Patch",
+            "Depo injection",
+            "Implant",
+            "Inter uterine devices (IUD)",
+            "Vaginal ring",
+            "Breastfeeding as birth control",
+            "Female condom",
+            "Sterlisation",
+            "Male condom",
+            "Vasectomy"
+          ]
+        },
+        "subTables": [
+          {
+            "label": "Acceptants",
+            "columns": [
+              {
+                "label": "< 25 years",
+                "cells": []
+              },
+              {
+                "label": "25 years plus",
+                "cells": []
+              }
+            ]
           },
           {
-            "label": "Autres",
-            "columns": [],
-            "cells": [],
-            "isUsable": true
+            "label": "Total utilisateurs",
+            "columns": [
+              {
+                "label": "< 25 years",
+                "cells": []
+              },
+              {
+                "label": "25 years plus",
+                "cells": []
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "Vaccination",
+        "commonColumn": {
+          "label": "Type of Vaccine",
+          "values": [
+            "BCG",
+            "VPO",
+            "Penta",
+            "Rota",
+            "RR",
+            "dT",
+            "VPI",
+            "Flu",
+            "DTP",
+            "COVID-19"
+          ]
+        },
+        "subTables": [
+          {
+            "label": "Type Of Vaccines",
+            "columns": [
+              {
+                "label": "Quantité disponible au cours du mois",
+                "cells": []
+              },
+              {
+                "label": "Balance en fin de mois",
+                "cells": []
+              },
+              {
+                "label": "Quantité disponible au cours du mois",
+                "cells": []
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "Vaccination",
+        "commonColumn": {
+          "label": "Consumables",
+          "values": [
+            "SAB 0.05ml",
+            "SAB 0.5ml",
+            "Sdil_2ml",
+            "Sdil_5ml",
+            "Boîtes Séc",
+            "Coton"
+          ]
+        },
+        "subTables": [
+          {
+            "label": "Consumables",
+            "columns": [
+              {
+                "label": "Quantité disponible au cours du mois",
+                "cells": []
+              },
+              {
+                "label": "Balance en fin de mois",
+                "cells": []
+              },
+              {
+                "label": "Quantité disponible au cours du mois",
+                "cells": []
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "Vaccines",
+        "commonColumn": {
+          "label": "Vaccines",
+          "values": [
+            "BCG",
+            "VPO (Polio)",
+            "VPO 1 (Polio)",
+            "VPO 2 (Polio)",
+            "Rappel VPO (Polio)",
+            "VPI",
+            "Penta 1",
+            "Penta 2",
+            "Penta 3",
+            "Rota 1",
+            "Rota 2",
+            "RR 1",
+            "RR 2",
+            "Pneumo 1",
+            "Pneumo 2",
+            "Pneumo 3",
+            "DTp Rappel",
+            "ECV"
+          ]
+        },
+        "subTables": [
+          {
+            "label": "Men 0-11 Years",
+            "columns": [
+              {
+                "label": "Inst.",
+                "cells": []
+              },
+              {
+                "label": "Comm.",
+                "cells": []
+              },
+              {
+                "label": "Total",
+                "cells": []
+              }
+            ]
+          },
+          {
+            "label": "Men 12-23 Years",
+            "columns": [
+              {
+                "label": "Inst.",
+                "cells": []
+              },
+              {
+                "label": "Comm.",
+                "cells": []
+              },
+              {
+                "label": "Total",
+                "cells": []
+              }
+            ]
+          },
+          {
+            "label": "Women 0-11 Years",
+            "columns": [
+              {
+                "label": "Inst.",
+                "cells": []
+              },
+              {
+                "label": "Comm.",
+                "cells": []
+              },
+              {
+                "label": "Total",
+                "cells": []
+              }
+            ]
+          },
+          {
+            "label": "Women 12-23 Years",
+            "columns": [
+              {
+                "label": "Inst.",
+                "cells": []
+              },
+              {
+                "label": "Comm.",
+                "cells": []
+              },
+              {
+                "label": "Total",
+                "cells": []
+              }
+            ]
+          },
+          {
+            "label": "Total",
+            "columns": [
+              {
+                "label": "Total doses",
+                "cells": []
+              },
+              {
+                "label": "Utilisees",
+                "cells": []
+              },
+              {
+                "label": "Administrees",
+                "cells": []
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "Vaccines dT1, dT2+",
+        "commonColumn": {
+          "label": "Vaccines",
+          "values": [
+            "dT1",
+            "dT2+"
+          ]
+        },
+        "subTables": [
+          {
+            "label": "Femmes Enceintes",
+            "columns": [
+              {
+                "label": "Inst.",
+                "cells": []
+              },
+              {
+                "label": "Comm.",
+                "cells": []
+              },
+              {
+                "label": "Total",
+                "cells": []
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "Vaccines dT1, dT2+",
+        "commonColumn": {
+          "label": "Total doses",
+          "values": [
+            "dT1 + dT2+"
+          ]
+        },
+        "subTables": [
+          {
+            "label": "Total",
+            "columns": [
+              {
+                "label": "Utilisees",
+                "cells": []
+              },
+              {
+                "label": "Administrees",
+                "cells": []
+              }
+            ]
           }
         ]
       }
@@ -214,6 +500,91 @@
         }
       ],
       "id": 1
+    },
+    {
+      "label": "Community Health",
+      "date": "Septemper 2021",
+      "tables": [
+        {
+          "label": "Age Of Mothers",
+          "commonColumn": {
+            "label": "Age Of Mothers",
+            "values": [
+              "<15 years",
+              "15-19 years",
+              "20-24 years",
+              "25-29 years",
+              "30 years plus",
+              "Unknown"
+            ]
+          },
+          "subTables": [
+            {
+              "label": "Test 1",
+              "columns": [
+                {
+                  "label": "Matrones",
+                  "columns": [],
+                  "cells": [
+                    14124,
+                    4324,
+                    432,
+                    423,
+                    423,
+                    123
+                  ],
+                  "isUsable": true
+                },
+                {
+                  "label": "Autres",
+                  "columns": [],
+                  "cells": [
+                    423,
+                    234,
+                    534,
+                    534,
+                    423,
+                    343
+                  ],
+                  "isUsable": true
+                }
+              ]
+            },
+            {
+              "label": "Test 2",
+              "columns": [
+                {
+                  "label": "Matrones",
+                  "columns": [],
+                  "cells": [
+                    423,
+                    423,
+                    312,
+                    534,
+                    534,
+                    432
+                  ],
+                  "isUsable": true
+                },
+                {
+                  "label": "Autres",
+                  "columns": [],
+                  "cells": [
+                    312,
+                    423,
+                    423,
+                    432,
+                    423,
+                    234
+                  ],
+                  "isUsable": true
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "id": 2
     }
   ]
 }

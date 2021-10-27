@@ -18,13 +18,13 @@ import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 
-const chosenBtnStyle : CommonProps["style"] = {
+const notChosenBtnStyle : CommonProps["style"] = {
   backgroundColor: '#EEEEEE',
   color: 'black',
-  marginTop: '8px'
+  marginTop: '8px',
 }
 
-const notChosenBtnStyle = {
+const chosenBtnStyle = {
   backgroundColor: '#009CC4',
   color: 'white',
   marginTop: '8px'
@@ -33,7 +33,7 @@ const notChosenBtnStyle = {
 const Forms: FC = () => {
   const defaultForm : Form = {label: "Loading...", date: "Loading...", tables: []}
   const [form, setForm] = useState(defaultForm);
-  const [currentIndex, setCurrentIndex] = useState<number>(0)
+  const [currentIndex, setCurrentIndex] = useState<number[]>([0, 0])
   const [openConfirmDialog, setOpenConfirmDialog] = React.useState(false);
   const [openErrorDialog, setOpenErrorDialog] = React.useState(false);
 
@@ -50,7 +50,10 @@ const Forms: FC = () => {
     const getForm = async () => {
       const formFromServer : Form = await fetchData()
       const newForm : Form = {...formFromServer, tables: formFromServer.tables.map(t => (
-        {...t, columns: t.columns.map(c => ({...c, cells: new Array(t.commonColumn.values.length)}))}
+        {...t, subTables: t.subTables.map(st => (
+          {...st, columns: st.columns.map(c => (
+            {...c, cells: new Array(t.commonColumn.values.length)}))}
+        ))}
       ))}
       setForm(newForm)
     }
@@ -64,16 +67,29 @@ const Forms: FC = () => {
     return newForm;
   }
 
-  const proceedToNext = () => {
-    if(form.tables && currentIndex < form.tables?.length - 1) {
-      setCurrentIndex(currentIndex + 1)
+  const moveBack = () => {
+    if(currentIndex[1] === 0) {
+      setCurrentIndex([currentIndex[0] - 1, form.tables[currentIndex[0] - 1].subTables.length - 1])
     } else {
+      setCurrentIndex([currentIndex[0], currentIndex[1] - 1])
+    }
+  }
+
+  const proceedToNext = () => {
+    if(form.tables && currentIndex[1] < form.tables[currentIndex[0]].subTables.length - 1) {
+      setCurrentIndex([currentIndex[0], currentIndex[1] + 1])
+    } else if(form.tables && currentIndex[0] < form.tables.length - 1) {
+      setCurrentIndex([currentIndex[0] + 1, 0])
+    }
+     else {
       var isValid = true
       for(var t of form.tables) {
-        for(var c of t.columns) {
-          for(var i = 0; i < c.cells.length; i++) {
-            if(!c.cells[i]) {
-              isValid = false
+        for(var st of t.subTables) {
+          for(var c of st.columns) {
+            for(var i = 0; i < c.cells.length; i++) {
+              if(!c.cells[i]) {
+                isValid = false
+              }
             }
           }
         }
@@ -92,7 +108,7 @@ const Forms: FC = () => {
       colIndex: number,
       cellIndex: number
     ) => {
-      form.tables[currentIndex].columns[colIndex].cells[cellIndex] = Number(e.target.value)
+      form.tables[currentIndex[0]].subTables[currentIndex[1]].columns[colIndex].cells[cellIndex] = Number(e.target.value)
       setForm({...form})
   }
 
@@ -167,63 +183,93 @@ const Forms: FC = () => {
           <div className='sideMenuBackground'>
             <div className='sideMenu'>
               <h3>{form.label}</h3>
-              {form.tables.map((table, index) => {
-                    return <Button 
-                      className='btn'
-                      style={index !== currentIndex ? chosenBtnStyle : notChosenBtnStyle}
-                      onClick={() => setCurrentIndex(index)}
-                      >
-                        {table.label}
-                    </Button>
-                })
+              {form.tables.map((table, tableIndex) => (
+                table.subTables.map((subTable, stIndex) => {
+                  return <Button 
+                    className='menuBtn'
+                    style={(tableIndex === currentIndex[0] && stIndex == currentIndex[1]) ? chosenBtnStyle : notChosenBtnStyle}
+                    onClick={() => setCurrentIndex([tableIndex, stIndex])}
+                    >
+                      {subTable.label === '' 
+                        ? table.label
+                        : `${table.label} (${subTable.label})`
+                      }
+                  </Button>
+              }))
+              )
               }
             </div>
           </div>
-          <div className='mainContent'>
-            <h2 className='header'>{form.date}</h2>
-            <TableContainer component={Paper}>
-              <Table area-aria-label='simple table' style={{backgroundColor: '#EEEEEE'}}>
-                <TableHead>
-                  <TableRow>
-                    <TableCell>{form.tables[currentIndex].commonColumn.label}</TableCell>
-                    {form.tables[currentIndex].columns.map((column) => (
-                      <TableCell>{column.label}</TableCell>
-                    ))}
-                  </TableRow>
-                </TableHead>
-                <TableBody>
-                  {
-                    form.tables[currentIndex].commonColumn.values.map((label, cellIndex) => (
-                      <TableRow
-                        key={label}
-                        // sx={{ '&:nth-child(n) td, &:nth-child(n) th': { border: '1px solid #009CC4' } }}
-                      >
-                        <TableCell component='th' scope='row'>
-                          {label}
-                        </TableCell>
-                        {
-                          form.tables[currentIndex].columns.map((col, colIndex) => (
-                            <TableCell>
-                              <input 
-                                value={col.cells[cellIndex] ? col.cells[cellIndex] : ''} 
-                                type='number' 
-                                onChange={(e) => onInputChange(e, col, colIndex, cellIndex)}
-                              />
-                            </TableCell>
-                          ))
-                        }
-                      </TableRow>
-                    ))
-                  }
-                </TableBody>
-              </Table>
-            </TableContainer>
-            <div className='btns'>
-              <Button>Save as Draft</Button>
-              <Button 
-                style={notChosenBtnStyle}
-                onClick={proceedToNext}
-                >{currentIndex === form.tables.length - 1 ? 'Submit' : 'Proceed to Next Step'}</Button>
+          <div className='mainContentBackgroud'>
+            <div className='mainContent'>
+              <h2 className='header'>{form.date}</h2>
+              <TableContainer>
+                <h4 className='test'>
+                    {form.tables[currentIndex[0]].subTables[currentIndex[1]].label === '' 
+                        ? form.tables[currentIndex[0]].label
+                        : `${form.tables[currentIndex[0]].label} (${form.tables[currentIndex[0]].subTables[currentIndex[1]].label})`
+                      }</h4>
+                <Table className='table' area-aria-label='simple table' style={{backgroundColor: '#EEEEEE'}}>
+                  <TableHead>
+                    <TableRow className='tableRow'>
+                      <TableCell>{form.tables[currentIndex[0]].commonColumn.label}</TableCell>
+                      {form.tables[currentIndex[0]].subTables[currentIndex[1]].columns.map((column) => (
+                        <TableCell align="center">{column.label}</TableCell>
+                      ))}
+                    </TableRow>
+                  </TableHead>
+                  <TableBody>
+                    {
+                      form.tables[currentIndex[0]].commonColumn.values.map((label, cellIndex) => (
+                        <TableRow
+                          key={label}
+                          className='tableRow'
+                          // sx={{ '&:nth-child td, &:last-child th': { 
+                          //     border: '1px solid #009CC4',
+                          //     border
+                          //   } }
+                          // }
+                        >
+                          <TableCell className='table' component='th' scope='row'>
+                            {label}
+                          </TableCell>
+                          {
+                            form.tables[currentIndex[0]].subTables[currentIndex[1]].columns.map((col, colIndex) => (
+                              <TableCell align="center">
+                                <input 
+                                  value={col.cells[cellIndex] ? col.cells[cellIndex] : ''} 
+                                  type='number' 
+                                  onChange={(e) => onInputChange(e, col, colIndex, cellIndex)}
+                                />
+                              </TableCell>
+                            ))
+                          }
+                        </TableRow>
+                      ))
+                    }
+                  </TableBody>
+                </Table>
+              </TableContainer>
+              <div className='btns'>
+                <Button>Save as Draft</Button>
+                {
+                  currentIndex[0] === 0 && currentIndex[1] === 0
+                    ? null
+                    : <Button 
+                    className='btn'
+                    onClick={moveBack}
+                    >
+                      Move to the Previous Step
+                    </Button>
+                }
+                <Button 
+                  className='btn'
+                  onClick={proceedToNext}
+                  >{(currentIndex[0] === form.tables.length - 1 && currentIndex[1] === form.tables[currentIndex[0]].subTables.length - 1)
+                    ? 'Submit' 
+                    : 'Proceed to Next Step'}
+                  </Button>
+              </div>
             </div>
           </div>
         </div>
