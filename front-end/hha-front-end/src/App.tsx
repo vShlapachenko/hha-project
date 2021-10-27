@@ -57,6 +57,8 @@ function App() {
                     >
                         Leaderboard
                     </Typography>
+                </div>
+                <div>
                     <Typography
                         align='center'
                         variant = 'body1'
@@ -66,7 +68,11 @@ function App() {
                     >
                         Best department of the month
                     </Typography>
+                </div>
+                <div>
                     <Leaderboard departmentName = {"Maternity"} />
+                </div>
+                <div>
                     <Typography
                         color = '#000000'
                         align = 'left'
@@ -78,6 +84,8 @@ function App() {
                     >
                         What's TODO List
                     </Typography>
+                </div>
+                <div>
                     <ToDo firstLine = {"Form for Sep, 2021 is ready to fill in."} 
                     secondLine = {"Click on the button to start filling in the form for Sep, 2021 or go to Forms Tab to start the form."}
                     thirdLine = {"Start the form"}/>
@@ -85,6 +93,7 @@ function App() {
                     <ToDo firstLine = {"Create New Story"}
                     secondLine = {"Click on the button to createa new story or go to Case Study Tab"}
                     thirdLine = {"Create New Story"}/>
+                </div>
                     
 
                     <button onClick={() => store.logout()}>Logout</button>
@@ -100,34 +109,6 @@ function App() {
                     ))}
                 </div>
             </>
-            // <>
-            //     <Switch>
-            //         <Route exact path="/forgotPassword" component={ForgotPassword} />
-            //         <Route exact path="/forgotPassword/enterNewPassword" component={EnterNewPassword}/>
-            //         <Route path="/" exact render={(props) => {
-            //             return (
-            //                 <>
-            //                     <Navbar />
-            //                     <div>
-            //                         <h1>You are authorized</h1>
-            //                         <button onClick={() => store.logout()}>Logout</button>
-            //                         <div>
-            //                             <button onClick={getUsers}> Get Users</button>
-            //                         </div>
-            //                         {users.map((user) => (
-            //                             <div key={user.email}>
-            //                                 email:{user.email ? user.email : "staff@hha.com"}{" "}
-            //                                 firstName:
-            //                                 {user.firstName} lastName: {user.lastName}{" "}
-            //                             </div>
-            //                         ))}
-            //                     </div>
-            //                 </>
-            //             );
-            //         }}
-            //         />
-            //     </Switch>
-            // </>
         );
 }
 
