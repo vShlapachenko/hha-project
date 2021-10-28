@@ -1,4 +1,4 @@
 export interface Cell {
-  rowLabel: string;
+  isEnabled : boolean;
   value: number;
 }
