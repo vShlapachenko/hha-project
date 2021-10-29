@@ -3,6 +3,7 @@ package ca.sfu.cmpt373.pluto.fall2021.hha.controllers;
 import ca.sfu.cmpt373.pluto.fall2021.hha.models.HhaUser;
 import ca.sfu.cmpt373.pluto.fall2021.hha.models.UserInvitation;
 import ca.sfu.cmpt373.pluto.fall2021.hha.models.UserRegistrationCredentials;
+import ca.sfu.cmpt373.pluto.fall2021.hha.models.EmailDto;
 import ca.sfu.cmpt373.pluto.fall2021.hha.services.HhaUserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
@@ -34,5 +35,20 @@ public class HhaUserController {
     @PostMapping("saveUser")
     public void saveUser(@RequestBody HhaUser user) {
         userService.saveUser(user);
+    }
+
+    @PostMapping("confirm/{confirmationLink}")
+    @ResponseBody
+    public String confirmRegistration(@PathVariable String confirmationLink) {
+        userService.confirm(confirmationLink);
+        return "confirmSuccess";
+    }
+
+    @PostMapping("forgotPassword")
+    public int sendOtp(@RequestBody EmailDto email){
+
+        int getOtp = userService.sendOtp(email);
+
+        return getOtp;
     }
 }

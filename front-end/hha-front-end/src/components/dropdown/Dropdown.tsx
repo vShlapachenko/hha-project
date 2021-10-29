@@ -8,20 +8,15 @@ import dropdownStyle from "./Dropdown.module.css";
 interface DropdownAttributes {
     listItems: Array<string>;
     itemName: string;
+    onChangeFunc: any;
+    initialValue: any;
 }
-const Dropdown = ({listItems, itemName}: DropdownAttributes) => {
-    
-    const [listItemValue, setListItemValue] = useState("");
-
-    const handleChange = (event: any) => {
-        setListItemValue(event.target.value);
-    };
-
+const Dropdown = ({listItems, itemName, onChangeFunc, initialValue}: DropdownAttributes) => {
     return (
         <div >
             <FormControl variant="standard" sx={{ m: 1, minWidth: 120 }} className={dropdownStyle.container} >
             <InputLabel >{itemName}</InputLabel>
-            <Select onChange={handleChange} value={listItemValue} >
+            <Select onChange={onChangeFunc} value={initialValue} >
                {listItems.map((item, index) => (
                   <MenuItem value={item} key={index} >{item}</MenuItem>
                ))}

@@ -1,0 +1,152 @@
+.header {
+
+    position: absolute;
+    width: 246px;
+    height: 28px;
+    left: calc(50% - 246px/2 + 4px);
+    top: 250px;
+
+    /* Inter/H5 */
+
+    font-family: Inter;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 150%;
+    /* or 36px */
+
+
+    color: #000000;
+}
+
+.enterEmail {
+    position: absolute;
+    width: 488px;
+    height: 20px;
+    left: calc(50% - 246px/2 + 4px);
+    top: 322px;
+
+    /* Inter / Body Small */
+
+    font-family: Inter;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 143%;
+    /* identical to box height, or 20px */
+
+    letter-spacing: 0.018em;
+
+    color: #000000;
+}
+
+.emailInput {
+  
+
+    position: absolute;
+    /* display: flex; */
+    top: 350px;
+    width: 488px;
+    left: calc(50% - 246px/2 + 4px);
+}
+
+.confirmEmail {
+    position: absolute;
+    width: 488px;
+    height: 20px;
+    left: calc(50% - 246px/2 + 4px);
+    top: 420px;
+
+    /* Inter / Body Small */
+
+    font-family: Inter;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 143%;
+    /* identical to box height, or 20px */
+
+    letter-spacing: 0.018em;
+
+    color: #000000;
+}
+
+.confirmEmailInput {
+    position: absolute;
+    /* display: flex; */
+    top: 450px;
+    width: 488px;
+    left: calc(50% - 246px/2 + 4px);
+}
+
+.chooseTypeAccount {
+    position: absolute;
+    width: 488px;
+    height: 20px;
+    left: calc(50% - 246px/2 + 4px);
+    top: 520px;
+
+    /* Inter / Body Small */
+
+    font-family: Inter;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 143%;
+    /* identical to box height, or 20px */
+
+    letter-spacing: 0.018em;
+
+    color: #000000;
+}
+
+.chooseTypeAccountDropdown {
+    position: absolute;
+    /* display: flex; */
+    top: 520px;
+    width: 488px;
+    left: calc(50% - 246px/2 + 4px);
+}
+
+.choosePassword {
+    position: absolute;
+    width: 488px;
+    height: 20px;
+    left: calc(50% - 246px/2 + 4px);
+    top: 600px;
+
+    /* Inter / Body Small */
+
+    font-family: Inter;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 143%;
+    /* identical to box height, or 20px */
+
+    letter-spacing: 0.018em;
+
+    color: #000000;
+}
+
+.password {
+    position: absolute;
+    /* display: flex; */
+    top: 630px;
+    width: 488px;
+    left: calc(50% - 246px/2 + 4px);
+}
+
+.submitButton {
+    position: absolute;
+    top: 700px;
+    width: 488px;
+    left: calc(50% - 246px/2 + 4px);
+}
+
+.backToHomePage {
+    position: absolute;
+    top: 740px;
+    width: 488px;
+    left: calc(50% - 246px/2 + 4px);
+}
