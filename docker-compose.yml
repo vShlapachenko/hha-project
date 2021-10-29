@@ -30,4 +30,9 @@ services:
   hha-react:
     build: './front-end/hha-front-end'
     ports:
-      - "3000:3000"
+      - "443:3000"
+networks:
+  default:
+    ipam:
+      config:
+        - subnet: 172.33.0.0/16

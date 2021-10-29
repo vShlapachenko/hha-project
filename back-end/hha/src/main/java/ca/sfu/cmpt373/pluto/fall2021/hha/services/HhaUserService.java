@@ -1,6 +1,7 @@
 package ca.sfu.cmpt373.pluto.fall2021.hha.services;
 
 import ca.sfu.cmpt373.pluto.fall2021.hha.models.*;
+import ca.sfu.cmpt373.pluto.fall2021.hha.repositories.ForgotPasswordRepository;
 import ca.sfu.cmpt373.pluto.fall2021.hha.repositories.HhaUserRepository;
 import ca.sfu.cmpt373.pluto.fall2021.hha.repositories.RoleRepository;
 import lombok.RequiredArgsConstructor;
@@ -14,8 +15,10 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import javax.mail.MessagingException;
+import javax.servlet.http.HttpServletRequest;
 import java.util.Collection;
 import java.util.List;
+import java.util.Random;
 import java.util.UUID;
 import java.util.stream.Collectors;
 
@@ -26,6 +29,7 @@ public class HhaUserService implements UserDetailsService {
     private final RoleRepository roleRepository;
     private final PasswordEncoder passwordEncoder;
     private final EmailService emailService;
+    private final ForgotPasswordRepository forgotPasswordRepository;
 
     @Override
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
@@ -84,7 +88,7 @@ public class HhaUserService implements UserDetailsService {
             throw new IllegalArgumentException("Something is wrong");
         }
         userRepository.save(new HhaUser(null, userInvitation.email(), null, null, null,
-                activationLink, null, null, ActivationStatus.CREATED_BY_ADMIN));
+                activationLink, null, null, ActivationStatus.CREATED_BY_ADMIN, null));
     }
 
     public void acceptInvite(String activationLink, UserRegistrationCredentials userRegistrationCredentials) {
@@ -96,6 +100,48 @@ public class HhaUserService implements UserDetailsService {
         user.setFirstName(userRegistrationCredentials.getFirstName());
         user.setLastName(userRegistrationCredentials.getLastName());
         user.setActivationStatus(ActivationStatus.FILLED_INFO);
+
+        var confirmationLink = UUID.randomUUID().toString();
+        user.setConfirmationLink(confirmationLink);
+
         saveUser(user);
+
+        try {
+            emailService.confirm(user.getEmail(), confirmationLink);
+        } catch (MessagingException e) {
+            e.printStackTrace();
+            throw new IllegalArgumentException("Something is wrong");
+        }
+    }
+
+    public void confirm(String confirmationLink) {
+        var user = userRepository.findByConfirmationLink(confirmationLink);
+
+        if (user == null || user.getActivationStatus() == ActivationStatus.ACTIVATED) {
+            throw new IllegalArgumentException("User with confirmation link " + confirmationLink + " was not found");
+        }
+        user.setConfirmationLink(null);
+        user.setActivationStatus(ActivationStatus.ACTIVATED);
+
+        saveUser(user);
+    }
+
+    public int sendOtp(EmailDto email) {
+        if (!userRepository.existsByEmail(email.getEmail())){
+//            return 0;
+            throw new IllegalArgumentException("This email does not exist in DB = " + email.getEmail());
+        }
+
+        Random random = new Random();
+        int otp = 100000 + random.nextInt(999999);
+
+        try {
+            emailService.sendOtp(email, otp);
+        } catch (MessagingException e) {
+            e.printStackTrace();
+            throw new RuntimeException("Something went wrong in sending the email");
+        }
+        forgotPasswordRepository.save(new ForgotPassword(otp, userRepository.findByEmail(email.getEmail())));
+        return otp;
     }
 }

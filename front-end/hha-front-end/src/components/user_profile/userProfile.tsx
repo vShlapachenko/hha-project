@@ -58,7 +58,8 @@ const Profile = ({firstName, lastName, email, staffNumber, profileImage, departm
         InputProps={{
           readOnly: true,
         }}
-      /></div>
+      />
+      </div>
       
       <div className="PSN_input">
         <TextField

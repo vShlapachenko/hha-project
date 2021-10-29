@@ -27,4 +27,6 @@ public class HhaUser {
     @DBRef
     private Department department;
     private ActivationStatus activationStatus;
+
+    private String confirmationLink;
 }
