@@ -14,68 +14,71 @@ interface ProfileAttributes {
   profileImage?: string,
   department?: string
 }
-
-const useStyles = makeStyles({
-  text: {
-    background: 'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)',
-    margin: '20 20 20 20'
-  },
-  box: {
-    background: '#EEEEEE',
-  },
-});
   
 const Profile = ({firstName, lastName, email, staffNumber, profileImage, department}: ProfileAttributes) => {
-    const classes = useStyles();
   return (
     <div>
-    <h1>Profile</h1>
+      <h1 className="header-1">Profile</h1>
 
-    <Box sx={{width: 660, height: 397, color: '#EEEEEE'} }>   
-      {/* {profileImage && <Avatar alt={firstName} src={profileImage} sx={{ width: 100, height: 100 }} />} */}
-    
-      {/* <Chip label={department}/> */}
+      <div className="InfoPane">
+      
+        <h3 className="header-2">Personal Information</h3>
 
-      <h3 className="header">Personal Information</h3>
+        <div className="first_last_name">
 
-      <TextField
-       sx={{width: 316, height: 62}}
-        className={classes.text}
-        label="First Name"
-        defaultValue={firstName}
-        InputProps={{
-          readOnly: true,
-        }}
-      />
-
-      <TextField
-        className="text"
-        label="Last Name"
-        defaultValue={lastName} 
-        InputProps={{
-          readOnly: true,
-        }}
-      />
-
-      <TextField
-        className="text"
+          <div className="fisrt_name">
+              <TextField
+                sx={{width: "308px", height: "55px", background: '#FFFFFF', textSizeAdjust: "80%"}}
+                label="First Name"
+                defaultValue={firstName}
+                InputProps={{
+                  readOnly: true,
+                }}
+              />
+          </div>
+          
+          <div className="Last_Name">
+              <TextField
+                sx={{width: "308px", height: "55px", background: '#FFFFFF'}}
+                label="Last Name"
+                defaultValue={lastName} 
+                InputProps={{
+                  readOnly: true,
+                }}
+              />
+          </div>
+        
+      </div>
+      
+      <div className="email_input">
+        <TextField
+        sx={{width: "488px", height: "55px", background: '#FFFFFF'}}
         label="Email"
         defaultValue={email} 
         InputProps={{
           readOnly: true,
         }}
-      />
-
-      <TextField
-        className="text"
-        label="Staff Number"
-        defaultValue={staffNumber}
-        InputProps={{
-          readOnly: true
-        }}
-      />
-        <Button variant="contained">Change Password</Button>
-    </Box>
+      /></div>
+      
+      <div className="PSN_input">
+        <TextField
+          sx={{width: "488px", height: "55px", background: '#FFFFFF'}}
+          className="text"
+          label="Staff Number"
+          defaultValue={staffNumber}
+          InputProps={{
+            readOnly: true
+          }}
+        />
+      </div>
+      
+      <div className="change_pass_button">
+        <Button 
+        sx={{width: "488px", height: "55px", background: '#009CC4'}}
+        variant="contained">Change Password</Button>
+      </div>
+        
+    </div>
 
     </div>
     )
