@@ -2,7 +2,7 @@ import React from 'react';
 import Avatar from '@mui/material/Avatar';
 import "./user_profile.css"
 import Button from '@mui/material/Button'
-import Box from '@mui/material/Box'
+import Navbar from '../Navbar/Navbar'
 import TextField from '@mui/material/TextField'
 import { makeStyles } from "@mui/styles";
 
@@ -18,7 +18,8 @@ interface ProfileAttributes {
 const Profile = ({firstName, lastName, email, staffNumber, profileImage, department}: ProfileAttributes) => {
   return (
     <div>
-      <h1 className="header-1">Profile</h1>
+      <Navbar />
+      {/* <h1 className="header-1">Profile</h1> */}
 
       <div className="InfoPane">
       
