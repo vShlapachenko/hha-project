@@ -12,20 +12,19 @@ import AddUser from './pages/addUserPage/AddUser';
 import ForgotPassword from "./components/ForgotPassword/ForgotPassword";
 import EnterNewPassword from "./components/ForgotPassword/EnterNewPassword";
 import PrivateRoute from './utilities/private_route';
-// import Case from './components/case_Study/CaseStudy';
 
 
 
 function App() {
     return (
       <Switch>
-          {/* <Route exact path="/" component={ Case } /> */}
-          {/* <Route exact path="/login" component={ Login } />
+          <Route exact path="/" component={ Login } />
+          <Route exact path="/login" component={ Login } />
           <Route exact path="/forgotPassword" component={ForgotPassword}/>
           <Route exact path="/forgotPassword/enterNewPassword" component={EnterNewPassword}/>
           <Redirect from="*" to="/" />
           <PrivateRoute path="/register" Component={Registration} />
-          <PrivateRoute path="/addUser" Component={AddUser} /> */}
+          <PrivateRoute path="/addUser" Component={AddUser} />
       </Switch>
 
     );
