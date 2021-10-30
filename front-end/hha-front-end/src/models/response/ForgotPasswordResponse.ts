@@ -3,6 +3,7 @@ export interface ForgotPasswordResponse {
 }
 
 export interface newPasswordResponse {
+    email: string
     password: string;
 }
 

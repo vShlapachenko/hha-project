@@ -86,10 +86,8 @@ export default class Store {
     async setNewPassword(email: string, password: string) {
         try {
             const response = await setNewPasswordService.setNewPassword(email, password);
-            console.log("whatevar", password);
             if(response) {
-                console.log("password", response);
-                this.setPassword(password);
+                this.setPassword(response.data.password);
             }else {
                 console.log("Error in store.setNewPassword");
             }
