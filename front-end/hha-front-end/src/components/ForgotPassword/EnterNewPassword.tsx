@@ -1,12 +1,13 @@
 import React, { useState, useContext, useEffect } from "react";
 import { Context } from "../../index";
-import { Link } from "react-router-dom";
+import {Link, useHistory} from "react-router-dom";
 import "./ForgotPassword.css";
 
 const EnterNewPassword: React.FC<{}> = () => {
     const [password, setPassword] = useState<string>("");
     const [confirmPassword, setConfirmPassword] = useState<string>("");
     const { store } = useContext(Context);
+    const history = useHistory();
     const [userEmail, setUserEmail] = useState<string>("");
 
     useEffect(() => {
@@ -18,6 +19,10 @@ const EnterNewPassword: React.FC<{}> = () => {
     const handleSetNewPassword = () => {
         if (password === confirmPassword) {
             store.setNewPassword(userEmail, password);
+            alert("New Password set")
+            history.push({
+                pathname: "/",
+            });
         } else {
             alert("Passwords don't match");
             setPassword("");

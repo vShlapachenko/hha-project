@@ -50,7 +50,7 @@ public class HhaUserController {
     }
 
     @PostMapping("forgotPassword/enterNewPassword")
-    public void saveNewPassword(@RequestBody HhaUser user){
-
+    public String saveNewPassword(@RequestBody String email, @RequestBody String password){
+        return "password";
     }
 }

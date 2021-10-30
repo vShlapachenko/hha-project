@@ -24,9 +24,11 @@ export default class Store {
     setOtp(value: number) {
         this.otp = value;
     }
+
     setForgotPasswordEmail(value: string) {
         this.forgotPasswordEmail = value;
     }
+
     setPassword(value: string){
         this.new_password = value;
     }
@@ -84,8 +86,9 @@ export default class Store {
     async setNewPassword(email: string, password: string) {
         try {
             const response = await setNewPasswordService.setNewPassword(email, password);
-
+            console.log("whatevar", password);
             if(response) {
+                console.log("password", response);
                 this.setPassword(password);
             }else {
                 console.log("Error in store.setNewPassword");
