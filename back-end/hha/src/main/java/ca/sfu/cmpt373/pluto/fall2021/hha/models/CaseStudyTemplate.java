@@ -8,14 +8,35 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.List;
 
-@Data
 @Document
-@NoArgsConstructor
-@AllArgsConstructor
 public class CaseStudyTemplate {
 
     @Id
     private String id;
     private String name;
     private List<String> questions;
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public List<String> getQuestions() {
+        return questions;
+    }
+
+    public void setQuestions(List<String> questions) {
+        this.questions = questions;
+    }
 }

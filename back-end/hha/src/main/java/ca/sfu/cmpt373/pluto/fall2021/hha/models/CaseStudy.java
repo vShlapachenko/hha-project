@@ -11,10 +11,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 import java.util.Date;
 import java.util.List;
 
-@Data
 @Document
-@NoArgsConstructor
-@AllArgsConstructor
 public class CaseStudy {
 
     @Id
@@ -25,4 +22,44 @@ public class CaseStudy {
     @CreatedDate
     private Date submittedDate;
     private List<CaseStudyEntry> entryList;
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public HhaUser getSubmittedBy() {
+        return submittedBy;
+    }
+
+    public void setSubmittedBy(HhaUser submittedBy) {
+        this.submittedBy = submittedBy;
+    }
+
+    public String getCaseName() {
+        return caseName;
+    }
+
+    public void setCaseName(String caseName) {
+        this.caseName = caseName;
+    }
+
+    public Date getSubmittedDate() {
+        return submittedDate;
+    }
+
+    public void setSubmittedDate(Date submittedDate) {
+        this.submittedDate = submittedDate;
+    }
+
+    public List<CaseStudyEntry> getEntryList() {
+        return entryList;
+    }
+
+    public void setEntryList(List<CaseStudyEntry> entryList) {
+        this.entryList = entryList;
+    }
 }
