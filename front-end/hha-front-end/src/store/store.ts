@@ -5,13 +5,12 @@ import {AuthResponse} from "../models/response/AuthResponse";
 import {API_URL} from "../http";
 
 import ForgotPasswordService from "../service/ForgotPasswordService";
-import setNewPasswordService from "../service/NewPasswordService";
+import NewPasswordService from "../service/NewPasswordService";
 
 export default class Store {
     isAuthorized = false;
     otp = 0;
     forgotPasswordEmail = "";
-    new_password = "";
 
     constructor() {
         makeAutoObservable(this)
@@ -27,10 +26,6 @@ export default class Store {
 
     setForgotPasswordEmail(value: string) {
         this.forgotPasswordEmail = value;
-    }
-
-    setPassword(value: string){
-        this.new_password = value;
     }
 
     async login (email: string, password: string){
@@ -67,13 +62,13 @@ export default class Store {
         try {
             console.log("email", email);
 
-            const response = await ForgotPasswordService.ForgotPassword(email);
+            const request = await ForgotPasswordService.ForgotPassword(email);
 
-            if (response) {
-                if (response.data === 0){
+            if (request) {
+                if (request.data === 0){
                     this.setOtp(403)
                 }else {
-                    this.setOtp(response.data);
+                    this.setOtp(request.data);
                 }
             } else {
                 console.log("Error in store.forgotPassword");
@@ -85,15 +80,9 @@ export default class Store {
 
     async setNewPassword(email: string, password: string) {
         try {
-            const response = await setNewPasswordService.setNewPassword(email, password);
-            if(response) {
-                this.setPassword(response.data.password);
-            }else {
-                console.log("Error in store.setNewPassword");
-            }
+            const request = await NewPasswordService.NewPassword(email, password);
         } catch (e: any) {
             console.log(e.response?.data?.message);
         }
     }
-
 }

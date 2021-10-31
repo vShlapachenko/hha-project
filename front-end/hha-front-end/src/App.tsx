@@ -1,18 +1,13 @@
-import React, {useContext, useEffect, useState} from 'react';
+import React from 'react';
 import './App.css';
 import {Switch, Route, Redirect} from 'react-router-dom';
 import Login from './pages/loginPage/Login';
-import Navbar from './components/Navbar/Navbar';
-import {Context} from "./index";
 import {observer} from "mobx-react-lite"
-import UserService from "./service/UserService";
-import {User} from "./models/User";
 import Registration from './pages/registrationPage/Registration';
 import AddUser from './pages/addUserPage/AddUser';
 import ForgotPassword from "./components/ForgotPassword/ForgotPassword";
 import EnterNewPassword from "./components/ForgotPassword/EnterNewPassword";
 import PrivateRoute from './utilities/private_route';
-
 
 
 function App() {

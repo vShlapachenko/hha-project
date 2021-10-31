@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { observer } from "mobx-react-lite";
 import EnterOTP from "./EnterOTP";
 import "./ForgotPassword.css";
+import logo_HHA from "../../pages/loginPage/logo.svg";
 
 const ForgotPassword: React.FC<{}> = () => {
     const [email, setEmail] = useState<string>("");
@@ -44,11 +45,12 @@ const ForgotPassword: React.FC<{}> = () => {
     };
 
     return (
-        <div className="forgot_password_parent">
+        <div>
+            <img src={logo_HHA} className="logoHHA" alt="logo" />
             {showOTP ? (
                 <EnterOTP disableOtpPage={disableOtpPage} email={email} />
             ) : (
-                <div className="allignment-forgot ">
+                <div className="alignment">
                     <h1>Enter your email</h1>
                     <input
                         onChange={(e) => setEmail(e.target.value)}
