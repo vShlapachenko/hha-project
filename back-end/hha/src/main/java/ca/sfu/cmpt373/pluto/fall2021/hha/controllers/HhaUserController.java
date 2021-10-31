@@ -1,11 +1,9 @@
 package ca.sfu.cmpt373.pluto.fall2021.hha.controllers;
 
-import ca.sfu.cmpt373.pluto.fall2021.hha.models.HhaUser;
-import ca.sfu.cmpt373.pluto.fall2021.hha.models.UserInvitation;
-import ca.sfu.cmpt373.pluto.fall2021.hha.models.UserRegistrationCredentials;
-import ca.sfu.cmpt373.pluto.fall2021.hha.models.EmailDto;
+import ca.sfu.cmpt373.pluto.fall2021.hha.models.*;
 import ca.sfu.cmpt373.pluto.fall2021.hha.services.HhaUserService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.mongodb.core.aggregation.ComparisonOperators;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -46,9 +44,13 @@ public class HhaUserController {
 
     @PostMapping("forgotPassword")
     public int sendOtp(@RequestBody EmailDto email){
+        return userService.sendOtp(email);
+    }
 
-        int getOtp = userService.sendOtp(email);
-
-        return getOtp;
+    @PostMapping("forgotPassword/enterNewPassword")
+    public void saveNewPassword(@RequestBody NewPassword new_password_data){
+        HhaUser user = userService.getUser(new_password_data.getEmail());
+        user.setPassword(new_password_data.getPassword());
+        userService.saveUser(user);
     }
 }
