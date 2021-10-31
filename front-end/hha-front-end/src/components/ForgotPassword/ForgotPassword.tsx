@@ -9,6 +9,7 @@ const ForgotPassword: React.FC<{}> = () => {
     const [email, setEmail] = useState<string>("");
     const { store } = useContext(Context);
     const [showOTP, setShowOtp] = useState(false);
+
     useEffect(()=>{
         if(store.otp === 403){
             alert("Email does not exist");
@@ -20,12 +21,15 @@ const ForgotPassword: React.FC<{}> = () => {
     }, [store.otp])
 
     const handleSendOTP = () => {
+
+        //reference from https://stackoverflow.com/questions/201323/how-can-i-validate-an-email-address-using-a-regular-expression
         let emailCheckExpression =
             /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{1,}))$/;
 
         if (!emailCheckExpression.test(email)) {
             Error("Enter a valid email.");
             alert("Enter a valid email.");
+            setEmail("");
         } else {
             console.log("forgot");
             store.setForgotPasswordEmail(email);

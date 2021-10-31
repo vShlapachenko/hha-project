@@ -48,9 +48,9 @@ public class HhaUserController {
     }
 
     @PostMapping("forgotPassword/enterNewPassword")
-    public void saveNewPassword(@RequestBody NewPassword password_data){
-        HhaUser user = userService.getUser(password_data.getEmail());
-        user.setPassword(password_data.getPassword());
+    public void saveNewPassword(@RequestBody NewPassword new_password_data){
+        HhaUser user = userService.getUser(new_password_data.getEmail());
+        user.setPassword(new_password_data.getPassword());
         userService.saveUser(user);
     }
 }

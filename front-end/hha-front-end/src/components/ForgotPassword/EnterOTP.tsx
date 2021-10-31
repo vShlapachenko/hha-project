@@ -27,10 +27,12 @@ const EnterOTP: React.FC<PropsInterface> = (props): JSX.Element => {
         console.log("real otp", storeOtp);
         console.log("userotp ", userOtp);
 
+        //reference from https://stackoverflow.com/questions/4758414/6-digits-regular-expression
         let otpExpression = /^[0-9]{1,6}$/;
         if (!otpExpression.test(userOtp)) {
             Error("Enter a valid OTP.");
             alert("OTP must be a 6-digit number.");
+            setUserOtp("");
         } else {
             if (storeOtp?.length === 6 && userOtp.length === 6) {
                 if (storeOtp === userOtp) {

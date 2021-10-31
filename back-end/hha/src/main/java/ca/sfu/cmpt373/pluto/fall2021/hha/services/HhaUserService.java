@@ -131,8 +131,9 @@ public class HhaUserService implements UserDetailsService {
 //            throw new IllegalArgumentException("This email does not exist in DB = " + email.getEmail());
         }
 
+        //reference from https://stackoverflow.com/questions/51322750/generate-6-digit-random-number
         Random random = new Random();
-        int otp = random.nextInt(999999);
+        int otp = random.nextInt(900000) + 100000;
 
         try {
             emailService.sendOtp(email, otp);
