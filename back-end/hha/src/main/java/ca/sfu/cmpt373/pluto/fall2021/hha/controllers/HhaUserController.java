@@ -53,4 +53,13 @@ public class HhaUserController {
         user.setPassword(new_password_data.getPassword());
         userService.saveUser(user);
     }
+
+    @PostMapping("changePassword")
+    public String changePassword(@RequestBody NewPassword new_password_data){
+        HhaUser user = userService.getUser(new_password_data.getEmail());
+        user.setPassword(new_password_data.getPassword());
+//        userService.saveUser(user);
+        return "change password working";
+    }
+
 }

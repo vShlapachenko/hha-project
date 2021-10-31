@@ -6,6 +6,7 @@ import {API_URL} from "../http";
 
 import ForgotPasswordService from "../service/ForgotPasswordService";
 import setNewPasswordService from "../service/NewPasswordService";
+import ChangePasswordService from "../service/ChangePasswordService";
 
 export default class Store {
     isAuthorized = false;
@@ -92,6 +93,19 @@ export default class Store {
                 console.log("Error in store.setNewPassword");
             }
         } catch (e: any) {
+            console.log(e.response?.data?.message);
+        }
+    }
+
+    async changeOldPassword(email: string, password: string) {
+        try{
+            const response = await ChangePasswordService.ChangePassword(email, password);
+            if(response){
+                this.setPassword(response.data.password);
+            } else{
+                console.log("Error in store.changeOldPassword");
+            }
+        } catch (e: any){
             console.log(e.response?.data?.message);
         }
     }
