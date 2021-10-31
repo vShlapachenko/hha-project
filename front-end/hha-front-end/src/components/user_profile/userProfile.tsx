@@ -61,7 +61,7 @@ const Profile = ({firstName, lastName, email, staffNumber, profileImage, departm
       />
 
       <Box p={2} ml={18}>
-        <Button href={"./forgotPassword"} variant="contained">Change Password</Button>
+        <Button variant="contained">Change Password</Button>
       </Box>
       
     </Box>
