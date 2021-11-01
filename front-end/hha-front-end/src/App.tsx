@@ -12,6 +12,7 @@ import AddUser from './pages/addUserPage/AddUser';
 import ForgotPassword from "./components/ForgotPassword/ForgotPassword";
 import EnterNewPassword from "./components/ForgotPassword/EnterNewPassword";
 import PrivateRoute from './utilities/private_route';
+import HomePage from "./pages/homePage/homePage";
 
 
 
@@ -22,6 +23,7 @@ function App() {
           <Route exact path="/login" component={ Login } />
           <Route exact path="/forgotPassword" component={ForgotPassword}/>
           <Route exact path="/forgotPassword/enterNewPassword" component={EnterNewPassword}/>
+          <Route exact path="/homePage" component={HomePage} />
           <Redirect from="*" to="/" />
           <PrivateRoute path="/register" Component={Registration} />
           <PrivateRoute path="/addUser" Component={AddUser} />
