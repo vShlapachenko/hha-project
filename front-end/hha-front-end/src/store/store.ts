@@ -65,11 +65,7 @@ export default class Store {
             const request = await ForgotPasswordService.ForgotPassword(email);
 
             if (request) {
-                if (request.data === 0){
-                    this.setOtp(403)
-                }else {
-                    this.setOtp(request.data);
-                }
+                this.setOtp(request.data);
             } else {
                 console.log("Error in store.forgotPassword");
             }
@@ -80,7 +76,7 @@ export default class Store {
 
     async setNewPassword(email: string, password: string) {
         try {
-            const request = await NewPasswordService.NewPassword(email, password);
+            await NewPasswordService.NewPassword(email, password);
         } catch (e: any) {
             console.log(e.response?.data?.message);
         }

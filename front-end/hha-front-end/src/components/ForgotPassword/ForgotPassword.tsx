@@ -12,11 +12,7 @@ const ForgotPassword: React.FC<{}> = () => {
     const [showOTP, setShowOtp] = useState(false);
 
     useEffect(()=>{
-        if(store.otp === 403){
-            alert("Email does not exist");
-            setEmail("");
-            setShowOtp(false);
-        } else if(store.otp.toString().length === 6){
+        if(store.otp.toString().length === 6){
             setShowOtp(true);
         }
     }, [store.otp])
@@ -61,7 +57,7 @@ const ForgotPassword: React.FC<{}> = () => {
                     />
 
                     <button className="ForgotButton" onClick={handleSendOTP}>
-                        Click to recieve OTP by email
+                        Click to receive OTP by email
                     </button>
                     <Link to="/">Login Page?</Link>
                 </div>
