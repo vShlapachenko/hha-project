@@ -1,8 +1,9 @@
 import React from 'react';
 import "./user_profile.css"
 import Button from '@mui/material/Button'
-import Box from '@mui/material/Box'
+import Navbar from '../Navbar/Navbar'
 import TextField from '@mui/material/TextField'
+import { makeStyles } from "@mui/styles";
 import {useHistory} from "react-router-dom";
 
 interface ProfileAttributes {
@@ -29,52 +30,75 @@ const Profile = ({firstName, lastName, email, staffNumber, profileImage, departm
           {/* {profileImage && <Avatar alt={firstName} src={profileImage} sx={{ width: 100, height: 100 }} />} */}
 
           {/* <Chip label={department}/> */}
+  return (
+    <div>
+      <Navbar />
+      {/* <h1 className="header-1">Profile</h1> */}
 
-          <h3 className="header" >User Profile</h3>
+      <div className="InfoPane">
 
-          <TextField
-            className="text"
-            label="First Name"
-            defaultValue={firstName}
-            InputProps={{
-              readOnly: true,
-            }}
-          />
+        <h3 className="header-2">Personal Information</h3>
 
-          <TextField
-            className="text"
-            label="Last Name"
-            defaultValue={lastName}
-            InputProps={{
-              readOnly: true,
-            }}
-          />
+        <div className="first_last_name">
 
-          <TextField
-            className="text"
-            label="Email"
-            defaultValue={email}
-            InputProps={{
-              readOnly: true,
-            }}
-          />
+          <div className="fisrt_name">
+              <TextField
+                sx={{width: "308px", height: "55px", background: '#FFFFFF', textSizeAdjust: "80%"}}
+                label="First Name"
+                defaultValue={firstName}
+                InputProps={{
+                  readOnly: true,
+                }}
+              />
+          </div>
 
-          <TextField
-            className="text"
-            label="Staff Number"
-            defaultValue={staffNumber}
-            InputProps={{
-              readOnly: true
-            }}
-          />
+          <div className="Last_Name">
+              <TextField
+                sx={{width: "308px", height: "55px", background: '#FFFFFF'}}
+                label="Last Name"
+                defaultValue={lastName}
+                InputProps={{
+                  readOnly: true,
+                }}
+              />
+          </div>
 
-          <Box p={2} ml={18}>
-            <Button onClick={redirectPage} variant="contained">Change Password</Button>
-          </Box>
+      </div>
 
-        </Box>
-        )
-    }
+      <div className="email_input">
+        <TextField
+        sx={{width: "488px", height: "55px", background: '#FFFFFF'}}
+        label="Email"
+        defaultValue={email}
+        InputProps={{
+          readOnly: true,
+        }}
+      />
+      </div>
+
+      <div className="PSN_input">
+        <TextField
+          sx={{width: "488px", height: "55px", background: '#FFFFFF'}}
+          className="text"
+          label="Staff Number"
+          defaultValue={staffNumber}
+          InputProps={{
+            readOnly: true
+          }}
+        />
+      </div>
+
+      <div className="change_pass_button">
+        <Button
+        sx={{width: "488px", height: "55px", background: '#009CC4'}}
+        variant="contained">Change Password</Button>
+      </div>
+
+    </div>
+
+    </div>
+    )
+  }
   
    
   export default Profile;

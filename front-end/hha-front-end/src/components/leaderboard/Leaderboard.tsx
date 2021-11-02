@@ -1,54 +1,64 @@
 import React, {useState} from 'react';
-import Box from '@mui/material/Box';
-import Grid from '@mui/material/Grid'
-import Typography from '@mui/material/Typography';
+import './Leaderboard.css';
 
 interface LeaderboardAttribute {
-    departmentName: string;
+    FirstDepartmentName: string;
+    SecondDepartmentName: string;
+    ThirdDepartmentName: string;
+    FirstPoints: string;
+    SecondPoints: string;
+    ThirdPoints: string;
 }
 
-const Leaderboard = ({departmentName}:LeaderboardAttribute) => {
+const Leaderboard = ({FirstDepartmentName, SecondDepartmentName, ThirdDepartmentName, FirstPoints, SecondPoints, ThirdPoints}:LeaderboardAttribute) => {
     return (
-      <Grid container
-        direction="row"
-        justifyContent="center"
-        alignItems="center"
-      >
-        <Box
-          sx={{
-            width:300,
-            height: 150,
-            bgcolor: '#F5F8FF',
-            boxShadow: 1,
-            fontWeight: 'bold',
-            alignItems: 'center',
-            overflow: 'hidden',
-            borderRadius: '12px'
-          }}> 
+      <div className = 'grid'>
+         <div className = 'box second'>
           
-          <div>
-            <Typography
-              mt = {2}
-              color = "#787885"  
-              align = "center"
-              fontWeight = "bold"
-            >
-              Best Department of the month
-            </Typography>
-          </div>
+          <h3>
+            2nd place
+          </h3>
 
-          <div>
-            <Typography
-              variant = "h4"
-              my = {2}
-              align = "center"  
-              fontWeight = "bold"
-            >
-              {departmentName}
-            </Typography>
-          </div>
-        </Box>
-        </Grid>
+          <h1>
+            {SecondDepartmentName}
+          </h1>
+
+          <h2>
+            {SecondPoints} points
+          </h2>
+        </div>
+        
+        <div className = 'box first'>
+
+          <h3>
+            1st place
+          </h3>
+
+          <h1>
+            {FirstDepartmentName}
+          </h1>
+
+          <h2>
+            {FirstPoints} points
+          </h2>
+
+        </div>
+        <div className = 'box third'>
+          
+          <h3>
+            3rd place
+          </h3>
+
+          <h1>
+            {ThirdDepartmentName}
+          </h1>
+
+          <h2>
+            {ThirdPoints} points
+          </h2>
+            
+        </div>
+       </div>
     );
 };
 
