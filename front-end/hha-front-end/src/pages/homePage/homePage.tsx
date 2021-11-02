@@ -1,10 +1,14 @@
-import { observer } from "mobx-react-lite";
 import "./homePage.css";
 import Leaderboard from "../../components/leaderboard/Leaderboard";
 import ToDo from "../../components/TodoList/todo";
 import Navbar from "../../components/Navbar/Navbar";
+import { useHistory } from "react-router";
 
 const HomePage = () => {
+    let history = useHistory();
+
+    const startForm = () => {history.push("/forms")}
+    const createStory = () => {history.push("/caseStudies")}
     return(
         <>
         <Navbar />
@@ -27,13 +31,15 @@ const HomePage = () => {
         <div>
             <ToDo firstLine = {"Form for Sep, 2021 is ready to fill in."} 
             secondLine = {"Click on the button to start filling in the form for Sep, 2021 or go to Forms Tab to start the form."}
-            thirdLine = {"Start the form"}/>
+            thirdLine = {"Start the form"}
+            func = {startForm}/>
         </div> 
 
         <div>
             <ToDo firstLine = {"Create New Story"}
             secondLine = {"Click on the button to create a new story or go to Case Study Tab"}
-            thirdLine = {"Create New Story"}/>
+            thirdLine = {"Create New Story"}
+            func = {createStory}/>
         </div>
         </>
     );

@@ -23,8 +23,8 @@ function App() {
           <Route exact path="/login" component={ Login } />
           <Route exact path="/forgotPassword" component={ForgotPassword}/>
           <Route exact path="/forgotPassword/enterNewPassword" component={EnterNewPassword}/>
-          <Route exact path="/homePage" component={HomePage} />
           <Redirect from="*" to="/" />
+          <PrivateRoute path="/homePage" Component={HomePage} />
           <PrivateRoute path="/register" Component={Registration} />
           <PrivateRoute path="/addUser" Component={AddUser} />
       </Switch>

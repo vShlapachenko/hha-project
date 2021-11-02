@@ -3,15 +3,17 @@ import Box from '@mui/material/Box';
 import Button from '@mui/material/Button'
 import { Link } from 'react-router-dom'
 import './todo.css'
+import { types } from '@babel/core';
 
 
 interface ToDoAttribute{
     firstLine: string;
     secondLine: string;
     thirdLine: string;
+    func: () => void;
 }
 
-const ToDo = ({firstLine, secondLine, thirdLine}:ToDoAttribute) => {
+const ToDo = ({firstLine, secondLine, thirdLine, func}:ToDoAttribute) => {
 
     return(
       <div className = "toDogrid">
@@ -26,11 +28,9 @@ const ToDo = ({firstLine, secondLine, thirdLine}:ToDoAttribute) => {
             </p>
 
             <Box pt={2}>
-              <Link to = "/login" style ={{textDecoration:'none'}}>
-                <button className = "todoButton">
+              <button className = "todoButton" onClick = {func}>
                   {thirdLine}
-                </button>
-              </Link>
+              </button>
             </Box>
         </div>
       </div>
