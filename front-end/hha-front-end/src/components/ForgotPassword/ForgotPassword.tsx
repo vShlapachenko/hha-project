@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { observer } from "mobx-react-lite";
 import EnterOTP from "./EnterOTP";
 import "./ForgotPassword.css";
+import logo_HHA from "../../pages/loginPage/logo.svg";
 
 const ForgotPassword: React.FC<{}> = () => {
     const [email, setEmail] = useState<string>("");
@@ -11,11 +12,7 @@ const ForgotPassword: React.FC<{}> = () => {
     const [showOTP, setShowOtp] = useState(false);
 
     useEffect(()=>{
-        if(store.otp === 403){
-            alert("Email does not exist");
-            setEmail("");
-            setShowOtp(false);
-        } else if(store.otp.toString().length === 6){
+        if(store.otp.toString().length === 6){
             setShowOtp(true);
         }
     }, [store.otp])
@@ -44,11 +41,12 @@ const ForgotPassword: React.FC<{}> = () => {
     };
 
     return (
-        <div className="forgot_password_parent">
+        <div>
+            <img src={logo_HHA} className="logoHHA" alt="logo" />
             {showOTP ? (
                 <EnterOTP disableOtpPage={disableOtpPage} email={email} />
             ) : (
-                <div className="allignment-forgot ">
+                <div className="alignment">
                     <h1>Enter your email</h1>
                     <input
                         onChange={(e) => setEmail(e.target.value)}
@@ -59,7 +57,7 @@ const ForgotPassword: React.FC<{}> = () => {
                     />
 
                     <button className="ForgotButton" onClick={handleSendOTP}>
-                        Click to recieve OTP by email
+                        Click to receive OTP by email
                     </button>
                     <Link to="/">Login Page?</Link>
                 </div>

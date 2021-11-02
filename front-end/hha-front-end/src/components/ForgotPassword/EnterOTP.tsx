@@ -55,8 +55,8 @@ const EnterOTP: React.FC<PropsInterface> = (props): JSX.Element => {
         return <p>Loading</p>;
     }
     return (
-        <div className="forgot_password_parent">
-            <div className="forget_col">
+        <div>
+            <div className="alignment">
                 <h1>Enter OTP</h1>
                 <input
                     onChange={(e) => setUserOtp(e.target.value)}

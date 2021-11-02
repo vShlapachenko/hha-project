@@ -127,8 +127,7 @@ public class HhaUserService implements UserDetailsService {
 
     public int sendOtp(EmailDto email) {
         if (!userRepository.existsByEmail(email.getEmail())){
-            return 0;
-//            throw new IllegalArgumentException("This email does not exist in DB = " + email.getEmail());
+            throw new IllegalArgumentException("This email does not exist in DB = " + email.getEmail());
         }
 
         //reference from https://stackoverflow.com/questions/51322750/generate-6-digit-random-number
@@ -143,5 +142,11 @@ public class HhaUserService implements UserDetailsService {
         }
         forgotPasswordRepository.save(new ForgotPassword(otp, userRepository.findByEmail(email.getEmail())));
         return otp;
+    }
+
+    public void setNewPassword(NewPassword newPasswordData){
+        var user = getUser(newPasswordData.getEmail());
+        user.setPassword(newPasswordData.getPassword());
+        saveUser(user);
     }
 }

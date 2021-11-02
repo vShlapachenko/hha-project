@@ -2,6 +2,7 @@ import React, { useState, useContext, useEffect } from "react";
 import { Context } from "../../index";
 import {Link, useHistory} from "react-router-dom";
 import "./ForgotPassword.css";
+import logo_HHA from "../../pages/loginPage/logo.svg";
 
 const EnterNewPassword: React.FC<{}> = () => {
     const [password, setPassword] = useState<string>("");
@@ -31,8 +32,9 @@ const EnterNewPassword: React.FC<{}> = () => {
     };
 
     return (
-        <div className="forgot_password_parent">
-            <div className="allignment-forgot">
+        <div>
+            <img src={logo_HHA} className="logoHHA" alt="logo" />
+            <div className="alignment">
                 <h1>Enter New Password</h1>
                 <p>user email - {userEmail || "unknown"}</p>
                 <input

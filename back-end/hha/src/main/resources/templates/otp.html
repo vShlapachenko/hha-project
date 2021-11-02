@@ -11,13 +11,10 @@
 <div style="background-color: #E5E5E5;
     border-radius: 5px;
     padding: 40px;">
-    <h1> Hi We are sorry that you forgot your password!</h1>
+    <h1> Hi, We are sorry that you forgot your password!</h1>
     <table border="0" cellspacing="0" cellpadding="0">
         <tr>
-            <td align="center" style="border-radius: 5px; background-color: #009CC4;">
-                <a th:href="@{api/hha-user/fogotPassword}" style="font-size: 18px; color: #ffffff; font-weight: bold; text-decoration: none;border-radius: 5px; padding: 12px 18px; display: inline-block;">Change Password! &rarr;</a>
-            </td>
-            <td> Your otp password = <span th:text="${otp}"></span></td>
+            <td align="center"> Your otp password = <span th:text="${otp}"></span></td>
         </tr>
     </table>
     <p>Kind Regards,</p>
