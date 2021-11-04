@@ -5,7 +5,9 @@ import ca.sfu.cmpt373.pluto.fall2021.hha.models.CaseStudyTemplate;
 import ca.sfu.cmpt373.pluto.fall2021.hha.models.HhaUser;
 import ca.sfu.cmpt373.pluto.fall2021.hha.models.Photo;
 import ca.sfu.cmpt373.pluto.fall2021.hha.repositories.CaseStudyRepository;
+import ca.sfu.cmpt373.pluto.fall2021.hha.repositories.CaseStudyTemplateRepository;
 import ca.sfu.cmpt373.pluto.fall2021.hha.repositories.PhotoRepository;
+import lombok.RequiredArgsConstructor;
 import org.bson.BsonBinarySubType;
 import org.bson.types.Binary;
 import org.springframework.stereotype.Service;
@@ -14,17 +16,20 @@ import org.springframework.web.multipart.MultipartFile;
 import java.io.IOException;
 
 @Service
+@RequiredArgsConstructor
 public class CaseStudyService {
-    private CaseStudyRepository caseStudyRepository;
-    private PhotoRepository photoRepository;
+    private final CaseStudyRepository caseStudyRepository;
+    private final CaseStudyTemplateRepository caseStudyTemplateRepository;
+    private final PhotoRepository photoRepository;
 
     private CaseStudy caseStudy;
 
-    public void createCaseStudy(HhaUser user, CaseStudyTemplate caseStudyTemplate) {
+    public void createCaseStudy() {
         caseStudy = new CaseStudy();
+    }
 
-        caseStudy.setCaseName(caseStudyTemplate.getName());
-        caseStudy.setSubmittedBy(user);
+    public CaseStudyTemplate getQuestions(String caseName) {
+        return caseStudyTemplateRepository.findByName(caseName);
     }
 
     public void savePhoto(MultipartFile file) throws IOException {
@@ -37,7 +42,11 @@ public class CaseStudyService {
         caseStudy.getPhotos().add(photo);
     }
 
-    public void saveCaseStudy()
+    private void getHhaUser() {
+
+    }
+
+    public void saveCaseStudy(CaseStudy caseReceived)
     {
         caseStudyRepository.insert(caseStudy);
     }

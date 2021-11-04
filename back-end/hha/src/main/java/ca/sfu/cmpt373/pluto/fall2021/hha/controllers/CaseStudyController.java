@@ -1,5 +1,6 @@
 package ca.sfu.cmpt373.pluto.fall2021.hha.controllers;
 
+import ca.sfu.cmpt373.pluto.fall2021.hha.models.CaseStudy;
 import ca.sfu.cmpt373.pluto.fall2021.hha.models.CaseStudyTemplate;
 import ca.sfu.cmpt373.pluto.fall2021.hha.models.HhaUser;
 import ca.sfu.cmpt373.pluto.fall2021.hha.repositories.CaseStudyRepository;
@@ -15,13 +16,16 @@ import java.io.IOException;
 @RequiredArgsConstructor
 @RequestMapping("api/case-study")
 public class CaseStudyController {
-    private CaseStudyService caseStudyService;
+    private final CaseStudyService caseStudyService;
 
     @PostMapping("create")
-    public void createCaseStudy(@RequestParam("user") HhaUser user,
-                                @RequestParam("template")CaseStudyTemplate template) {
-        caseStudyService = new CaseStudyService();
-        caseStudyService.createCaseStudy(user, template);
+    public void createCaseStudy() {
+        caseStudyService.createCaseStudy();
+    }
+
+    @GetMapping("questions")
+    public CaseStudyTemplate getQuestions(@RequestParam("case") String caseName) {
+        return caseStudyService.getQuestions(caseName);
     }
 
     @PostMapping("photo/add")
@@ -31,7 +35,7 @@ public class CaseStudyController {
     }
 
     @PostMapping("submit")
-    public void saveCaseStudy() {
-        caseStudyService.saveCaseStudy();
+    public void saveCaseStudy(@RequestParam("caseStudy") CaseStudy caseStudy) {
+        caseStudyService.saveCaseStudy(caseStudy);
     }
 }
