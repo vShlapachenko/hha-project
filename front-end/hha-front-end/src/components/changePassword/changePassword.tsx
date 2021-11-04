@@ -20,7 +20,7 @@ const ChangePassword: React.FC<{}> = () => {
 
     const handleChangePassword = () => {
         if (newPassword === confirmPassword) {
-            store.changeOldPassword(userEmail, newPassword);
+            store.changeOldPassword(userEmail, oldPassword, newPassword);
             alert("New Password set")
             history.push({
                 pathname: "/userProfile",
@@ -37,6 +37,12 @@ const ChangePassword: React.FC<{}> = () => {
             <img src={logo_HHA} className="logoHHA" alt="logo" />
             <div className="alignment">
                 <h1>Change Password</h1>
+                <input
+                    onChange={(e) => setUserEmail(e.target.value)}
+                    value={userEmail}
+                    type="email"
+                    placeholder="Enter your email"
+                />
                 <input
                     onChange={(e) => setOldPassword(e.target.value)}
                     value={oldPassword}

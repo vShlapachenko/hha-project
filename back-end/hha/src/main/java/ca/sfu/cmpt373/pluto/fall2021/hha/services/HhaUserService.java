@@ -149,4 +149,14 @@ public class HhaUserService implements UserDetailsService {
         user.setPassword(newPasswordData.getPassword());
         saveUser(user);
     }
+
+    public void changePassword(ChangePassword changePasswordData) {
+        var user = getUser(changePasswordData.getEmail());
+        if (passwordEncoder.matches(changePasswordData.getOldPassword(), user.getPassword())){
+            user.setPassword(changePasswordData.getNewPassword());
+            saveUser(user);
+        } else{
+            throw new IllegalArgumentException("Old Password do not match for " + changePasswordData.getEmail());
+        }
+    }
 }

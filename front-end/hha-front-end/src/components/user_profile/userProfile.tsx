@@ -20,7 +20,7 @@ const Profile = ({firstName, lastName, email, staffNumber, profileImage, departm
 
     const redirectPage = () =>{
         history.push({
-            pathname: "/userProfile/changePassword",
+            pathname: "/changePassword",
         });
     }
   return (
@@ -82,7 +82,7 @@ const Profile = ({firstName, lastName, email, staffNumber, profileImage, departm
       </div>
 
       <div className="change_pass_button">
-        <Button
+        <Button onClick={redirectPage}
         sx={{width: "488px", height: "55px", background: '#009CC4'}}
         variant="contained">Change Password</Button>
       </div>
