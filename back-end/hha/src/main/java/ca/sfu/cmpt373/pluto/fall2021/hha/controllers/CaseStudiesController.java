@@ -13,7 +13,7 @@ import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("api/case-study")
+@RequestMapping("api/case-studies")
 public class CaseStudiesController {
 
     private final CaseStudyService caseStudyService;
