@@ -14,6 +14,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Collection;
 
 @Service
 @RequiredArgsConstructor
@@ -22,10 +24,12 @@ public class CaseStudyService {
     private final CaseStudyTemplateRepository caseStudyTemplateRepository;
     private final PhotoRepository photoRepository;
 
-    private CaseStudy caseStudy;
+    private final AuthorizationService authorizationService;
+
+    private Collection<Photo> photos;
 
     public void createCaseStudy() {
-        caseStudy = new CaseStudy();
+        photos = new ArrayList<>();
     }
 
     public CaseStudyTemplate getQuestions(String caseName) {
@@ -39,15 +43,14 @@ public class CaseStudyService {
         );
         photoRepository.insert(photo);
 
-        caseStudy.getPhotos().add(photo);
+        photos.add(photo);
     }
 
-    private void getHhaUser() {
-
-    }
-
-    public void saveCaseStudy(CaseStudy caseReceived)
+    public void saveCaseStudy(CaseStudy caseStudy)
     {
+        caseStudy.setSubmittedBy(authorizationService.getUser());
+        caseStudy.setPhotos(photos);
+
         caseStudyRepository.insert(caseStudy);
     }
 }
