@@ -1,4 +1,5 @@
 export interface Cell {
-  isEnabled : boolean;
-  value: number;
+  disabled : boolean;
+  value?: number;
+  type: string;
 }

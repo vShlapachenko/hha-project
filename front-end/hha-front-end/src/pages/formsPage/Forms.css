@@ -133,3 +133,18 @@ input:focus {
 input {
   max-width: 100px;
 }
+
+input:disabled {
+  background: none;
+  border: none;
+  text-align: center;
+}
+
+@media only screen and (max-width: 800px) {
+  /* .container {
+    flex-direction: column;
+  } */
+  .sideMenuBackground {
+    display: none;
+  }
+}

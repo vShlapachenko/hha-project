@@ -52,7 +52,15 @@ const Forms: FC = () => {
       const newForm : Form = {...formFromServer, tables: formFromServer.tables.map(t => (
         {...t, subTables: t.subTables.map(st => (
           {...st, columns: st.columns.map(c => (
-            {...c, cells: new Array(t.commonColumn.values.length)}))}
+            {...c, cells: !c.cells || c.cells.length === 0 ? t.commonColumn.values.map((cc) => (
+              {
+                disabled: false,
+                value: undefined,
+                type: 'number'
+              }
+            ))
+          : c.cells
+        }))}
         ))}
       ))}
       setForm(newForm)
@@ -87,7 +95,7 @@ const Forms: FC = () => {
         for(var st of t.subTables) {
           for(var c of st.columns) {
             for(var i = 0; i < c.cells.length; i++) {
-              if(!c.cells[i]) {
+              if((c.cells[i] && !c.cells[i].disabled && !c.cells[i].value)) {
                 isValid = false
               }
             }
@@ -108,7 +116,7 @@ const Forms: FC = () => {
       colIndex: number,
       cellIndex: number
     ) => {
-      form.tables[currentIndex[0]].subTables[currentIndex[1]].columns[colIndex].cells[cellIndex] = Number(e.target.value)
+      form.tables[currentIndex[0]].subTables[currentIndex[1]].columns[colIndex].cells[cellIndex].value = Number(e.target.value)
       setForm({...form})
   }
 
@@ -143,6 +151,7 @@ const Forms: FC = () => {
         <Button onClick={submitForm} autoFocus>
           Submit
         </Button>
+        <Button>Export to CSV</Button>
       </DialogActions>
     </Dialog>
   }
@@ -224,24 +233,22 @@ const Forms: FC = () => {
                         <TableRow
                           key={label}
                           className='tableRow'
-                          // sx={{ '&:nth-child td, &:last-child th': { 
-                          //     border: '1px solid #009CC4',
-                          //     border
-                          //   } }
-                          // }
                         >
                           <TableCell className='table' component='th' scope='row'>
                             {label}
                           </TableCell>
                           {
                             form.tables[currentIndex[0]].subTables[currentIndex[1]].columns.map((col, colIndex) => (
+                              col.cells[cellIndex] && col.cells[cellIndex].type ?
                               <TableCell align="center">
                                 <input 
-                                  value={col.cells[cellIndex] ? col.cells[cellIndex] : ''} 
-                                  type='number' 
+                                  value={col.cells[cellIndex].value ? col.cells[cellIndex].value : ''} 
+                                  type={col.cells[cellIndex].type}
                                   onChange={(e) => onInputChange(e, col, colIndex, cellIndex)}
+                                  disabled={col.cells[cellIndex].disabled}
                                 />
                               </TableCell>
+                              : null
                             ))
                           }
                         </TableRow>
@@ -266,7 +273,7 @@ const Forms: FC = () => {
                   className='btn'
                   onClick={proceedToNext}
                   >{(currentIndex[0] === form.tables.length - 1 && currentIndex[1] === form.tables[currentIndex[0]].subTables.length - 1)
-                    ? 'Submit' 
+                    ? 'Preview' 
                     : 'Proceed to Next Step'}
                   </Button>
               </div>
