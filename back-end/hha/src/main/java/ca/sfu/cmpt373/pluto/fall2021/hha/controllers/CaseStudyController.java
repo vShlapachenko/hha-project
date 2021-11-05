@@ -23,19 +23,19 @@ public class CaseStudyController {
         caseStudyService.createCaseStudy();
     }
 
-    @GetMapping("questions")
-    public CaseStudyTemplate getQuestions(@RequestParam("case") String caseName) {
+    @GetMapping("questions/{caseName}")
+    public CaseStudyTemplate getQuestions(@PathVariable("caseName") String caseName) {
         return caseStudyService.getQuestions(caseName);
     }
 
     @PostMapping("photo/add")
-    public void savePhoto(@RequestParam("photo") MultipartFile photo)
+    public void savePhoto(@RequestBody MultipartFile photo)
             throws IOException {
         caseStudyService.savePhoto(photo);
     }
 
     @PostMapping("submit")
-    public void saveCaseStudy(@RequestParam("caseStudy") CaseStudy caseStudy) {
+    public void saveCaseStudy(@RequestBody CaseStudy caseStudy) {
         caseStudyService.saveCaseStudy(caseStudy);
     }
 }
