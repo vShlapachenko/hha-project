@@ -26,8 +26,6 @@ db.hhaUser.insert([
     }
 ])
 
-db = db.getSiblingDB('caseStudy');
-
 db.createCollection('caseTemplate', {capped: false});
 
 db.caseTemplate.insert([

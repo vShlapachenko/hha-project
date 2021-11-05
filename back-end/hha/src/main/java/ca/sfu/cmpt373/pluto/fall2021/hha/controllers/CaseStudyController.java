@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
+import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
@@ -23,19 +24,19 @@ public class CaseStudyController {
         caseStudyService.createCaseStudy();
     }
 
-    @GetMapping("questions")
-    public CaseStudyTemplate getQuestions(@RequestParam("case") String caseName) {
+    @PostMapping("questions")
+    public CaseStudyTemplate getQuestions(@RequestParam String caseName) {
         return caseStudyService.getQuestions(caseName);
     }
 
     @PostMapping("photo/add")
-    public void savePhoto(@RequestParam("photo") MultipartFile photo)
+    public void savePhoto(@RequestBody MultipartFile photo)
             throws IOException {
         caseStudyService.savePhoto(photo);
     }
 
     @PostMapping("submit")
-    public void saveCaseStudy(@RequestParam("caseStudy") CaseStudy caseStudy) {
+    public void saveCaseStudy(@RequestBody CaseStudy caseStudy) {
         caseStudyService.saveCaseStudy(caseStudy);
     }
 }
