@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
+import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
@@ -23,8 +24,8 @@ public class CaseStudyController {
         caseStudyService.createCaseStudy();
     }
 
-    @GetMapping("questions/{caseName}")
-    public CaseStudyTemplate getQuestions(@PathVariable("caseName") String caseName) {
+    @PostMapping("questions")
+    public CaseStudyTemplate getQuestions(@RequestParam String caseName) {
         return caseStudyService.getQuestions(caseName);
     }
 
