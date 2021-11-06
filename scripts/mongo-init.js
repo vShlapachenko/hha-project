@@ -38,8 +38,7 @@ db.caseTemplate.insert([
             "Why did the patient choose to come to HCBH?",
             "How long were they at HCBH?",
             "What was their diagnosis?",
-            "Case study/story: (add more personal elements to the story, " +
-            "quote from the patient/family member, etc.)"
+            "Case study/story: (add more personal elements to the story;quote from the patient/family member etc.)"
         ]
     }, {
         name: "Staff Recognition",
@@ -60,7 +59,7 @@ db.caseTemplate.insert([
             "Who conducted the training?",
             "Who attended the training?",
             "How will the training benefit HCBH and its staff?",
-            "Case study/story (include a general summary of the training, its success, etc.)"
+            "Case study/story (include a general summary of the training and its success etc.)"
         ]
     }, {
         name: "Equipment Received",
@@ -70,8 +69,8 @@ db.caseTemplate.insert([
             "Who was the equipment from?",
             "Was the equipment donated or purchased?",
             "What does this new equipment do?",
-            "Case study/story (include who will benefit from this equipment, " +
-            "what value it adds to HCBH, etc.)"
+            "Case study/story (include who will benefit from this equipment)" +
+            "what value it adds to HCBH etc.)"
         ]
     }, {
         name: "Other Story",
