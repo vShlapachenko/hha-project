@@ -48,7 +48,7 @@ public class CaseStudyService {
 
     public void saveCaseStudy(CaseStudy caseStudy)
     {
-        caseStudy.setSubmittedBy(authorizationService.getUser());
+        // caseStudy.setSubmittedBy(authorizationService.getUser());
         caseStudy.setPhotos(photos);
 
         caseStudyRepository.insert(caseStudy);
