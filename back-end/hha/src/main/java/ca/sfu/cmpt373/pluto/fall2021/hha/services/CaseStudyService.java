@@ -13,6 +13,7 @@ import org.bson.types.Binary;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
+import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -24,7 +25,7 @@ public class CaseStudyService {
     private final CaseStudyTemplateRepository caseStudyTemplateRepository;
     private final PhotoRepository photoRepository;
 
-    private final AuthorizationService authorizationService;
+    private final HhaUserService hhaUserService;
 
     private Collection<Photo> photos;
 
@@ -46,9 +47,9 @@ public class CaseStudyService {
         photos.add(photo);
     }
 
-    public void saveCaseStudy(CaseStudy caseStudy)
+    public void saveCaseStudy(HttpServletRequest request, CaseStudy caseStudy)
     {
-        caseStudy.setSubmittedBy(authorizationService.getUser());
+        caseStudy.setSubmittedBy(hhaUserService.getUser(request.getUserPrincipal().getName()));
         caseStudy.setPhotos(photos);
 
         caseStudyRepository.insert(caseStudy);

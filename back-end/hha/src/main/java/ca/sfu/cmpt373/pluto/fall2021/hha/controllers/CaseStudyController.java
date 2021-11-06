@@ -10,6 +10,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
+import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
 import java.util.List;
 
@@ -36,7 +37,8 @@ public class CaseStudyController {
     }
 
     @PostMapping("submit")
-    public void saveCaseStudy(@RequestBody CaseStudy caseStudy) {
-        caseStudyService.saveCaseStudy(caseStudy);
+    public void saveCaseStudy(HttpServletRequest request,
+                              @RequestBody CaseStudy caseStudy) {
+        caseStudyService.saveCaseStudy(request, caseStudy);
     }
 }
