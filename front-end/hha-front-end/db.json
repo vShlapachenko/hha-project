@@ -1,0 +1,6175 @@
+{
+  "form": {
+    "label": "Community Health",
+    "date": "Septemper 2021",
+    "tables": [
+      {
+        "label": "Age Of Mothers",
+        "commonColumn": {
+          "label": "Age Of Mothers",
+          "values": [
+            "<15 years",
+            "15-19 years",
+            "20-24 years",
+            "25-29 years",
+            "30 years plus",
+            "Unknown"
+          ]
+        },
+        "subTables": [
+          {
+            "label": "",
+            "columns": [
+              {
+                "label": "Matrones",
+                "cells": []
+              },
+              {
+                "label": "Autres",
+                "cells": []
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "Births",
+        "commonColumn": {
+          "label": "Births",
+          "values": [
+            "Weight < 1.5kg",
+            "1.5kg < Weight < 2.5kg",
+            "2.5kg and over",
+            "Not weighed",
+            "Immediately breastfed",
+            "Skin to skin therapy"
+          ]
+        },
+        "subTables": [
+          {
+            "label": "",
+            "columns": [
+              {
+                "label": "Matrones",
+                "cells": []
+              },
+              {
+                "label": "Autres",
+                "cells": []
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "Postal Natal",
+        "commonColumn": {
+          "label": "Postal Natal",
+          "values": [
+            "Breastfeeding women receiving vitamin A",
+            "Breastfeeding women with MUAC <210mm",
+            "Breastfeeding women with malnutrition support",
+            "Domestic visits in 0-3 days"
+          ]
+        },
+        "subTables": [
+          {
+            "label": "",
+            "columns": [
+              {
+                "label": "Matrones",
+                "cells": []
+              },
+              {
+                "label": "Autres",
+                "cells": []
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "Birth Control",
+        "commonColumn": {
+          "label": "Methods/Sex",
+          "values": [
+            "OCP",
+            "Patch",
+            "Depo injection",
+            "Implant",
+            "Inter uterine devices (IUD)",
+            "Vaginal ring",
+            "Breastfeeding as birth control",
+            "Female condom",
+            "Sterlisation",
+            "Male condom",
+            "Vasectomy"
+          ]
+        },
+        "subTables": [
+          {
+            "label": "Acceptants",
+            "columns": [
+              {
+                "label": "< 25 years",
+                "cells": []
+              },
+              {
+                "label": "25 years plus",
+                "cells": []
+              }
+            ]
+          },
+          {
+            "label": "Total utilisateurs",
+            "columns": [
+              {
+                "label": "< 25 years",
+                "cells": []
+              },
+              {
+                "label": "25 years plus",
+                "cells": []
+              }
+            ]
+          },
+          {
+            "label": "Contraceptives distributed",
+            "columns": [
+              {
+                "label": "Unit",
+                "cells": [
+                  {
+                    "disabled": true,
+                    "value": "Cycle",
+                    "type": "text"
+                  },
+                  {
+                    "disabled": true,
+                    "value": "Cycle",
+                    "type": "text"
+                  },
+                  {
+                    "disabled": true,
+                    "value": "Vial",
+                    "type": "text"
+                  },
+                  {
+                    "disabled": true,
+                    "value": "Paquet",
+                    "type": "text"
+                  },
+                  {
+                    "disabled": true,
+                    "value": "Piece",
+                    "type": "text"
+                  },
+                  {
+                    "disabled": true,
+                    "value": "Piece",
+                    "type": "text"
+                  },
+                  {
+                    "disabled": true,
+                    "value": null,
+                    "type": "text"
+                  },
+                  {
+                    "disabled": true,
+                    "value": "Piece",
+                    "type": "text"
+                  }
+                ]
+              },
+              {
+                "label": "Quantity",
+                "cells": [
+                  {
+                    "disabled": false,
+                    "value": null,
+                    "type": "number"
+                  },
+                  {
+                    "disabled": false,
+                    "value": null,
+                    "type": "number"
+                  },
+                  {
+                    "disabled": false,
+                    "value": null,
+                    "type": "number"
+                  },
+                  {
+                    "disabled": false,
+                    "value": null,
+                    "type": "number"
+                  },
+                  {
+                    "disabled": false,
+                    "value": null,
+                    "type": "number"
+                  },
+                  {
+                    "disabled": false,
+                    "value": null,
+                    "type": "number"
+                  },
+                  {
+                    "disabled": true,
+                    "value": null,
+                    "type": "number"
+                  },
+                  {
+                    "disabled": false,
+                    "value": null,
+                    "type": "number"
+                  }
+                ]
+              },
+              {
+                "label": "Number of days out of stock / month",
+                "cells": [
+                  {
+                    "disabled": false,
+                    "value": null,
+                    "type": "number"
+                  },
+                  {
+                    "disabled": false,
+                    "value": null,
+                    "type": "number"
+                  },
+                  {
+                    "disabled": false,
+                    "value": null,
+                    "type": "number"
+                  },
+                  {
+                    "disabled": false,
+                    "value": null,
+                    "type": "number"
+                  },
+                  {
+                    "disabled": false,
+                    "value": null,
+                    "type": "number"
+                  },
+                  {
+                    "disabled": false,
+                    "value": null,
+                    "type": "number"
+                  },
+                  {
+                    "disabled": true,
+                    "value": null,
+                    "type": "number"
+                  },
+                  {
+                    "disabled": false,
+                    "value": null,
+                    "type": "number"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "Vaccination",
+        "commonColumn": {
+          "label": "Type of Vaccine",
+          "values": [
+            "BCG",
+            "VPO",
+            "Penta",
+            "Rota",
+            "RR",
+            "dT",
+            "VPI",
+            "Flu",
+            "DTP",
+            "COVID-19"
+          ]
+        },
+        "subTables": [
+          {
+            "label": "Type Of Vaccines",
+            "columns": [
+              {
+                "label": "Quantité disponible au cours du mois",
+                "cells": []
+              },
+              {
+                "label": "Balance en fin de mois",
+                "cells": []
+              },
+              {
+                "label": "Quantité disponible au cours du mois",
+                "cells": []
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "Vaccination",
+        "commonColumn": {
+          "label": "Consumables",
+          "values": [
+            "SAB 0.05ml",
+            "SAB 0.5ml",
+            "Sdil_2ml",
+            "Sdil_5ml",
+            "Boîtes Séc",
+            "Coton"
+          ]
+        },
+        "subTables": [
+          {
+            "label": "Consumables",
+            "columns": [
+              {
+                "label": "Quantité disponible au cours du mois",
+                "cells": []
+              },
+              {
+                "label": "Balance en fin de mois",
+                "cells": []
+              },
+              {
+                "label": "Quantité disponible au cours du mois",
+                "cells": []
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "Vaccines",
+        "commonColumn": {
+          "label": "Vaccines",
+          "values": [
+            "BCG",
+            "VPO (Polio)",
+            "VPO 1 (Polio)",
+            "VPO 2 (Polio)",
+            "Rappel VPO (Polio)",
+            "VPI",
+            "Penta 1",
+            "Penta 2",
+            "Penta 3",
+            "Rota 1",
+            "Rota 2",
+            "RR 1",
+            "RR 2",
+            "Pneumo 1",
+            "Pneumo 2",
+            "Pneumo 3",
+            "DTp Rappel",
+            "ECV"
+          ]
+        },
+        "subTables": [
+          {
+            "label": "Men 0-11 Years",
+            "columns": [
+              {
+                "label": "Inst.",
+                "cells": []
+              },
+              {
+                "label": "Comm.",
+                "cells": []
+              },
+              {
+                "label": "Total",
+                "cells": []
+              }
+            ]
+          },
+          {
+            "label": "Men 12-23 Years",
+            "columns": [
+              {
+                "label": "Inst.",
+                "cells": []
+              },
+              {
+                "label": "Comm.",
+                "cells": []
+              },
+              {
+                "label": "Total",
+                "cells": []
+              }
+            ]
+          },
+          {
+            "label": "Women 0-11 Years",
+            "columns": [
+              {
+                "label": "Inst.",
+                "cells": []
+              },
+              {
+                "label": "Comm.",
+                "cells": []
+              },
+              {
+                "label": "Total",
+                "cells": []
+              }
+            ]
+          },
+          {
+            "label": "Women 12-23 Years",
+            "columns": [
+              {
+                "label": "Inst.",
+                "cells": []
+              },
+              {
+                "label": "Comm.",
+                "cells": []
+              },
+              {
+                "label": "Total",
+                "cells": []
+              }
+            ]
+          },
+          {
+            "label": "Total",
+            "columns": [
+              {
+                "label": "Total doses",
+                "cells": []
+              },
+              {
+                "label": "Utilisees",
+                "cells": []
+              },
+              {
+                "label": "Administrees",
+                "cells": []
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "Vaccines dT1, dT2+",
+        "commonColumn": {
+          "label": "Vaccines",
+          "values": [
+            "dT1",
+            "dT2+"
+          ]
+        },
+        "subTables": [
+          {
+            "label": "Femmes Enceintes",
+            "columns": [
+              {
+                "label": "Inst.",
+                "cells": []
+              },
+              {
+                "label": "Comm.",
+                "cells": []
+              },
+              {
+                "label": "Total",
+                "cells": []
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "Vaccines dT1, dT2+",
+        "commonColumn": {
+          "label": "Total doses",
+          "values": [
+            "dT1 + dT2+"
+          ]
+        },
+        "subTables": [
+          {
+            "label": "Total",
+            "columns": [
+              {
+                "label": "Utilisees",
+                "cells": []
+              },
+              {
+                "label": "Administrees",
+                "cells": []
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "submittedForms": [
+    {
+      "label": "Community Health",
+      "date": "Septemper 2021",
+      "tables": [
+        {
+          "label": "Age Of Mothers",
+          "commonColumn": {
+            "label": "Age Of Mothers",
+            "values": [
+              "<15 years",
+              "15-19 years",
+              "20-24 years",
+              "25-29 years",
+              "30 years plus",
+              "Unknown"
+            ]
+          },
+          "columns": [
+            {
+              "label": "Matrones",
+              "columns": [],
+              "cells": [
+                312312,
+                32,
+                321,
+                321,
+                32,
+                321
+              ],
+              "isUsable": true
+            },
+            {
+              "label": "Autres",
+              "columns": [],
+              "cells": [
+                3213,
+                323,
+                321,
+                32,
+                29,
+                321
+              ],
+              "isUsable": true
+            }
+          ]
+        },
+        {
+          "label": "Births",
+          "commonColumn": {
+            "label": "Births",
+            "values": [
+              "Weight < 1.5kg",
+              "1.5kg < Weight < 2.5kg",
+              "2.5kg and over",
+              "Not weighed",
+              "Immediately breastfed",
+              "Skin to skin therapy"
+            ]
+          },
+          "columns": [
+            {
+              "label": "Matrones",
+              "columns": [],
+              "cells": [
+                321,
+                321,
+                321,
+                321,
+                3213,
+                32
+              ],
+              "isUsable": true
+            },
+            {
+              "label": "Autres",
+              "columns": [],
+              "cells": [
+                32,
+                321,
+                321,
+                13,
+                32,
+                32
+              ],
+              "isUsable": true
+            }
+          ]
+        },
+        {
+          "label": "Postal Natal",
+          "commonColumn": {
+            "label": "Postal Natal",
+            "values": [
+              "Breastfeeding women receiving vitamin A",
+              "Breastfeeding women with MUAC <210mm",
+              "Breastfeeding women with malnutrition support",
+              "Domestic visits in 0-3 days"
+            ]
+          },
+          "columns": [
+            {
+              "label": "Matrones",
+              "columns": [],
+              "cells": [
+                321,
+                321,
+                321,
+                432
+              ],
+              "isUsable": true
+            },
+            {
+              "label": "Autres",
+              "columns": [],
+              "cells": [
+                312,
+                321,
+                534,
+                324
+              ],
+              "isUsable": true
+            }
+          ]
+        }
+      ],
+      "id": 1
+    },
+    {
+      "label": "Community Health",
+      "date": "Septemper 2021",
+      "tables": [
+        {
+          "label": "Age Of Mothers",
+          "commonColumn": {
+            "label": "Age Of Mothers",
+            "values": [
+              "<15 years",
+              "15-19 years",
+              "20-24 years",
+              "25-29 years",
+              "30 years plus",
+              "Unknown"
+            ]
+          },
+          "subTables": [
+            {
+              "label": "Test 1",
+              "columns": [
+                {
+                  "label": "Matrones",
+                  "columns": [],
+                  "cells": [
+                    14124,
+                    4324,
+                    432,
+                    423,
+                    423,
+                    123
+                  ],
+                  "isUsable": true
+                },
+                {
+                  "label": "Autres",
+                  "columns": [],
+                  "cells": [
+                    423,
+                    234,
+                    534,
+                    534,
+                    423,
+                    343
+                  ],
+                  "isUsable": true
+                }
+              ]
+            },
+            {
+              "label": "Test 2",
+              "columns": [
+                {
+                  "label": "Matrones",
+                  "columns": [],
+                  "cells": [
+                    423,
+                    423,
+                    312,
+                    534,
+                    534,
+                    432
+                  ],
+                  "isUsable": true
+                },
+                {
+                  "label": "Autres",
+                  "columns": [],
+                  "cells": [
+                    312,
+                    423,
+                    423,
+                    432,
+                    423,
+                    234
+                  ],
+                  "isUsable": true
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "id": 2
+    },
+    {
+      "label": "Community Health",
+      "date": "Septemper 2021",
+      "tables": [
+        {
+          "label": "Age Of Mothers",
+          "commonColumn": {
+            "label": "Age Of Mothers",
+            "values": [
+              "<15 years",
+              "15-19 years",
+              "20-24 years",
+              "25-29 years",
+              "30 years plus",
+              "Unknown"
+            ]
+          },
+          "subTables": [
+            {
+              "label": "",
+              "columns": [
+                {
+                  "label": "Matrones",
+                  "cells": [
+                    312,
+                    123,
+                    32,
+                    30,
+                    32,
+                    321
+                  ]
+                },
+                {
+                  "label": "Autres",
+                  "cells": [
+                    432,
+                    32,
+                    43,
+                    43,
+                    32,
+                    12
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "label": "Births",
+          "commonColumn": {
+            "label": "Births",
+            "values": [
+              "Weight < 1.5kg",
+              "1.5kg < Weight < 2.5kg",
+              "2.5kg and over",
+              "Not weighed",
+              "Immediately breastfed",
+              "Skin to skin therapy"
+            ]
+          },
+          "subTables": [
+            {
+              "label": "",
+              "columns": [
+                {
+                  "label": "Matrones",
+                  "cells": [
+                    3,
+                    6,
+                    6,
+                    6,
+                    6,
+                    6
+                  ]
+                },
+                {
+                  "label": "Autres",
+                  "cells": [
+                    67,
+                    6,
+                    6,
+                    6,
+                    6,
+                    6
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "label": "Postal Natal",
+          "commonColumn": {
+            "label": "Postal Natal",
+            "values": [
+              "Breastfeeding women receiving vitamin A",
+              "Breastfeeding women with MUAC <210mm",
+              "Breastfeeding women with malnutrition support",
+              "Domestic visits in 0-3 days"
+            ]
+          },
+          "subTables": [
+            {
+              "label": "",
+              "columns": [
+                {
+                  "label": "Matrones",
+                  "cells": [
+                    6,
+                    6,
+                    6,
+                    6
+                  ]
+                },
+                {
+                  "label": "Autres",
+                  "cells": [
+                    6,
+                    6,
+                    6,
+                    6
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "label": "Birth Control",
+          "commonColumn": {
+            "label": "Methods/Sex",
+            "values": [
+              "OCP",
+              "Patch",
+              "Depo injection",
+              "Implant",
+              "Inter uterine devices (IUD)",
+              "Vaginal ring",
+              "Breastfeeding as birth control",
+              "Female condom",
+              "Sterlisation",
+              "Male condom",
+              "Vasectomy"
+            ]
+          },
+          "subTables": [
+            {
+              "label": "Acceptants",
+              "columns": [
+                {
+                  "label": "< 25 years",
+                  "cells": [
+                    1,
+                    7,
+                    7,
+                    7,
+                    77,
+                    7,
+                    7,
+                    7,
+                    7,
+                    7,
+                    7
+                  ]
+                },
+                {
+                  "label": "25 years plus",
+                  "cells": [
+                    6,
+                    7,
+                    7,
+                    7,
+                    7,
+                    7,
+                    7,
+                    7,
+                    7,
+                    7,
+                    7
+                  ]
+                }
+              ]
+            },
+            {
+              "label": "Total utilisateurs",
+              "columns": [
+                {
+                  "label": "< 25 years",
+                  "cells": [
+                    7,
+                    77,
+                    77,
+                    7,
+                    77,
+                    7,
+                    7,
+                    7,
+                    77,
+                    7,
+                    23
+                  ]
+                },
+                {
+                  "label": "25 years plus",
+                  "cells": [
+                    7,
+                    7,
+                    77,
+                    7,
+                    7,
+                    7,
+                    7,
+                    7,
+                    7,
+                    7,
+                    77
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "label": "Vaccination",
+          "commonColumn": {
+            "label": "Type of Vaccine",
+            "values": [
+              "BCG",
+              "VPO",
+              "Penta",
+              "Rota",
+              "RR",
+              "dT",
+              "VPI",
+              "Flu",
+              "DTP",
+              "COVID-19"
+            ]
+          },
+          "subTables": [
+            {
+              "label": "Type Of Vaccines",
+              "columns": [
+                {
+                  "label": "Quantité disponible au cours du mois",
+                  "cells": [
+                    67,
+                    7,
+                    7,
+                    7,
+                    2,
+                    7,
+                    7,
+                    7,
+                    78,
+                    6
+                  ]
+                },
+                {
+                  "label": "Balance en fin de mois",
+                  "cells": [
+                    7,
+                    7,
+                    7,
+                    7,
+                    77,
+                    7,
+                    7,
+                    7,
+                    77,
+                    6
+                  ]
+                },
+                {
+                  "label": "Quantité disponible au cours du mois",
+                  "cells": [
+                    7,
+                    7,
+                    7,
+                    77,
+                    7,
+                    7,
+                    7,
+                    7,
+                    67,
+                    6
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "label": "Vaccination",
+          "commonColumn": {
+            "label": "Consumables",
+            "values": [
+              "SAB 0.05ml",
+              "SAB 0.5ml",
+              "Sdil_2ml",
+              "Sdil_5ml",
+              "Boîtes Séc",
+              "Coton"
+            ]
+          },
+          "subTables": [
+            {
+              "label": "Consumables",
+              "columns": [
+                {
+                  "label": "Quantité disponible au cours du mois",
+                  "cells": [
+                    67,
+                    8,
+                    8,
+                    6,
+                    6,
+                    8
+                  ]
+                },
+                {
+                  "label": "Balance en fin de mois",
+                  "cells": [
+                    7,
+                    8,
+                    7,
+                    6,
+                    7,
+                    8
+                  ]
+                },
+                {
+                  "label": "Quantité disponible au cours du mois",
+                  "cells": [
+                    7,
+                    8,
+                    7,
+                    6,
+                    7,
+                    8
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "label": "Vaccines",
+          "commonColumn": {
+            "label": "Vaccines",
+            "values": [
+              "BCG",
+              "VPO (Polio)",
+              "VPO 1 (Polio)",
+              "VPO 2 (Polio)",
+              "Rappel VPO (Polio)",
+              "VPI",
+              "Penta 1",
+              "Penta 2",
+              "Penta 3",
+              "Rota 1",
+              "Rota 2",
+              "RR 1",
+              "RR 2",
+              "Pneumo 1",
+              "Pneumo 2",
+              "Pneumo 3",
+              "DTp Rappel",
+              "ECV"
+            ]
+          },
+          "subTables": [
+            {
+              "label": "Men 0-11 Years",
+              "columns": [
+                {
+                  "label": "Inst.",
+                  "cells": [
+                    89,
+                    8,
+                    8,
+                    9,
+                    9,
+                    8787,
+                    87,
+                    8,
+                    7,
+                    78,
+                    8,
+                    8,
+                    87,
+                    78,
+                    87,
+                    87,
+                    7,
+                    78
+                  ]
+                },
+                {
+                  "label": "Comm.",
+                  "cells": [
+                    8,
+                    8,
+                    9,
+                    9,
+                    9,
+                    8,
+                    87,
+                    78,
+                    87,
+                    7,
+                    7,
+                    78,
+                    8,
+                    78,
+                    8,
+                    87,
+                    87,
+                    7
+                  ]
+                },
+                {
+                  "label": "Total",
+                  "cells": [
+                    8,
+                    8,
+                    9,
+                    9,
+                    9,
+                    787,
+                    87,
+                    78,
+                    8,
+                    87,
+                    87,
+                    7,
+                    78,
+                    7,
+                    7,
+                    8,
+                    8,
+                    87
+                  ]
+                }
+              ]
+            },
+            {
+              "label": "Men 12-23 Years",
+              "columns": [
+                {
+                  "label": "Inst.",
+                  "cells": [
+                    78,
+                    67,
+                    67,
+                    6,
+                    67,
+                    7,
+                    76,
+                    7,
+                    76,
+                    767,
+                    7,
+                    7,
+                    7,
+                    76,
+                    67,
+                    7,
+                    6,
+                    76
+                  ]
+                },
+                {
+                  "label": "Comm.",
+                  "cells": [
+                    78,
+                    76,
+                    6,
+                    76,
+                    6,
+                    67,
+                    7,
+                    67,
+                    7,
+                    6,
+                    6,
+                    66,
+                    67,
+                    7,
+                    6,
+                    67,
+                    76,
+                    7
+                  ]
+                },
+                {
+                  "label": "Total",
+                  "cells": [
+                    8,
+                    7,
+                    7,
+                    7,
+                    76,
+                    6,
+                    6,
+                    6,
+                    6,
+                    76,
+                    76,
+                    76,
+                    6,
+                    67,
+                    76,
+                    67,
+                    76,
+                    67
+                  ]
+                }
+              ]
+            },
+            {
+              "label": "Women 0-11 Years",
+              "columns": [
+                {
+                  "label": "Inst.",
+                  "cells": [
+                    678,
+                    6,
+                    76,
+                    867,
+                    78,
+                    78,
+                    6,
+                    678,
+                    687,
+                    78,
+                    6,
+                    78,
+                    86,
+                    67,
+                    687,
+                    678,
+                    786,
+                    87
+                  ]
+                },
+                {
+                  "label": "Comm.",
+                  "cells": [
+                    678,
+                    78,
+                    78,
+                    86,
+                    678,
+                    68,
+                    786,
+                    6,
+                    6,
+                    67,
+                    786,
+                    678,
+                    786,
+                    6,
+                    6,
+                    6,
+                    76,
+                    67
+                  ]
+                },
+                {
+                  "label": "Total",
+                  "cells": [
+                    678,
+                    68,
+                    67,
+                    876,
+                    6,
+                    67,
+                    78,
+                    78,
+                    786,
+                    678,
+                    786,
+                    67,
+                    87,
+                    7,
+                    78,
+                    786,
+                    786,
+                    86876
+                  ]
+                }
+              ]
+            },
+            {
+              "label": "Women 12-23 Years",
+              "columns": [
+                {
+                  "label": "Inst.",
+                  "cells": [
+                    67,
+                    76,
+                    786,
+                    8,
+                    86,
+                    67,
+                    86,
+                    6,
+                    867,
+                    78,
+                    6,
+                    6,
+                    678,
+                    786,
+                    678,
+                    67,
+                    78,
+                    78
+                  ]
+                },
+                {
+                  "label": "Comm.",
+                  "cells": [
+                    67,
+                    76,
+                    76,
+                    77,
+                    78,
+                    67,
+                    76,
+                    78687,
+                    86,
+                    67,
+                    876,
+                    76,
+                    67,
+                    78,
+                    6,
+                    86,
+                    6,
+                    67
+                  ]
+                },
+                {
+                  "label": "Total",
+                  "cells": [
+                    6,
+                    7686,
+                    786,
+                    67,
+                    67,
+                    67,
+                    7,
+                    67,
+                    786,
+                    678,
+                    78,
+                    78,
+                    86,
+                    678,
+                    87,
+                    786,
+                    76,
+                    6
+                  ]
+                }
+              ]
+            },
+            {
+              "label": "Total",
+              "columns": [
+                {
+                  "label": "Total doses",
+                  "cells": [
+                    65,
+                    75,
+                    75,
+                    5,
+                    65,
+                    75,
+                    5675,
+                    675,
+                    567,
+                    5,
+                    6,
+                    6,
+                    76,
+                    67,
+                    76,
+                    675,
+                    675,
+                    67
+                  ]
+                },
+                {
+                  "label": "Utilisees",
+                  "cells": [
+                    67,
+                    6,
+                    765,
+                    67,
+                    67,
+                    76,
+                    6,
+                    675,
+                    56,
+                    65,
+                    5,
+                    56,
+                    5,
+                    567,
+                    567,
+                    67567,
+                    675,
+                    567
+                  ]
+                },
+                {
+                  "label": "Administrees",
+                  "cells": [
+                    56,
+                    56,
+                    6,
+                    5,
+                    56,
+                    567,
+                    5,
+                    67,
+                    567,
+                    657,
+                    675,
+                    5,
+                    675,
+                    5,
+                    5,
+                    5,
+                    675,
+                    56
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "label": "Vaccines dT1, dT2+",
+          "commonColumn": {
+            "label": "Vaccines",
+            "values": [
+              "dT1",
+              "dT2+"
+            ]
+          },
+          "subTables": [
+            {
+              "label": "Femmes Enceintes",
+              "columns": [
+                {
+                  "label": "Inst.",
+                  "cells": [
+                    868,
+                    76
+                  ]
+                },
+                {
+                  "label": "Comm.",
+                  "cells": [
+                    76,
+                    786
+                  ]
+                },
+                {
+                  "label": "Total",
+                  "cells": [
+                    768,
+                    87
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "label": "Vaccines dT1, dT2+",
+          "commonColumn": {
+            "label": "Total doses",
+            "values": [
+              "dT1 + dT2+"
+            ]
+          },
+          "subTables": [
+            {
+              "label": "Total",
+              "columns": [
+                {
+                  "label": "Utilisees",
+                  "cells": [
+                    67
+                  ]
+                },
+                {
+                  "label": "Administrees",
+                  "cells": [
+                    76
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "id": 3
+    },
+    {
+      "label": "Community Health",
+      "date": "Septemper 2021",
+      "tables": [
+        {
+          "label": "Age Of Mothers",
+          "commonColumn": {
+            "label": "Age Of Mothers",
+            "values": [
+              "<15 years",
+              "15-19 years",
+              "20-24 years",
+              "25-29 years",
+              "30 years plus",
+              "Unknown"
+            ]
+          },
+          "subTables": [
+            {
+              "label": "",
+              "columns": [
+                {
+                  "label": "Matrones",
+                  "cells": [
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    }
+                  ]
+                },
+                {
+                  "label": "Autres",
+                  "cells": [
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "label": "Births",
+          "commonColumn": {
+            "label": "Births",
+            "values": [
+              "Weight < 1.5kg",
+              "1.5kg < Weight < 2.5kg",
+              "2.5kg and over",
+              "Not weighed",
+              "Immediately breastfed",
+              "Skin to skin therapy"
+            ]
+          },
+          "subTables": [
+            {
+              "label": "",
+              "columns": [
+                {
+                  "label": "Matrones",
+                  "cells": [
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    }
+                  ]
+                },
+                {
+                  "label": "Autres",
+                  "cells": [
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "label": "Postal Natal",
+          "commonColumn": {
+            "label": "Postal Natal",
+            "values": [
+              "Breastfeeding women receiving vitamin A",
+              "Breastfeeding women with MUAC <210mm",
+              "Breastfeeding women with malnutrition support",
+              "Domestic visits in 0-3 days"
+            ]
+          },
+          "subTables": [
+            {
+              "label": "",
+              "columns": [
+                {
+                  "label": "Matrones",
+                  "cells": [
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    }
+                  ]
+                },
+                {
+                  "label": "Autres",
+                  "cells": [
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "label": "Birth Control",
+          "commonColumn": {
+            "label": "Methods/Sex",
+            "values": [
+              "OCP",
+              "Patch",
+              "Depo injection",
+              "Implant",
+              "Inter uterine devices (IUD)",
+              "Vaginal ring",
+              "Breastfeeding as birth control",
+              "Female condom",
+              "Sterlisation",
+              "Male condom",
+              "Vasectomy"
+            ]
+          },
+          "subTables": [
+            {
+              "label": "Acceptants",
+              "columns": [
+                {
+                  "label": "< 25 years",
+                  "cells": [
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    }
+                  ]
+                },
+                {
+                  "label": "25 years plus",
+                  "cells": [
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "label": "Total utilisateurs",
+              "columns": [
+                {
+                  "label": "< 25 years",
+                  "cells": [
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    }
+                  ]
+                },
+                {
+                  "label": "25 years plus",
+                  "cells": [
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "label": "Contraceptives distributed",
+              "columns": [
+                {
+                  "label": "Unit",
+                  "cells": [
+                    {
+                      "disabled": true,
+                      "value": "Cycle",
+                      "type": "text"
+                    },
+                    {
+                      "disabled": true,
+                      "value": "Cycle",
+                      "type": "text"
+                    },
+                    {
+                      "disabled": true,
+                      "value": "Vial",
+                      "type": "text"
+                    },
+                    {
+                      "disabled": true,
+                      "value": "Paquet",
+                      "type": "text"
+                    },
+                    {
+                      "disabled": true,
+                      "value": "Piece",
+                      "type": "text"
+                    },
+                    {
+                      "disabled": true,
+                      "value": "Piece",
+                      "type": "text"
+                    }
+                  ]
+                },
+                {
+                  "label": "Quantity",
+                  "cells": [
+                    {}
+                  ]
+                },
+                {
+                  "label": "Number of days out of stock / month",
+                  "cells": [
+                    {}
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "label": "Vaccination",
+          "commonColumn": {
+            "label": "Type of Vaccine",
+            "values": [
+              "BCG",
+              "VPO",
+              "Penta",
+              "Rota",
+              "RR",
+              "dT",
+              "VPI",
+              "Flu",
+              "DTP",
+              "COVID-19"
+            ]
+          },
+          "subTables": [
+            {
+              "label": "Type Of Vaccines",
+              "columns": [
+                {
+                  "label": "Quantité disponible au cours du mois",
+                  "cells": [
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    }
+                  ]
+                },
+                {
+                  "label": "Balance en fin de mois",
+                  "cells": [
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    }
+                  ]
+                },
+                {
+                  "label": "Quantité disponible au cours du mois",
+                  "cells": [
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "label": "Vaccination",
+          "commonColumn": {
+            "label": "Consumables",
+            "values": [
+              "SAB 0.05ml",
+              "SAB 0.5ml",
+              "Sdil_2ml",
+              "Sdil_5ml",
+              "Boîtes Séc",
+              "Coton"
+            ]
+          },
+          "subTables": [
+            {
+              "label": "Consumables",
+              "columns": [
+                {
+                  "label": "Quantité disponible au cours du mois",
+                  "cells": [
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    }
+                  ]
+                },
+                {
+                  "label": "Balance en fin de mois",
+                  "cells": [
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    }
+                  ]
+                },
+                {
+                  "label": "Quantité disponible au cours du mois",
+                  "cells": [
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "label": "Vaccines",
+          "commonColumn": {
+            "label": "Vaccines",
+            "values": [
+              "BCG",
+              "VPO (Polio)",
+              "VPO 1 (Polio)",
+              "VPO 2 (Polio)",
+              "Rappel VPO (Polio)",
+              "VPI",
+              "Penta 1",
+              "Penta 2",
+              "Penta 3",
+              "Rota 1",
+              "Rota 2",
+              "RR 1",
+              "RR 2",
+              "Pneumo 1",
+              "Pneumo 2",
+              "Pneumo 3",
+              "DTp Rappel",
+              "ECV"
+            ]
+          },
+          "subTables": [
+            {
+              "label": "Men 0-11 Years",
+              "columns": [
+                {
+                  "label": "Inst.",
+                  "cells": [
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    }
+                  ]
+                },
+                {
+                  "label": "Comm.",
+                  "cells": [
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    }
+                  ]
+                },
+                {
+                  "label": "Total",
+                  "cells": [
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "label": "Men 12-23 Years",
+              "columns": [
+                {
+                  "label": "Inst.",
+                  "cells": [
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    }
+                  ]
+                },
+                {
+                  "label": "Comm.",
+                  "cells": [
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    }
+                  ]
+                },
+                {
+                  "label": "Total",
+                  "cells": [
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "label": "Women 0-11 Years",
+              "columns": [
+                {
+                  "label": "Inst.",
+                  "cells": [
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    }
+                  ]
+                },
+                {
+                  "label": "Comm.",
+                  "cells": [
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    }
+                  ]
+                },
+                {
+                  "label": "Total",
+                  "cells": [
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "label": "Women 12-23 Years",
+              "columns": [
+                {
+                  "label": "Inst.",
+                  "cells": [
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    }
+                  ]
+                },
+                {
+                  "label": "Comm.",
+                  "cells": [
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    }
+                  ]
+                },
+                {
+                  "label": "Total",
+                  "cells": [
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "label": "Total",
+              "columns": [
+                {
+                  "label": "Total doses",
+                  "cells": [
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    }
+                  ]
+                },
+                {
+                  "label": "Utilisees",
+                  "cells": [
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    }
+                  ]
+                },
+                {
+                  "label": "Administrees",
+                  "cells": [
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "label": "Vaccines dT1, dT2+",
+          "commonColumn": {
+            "label": "Vaccines",
+            "values": [
+              "dT1",
+              "dT2+"
+            ]
+          },
+          "subTables": [
+            {
+              "label": "Femmes Enceintes",
+              "columns": [
+                {
+                  "label": "Inst.",
+                  "cells": [
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    }
+                  ]
+                },
+                {
+                  "label": "Comm.",
+                  "cells": [
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    }
+                  ]
+                },
+                {
+                  "label": "Total",
+                  "cells": [
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "label": "Vaccines dT1, dT2+",
+          "commonColumn": {
+            "label": "Total doses",
+            "values": [
+              "dT1 + dT2+"
+            ]
+          },
+          "subTables": [
+            {
+              "label": "Total",
+              "columns": [
+                {
+                  "label": "Utilisees",
+                  "cells": [
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    }
+                  ]
+                },
+                {
+                  "label": "Administrees",
+                  "cells": [
+                    {
+                      "disabled": false,
+                      "type": "number"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "id": 4
+    },
+    {
+      "label": "Community Health",
+      "date": "Septemper 2021",
+      "tables": [
+        {
+          "label": "Age Of Mothers",
+          "commonColumn": {
+            "label": "Age Of Mothers",
+            "values": [
+              "<15 years",
+              "15-19 years",
+              "20-24 years",
+              "25-29 years",
+              "30 years plus",
+              "Unknown"
+            ]
+          },
+          "subTables": [
+            {
+              "label": "",
+              "columns": [
+                {
+                  "label": "Matrones",
+                  "cells": [
+                    {
+                      "disabled": false,
+                      "value": 6576,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 675,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 567,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 57,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 5,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 5,
+                      "type": "number"
+                    }
+                  ]
+                },
+                {
+                  "label": "Autres",
+                  "cells": [
+                    {
+                      "disabled": false,
+                      "value": 5675,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 67,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 56,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 576,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 656,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 65,
+                      "type": "number"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "label": "Births",
+          "commonColumn": {
+            "label": "Births",
+            "values": [
+              "Weight < 1.5kg",
+              "1.5kg < Weight < 2.5kg",
+              "2.5kg and over",
+              "Not weighed",
+              "Immediately breastfed",
+              "Skin to skin therapy"
+            ]
+          },
+          "subTables": [
+            {
+              "label": "",
+              "columns": [
+                {
+                  "label": "Matrones",
+                  "cells": [
+                    {
+                      "disabled": false,
+                      "value": 67,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 676,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 321,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 76,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 67,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 76,
+                      "type": "number"
+                    }
+                  ]
+                },
+                {
+                  "label": "Autres",
+                  "cells": [
+                    {
+                      "disabled": false,
+                      "value": 67,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 76,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 76,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 7,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 6,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 767,
+                      "type": "number"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "label": "Postal Natal",
+          "commonColumn": {
+            "label": "Postal Natal",
+            "values": [
+              "Breastfeeding women receiving vitamin A",
+              "Breastfeeding women with MUAC <210mm",
+              "Breastfeeding women with malnutrition support",
+              "Domestic visits in 0-3 days"
+            ]
+          },
+          "subTables": [
+            {
+              "label": "",
+              "columns": [
+                {
+                  "label": "Matrones",
+                  "cells": [
+                    {
+                      "disabled": false,
+                      "value": 67,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 76,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 67,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 7,
+                      "type": "number"
+                    }
+                  ]
+                },
+                {
+                  "label": "Autres",
+                  "cells": [
+                    {
+                      "disabled": false,
+                      "value": 676,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 7,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 6,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 6,
+                      "type": "number"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "label": "Birth Control",
+          "commonColumn": {
+            "label": "Methods/Sex",
+            "values": [
+              "OCP",
+              "Patch",
+              "Depo injection",
+              "Implant",
+              "Inter uterine devices (IUD)",
+              "Vaginal ring",
+              "Breastfeeding as birth control",
+              "Female condom",
+              "Sterlisation",
+              "Male condom",
+              "Vasectomy"
+            ]
+          },
+          "subTables": [
+            {
+              "label": "Acceptants",
+              "columns": [
+                {
+                  "label": "< 25 years",
+                  "cells": [
+                    {
+                      "disabled": false,
+                      "value": 67,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 76,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 7,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 6,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 7,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 76,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 6,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 7,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 76,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 6,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 76,
+                      "type": "number"
+                    }
+                  ]
+                },
+                {
+                  "label": "25 years plus",
+                  "cells": [
+                    {
+                      "disabled": false,
+                      "value": 676,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 76,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 67,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 76,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 6,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 7,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 76,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 6,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 7,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 76,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 7,
+                      "type": "number"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "label": "Total utilisateurs",
+              "columns": [
+                {
+                  "label": "< 25 years",
+                  "cells": [
+                    {
+                      "disabled": false,
+                      "value": 767,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 76,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 67,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 7,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 6,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 67,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 76,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 7,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 7,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 6,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 7,
+                      "type": "number"
+                    }
+                  ]
+                },
+                {
+                  "label": "25 years plus",
+                  "cells": [
+                    {
+                      "disabled": false,
+                      "value": 6,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 7,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 6,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 67,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 7,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 6,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 76,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 676,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 67,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 76,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 67,
+                      "type": "number"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "label": "Contraceptives distributed",
+              "columns": [
+                {
+                  "label": "Unit",
+                  "cells": [
+                    {
+                      "disabled": true,
+                      "value": "Cycle",
+                      "type": "text"
+                    },
+                    {
+                      "disabled": true,
+                      "value": "Cycle",
+                      "type": "text"
+                    },
+                    {
+                      "disabled": true,
+                      "value": "Vial",
+                      "type": "text"
+                    },
+                    {
+                      "disabled": true,
+                      "value": "Paquet",
+                      "type": "text"
+                    },
+                    {
+                      "disabled": true,
+                      "value": "Piece",
+                      "type": "text"
+                    },
+                    {
+                      "disabled": true,
+                      "value": "Piece",
+                      "type": "text"
+                    },
+                    {
+                      "disabled": true,
+                      "value": null,
+                      "type": "text"
+                    },
+                    {
+                      "disabled": true,
+                      "value": "Piece",
+                      "type": "text"
+                    }
+                  ]
+                },
+                {
+                  "label": "Quantity",
+                  "cells": [
+                    {
+                      "disabled": false,
+                      "value": 676,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 7,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 76,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 6,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 67,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 7,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": true,
+                      "value": null,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 7,
+                      "type": "number"
+                    }
+                  ]
+                },
+                {
+                  "label": "Number of days out of stock / month",
+                  "cells": [
+                    {
+                      "disabled": false,
+                      "value": 76,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 6,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 7,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 7,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 6,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 6,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": true,
+                      "value": null,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 67,
+                      "type": "number"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "label": "Vaccination",
+          "commonColumn": {
+            "label": "Type of Vaccine",
+            "values": [
+              "BCG",
+              "VPO",
+              "Penta",
+              "Rota",
+              "RR",
+              "dT",
+              "VPI",
+              "Flu",
+              "DTP",
+              "COVID-19"
+            ]
+          },
+          "subTables": [
+            {
+              "label": "Type Of Vaccines",
+              "columns": [
+                {
+                  "label": "Quantité disponible au cours du mois",
+                  "cells": [
+                    {
+                      "disabled": false,
+                      "value": 76,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 67,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 67,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 67,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 6,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 67,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 6,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 6,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 6,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 6,
+                      "type": "number"
+                    }
+                  ]
+                },
+                {
+                  "label": "Balance en fin de mois",
+                  "cells": [
+                    {
+                      "disabled": false,
+                      "value": 7,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 6,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 6,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 6,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 76,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 6,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 76,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 76,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 767,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 7,
+                      "type": "number"
+                    }
+                  ]
+                },
+                {
+                  "label": "Quantité disponible au cours du mois",
+                  "cells": [
+                    {
+                      "disabled": false,
+                      "value": 7,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 7,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 7,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 7,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 7,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 7,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 7,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 7,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 67,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 67,
+                      "type": "number"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "label": "Vaccination",
+          "commonColumn": {
+            "label": "Consumables",
+            "values": [
+              "SAB 0.05ml",
+              "SAB 0.5ml",
+              "Sdil_2ml",
+              "Sdil_5ml",
+              "Boîtes Séc",
+              "Coton"
+            ]
+          },
+          "subTables": [
+            {
+              "label": "Consumables",
+              "columns": [
+                {
+                  "label": "Quantité disponible au cours du mois",
+                  "cells": [
+                    {
+                      "disabled": false,
+                      "value": 676,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 6,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 6,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 6,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 7,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 7,
+                      "type": "number"
+                    }
+                  ]
+                },
+                {
+                  "label": "Balance en fin de mois",
+                  "cells": [
+                    {
+                      "disabled": false,
+                      "value": 76,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 76,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 76,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 7,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 67,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 67,
+                      "type": "number"
+                    }
+                  ]
+                },
+                {
+                  "label": "Quantité disponible au cours du mois",
+                  "cells": [
+                    {
+                      "disabled": false,
+                      "value": 7,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 7,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 7,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 6,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 6,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 67,
+                      "type": "number"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "label": "Vaccines",
+          "commonColumn": {
+            "label": "Vaccines",
+            "values": [
+              "BCG",
+              "VPO (Polio)",
+              "VPO 1 (Polio)",
+              "VPO 2 (Polio)",
+              "Rappel VPO (Polio)",
+              "VPI",
+              "Penta 1",
+              "Penta 2",
+              "Penta 3",
+              "Rota 1",
+              "Rota 2",
+              "RR 1",
+              "RR 2",
+              "Pneumo 1",
+              "Pneumo 2",
+              "Pneumo 3",
+              "DTp Rappel",
+              "ECV"
+            ]
+          },
+          "subTables": [
+            {
+              "label": "Men 0-11 Years",
+              "columns": [
+                {
+                  "label": "Inst.",
+                  "cells": [
+                    {
+                      "disabled": false,
+                      "value": 56,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 65,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 65,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 5,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 5,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 5,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 5,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 675,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 67,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 567,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 76,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 76,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 76,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 67,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 765,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 576,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 567,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 76,
+                      "type": "number"
+                    }
+                  ]
+                },
+                {
+                  "label": "Comm.",
+                  "cells": [
+                    {
+                      "disabled": false,
+                      "value": 56,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 6,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 765,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 67,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 67,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 67,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 76,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 76,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 5,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 5,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 56,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 5,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 5,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 5,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 67,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 5,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 5,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 567,
+                      "type": "number"
+                    }
+                  ]
+                },
+                {
+                  "label": "Total",
+                  "cells": [
+                    {
+                      "disabled": false,
+                      "value": 5,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 57,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 76,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 567,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 567,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 567,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 5,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 5,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 76,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 675,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 75,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 765,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 765,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 675,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 576,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 76,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 675,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 5,
+                      "type": "number"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "label": "Men 12-23 Years",
+              "columns": [
+                {
+                  "label": "Inst.",
+                  "cells": [
+                    {
+                      "disabled": false,
+                      "value": 675,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 76,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 675,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 75,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 67,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 5,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 567,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 567,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 567,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 567,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 5,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 5,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 5,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 5,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 567,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 5,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 5,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 5,
+                      "type": "number"
+                    }
+                  ]
+                },
+                {
+                  "label": "Comm.",
+                  "cells": [
+                    {
+                      "disabled": false,
+                      "value": 675,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 5,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 67,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 675,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 56,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 6,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 5,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 5,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 5,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 5,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 675,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 675,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 765,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 675,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 576,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 765,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 675,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 67,
+                      "type": "number"
+                    }
+                  ]
+                },
+                {
+                  "label": "Total",
+                  "cells": [
+                    {
+                      "disabled": false,
+                      "value": 765,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 675,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 56,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 65,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 67,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 67,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 67,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 67,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 67,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 67,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 67,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 67,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 76,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 76,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 576,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 67,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 76,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 567,
+                      "type": "number"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "label": "Women 0-11 Years",
+              "columns": [
+                {
+                  "label": "Inst.",
+                  "cells": [
+                    {
+                      "disabled": false,
+                      "value": 5,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 5,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 67,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 67,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 67,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 765,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 5,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 576,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 675,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 5,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 567,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 5,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 5,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 5,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 5,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 67,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 76,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 765,
+                      "type": "number"
+                    }
+                  ]
+                },
+                {
+                  "label": "Comm.",
+                  "cells": [
+                    {
+                      "disabled": false,
+                      "value": 675,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 67,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 567,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 567,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 576,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 675,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 675,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 5,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 67,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 67,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 5,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 67,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 67,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 75,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 567,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 567,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 567,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 67,
+                      "type": "number"
+                    }
+                  ]
+                },
+                {
+                  "label": "Total",
+                  "cells": [
+                    {
+                      "disabled": false,
+                      "value": 67,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 5,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 5,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 5,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 5,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 67,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 67,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 675,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 567,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 567,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 67,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 567,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 567,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 76,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 5,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 5,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 5,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 5,
+                      "type": "number"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "label": "Women 12-23 Years",
+              "columns": [
+                {
+                  "label": "Inst.",
+                  "cells": [
+                    {
+                      "disabled": false,
+                      "value": 65675,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 675,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 67,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 67,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 67,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 5,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 5,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 567,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 76,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 567,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 56,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 67,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 7,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 7,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 567,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 56,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 56,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 5,
+                      "type": "number"
+                    }
+                  ]
+                },
+                {
+                  "label": "Comm.",
+                  "cells": [
+                    {
+                      "disabled": false,
+                      "value": 67,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 67,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 5,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 434,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 5,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 675,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 5675,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 5,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 5,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 5,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 75,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 5,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 57,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 5,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 5,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 5,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 75,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 675,
+                      "type": "number"
+                    }
+                  ]
+                },
+                {
+                  "label": "Total",
+                  "cells": [
+                    {
+                      "disabled": false,
+                      "value": 5,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 5,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 675,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 5,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 67,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 67,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 67,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 675,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 67,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 6,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 675,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 765,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 65,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 67,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 67,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 67,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 67,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 765,
+                      "type": "number"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "label": "Total",
+              "columns": [
+                {
+                  "label": "Total doses",
+                  "cells": [
+                    {
+                      "disabled": false,
+                      "value": 567567,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 576,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 675,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 75,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 675,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 67,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 675,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 67,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 6,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 67567,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 67,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 65,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 675,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 75,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 567,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 567,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 76,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 567,
+                      "type": "number"
+                    }
+                  ]
+                },
+                {
+                  "label": "Utilisees",
+                  "cells": [
+                    {
+                      "disabled": false,
+                      "value": 5,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 567,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 76,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 67,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 67,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 567,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 67,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 5,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 5,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 565,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 567,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 67,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 67,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 765,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 5,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 5,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 5,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 5,
+                      "type": "number"
+                    }
+                  ]
+                },
+                {
+                  "label": "Administrees",
+                  "cells": [
+                    {
+                      "disabled": false,
+                      "value": 67567,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 5,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 56,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 567,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 5,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 5,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 5,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 675,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 765,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 675,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 5,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 5,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 56,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 67,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 67,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 6,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 67,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 675,
+                      "type": "number"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "label": "Vaccines dT1, dT2+",
+          "commonColumn": {
+            "label": "Vaccines",
+            "values": [
+              "dT1",
+              "dT2+"
+            ]
+          },
+          "subTables": [
+            {
+              "label": "Femmes Enceintes",
+              "columns": [
+                {
+                  "label": "Inst.",
+                  "cells": [
+                    {
+                      "disabled": false,
+                      "value": 666,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 666,
+                      "type": "number"
+                    }
+                  ]
+                },
+                {
+                  "label": "Comm.",
+                  "cells": [
+                    {
+                      "disabled": false,
+                      "value": 6,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 666,
+                      "type": "number"
+                    }
+                  ]
+                },
+                {
+                  "label": "Total",
+                  "cells": [
+                    {
+                      "disabled": false,
+                      "value": 666,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 6,
+                      "type": "number"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "label": "Vaccines dT1, dT2+",
+          "commonColumn": {
+            "label": "Total doses",
+            "values": [
+              "dT1 + dT2+"
+            ]
+          },
+          "subTables": [
+            {
+              "label": "Total",
+              "columns": [
+                {
+                  "label": "Utilisees",
+                  "cells": [
+                    {
+                      "disabled": false,
+                      "value": 2,
+                      "type": "number"
+                    }
+                  ]
+                },
+                {
+                  "label": "Administrees",
+                  "cells": [
+                    {
+                      "disabled": false,
+                      "value": 3,
+                      "type": "number"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "id": 5
+    }
+  ]
+}
