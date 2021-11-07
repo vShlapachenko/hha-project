@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 
 @Data
-@Document
+@Document(collection = "hhaUser")
 @NoArgsConstructor
 @AllArgsConstructor
 public class HhaUser {

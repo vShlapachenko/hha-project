@@ -3,11 +3,14 @@ package ca.sfu.cmpt373.pluto.fall2021.hha.models;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.bson.types.Binary;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Date;
 import java.util.List;
 
@@ -22,6 +25,9 @@ public class CaseStudy {
     @CreatedDate
     private Date submittedDate;
     private List<CaseStudyEntry> entryList;
+
+    @DBRef(lazy = true)
+    private Collection<Photo> photos = new ArrayList<>();
 
     public String getId() {
         return id;
@@ -61,5 +67,13 @@ public class CaseStudy {
 
     public void setEntryList(List<CaseStudyEntry> entryList) {
         this.entryList = entryList;
+    }
+
+    public Collection<Photo> getPhotos() {
+        return photos;
+    }
+
+    public void setPhotos(Collection<Photo> photos) {
+        this.photos = photos;
     }
 }

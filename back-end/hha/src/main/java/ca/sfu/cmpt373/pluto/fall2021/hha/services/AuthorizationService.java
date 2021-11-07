@@ -1,5 +1,6 @@
 package ca.sfu.cmpt373.pluto.fall2021.hha.services;
 
+import ca.sfu.cmpt373.pluto.fall2021.hha.models.HhaUser;
 import ca.sfu.cmpt373.pluto.fall2021.hha.models.Role;
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.JWTVerifier;
@@ -55,5 +56,11 @@ public class AuthorizationService {
             response.sendError(SC_UNAUTHORIZED);
         }
 
+    }
+
+    public HhaUser getUser() {
+        DecodedJWT decodedJWT = JWT.decode(jwtSecret);
+        var email = decodedJWT.getSubject();
+        return userService.getUser(email);
     }
 }
