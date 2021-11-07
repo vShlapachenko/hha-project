@@ -1,5 +1,5 @@
 import React, {useContext, useEffect, useState} from 'react';
-import './App.css';
+// import './App.css';
 import {Switch, Route, Redirect} from 'react-router-dom';
 import Login from './pages/loginPage/Login';
 import Navbar from './components/Navbar/Navbar';
@@ -11,6 +11,7 @@ import Registration from './pages/registrationPage/Registration';
 import AddUser from './pages/addUserPage/AddUser';
 import ForgotPassword from "./components/ForgotPassword/ForgotPassword";
 import EnterNewPassword from "./components/ForgotPassword/EnterNewPassword";
+import Forms from "./pages/formsPage/Forms"
 import PrivateRoute from './utilities/private_route';
 
 
