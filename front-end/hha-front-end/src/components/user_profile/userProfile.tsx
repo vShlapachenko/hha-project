@@ -4,7 +4,6 @@ import "./user_profile.css"
 import Button from '@mui/material/Button'
 import Navbar from '../Navbar/Navbar'
 import TextField from '@mui/material/TextField'
-import { makeStyles } from "@mui/styles";
 
 interface ProfileAttributes {
   firstName: string,
