@@ -7,6 +7,7 @@ import "./ForgotPassword.css";
 import logo_HHA from "../../pages/loginPage/logo.svg";
 
 const ForgotPassword: React.FC<{}> = () => {
+
     const [email, setEmail] = useState<string>("");
     const { store } = useContext(Context);
     const [showOTP, setShowOtp] = useState(false);
