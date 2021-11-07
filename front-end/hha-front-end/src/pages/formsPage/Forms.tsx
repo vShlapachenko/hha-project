@@ -46,6 +46,10 @@ const Forms: FC = () => {
     setOpenErrorDialog(false);
   };
 
+  const exportCSV = () => {
+
+  };
+
   useEffect(() => {
     const getForm = async () => {
       const formFromServer : Form = await fetchData()
@@ -151,7 +155,7 @@ const Forms: FC = () => {
         <Button onClick={submitForm} autoFocus>
           Submit
         </Button>
-        <Button>Export to CSV</Button>
+        <Button onClick={exportCSV}>Export to CSV</Button>
       </DialogActions>
     </Dialog>
   }
