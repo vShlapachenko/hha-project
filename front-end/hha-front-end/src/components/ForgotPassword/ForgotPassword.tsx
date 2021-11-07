@@ -5,6 +5,7 @@ import { observer } from "mobx-react-lite";
 import EnterOTP from "./EnterOTP";
 import "./ForgotPassword.css";
 import logo_HHA from "../../pages/loginPage/logo.svg";
+import {Button} from "@mui/material";
 
 const ForgotPassword: React.FC<{}> = () => {
     const [email, setEmail] = useState<string>("");
@@ -56,9 +57,11 @@ const ForgotPassword: React.FC<{}> = () => {
                         required={true}
                     />
 
-                    <button className="ForgotButton" onClick={handleSendOTP}>
-                        Click to receive OTP by email
-                    </button>
+                    <Button className="ForgotButton" onClick={handleSendOTP}
+                            sx={{width: "488px", height: "42px", background: '#009CC4'}}
+                            variant="contained">
+                        Get OTP by email
+                    </Button>
                     <Link to="/">Login Page?</Link>
                 </div>
             )}

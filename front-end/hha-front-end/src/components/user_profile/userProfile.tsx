@@ -26,7 +26,7 @@ const Profile = ({firstName, lastName, email, staffNumber, profileImage, departm
   return (
     <div>
       <Navbar />
-      {/* <h1 className="header-1">Profile</h1> */}
+       <h1 className="header-1">Profile</h1>
 
       <div className="InfoPane">
 
