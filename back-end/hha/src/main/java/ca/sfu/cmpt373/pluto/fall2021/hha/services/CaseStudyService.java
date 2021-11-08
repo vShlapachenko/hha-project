@@ -67,6 +67,7 @@ public class CaseStudyService {
 
     public void saveCaseStudy(HttpServletRequest request, CaseStudy caseStudy)
     {
+        // caseStudy.setSubmittedBy(authorizationService.getUser());
         caseStudy.setSubmittedBy(hhaUserService.getUser(request.getUserPrincipal().getName()));
         caseStudy.setPhotos(photos);
 
