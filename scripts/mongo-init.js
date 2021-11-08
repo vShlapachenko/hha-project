@@ -85,7 +85,7 @@ db.createCollection('communityHealth', {capped: false});
 db.communityHealth.insert([
     {
     name: "Community Health",
-    date: "Septemper 2021",
+    date: "September 2021",
     tables: [
         {
         label: "Age Of Mothers",
@@ -602,6 +602,240 @@ db.communityHealth.insert([
 db.createCollection('communityHealth', {capped: false});
 db.communityHealth.insert([
     {
-        
+        name: "NICU/PAED MONTHLY DATA COLLECTION",
+        date: "September 2021",
+        tables: [
+            {
+                commonColumn: {
+                    label: "MSPP DATA",
+                    values: [
+                    "Beds available",
+                    "Bed days",
+                    "Patient days",
+                    "Hospitalized NICU",
+                    "Hospitalised Paeds",
+                    "Discharged alive",
+                    "OF Total discharged no: NICU discharged",
+                    "Died before 48h",
+                    "Died in NICU",
+                    "Died in Paed",
+                    "Died after 48h",
+                    "Died in NICU",
+                    "Died in Paed",
+                    "Days hospitalised",
+                    "Referrals",
+                    "Transfers",
+                    "Self-discharged",
+                    "Stayed in the ward",
+                    "Admissions"
+                    ]
+                },
+                subTables: [
+                    {
+                    label: "",
+                    columns: [
+                        {
+                        label: "Quantity(number)",
+                        cells: []
+                        }
+                    ]
+                    }
+                ]
+                },
+                {
+                    commonColumn: {
+                        label: "Where do patients come from?",
+                        values: [
+                        "Quarter Morin",
+                        "Cap Haitian",
+                        "Department Nord",
+                        "Other departments: IF YES TEXT BOX WHERE"
+                        ]
+                    },
+                    subTables: [
+                        {
+                        columns: [
+                            {
+                            label: "",
+                            cells: []
+                            }
+                        ]
+                        }
+                    ]
+                    },
+
+                    {
+                        commonColumn: {
+                            label: "Age of infant admitted",
+                            values: [
+                            "extremely preterm (less than 28 weeks)",
+                            "very preterm (28 to 32 weeks)",
+                            "moderate to late preterm (32 to 37 weeks)",
+                            "Full term (37 weeks plus)",
+                            "Older than neonate (>4 weeks old)",
+                            "Age 4 weeks -5",
+                            "Age 6-11",
+                            "Age 12-18"
+                            ]
+                        },
+                        subTables: [
+                            {
+                            columns: [
+                                {
+                                label: "",
+                                cells: []
+                                }
+                            ]
+                            }
+                        ]
+                        },
+
+                        {
+                            commonColumn: {
+                                label: "Gendre",
+                                values: [
+                                "Male",
+                                "Female"
+                                ]
+                            },
+                            subTables: [
+                                {
+                                columns: [
+                                    {
+                                    label: "",
+                                    cells: []
+                                    }
+                                ]
+                                }
+                            ]
+                            },
+
+                            {
+                                commonColumn: {
+                                    label: "Main Condition",
+                                    values: [
+                                    "Respiratory arrest",
+                                    "Traumatic injury",
+                                    "Septic Shock",
+                                    "Hypovolemic shock",
+                                    "Seizures/convulsions",
+                                    "Poisoning",
+                                    "Altered mental status",
+                                    "Gastroenteritis",
+                                    "Hemorrhage",
+                                    "Hypothermia",
+                                    "Cardiac congenital anomaly",
+                                    "Other congenital anomaly",
+                                    "Malnutrition",
+                                    "Meningitis",
+                                    "Community acquired pneumonia",
+                                    "Aspiration pneumonia",
+                                    "Moderate prematurity (32-36 weeks gestation)",
+                                    "Severe prematurity (<32 weeks)",
+                                    "Other medical: TEXT BOX"
+                                    ]
+                                },
+                                subTables: [
+                                    {
+                                    columns: [
+                                        {
+                                        label: "",
+                                        cells: []
+                                        }
+                                    ]
+                                    }
+                                ]
+                                },
+
+                                {
+                                    label = "Number of outpatients",
+                                    commonColumn: {
+                                        label: "Age",
+                                        values: [
+                                        "extremely preterm (less than 28 weeks)",
+                                        "very preterm (28 to 32 weeks)",
+                                        "moderate to late preterm (32 to 37 weeks)",
+                                        "Full term (37 weeks plus)",
+                                        "Older than neonate (>4 weeks old)",
+                                        "Age 4 weeks -5",
+                                        "Age 6-11",
+                                        "Age 12-18"
+                                        ]
+                                    },
+                                    subTables: [
+                                        {
+                                        columns: [
+                                            {
+                                            label: "",
+                                            cells: []
+                                            }
+                                        ]
+                                        }
+                                    ]
+                                    },
+
+                                    {
+                                        commonColumn: {
+                                            label: "Main Condition",
+                                            values: [
+                                            "Respiratory arrest",
+                                            "Traumatic injury",
+                                            "Septic Shock",
+                                            "Hypovolemic shock",
+                                            "Seizures/convulsions",
+                                            "Poisoning",
+                                            "Altered mental status",
+                                            "Gastroenteritis",
+                                            "Hemorrhage",
+                                            "Hypothermia",
+                                            "Cardiac congenital anomaly",
+                                            "Other congenital anomaly",
+                                            "Malnutrition",
+                                            "Meningitis",
+                                            "Community acquired pneumonia",
+                                            "Aspiration pneumonia",
+                                            "Moderate prematurity (32-36 weeks gestation)",
+                                            "Severe prematurity (<32 weeks)",
+                                            "Other medical: TEXT BOX"
+                                            ]
+                                        },
+                                        subTables: [
+                                            {
+                                            columns: [
+                                                {
+                                                label: "",
+                                                cells: []
+                                                }
+                                            ]
+                                            }
+                                        ]
+                                        },
+
+                                        {
+                                            commonColumn: {
+                                                label: "Gendre",
+                                                values: [
+                                                "Boy",
+                                                "Girl"
+                                                ]
+                                            },
+                                            subTables: [
+                                                {
+                                                columns: [
+                                                    {
+                                                    label: "",
+                                                    cells: []
+                                                    }
+                                                ]
+                                                }
+                                            ]
+                                            },
+
+
+
+                                
+
+            
+        ]  
     }
 ])
