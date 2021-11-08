@@ -599,8 +599,8 @@ db.communityHealth.insert([
     }    
 ])
 
-db.createCollection('communityHealth', {capped: false});
-db.communityHealth.insert([
+db.createCollection('NICUPaeds', {capped: false});
+db.NICUPaeds.insert([
     {
         name: "NICU/PAED MONTHLY DATA COLLECTION",
         date: "September 2021",
@@ -830,12 +830,352 @@ db.communityHealth.insert([
                                                 }
                                             ]
                                             },
-
-
-
-                                
-
-            
         ]  
+    }
+])
+
+db.createCollection('maternity', {capped: false});
+db.maternity.insert([
+    {
+        name: "MATERNITY DATA COLLECTION",
+        date: "Septemper 2021",
+        tables: [
+            {
+                commonColumn: {
+                    label: "MSPP DATA",
+                    values: [
+                    "Beds available",
+                    "Bed days",
+                    "Patient days",
+                    "Hospitalized NICU",
+                    "Hospitalised Paeds",
+                    "Discharged alive",
+                    "OF Total discharged no: NICU discharged",
+                    "Died before 48h",
+                    "Died in NICU",
+                    "Died in Paed",
+                    "Died after 48h",
+                    "Died in NICU",
+                    "Died in Paed",
+                    "Days hospitalised",
+                    "Referrals",
+                    "Transfers",
+                    "Self-discharged",
+                    "Stayed in the ward",
+                    "Admissions"
+                    ]
+                },
+                subTables: [
+                    {
+                    label: "",
+                    columns: [
+                        {
+                        label: "Quantity(number)",
+                        cells: []
+                        }
+                    ]
+                    }
+                ]
+                },
+                {
+                label: "Births",
+                commonColumn: {
+                label: "Births",
+                values: [
+                "Weight < 1.5kg",
+                "1.5kg < Weight < 2.5kg",
+                "2.5kg and over",
+                "Not weighed",
+                "Immediately breastfed",
+                "Skin to skin therapy"
+                 ]
+                },
+                subTables: [
+                {
+                columns: [
+                {
+                label: "Normal",
+                cells: []
+                },
+                {
+                label: "Césarienne",
+                cells: []
+                },
+                {
+                    label: "Instrumentalsé",
+                    cells: []
+                    }
+                ]
+            }
+        ]},
+        {
+            commonColumn: {
+                label: "Postal Natal",
+                values: [
+                "Breastfeeding women receiving vitamin A",
+                "Breastfeeding women with MUAC <210mm",
+                "Breastfeeding women with malnutrition support",
+                "Domestic visits in 0-3 days"
+                ]
+            },
+            subTables: [
+                {
+                columns: [
+                    {
+                    label: "Quantity (number)",
+                    cells: []
+                    }
+                ]
+                }
+            ]
+            },
+            {
+                commonColumn: {
+                    label: "Complications",
+                    values: [
+                    "Number of obstetric complications recorded",
+                    "Number of obstetric complications referred",
+                    ]
+                },
+                subTables: [
+                    {
+                    columns: [
+                        {
+                        label: "Quantity (number)",
+                        cells: []
+                        }
+                    ]
+                    }
+                ]
+                },
+                {
+                    commonColumn: {
+                        label: "Number of Stillborns",
+                        values: [
+                        "Macérés",
+                        "Non Macérés",
+                        ]
+                    },
+                    subTables: [
+                        {
+                        columns: [
+                            {
+                            cells: []
+                            }
+                        ]
+                        }
+                    ]
+                    },
+                    {
+                        commonColumn: {
+                            label: "Maternal death in the hospital",
+                            values: [
+                            "In hospital",
+                            "In the community",
+                            ]
+                        },
+                        subTables: [
+                            {
+                            columns: [
+                                {
+                                cells: []
+                                }
+                            ]
+                            }
+                        ]
+                        },
+                        {
+                            label: "Support for wife and mother",
+                            commonColumn: {
+                                label: "Period of pregnancy",
+                                values: [
+                                "0-3 months",
+                                "4-6 months",
+                                "7-9 months",
+                                "Total visits"
+                                ]
+                            },
+                            subTables: [
+                                {
+                                columns: [
+                                    {
+                                    label: "1st Visit",
+                                    cells: []
+                                    }
+                                ]
+                                },
+                                {
+                                    columns: [
+                                        {
+                                        label: "2nd Visit",
+                                        cells: []
+                                        }
+                                    ]
+                                    },
+                                    {
+                                        columns: [
+                                            {
+                                            label: "3rd Visit",
+                                            cells: []
+                                            }
+                                        ]
+                                        },
+                                        {
+                                            columns: [
+                                                {
+                                                label: "4th Visit",
+                                                cells: []
+                                                }
+                                            ]
+                                            },
+                                            {
+                                                columns: [
+                                                    {
+                                                    label: "5th plus Visit",
+                                                    cells: []
+                                                    }
+                                                ]
+                                                },
+                                                {
+                                                    columns: [
+                                                        {
+                                                        label: "Total",
+                                                        cells: []
+                                                        }
+                                                    ]
+                                                    }
+                            ]
+                            },
+
+                            {
+                                commonColumn: {
+                                    label: "Support for women hospital",
+                                    values: [
+                                    "Number of pregnancies at risk",
+                                    "Case of anemia in pregnant women",
+                                    "Pregnant women receiving iron folate",
+                                    "Pregnant women being treated for iron deficiency anemia",
+                                    "Pregnant women with a birth plan",
+                                    "Pregnant women with confirmed malaria treated with chloroquine",
+                                    "Pregnant women who received an impregnated mosquito net",
+                                    "Pregnant women MUAC<210mm",
+                                    "MAM / MAS supported"
+                                    ]
+                                },
+                                subTables: [
+                                    {
+                                    columns: [
+                                        {
+                                        cells: []
+                                        }
+                                    ]
+                                    }
+                                ]
+                                },  
+                                {
+                                    commonColumn: {
+                                        label: "Other services",
+                                        values: [
+                                        "Other women receiving iron folate",
+                                        "Women receiving acetic acid inspection",
+                                        "Positive women after smear test",
+                                        "Women positive smear test taken care of",
+                                        "Women receiving postabortion care",  
+                                        ]
+                                    },
+                                    subTables: [
+                                        {
+                                        columns: [
+                                            {
+                                            cells: []
+                                            }
+                                        ]
+                                        }
+                                    ]
+                                    },  
+                                    {
+                                        label: "Deliveries",
+                                        commonColumn: {
+                                            label: "Age Of Mothers",
+                                            values: [
+                                            "<15 years",
+                                            "15-19 years",
+                                            "20-24 years",
+                                            "25-29 years",
+                                            "30 years plus",
+                                            "Unknown"
+                                            ]
+                                        },
+                                        subTables: [
+                                            {
+                                                columns: [
+                                                    {
+                                                    label: "Normal",
+                                                    cells: []
+                                                    },
+                                                    {
+                                                    label: "Césarienne",
+                                                    cells: []
+                                                    },
+                                                    {
+                                                        label: "Instrumentalsé",
+                                                        cells: []
+                                                        }
+                                                    ]
+                                            }
+                                        ]
+                                        },
+                                        {
+                                            commonColumn: {
+                                                label: "Labor management",
+                                                values: [
+                                                "Use of partograph",
+                                                "Active management of the 3rd phase of labor"
+                                                ]
+                                            },
+                                            subTables: [
+                                                {
+                                                columns: [
+                                                    {
+                                                    cells: []
+                                                    }
+                                                ]
+                                                },
+                                                {
+                                                    columns: [
+                                                        {
+                                                        cells: []
+                                                        }
+                                                    ]
+                                                    }
+                                            ]
+                                            },
+                                            {
+                                                commonColumn: {
+                                                    label: "Main Condition of Patient",
+                                                    values: [
+                                                    "Uncomplicated Labour/ C-section",
+                                                    "Heart failure",
+                                                    "Pre-eclampsia",
+                                                    "Respiratory problems",
+                                                    "C-section site infection",
+                                                    "Other medical",
+                                                    "Trauma"
+                                                    ]
+                                                },
+                                                subTables: [
+                                                    {
+                                                    columns: [
+                                                        {
+                                                        cells: []
+                                                        }
+                                                    ]
+                                                    }
+                                                ]
+                                                },
+
+               
+            
+        ]
     }
 ])
