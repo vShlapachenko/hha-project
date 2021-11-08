@@ -745,7 +745,7 @@ db.NICUPaeds.insert([
                                 },
 
                                 {
-                                    label = "Number of outpatients",
+                                    label: "Number of outpatients",
                                     commonColumn: {
                                         label: "Age",
                                         values: [
