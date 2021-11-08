@@ -62,4 +62,4 @@ const EnterNewPassword: React.FC<{}> = () => {
     );
 };
 
-export default EnterNewPassword;
+export default EnterNewPassword
