@@ -3,6 +3,7 @@ import { Context } from "../../index";
 import {Link, useHistory} from "react-router-dom";
 import "./ForgotPassword.css";
 import logo_HHA from "../../pages/loginPage/logo.svg";
+import {Button} from "@mui/material";
 
 const EnterNewPassword: React.FC<{}> = () => {
     const [password, setPassword] = useState<string>("");
@@ -50,9 +51,11 @@ const EnterNewPassword: React.FC<{}> = () => {
                     placeholder="Confirm new password"
                 />
 
-                <button className="ForgotButton" onClick={handleSetNewPassword}>
-                    Set New Password
-                </button>
+                <Button className="ForgotButton" onClick={handleSetNewPassword}
+                        sx={{width: "488px", height: "42px", background: '#009CC4'}}
+                        variant="contained">
+                    Submit
+                </Button>
                 <Link to="/">Login Page?</Link>
             </div>
         </div>

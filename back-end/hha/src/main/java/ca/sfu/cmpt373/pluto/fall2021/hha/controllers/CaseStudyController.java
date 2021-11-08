@@ -2,6 +2,7 @@ package ca.sfu.cmpt373.pluto.fall2021.hha.controllers;
 
 import ca.sfu.cmpt373.pluto.fall2021.hha.models.CaseStudy;
 import ca.sfu.cmpt373.pluto.fall2021.hha.models.CaseStudyTemplate;
+import ca.sfu.cmpt373.pluto.fall2021.hha.models.CaseStudyTruncated;
 import ca.sfu.cmpt373.pluto.fall2021.hha.models.HhaUser;
 import ca.sfu.cmpt373.pluto.fall2021.hha.repositories.CaseStudyRepository;
 import ca.sfu.cmpt373.pluto.fall2021.hha.repositories.PhotoRepository;
@@ -19,6 +20,16 @@ import java.util.List;
 @RequestMapping("api/case-study")
 public class CaseStudyController {
     private final CaseStudyService caseStudyService;
+
+    @GetMapping
+    public List<CaseStudyTruncated> getCaseStudies() {
+        return caseStudyService.getCaseStudies();
+    }
+
+    @GetMapping("{id}")
+    public CaseStudy getCaseStudy(@PathVariable String id) {
+        return caseStudyService.getCaseStudy(id);
+    }
 
     @PostMapping("create")
     public void createCaseStudy() {

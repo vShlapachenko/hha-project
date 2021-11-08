@@ -49,7 +49,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .csrf().disable()
                 .sessionManagement().sessionCreationPolicy(STATELESS)
                 .and()
-                .authorizeRequests().antMatchers("/api/auth/login", "/api/auth/refresh", "/api/hha-user/forgotPassword", "/api/hha-user/forgotPassword/enterNewPassword").permitAll()
+                .authorizeRequests().antMatchers("/api/auth/login", "/api/auth/refresh", "/api/hha-user/forgotPassword", "/api/hha-user/forgotPassword/enterNewPassword", "/api/hha-user/changePassword").permitAll()
                 .and()
                 .authorizeRequests().anyRequest().authenticated()
                 .and()

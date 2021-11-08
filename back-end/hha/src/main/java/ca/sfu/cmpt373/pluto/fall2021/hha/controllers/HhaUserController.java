@@ -4,6 +4,7 @@ import ca.sfu.cmpt373.pluto.fall2021.hha.models.*;
 import ca.sfu.cmpt373.pluto.fall2021.hha.services.HhaUserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.mongodb.core.aggregation.ComparisonOperators;
+import org.springframework.security.core.parameters.P;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -51,4 +52,10 @@ public class HhaUserController {
     public void saveNewPassword(@RequestBody NewPassword newPasswordData){
         userService.setNewPassword(newPasswordData);
     }
+
+    @PostMapping("changePassword")
+    public void changePassword(@RequestBody ChangePassword changePasswordData) {
+        userService.changePassword(changePasswordData);
+    }
+
 }

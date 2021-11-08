@@ -1,9 +1,6 @@
 package ca.sfu.cmpt373.pluto.fall2021.hha.services;
 
-import ca.sfu.cmpt373.pluto.fall2021.hha.models.CaseStudy;
-import ca.sfu.cmpt373.pluto.fall2021.hha.models.CaseStudyTemplate;
-import ca.sfu.cmpt373.pluto.fall2021.hha.models.HhaUser;
-import ca.sfu.cmpt373.pluto.fall2021.hha.models.Photo;
+import ca.sfu.cmpt373.pluto.fall2021.hha.models.*;
 import ca.sfu.cmpt373.pluto.fall2021.hha.repositories.CaseStudyRepository;
 import ca.sfu.cmpt373.pluto.fall2021.hha.repositories.CaseStudyTemplateRepository;
 import ca.sfu.cmpt373.pluto.fall2021.hha.repositories.PhotoRepository;
@@ -17,6 +14,8 @@ import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -28,6 +27,25 @@ public class CaseStudyService {
     private final HhaUserService hhaUserService;
 
     private Collection<Photo> photos;
+
+    public List<CaseStudyTruncated> getCaseStudies() {
+        return toTruncatedCaseStudy(caseStudyRepository.findAll());
+    }
+
+    private List<CaseStudyTruncated> toTruncatedCaseStudy(List<CaseStudy> caseStudies) {
+        return caseStudies.stream()
+                .map(caseStudy ->  {
+                    var user = caseStudy.getSubmittedBy();
+                    return new CaseStudyTruncated(caseStudy.getId(), caseStudy.getCaseName(), caseStudy.getSubmittedDate(), new UserPublicInfo(user.getFirstName(), user.getLastName()));
+                })
+                .collect(Collectors.toList());
+    }
+
+
+    public CaseStudy getCaseStudy(String id) {
+        return caseStudyRepository.findById(id)
+                .orElseThrow(() -> new IllegalArgumentException("CaseStudy with ID ==== " + id + " Does not exist"));
+    }
 
     public void createCaseStudy() {
         photos = new ArrayList<>();

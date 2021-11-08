@@ -6,6 +6,7 @@ import {API_URL} from "../http";
 
 import ForgotPasswordService from "../service/ForgotPasswordService";
 import NewPasswordService from "../service/NewPasswordService";
+import ChangePasswordService from "../service/ChangePasswordService";
 
 export default class Store {
     isAuthorized = false;
@@ -78,6 +79,14 @@ export default class Store {
         try {
             await NewPasswordService.NewPassword(email, password);
         } catch (e: any) {
+            console.log(e.response?.data?.message);
+        }
+    }
+
+    async changeOldPassword(email: string, oldPassword: string, newPassword: string) {
+        try{
+            await ChangePasswordService.ChangePassword(email, oldPassword, newPassword);
+        } catch(e:any){
             console.log(e.response?.data?.message);
         }
     }

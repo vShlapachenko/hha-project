@@ -3,6 +3,7 @@ import { Context } from "../../index";
 import { observer } from "mobx-react-lite";
 import { Link, useHistory } from "react-router-dom";
 import "./ForgotPassword.css";
+import {Button} from "@mui/material";
 
 interface PropsInterface {
     disableOtpPage: () => void;
@@ -66,11 +67,13 @@ const EnterOTP: React.FC<PropsInterface> = (props): JSX.Element => {
                     required={true}
                 />
 
-                <button className="ForgotButton" onClick={validateOTP}>
+                <Button className="ForgotButton" onClick={validateOTP}
+                        sx={{width: "488px", height: "42px", background: '#009CC4'}}
+                        variant="contained">
                     Validate OTP
-                </button>
+                </Button>
                 <Link to="#" onClick={redirectToForgotPassword}>
-                    Enter email again ?
+                    Enter email again?
                 </Link>
                 <Link to="/">Login Page?</Link>
             </div>
