@@ -8,6 +8,7 @@ import logo_HHA from "../../pages/loginPage/logo.svg";
 import {Button} from "@mui/material";
 
 const ForgotPassword: React.FC<{}> = () => {
+
     const [email, setEmail] = useState<string>("");
     const { store } = useContext(Context);
     const [showOTP, setShowOtp] = useState(false);
