@@ -1173,9 +1173,229 @@ db.maternity.insert([
                                                     }
                                                 ]
                                                 },
-
-               
-            
         ]
     }
 ])
+
+db.createCollection('rehab', {capped: false});
+db.rehab.insert([
+    {
+    name: "REHAB MONTHLY DATA COLLECTION",
+    date: "Septemper 2021",
+    tables: [
+        {
+            commonColumn: {
+                label: "",
+                values: [
+                "Beds available",
+                "Bed days",
+                "Patient days",
+                "Hospitalized",
+                "30 years plus",
+                "Discharged alive"
+                ]
+            },
+            subTables: [
+                {
+                columns: [
+                    {
+                    label: "Quantity (number)",
+                    cells: []
+                    }
+        
+                ]
+                }
+            ]
+            },
+            {
+                label: "PATIENT 1 DISCHARGED DIAGNOSIS:",
+                commonColumn: {
+                    values: [
+                    "SCI",
+                    "Stroke",
+                    "Other"
+                    ]
+                },
+                subTables: [
+                    {
+                    columns: [
+                        {
+                        cells: []
+                        }
+            
+                    ]
+                    }
+                ]
+                },
+                {
+                    label: "Patient 1: No. Days in Rehab Unit from admission to discharge: TEXT BOX",
+                    commonColumn: {
+                        label: "Discharge Reason",
+                        values: [
+                        "All goals met",
+                        "Goals partially met, sufficient for discharge",
+                        "Goals not met, discharged for alternate reason"
+                        ]
+                    },
+                    subTables: [
+                        {
+                        columns: [
+                            {
+                            cells: []
+                            }
+                
+                        ]
+                        }
+                    ]
+                    },
+                    {
+                        
+                        commonColumn: {
+                            label: "Discharge Outcome (ADLs/Self-Care)",
+                            values: [
+                            "Independent",
+                            "Modified Independent ",
+                            "Supervision",
+                            "Minimum Assistance",
+                            "Moderate Assistance",
+                            "Maximum Assistance",
+                            "Dependent"
+
+
+                            ]
+                        },
+                        subTables: [
+                            {
+                            columns: [
+                                {
+                                cells: []
+                                }
+                    
+                            ]
+                            }
+                        ]
+                        },
+                        {
+                        
+                            commonColumn: {
+                                label: "Discharge Outcome (Transfers and Mobility)",
+                                values: [
+                                "Independent",
+                                "Modified Independent ",
+                                "Supervision",
+                                "Minimum Assistance",
+                                "Moderate Assistance",
+                                "Maximum Assistance",
+                                "Dependent"
+    
+    
+                                ]
+                            },
+                            subTables: [
+                                {
+                                columns: [
+                                    {
+                                    cells: []
+                                    }
+                        
+                                ]
+                                }
+                            ]
+                            },
+                            {
+                        
+                                commonColumn: {
+                                    label: "Mobility Aid/Assistive Device Given?",
+                                    values: [
+                                    "Wheelchair",
+                                    "Walker",
+                                    "Cane",
+                                    "Crutches"
+                                    ]
+                                },
+                                subTables: [
+                                    {
+                                    columns: [
+                                        {
+                                        cells: []
+                                        }
+                            
+                                    ]
+                                    }
+                                ]
+                                },
+                                {
+                                commonColumn: {
+                                    label: "Discharge Location",
+                                    values: [
+                                    "Return home, alone",
+                                    "Return home, with family/caregiver(s)",
+                                    "Admitted to hospital",
+                                    ]
+                                },
+                                subTables: [
+                                    {
+                                    columns: [
+                                        {
+                                        cells: []
+                                        }
+                            
+                                    ]
+                                    }
+                                ]
+                                },
+                                {
+                                commonColumn: {
+                                    label: "Discharge Employment Status",
+                                    values: [
+                                    "Employed",
+                                    "Unemployed, unable to find work",
+                                    "Unemployed, due to condition",
+                                    "Retired, not working due to age"
+                                    ]
+                                },
+                                subTables: [
+                                    {
+                                    columns: [
+                                        {
+                                        cells: []
+                                        }
+                            
+                                    ]
+                                    }
+                                ]
+                                },
+                                {
+                                    commonColumn: {
+                                        label: "",
+                                        values: [
+                                        "Died before 48h",
+                                        "Died after 48h",
+                                        "Days hospitalised",
+                                        "Referrals",
+                                        "Transfers",
+                                        "Self-discharged",
+                                        "Stayed in the ward",
+                                        "Admissions",
+                                        "Number of outpatients",
+                                        "Returning outpatients",
+                                        "New outpatient initial evaluations"
+
+                                        ]
+                                    },
+                                    subTables: [
+                                        {
+                                        columns: [
+                                            {
+                                            cells: []
+                                            }
+                                
+                                        ]
+                                        }
+                                    ]
+                                    },
+
+    ]
+}
+])
+
