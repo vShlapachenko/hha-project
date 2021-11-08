@@ -1,15 +1,24 @@
 import React, {FC, useContext, useState} from "react";
+import { useHistory } from "react-router-dom";
 import {Context} from "../../index";
 import {observer} from "mobx-react-lite"
 import "./Login.css";
 import logo_HHA from "./logo.svg"
-import {Button} from "@mui/material";
 
 
 const Login: FC = () => {
     const [email, setEmail] = useState<string>('');
     const [password, setPassword] = useState<string>('')
     const {store} = useContext(Context);
+    const history = useHistory();
+
+    const onClickFunc = async () => {
+        await store.login(email, password);
+        if (store.isAuthorized) {
+            history.push('/homePage');
+        }
+     }
+
     return (
         <div>
             <img src={logo_HHA} className="logoHHA" alt="logo" />
@@ -40,12 +49,9 @@ const Login: FC = () => {
             <a href="./forgotPassword">Forgot Password</a>
             <br />
             <br />
-            <Button className= "loginButton"
-                    sx={{width: "475px", height: "42px", background: '#009CC4'}}
-                    variant="contained"
-                    onClick={() => store.login(email, password)}>
+            <button className= "loginButton" onClick={onClickFunc}>
                 Login
-            </Button>
+            </button>
             <br />
             <br />
             <div className="plainText">If you are having any difficulties connecting to your account, please contact your <b>IT service</b> or <b>HHA representative</b> at <b>support@hha.com</b> </div>
