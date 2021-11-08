@@ -80,3 +80,528 @@ db.caseTemplate.insert([
         ]
     }
 ])
+
+db.createCollection('communityHealth', {capped: false});
+db.communityHealth.insert([
+    {
+    name: "Community Health",
+    date: "Septemper 2021",
+    tables: [
+        {
+        label: "Age Of Mothers",
+        commonColumn: {
+            label: "Age Of Mothers",
+            values: [
+            "<15 years",
+            "15-19 years",
+            "20-24 years",
+            "25-29 years",
+            "30 years plus",
+            "Unknown"
+            ]
+        },
+        subTables: [
+            {
+            label: "",
+            columns: [
+                {
+                label: "Matrones",
+                cells: []
+                },
+                {
+                label: "Autres",
+                cells: []
+                }
+            ]
+            }
+        ]
+        },
+        {
+        label: "Births",
+        commonColumn: {
+            label: "Births",
+            values: [
+            "Weight < 1.5kg",
+            "1.5kg < Weight < 2.5kg",
+            "2.5kg and over",
+            "Not weighed",
+            "Immediately breastfed",
+            "Skin to skin therapy"
+            ]
+        },
+        subTables: [
+            {
+            label: "",
+            columns: [
+                {
+                label: "Matrones",
+                cells: []
+                },
+                {
+                label: "Autres",
+                cells: []
+                }
+            ]
+            }
+        ]
+        },
+        {
+        label: "Postal Natal",
+        commonColumn: {
+            label: "Postal Natal",
+            values: [
+            "Breastfeeding women receiving vitamin A",
+            "Breastfeeding women with MUAC <210mm",
+            "Breastfeeding women with malnutrition support",
+            "Domestic visits in 0-3 days"
+            ]
+        },
+        subTables: [
+            {
+            label: "",
+            columns: [
+                {
+                label: "Matrones",
+                cells: []
+                },
+                {
+                label: "Autres",
+                cells: []
+                }
+            ]
+            }
+        ]
+        },
+        {
+        label: "Birth Control",
+        commonColumn: {
+            label: "Methods/Sex",
+            values: [
+            "OCP",
+            "Patch",
+            "Depo injection",
+            "Implant",
+            "Inter uterine devices (IUD)",
+            "Vaginal ring",
+            "Breastfeeding as birth control",
+            "Female condom",
+            "Sterlisation",
+            "Male condom",
+            "Vasectomy"
+            ]
+        },
+        subTables: [
+            {
+            label: "Acceptants",
+            columns: [
+                {
+              label: "< 25 years",
+                cells: []
+                },
+                {
+                label: "25 years plus",
+                cells: []
+                }
+            ]
+            },
+            {
+            label: "Total utilisateurs",
+            columns: [
+                {
+                label: "< 25 years",
+                cells: []
+                },
+                {
+                label: "25 years plus",
+                cells: []
+                }
+            ]
+            },
+            {
+            label: "Contraceptives distributed",
+            columns: [
+                {
+                label: "Unit",
+                cells: [
+                    {
+                    disabled: true,
+                    value: "Cycle",
+                    type: "text"
+                    },
+                    {
+                    disabled: true,
+                    value: "Cycle",
+                    type: "text"
+                    },
+                    {
+                    disabled: true,
+                    value: "Vial",
+                    type: "text"
+                    },
+                    {
+                    disabled: true,
+                    value: "Paquet",
+                    type: "text"
+                    },
+                    {
+                    disabled: true,
+                    value: "Piece",
+                    type: "text"
+                    },
+                    {
+                    disabled: true,
+                    value: "Piece",
+                    type: "text"
+                    },
+                    {
+                    disabled: true,
+                    value: null,
+                    type: "text"
+                    },
+                    {
+                    disabled: true,
+                    value: "Piece",
+                    type: "text"
+                    }
+                ]
+                },
+                {
+                label: "Quantity",
+                cells: [
+                    {
+                    disabled: false,
+                    value: null,
+                    type: "number"
+                    },
+                    {
+                    disabled: false,
+                    value: null,
+                    type: "number"
+                    },
+                    {
+                    disabled: false,
+                    value: null,
+                    type: "number"
+                    },
+                    {
+                    disabled: false,
+                    value: null,
+                    type: "number"
+                    },
+                    {
+                    disabled: false,
+                    value: null,
+                    type: "number"
+                    },
+                    {
+                    disabled: false,
+                    value: null,
+                    type: "number"
+                    },
+                    {
+                    disabled: true,
+                    value: null,
+                    type: "number"
+                    },
+                    {
+                    disabled: false,
+                    value: null,
+                    type: "number"
+                    }
+                ]
+                },
+                {
+                label: "Number of days out of stock / month",
+                cells: [
+                    {
+                    disabled: false,
+                    value: null,
+                    type: "number"
+                    },
+                    {
+                    disabled: false,
+                    value: null,
+                    type: "number"
+                    },
+                    {
+                    disabled: false,
+                    value: null,
+                    type: "number"
+                    },
+                    {
+                    disabled: false,
+                    value: null,
+                    type: "number"
+                    },
+                    {
+                    disabled: false,
+                    value: null,
+                    type: "number"
+                    },
+                    {
+                    disabled: false,
+                    value: null,
+                    type: "number"
+                    },
+                    {
+                    disabled: true,
+                    value: null,
+                    type: "number"
+                    },
+                    {
+                    disabled: false,
+                    value: null,
+                    type: "number"
+                    }
+                ]
+                }
+            ]
+            }
+        ]
+        },
+        {
+        label: "Vaccination",
+        commonColumn: {
+            label: "Type of Vaccine",
+            values: [
+            "BCG",
+            "VPO",
+            "Penta",
+            "Rota",
+            "RR",
+            "dT",
+            "VPI",
+            "Flu",
+            "DTP",
+            "COVID-19"
+            ]
+        },
+        subTables: [
+            {
+            label: "Type Of Vaccines",
+            columns: [
+                {
+                label: "Quantité disponible au cours du mois",
+                cells: []
+                },
+                {
+                label: "Balance en fin de mois",
+                cells: []
+                },
+                {
+                label: "Quantité disponible au cours du mois",
+                cells: []
+                }
+            ]
+            }
+        ]
+        },
+        {
+        label: "Vaccination",
+        commonColumn: {
+            label: "Consumables",
+            values: [
+            "SAB 0.05ml",
+            "SAB 0.5ml",
+            "Sdil_2ml",
+            "Sdil_5ml",
+            "Boîtes Séc",
+            "Coton"
+            ]
+        },
+        subTables: [
+            {
+            label: "Consumables",
+            columns: [
+                {
+                label: "Quantité disponible au cours du mois",
+                cells: []
+                },
+                {
+                label: "Balance en fin de mois",
+                cells: []
+                },
+                {
+                label: "Quantité disponible au cours du mois",
+                cells: []
+                }
+            ]
+            }
+        ]
+        },
+        {
+        label: "Vaccines",
+        commonColumn: {
+            label: "Vaccines",
+            values: [
+            "BCG",
+            "VPO (Polio)",
+            "VPO 1 (Polio)",
+            "VPO 2 (Polio)",
+            "Rappel VPO (Polio)",
+            "VPI",
+            "Penta 1",
+            "Penta 2",
+            "Penta 3",
+            "Rota 1",
+            "Rota 2",
+            "RR 1",
+            "RR 2",
+            "Pneumo 1",
+            "Pneumo 2",
+            "Pneumo 3",
+            "DTp Rappel",
+            "ECV"
+            ]
+        },
+        subTables: [
+            {
+            label: "Men 0-11 Years",
+            columns: [
+                {
+                label: "Inst.",
+                cells: []
+                },
+                {
+                label: "Comm.",
+                cells: []
+                },
+                {
+                label: "Total",
+                cells: []
+                }
+            ]
+            },
+            {
+            label: "Men 12-23 Years",
+            columns: [
+                {
+                label: "Inst.",
+                cells: []
+                },
+                {
+                label: "Comm.",
+                cells: []
+                },
+                {
+                label: "Total",
+                cells: []
+                }
+            ]
+            },
+            {
+            label: "Women 0-11 Years",
+            columns: [
+                {
+                label: "Inst.",
+                cells: []
+                },
+                {
+                label: "Comm.",
+                cells: []
+                },
+                {
+                label: "Total",
+                cells: []
+                }
+            ]
+            },
+            {
+            label: "Women 12-23 Years",
+            columns: [
+                {
+                label: "Inst.",
+                cells: []
+                },
+                {
+                label: "Comm.",
+                cells: []
+                },
+                {
+                label: "Total",
+                cells: []
+                }
+            ]
+            },
+            {
+            label: "Total",
+            columns: [
+                {
+                label: "Total doses",
+                cells: []
+                },
+                {
+                label: "Utilisees",
+                cells: []
+                },
+                {
+                label: "Administrees",
+                cells: []
+                }
+            ]
+            }
+        ]
+        },
+        {
+        label: "Vaccines dT1, dT2+",
+        commonColumn: {
+            label: "Vaccines",
+            values: [
+            "dT1",
+            "dT2+"
+            ]
+        },
+        subTables: [
+            {
+            label: "Femmes Enceintes",
+            columns: [
+                {
+                label: "Inst.",
+                cells: []
+                },
+                {
+                label: "Comm.",
+                cells: []
+                },
+                {
+                label: "Total",
+                cells: []
+                }
+            ]
+            }
+        ]
+        },
+        {
+        label: "Vaccines dT1, dT2+",
+        commonColumn: {
+            label: "Total doses",
+            "values": [
+            "dT1 + dT2+"
+            ]
+        },
+        subTables: [
+            {
+            label: "Total",
+            columns: [
+                {
+                label: "Utilisees",
+                cells: []
+                },
+                {
+                label: "Administrees",
+                cells: []
+                }
+            ]
+            }
+        ]
+        }
+    ]
+    }    
+])
+
+db.createCollection('communityHealth', {capped: false});
+db.communityHealth.insert([
+    {
+        
+    }
+])
