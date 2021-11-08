@@ -7,6 +7,11 @@
   /*background-color: #f1ebeb;*/
 }
 
+div {
+  width: 100%;
+  height:100%;
+}
+
 .allignment{
   position: absolute;
   top: 50%;
@@ -40,12 +45,12 @@
   font-size: 15px;
   border: none;
   border-radius: 50px;
-  background-color: #4d4b4e;
+  background-color: #009CC4;
   color: #fff;
 }
 
 .logoHHA{
-    height: 80px;
+    height: 95px;
     width: auto;
     object-fit: contain;
     margin: 20px 20px;
