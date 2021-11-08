@@ -19,7 +19,7 @@ const Login: FC = () => {
             <div className="plainText">Enter your email and password to access the page </div>
             <br />
             <div className="textInput">
-                <div className="plainText"><b>Email</b></div>
+            <div className="plainText"><b>Username</b></div>
                 <input
                     onChange={e => setEmail(e.target.value)}
                     value={email}
