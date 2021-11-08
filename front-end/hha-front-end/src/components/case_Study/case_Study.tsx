@@ -12,6 +12,7 @@ import IconButton, { IconButtonProps } from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import Navbar from '../Navbar/Navbar';
+import './case_Study.css'
 
 
 interface CaseStudyAttributes {
@@ -55,57 +56,76 @@ const CaseStudy = ({patient_image, case_image, heading, patient_name = '', patie
     return (
         <div>
             <Navbar />
-            <Card sx={{ maxWidth: 345 }}>
-                <CardHeader
-                    avatar={
-                        <Avatar src={patient_image}> </Avatar>
-                    }
-                    title={heading}
-                />
+            <div className={'component'}>
+                <Card sx={{ maxWidth: 345 }}>
+                    <CardHeader
+                        avatar={
+                            <Avatar src={patient_image}> </Avatar>
+                        }
+                        title={heading}
+                    />
 
-                <CardMedia
-                    component="img"
-                    height="194"
-                    image={case_image}
-                />
-
-                <CardContent>
-                    <Typography variant="body2" color="text.secondary">
-                        {employee_story}
-                        {patient_name && <Chip label={'Patient`s Name: ' + patient_name}/> }
-                        {patient_age && <Chip label={'Patient`s Age: ' + patient_age}/> }
-                        {patient_location && <Chip label={'Patient`s Location: ' + patient_location}/> }
-                        {reason_hcbh && <Chip label={'Reason: ' + reason_hcbh}/> }
-                        {duration_hcbh && <Chip label={'Duration at HCBH: ' + duration_hcbh}/> }
-                        {diagnosis && <Chip label={'Patient`s Diagnosis: ' + diagnosis}/> }
-                    </Typography>
-                </CardContent>
-
-                <CardActions disableSpacing>
-                    <h3>Click on this arrow to learn more</h3>
-                    <ExpandMore
-                        expand={expanded}
-                        onClick={handleExpandClick}
-                        aria-expanded={expanded}
-                        aria-label="show more"
-                        >
-                        <ExpandMoreIcon />
-                    </ExpandMore>
-                </CardActions>
-
-                <Collapse in={expanded} timeout="auto" unmountOnExit>
+                    <CardMedia
+                        component="img"
+                        height="194"
+                        image={case_image}
+                    />
 
                     <CardContent>
-                        <Typography paragraph>Story:</Typography>
-                        
-                        <Typography paragraph>
-                        {story}
+                        <Typography variant="body2" color="text.secondary">
+
+                            <div className={'employeeStory'}>
+                                {employee_story}
+                            </div>
+                            
+                            {patient_name && <Chip label={'Patient`s Name: ' + patient_name}/> }
+                            {patient_age && <Chip label={'Patient`s Age: ' + patient_age}/> }
+                            
                         </Typography>
                     </CardContent>
 
-                </Collapse>
+                    <CardActions disableSpacing>
+                        <div className={'expand'}>
+                            <h3>Click on this arrow to learn more</h3>
+                        </div>
+                        
+                        <ExpandMore
+                            expand={expanded}
+                            onClick={handleExpandClick}
+                            aria-expanded={expanded}
+                            aria-label="show more"
+                            >
+                        <ExpandMoreIcon />
+                        </ExpandMore>
+                    </CardActions>
 
-            </Card>
+                    <Collapse in={expanded} timeout="auto" unmountOnExit>
+
+                        <CardContent>
+                            <div className={'moreInfo'}>
+                                <CardContent>
+                                        <Typography variant="body2" color="text.secondary">
+                                        {patient_location && <Chip sx={{marginLeft: -3, marginRight: 2}} label={'Patient`s Location: ' + patient_location}/> }
+                                        {reason_hcbh && <Chip label={'Reason: ' + reason_hcbh}/> }
+                                        {duration_hcbh && <Chip sx={{marginLeft: -3, marginTop: 2}} label={'Duration at HCBH: ' + duration_hcbh}/> }
+                                        {diagnosis && <Chip sx={{marginLeft: -3, marginTop: 2}} label={'Patient`s Diagnosis: ' + diagnosis}/> } 
+                                        </Typography>
+                                </CardContent>
+                            </div>
+                            
+                                <Typography paragraph>
+                                    <div className={'story'}>
+                                        {story}
+                                    </div>
+                                </Typography>
+                            
+                            
+                        </CardContent>
+
+                    </Collapse>
+
+                </Card>
+            </div>
         </div>
     );
 }
