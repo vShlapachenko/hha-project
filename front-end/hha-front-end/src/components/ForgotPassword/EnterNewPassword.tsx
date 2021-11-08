@@ -1,12 +1,15 @@
 import React, { useState, useContext, useEffect } from "react";
 import { Context } from "../../index";
-import { Link } from "react-router-dom";
+import {Link, useHistory} from "react-router-dom";
 import "./ForgotPassword.css";
+import logo_HHA from "../../pages/loginPage/logo.svg";
+import {Button} from "@mui/material";
 
 const EnterNewPassword: React.FC<{}> = () => {
     const [password, setPassword] = useState<string>("");
     const [confirmPassword, setConfirmPassword] = useState<string>("");
     const { store } = useContext(Context);
+    const history = useHistory();
     const [userEmail, setUserEmail] = useState<string>("");
 
     useEffect(() => {
@@ -18,6 +21,10 @@ const EnterNewPassword: React.FC<{}> = () => {
     const handleSetNewPassword = () => {
         if (password === confirmPassword) {
             store.setNewPassword(userEmail, password);
+            alert("New Password set")
+            history.push({
+                pathname: "/",
+            });
         } else {
             alert("Passwords don't match");
             setPassword("");
@@ -26,8 +33,9 @@ const EnterNewPassword: React.FC<{}> = () => {
     };
 
     return (
-        <div className="forgot_password_parent">
-            <div className="allignment-forgot">
+        <div>
+            <img src={logo_HHA} className="logoHHA" alt="logo" />
+            <div className="alignment">
                 <h1>Enter New Password</h1>
                 <p>user email - {userEmail || "unknown"}</p>
                 <input
@@ -43,13 +51,15 @@ const EnterNewPassword: React.FC<{}> = () => {
                     placeholder="Confirm new password"
                 />
 
-                <button className="ForgotButton" onClick={handleSetNewPassword}>
-                    Set New Password
-                </button>
+                <Button className="ForgotButton" onClick={handleSetNewPassword}
+                        sx={{width: "488px", height: "42px", background: '#009CC4'}}
+                        variant="contained">
+                    Submit
+                </Button>
                 <Link to="/">Login Page?</Link>
             </div>
         </div>
     );
 };
 
-export default EnterNewPassword;
+export default EnterNewPassword

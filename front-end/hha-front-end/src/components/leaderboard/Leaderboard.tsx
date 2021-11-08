@@ -24,7 +24,7 @@ const Leaderboard = ({FirstDepartmentName, SecondDepartmentName, ThirdDepartment
           </h1>
 
           <h2>
-            {SecondPoints} points
+            {SecondPoints}
           </h2>
         </div>
         
@@ -39,7 +39,7 @@ const Leaderboard = ({FirstDepartmentName, SecondDepartmentName, ThirdDepartment
           </h1>
 
           <h2>
-            {FirstPoints} points
+            {FirstPoints}
           </h2>
 
         </div>
@@ -54,7 +54,7 @@ const Leaderboard = ({FirstDepartmentName, SecondDepartmentName, ThirdDepartment
           </h1>
 
           <h2>
-            {ThirdPoints} points
+            {ThirdPoints}
           </h2>
             
         </div>

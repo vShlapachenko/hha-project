@@ -1,9 +1,6 @@
 package ca.sfu.cmpt373.pluto.fall2021.hha.services;
 
-import ca.sfu.cmpt373.pluto.fall2021.hha.models.CaseStudy;
-import ca.sfu.cmpt373.pluto.fall2021.hha.models.CaseStudyTemplate;
-import ca.sfu.cmpt373.pluto.fall2021.hha.models.HhaUser;
-import ca.sfu.cmpt373.pluto.fall2021.hha.models.Photo;
+import ca.sfu.cmpt373.pluto.fall2021.hha.models.*;
 import ca.sfu.cmpt373.pluto.fall2021.hha.repositories.CaseStudyRepository;
 import ca.sfu.cmpt373.pluto.fall2021.hha.repositories.CaseStudyTemplateRepository;
 import ca.sfu.cmpt373.pluto.fall2021.hha.repositories.PhotoRepository;
@@ -13,9 +10,12 @@ import org.bson.types.Binary;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
+import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -24,9 +24,28 @@ public class CaseStudyService {
     private final CaseStudyTemplateRepository caseStudyTemplateRepository;
     private final PhotoRepository photoRepository;
 
-    private final AuthorizationService authorizationService;
+    private final HhaUserService hhaUserService;
 
     private Collection<Photo> photos;
+
+    public List<CaseStudyTruncated> getCaseStudies() {
+        return toTruncatedCaseStudy(caseStudyRepository.findAll());
+    }
+
+    private List<CaseStudyTruncated> toTruncatedCaseStudy(List<CaseStudy> caseStudies) {
+        return caseStudies.stream()
+                .map(caseStudy ->  {
+                    var user = caseStudy.getSubmittedBy();
+                    return new CaseStudyTruncated(caseStudy.getId(), caseStudy.getCaseName(), caseStudy.getSubmittedDate(), new UserPublicInfo(user.getFirstName(), user.getLastName()));
+                })
+                .collect(Collectors.toList());
+    }
+
+
+    public CaseStudy getCaseStudy(String id) {
+        return caseStudyRepository.findById(id)
+                .orElseThrow(() -> new IllegalArgumentException("CaseStudy with ID ==== " + id + " Does not exist"));
+    }
 
     public void createCaseStudy() {
         photos = new ArrayList<>();
@@ -46,9 +65,10 @@ public class CaseStudyService {
         photos.add(photo);
     }
 
-    public void saveCaseStudy(CaseStudy caseStudy)
+    public void saveCaseStudy(HttpServletRequest request, CaseStudy caseStudy)
     {
         // caseStudy.setSubmittedBy(authorizationService.getUser());
+        caseStudy.setSubmittedBy(hhaUserService.getUser(request.getUserPrincipal().getName()));
         caseStudy.setPhotos(photos);
 
         caseStudyRepository.insert(caseStudy);
