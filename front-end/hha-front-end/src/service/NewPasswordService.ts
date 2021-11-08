@@ -1,14 +1,10 @@
-import { newPasswordResponse } from "../models/response/ForgotPasswordResponse";
-import { AxiosResponse } from "axios";
-import $api from "../http";
+import axios, { AxiosResponse } from "axios";
+import {NewPasswordRequest} from "../models/request/NewPasswordRequest";
 
-export default class setNewPasswordService {
-    static async setNewPassword(
-        email: string,
-        password: string
-    ): Promise<AxiosResponse<newPasswordResponse>> {
-        return $api.post<newPasswordResponse>(
-            "/hha-user/forgotPassword/setNewPassword",
+export default class NewPasswordService {
+    static async NewPassword(email: string, password: string): Promise<AxiosResponse<NewPasswordRequest>> {
+        return axios.post<NewPasswordRequest>(
+            "http://localhost:8080/api/hha-user/forgotPassword/enterNewPassword",
             { email: email, password: password }
         );
     }

@@ -15,7 +15,6 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import javax.mail.MessagingException;
-import javax.servlet.http.HttpServletRequest;
 import java.util.Collection;
 import java.util.List;
 import java.util.Random;
@@ -128,12 +127,12 @@ public class HhaUserService implements UserDetailsService {
 
     public int sendOtp(EmailDto email) {
         if (!userRepository.existsByEmail(email.getEmail())){
-//            return 0;
             throw new IllegalArgumentException("This email does not exist in DB = " + email.getEmail());
         }
 
+        //reference from https://stackoverflow.com/questions/51322750/generate-6-digit-random-number
         Random random = new Random();
-        int otp = 100000 + random.nextInt(999999);
+        int otp = random.nextInt(900000) + 100000;
 
         try {
             emailService.sendOtp(email, otp);
@@ -143,5 +142,21 @@ public class HhaUserService implements UserDetailsService {
         }
         forgotPasswordRepository.save(new ForgotPassword(otp, userRepository.findByEmail(email.getEmail())));
         return otp;
+    }
+
+    public void setNewPassword(NewPassword newPasswordData){
+        var user = getUser(newPasswordData.getEmail());
+        user.setPassword(newPasswordData.getPassword());
+        saveUser(user);
+    }
+
+    public void changePassword(ChangePassword changePasswordData) {
+        var user = getUser(changePasswordData.getEmail());
+        if (passwordEncoder.matches(changePasswordData.getOldPassword(), user.getPassword())){
+            user.setPassword(changePasswordData.getNewPassword());
+            saveUser(user);
+        } else{
+            throw new IllegalArgumentException("Old Password do not match for " + changePasswordData.getEmail());
+        }
     }
 }

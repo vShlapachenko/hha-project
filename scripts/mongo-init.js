@@ -25,3 +25,55 @@ db.hhaUser.insert([
         confirmationLink: null
     }
 ])
+
+db.createCollection('caseTemplate', {capped: false});
+
+db.caseTemplate.insert([
+    {
+        name: "Patient Story",
+        questions: [
+            "Patient's name?",
+            "Patient's age?",
+            "Where is the patient from?",
+            "Why did the patient choose to come to HCBH?",
+            "How long were they at HCBH?",
+            "What was their diagnosis?",
+            "Case study/story: (add more personal elements to the story;quote from the patient/family member etc.)"
+        ]
+    }, {
+        name: "Staff Recognition",
+        questions: [
+            "Staff name?",
+            "Role/Job Title?",
+            "What department does this staff member work in?",
+            "How long have they been working at HCBH?",
+            "What do they enjoy most about working at HCBH?",
+            "Case study/story (why is this person being recognized? Act of kindness? anniversary? etc.)"
+        ]
+    }, {
+        name: "Training Session",
+        questions: [
+            "Training date?",
+            "What was the training on?",
+            "Who conducted the training?",
+            "Who attended the training?",
+            "How will the training benefit HCBH and its staff?",
+            "Case study/story (include a general summary of the training and its success etc)"
+        ]
+    }, {
+        name: "Equipment Received",
+        questions: [
+            "What equipment was received?",
+            "What department received the equipment?",
+            "Who was the equipment from?",
+            "Was the equipment donated or purchased?",
+            "What does this new equipment do?",
+            "Case study/story (include who will benefit from this equipment and what value it adds to HCBH etc.)"
+        ]
+    }, {
+        name: "Other Story",
+        questions: [
+            "Case study/story"
+        ]
+    }
+])
