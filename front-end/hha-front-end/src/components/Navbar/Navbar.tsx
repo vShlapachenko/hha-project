@@ -77,9 +77,9 @@ const Navbar = () => {
     const handleClick = (index: number, item: any) => {
         console.log(item);
         if (item.title === "Case Study") {
-            history.push('/casestudy');
+            history.push('/caseStudy');
         } else if (item.title === "Home") {
-            history.push('/homepage');
+            history.push('/homePage');
         }
         
         if(index == chosenIndex) return;
