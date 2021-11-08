@@ -74,7 +74,14 @@ const Navbar = () => {
         setOpen(false);
     };
 
-    const handleClick = (index: number) => {
+    const handleClick = (index: number, item: any) => {
+        console.log(item);
+        if (item.title === "Case Study") {
+            history.push('/caseStudy');
+        } else if (item.title === "Home") {
+            history.push('/homePage');
+        }
+        
         if(index == chosenIndex) return;
         setIndex(index);
     }
@@ -143,7 +150,7 @@ const Navbar = () => {
                                                 <Box ml={2}>
                                                     <Button sx={{fontFamily: 'Arial', fontWeight: 400, flexGrow: 1}}
                                                     style={chosenIndex == index ? buttonStyleChoosen : buttonStyle}
-                                                    onClick={() => handleClick(index)}
+                                                    onClick={() => handleClick(index, item)}
                                                     >
                                                         {item.title}
                                                     </Button>
@@ -175,7 +182,7 @@ const Navbar = () => {
                                     <Box mr={4}>
                                             <Button sx={{fontFamily: 'Arial', fontWeight: 400}}
                                             style={chosenIndex == index ? buttonStyleChoosen : buttonStyle}
-                                            onClick={() => handleClick(index)}
+                                            onClick={() => handleClick(index, item)}
                                             >
                                                 {item.title}
                                             </Button>
