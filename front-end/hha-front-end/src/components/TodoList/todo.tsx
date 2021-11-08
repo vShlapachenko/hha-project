@@ -1,67 +1,39 @@
 import React from 'react';
 import Box from '@mui/material/Box';
-import Grid from '@mui/material/Grid';
-import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button'
 import { Link } from 'react-router-dom'
+import './todo.css'
+import { types } from '@babel/core';
 
 
 interface ToDoAttribute{
     firstLine: string;
     secondLine: string;
     thirdLine: string;
+    func: () => void;
 }
 
-const ToDo = ({firstLine, secondLine, thirdLine}:ToDoAttribute) => {
+const ToDo = ({firstLine, secondLine, thirdLine, func}:ToDoAttribute) => {
 
     return(
-      <Grid container
-        direction="row"
-        justifyContent="center"
-        alignItems="center"
-      >
-        <Box mx={2}
-        textAlign='center'
-          sx={{
-            width:3000,
-            height:150,
-            bgcolor: '#EEEEEE',
-            boxShadow: 1,
-            fontWeight: 'bold',
-            alignItems: 'center',
-            overflow: 'visible',
-            borderRadius: '12px'
-          }}>
-            <div>
-              <Typography
-              mt = {1}
-              color = '#000000'
-              fontWeight = 'bold'
-              variant = "h5"
-              >
-                {firstLine}
-              </Typography>
-            </div>
-            <div>
-              <Typography
-              mt = {2}
-              color = '#000000'
-              >
-                {secondLine}
-              </Typography>
-            </div>
+      <div className = "toDogrid">
+        <div className = "toDobox">
+
+            <h2 className = "toDoh2">
+              {firstLine}
+            </h2>
+
+            <p>
+              {secondLine}
+            </p>
+
             <Box pt={2}>
-              <Link to = "/login" style ={{textDecoration:'none'}}>
-                <Button
-                  variant="contained"
-                  style = {{minWidth: '400px', backgroundColor: '#009CC4',}}
-                  >
+              <button className = "todoButton" onClick = {func}>
                   {thirdLine}
-                </Button>
-              </Link>
+              </button>
             </Box>
-        </Box>
-      </Grid>
+        </div>
+      </div>
     );
 };
 export default ToDo;
