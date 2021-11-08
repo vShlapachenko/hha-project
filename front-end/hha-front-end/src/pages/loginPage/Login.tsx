@@ -1,4 +1,5 @@
 import React, {FC, useContext, useState} from "react";
+import { useHistory } from "react-router-dom";
 import {Context} from "../../index";
 import {observer} from "mobx-react-lite"
 import "./Login.css";
@@ -9,6 +10,15 @@ const Login: FC = () => {
     const [email, setEmail] = useState<string>('');
     const [password, setPassword] = useState<string>('')
     const {store} = useContext(Context);
+    const history = useHistory();
+
+    const onClickFunc = async () => {
+        await store.login(email, password);
+        if (store.isAuthorized) {
+            history.push('/homePage');
+        }
+     }
+
     return (
         <div>
             <img src={logo_HHA} className="logoHHA" alt="logo" />
@@ -39,7 +49,7 @@ const Login: FC = () => {
             <a href="./forgotPassword">Forgot Password</a>
             <br />
             <br />
-            <button className= "loginButton" onClick={() => store.login(email, password)}>
+            <button className= "loginButton" onClick={onClickFunc}>
                 Login
             </button>
             <br />
