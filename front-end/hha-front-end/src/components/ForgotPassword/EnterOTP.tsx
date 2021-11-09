@@ -2,7 +2,7 @@ import React, { useState, useContext, useEffect } from "react";
 import { Context } from "../../index";
 import { observer } from "mobx-react-lite";
 import { Link, useHistory } from "react-router-dom";
-import "./ForgotPassword.css";
+import styles from "./ForgotPassword.module.css";
 import {Button} from "@mui/material";
 
 interface PropsInterface {
@@ -57,7 +57,7 @@ const EnterOTP: React.FC<PropsInterface> = (props): JSX.Element => {
     }
     return (
         <div>
-            <div className="alignment">
+            <div className={styles.alignment}>
                 <h1>Enter OTP</h1>
                 <input
                     onChange={(e) => setUserOtp(e.target.value)}
@@ -67,7 +67,7 @@ const EnterOTP: React.FC<PropsInterface> = (props): JSX.Element => {
                     required={true}
                 />
 
-                <Button className="ForgotButton" onClick={validateOTP}
+                <Button className={styles.ForgotButton} onClick={validateOTP}
                         sx={{width: "488px", height: "42px", background: '#009CC4'}}
                         variant="contained">
                     Validate OTP

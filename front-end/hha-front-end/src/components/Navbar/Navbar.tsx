@@ -1,5 +1,5 @@
 import React, { Component, useContext } from "react";
-import "./Navbar.css";
+import styles from "./Navbar.module.css";
 import logo from "./logo.svg";
 import Button from '@mui/material/Button';
 import { AppBar, Box, IconButton, Toolbar, Typography } from "@mui/material";
@@ -75,14 +75,16 @@ const Navbar = () => {
     };
 
     const handleClick = (index: number, item: any) => {
-        console.log(item);
+        if(index == chosenIndex) return;
+        
         if (item.title === "Case Study") {
             history.push('/caseStudy');
         } else if (item.title === "Home") {
             history.push('/homePage');
+        } else if (item.title === "Forms") {
+            history.push('/forms');
         }
         
-        if(index == chosenIndex) return;
         setIndex(index);
     }
 

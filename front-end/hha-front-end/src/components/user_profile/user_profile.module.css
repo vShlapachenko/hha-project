@@ -13,7 +13,7 @@
     color: #000000;
 }
 
-.header-2 {
+.header_2 {
     position: absolute;
     left: calc(50% - 242px/2 + 9px);
     top: 150px;

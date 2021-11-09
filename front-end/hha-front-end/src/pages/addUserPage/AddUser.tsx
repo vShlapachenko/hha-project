@@ -3,7 +3,7 @@ import {Context} from "../../index";
 import { useHistory } from "react-router-dom";
 import {observer} from "mobx-react-lite"
 import Navbar from "../../components/Navbar/Navbar";
-import "./AddUser.css";
+import styles from "./AddUser.module.css";
 import Input  from "../../components/Input/Input";
 import Dropdown from "../../components/dropdown/Dropdown";
 import { Button } from "@mui/material";
@@ -62,42 +62,42 @@ const AddUser: FC = () => {
     return (
         <div>
             <Navbar />
-            <div className="header">
+            <div className={styles.header}>
                 <h5 >Create New Account</h5>
             </div>
             
-            <div className="enterEmail">
+            <div className={styles.enterEmail}>
                 <h5 >Enter the email of a new user</h5>
             </div>
 
-            <div className= "emailInput" >                  
+            <div className= {styles.emailInput} >                  
                 <Input userInput={email} type="text" label="" onChangeFunc={setEmailFunc} />
             </div>
 
-            <div className="confirmEmail">
+            <div className={styles.confirmEmail}>
                 <h5 >Confirm email of a new user</h5>
             </div>
-            <div className= "confirmEmailInput" >                  
+            <div className= {styles.confirmEmailInput} >                  
                 <Input userInput={confirmEmail} type="text" label="" onChangeFunc={setConfirmEmailFunc} />
             </div>
 
-            <div className="chooseTypeAccount">
+            <div className={styles.chooseTypeAccount}>
                 <h5 >Choose type of account</h5>
             </div>
-            <div className= "chooseTypeAccountDropdown">
+            <div className= {styles.chooseTypeAccountDropdown}>
                 <Dropdown listItems={listItems} itemName={""} onChangeFunc={setDropdownFunc} initialValue={dropdown} />
             </div>
-            <div className="choosePassword">
+            <div className={styles.choosePassword}>
                 <h5 >Choose your password</h5>
             </div>
-            <div className= "password" >                  
+            <div className= {styles.password} >                  
                 <Input userInput={password} type="text" label="" onChangeFunc={setPasswordFunc} />
             </div>
-            <div className="submitButton" >
+            <div className={styles.submitButton} >
                 <Button variant="contained" onClick={createAccount} >Submit</Button>
             </div>
 
-            <div className="backToHomePage" >
+            <div className={styles.backToHomePage} >
                 <Button variant="contained" onClick={backToHomePage} >Back to Home Page</Button>
             </div>
         </div>

@@ -1,7 +1,7 @@
 import React, {useContext, useState} from "react"
 import {Context} from "../../index";
 import logo_HHA from "../../pages/loginPage/logo.svg";
-import "./changePassword.css"
+import styles from "./changePassword.module.css"
 import {useHistory} from "react-router-dom";
 import {Button} from "@mui/material";
 
@@ -35,9 +35,9 @@ const ChangePassword: React.FC<{}> = () => {
 
     return(
         <div>
-            <img src={logo_HHA} className="logoHHA" alt="logo" />
-            <h1 className={"header"}>Change Password Form</h1>
-            <div className={"emailInput"}>
+            <img src={logo_HHA} className={styles.logoHHA} alt="logo" />
+            <h1 className={styles.header}>Change Password Form</h1>
+            <div className={styles.emailInput}>
                 <input
                     onChange={(e) => setUserEmail(e.target.value)}
                     value={userEmail}
@@ -45,7 +45,7 @@ const ChangePassword: React.FC<{}> = () => {
                     placeholder="Enter your email"
                 />
             </div>
-            <div className={"currPassInput"}>
+            <div className={styles.currPassInput}>
                 <input
                        onChange={(e) => setOldPassword(e.target.value)}
                        value={oldPassword}
@@ -53,7 +53,7 @@ const ChangePassword: React.FC<{}> = () => {
                        placeholder="Enter current password"
                 />
             </div>
-            <div className={"newPassInput"}>
+            <div className={styles.newPassInput}>
                 <input
                     onChange={(e) => setNewPassword(e.target.value)}
                     value={newPassword}
@@ -61,7 +61,7 @@ const ChangePassword: React.FC<{}> = () => {
                     placeholder="Enter new password"
                 />
             </div>
-            <div className={"confirmPassInput"}>
+            <div className={styles.confirmPassInput}>
                 <input
                     onChange={(e) => setConfirmPassword(e.target.value)}
                     value={confirmPassword}
@@ -69,14 +69,14 @@ const ChangePassword: React.FC<{}> = () => {
                     placeholder="Confirm new password"
                 />
             </div>
-            <div className={"submit"}>
+            <div className={styles.submit}>
                 <Button onClick={handleChangePassword}
                         sx={{width: "500px", height: "42px", background: '#009CC4'}}
                         variant="contained">
                     Submit
                 </Button>
             </div>
-            <div className={"profPage"}>
+            <div className={styles.profPage}>
                 <Button onClick={redirectPage}
                         sx={{width: "488px", height: "42px", background: '#009CC4'}}
                         variant="contained">
