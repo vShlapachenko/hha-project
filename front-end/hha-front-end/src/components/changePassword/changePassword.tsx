@@ -35,10 +35,10 @@ const ChangePassword: React.FC<{}> = () => {
 
     return(
         <div>
-            <img src={logo_HHA} className={styles.logoHHA} alt="logo" />
+            <img src={logo_HHA} className={styles.logo} alt="logo" />
             <h1 className={styles.header}>Change Password Form</h1>
             <div className={styles.emailInput}>
-                <input
+                <input className={styles.input}
                     onChange={(e) => setUserEmail(e.target.value)}
                     value={userEmail}
                     type="email"
@@ -46,7 +46,7 @@ const ChangePassword: React.FC<{}> = () => {
                 />
             </div>
             <div className={styles.currPassInput}>
-                <input
+                <input className={styles.input}
                        onChange={(e) => setOldPassword(e.target.value)}
                        value={oldPassword}
                        type="password"
@@ -54,7 +54,7 @@ const ChangePassword: React.FC<{}> = () => {
                 />
             </div>
             <div className={styles.newPassInput}>
-                <input
+                <input className={styles.input}
                     onChange={(e) => setNewPassword(e.target.value)}
                     value={newPassword}
                     type="password"
@@ -62,7 +62,7 @@ const ChangePassword: React.FC<{}> = () => {
                 />
             </div>
             <div className={styles.confirmPassInput}>
-                <input
+                <input className={styles.input}
                     onChange={(e) => setConfirmPassword(e.target.value)}
                     value={confirmPassword}
                     type="password"

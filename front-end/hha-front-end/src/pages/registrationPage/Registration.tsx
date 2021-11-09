@@ -90,7 +90,7 @@ const Registration = () => {
         <div>
              <div>
                  <div>
-                    <img src={logo_HHA} className="logoHHA" alt="logo" />
+                    <img src={logo_HHA} className={registrationStyle.logo} alt="logo" />
                  </div>
                 <h5 className={registrationStyle.header}>Personal Information</h5>
                 <h6 className={registrationStyle.subHeader}>Enter your personal information below</h6>
