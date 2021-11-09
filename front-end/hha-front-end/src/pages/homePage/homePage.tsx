@@ -8,7 +8,7 @@ const HomePage = () => {
     let history = useHistory();
 
     const startForm = () => {history.push("/forms")}
-    const createStory = () => {history.push("/caseStudies")}
+    const createStory = () => {history.push("/caseStudy")}
     return(
         <>
         <Navbar />
