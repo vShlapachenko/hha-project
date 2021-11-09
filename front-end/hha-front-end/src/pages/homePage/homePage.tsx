@@ -1,4 +1,4 @@
-import "./homePage.css";
+import styles from "./homePage.module.css";
 import Leaderboard from "../../components/leaderboard/Leaderboard";
 import ToDo from "../../components/TodoList/todo";
 import Navbar from "../../components/Navbar/Navbar";
@@ -12,10 +12,10 @@ const HomePage = () => {
     return(
         <>
         <Navbar />
-        <h1 className = "textLeaderboard">
+        <h1 className = {styles.textLeaderboard}>
             Leaderboard
         </h1>
-        <h2 className = "textBest">
+        <h2 className = {styles.textBest}>
             Best department of the month
         </h2>
 
@@ -24,7 +24,7 @@ const HomePage = () => {
             FirstPoints={"120" + " points"} SecondPoints={"100" + " points"} ThirdPoints={"80" + " points"} />
         </div>
                     
-        <h1 className = "textTODO">
+        <h1 className = {styles.textTODO}>
             What's TODO List
         </h1>
         
