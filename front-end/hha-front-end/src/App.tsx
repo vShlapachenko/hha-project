@@ -1,5 +1,5 @@
 import React from 'react';
-import {Switch, Route, Redirect} from 'react-router-dom';
+import {Switch, Route, useRouteMatch, Redirect} from 'react-router-dom';
 import Login from './pages/loginPage/Login';
 import Navbar from './components/Navbar/Navbar';
 import {Context} from "./index";
@@ -16,6 +16,7 @@ import CaseStudy from './pages/caseStudyPage/CaseStudy';
 import HomePage from "./pages/homePage/homePage";
 import userProfile from "./components/user_profile/userProfile";
 import ChangePassword from "./components/changePassword/changePassword";
+import Forms from './pages/formsPage/Forms';
 
 
 
@@ -23,6 +24,7 @@ import ChangePassword from "./components/changePassword/changePassword";
 function App() {
     return (
         <Switch>
+            <Route exact path="/forms" component={Forms} />
             <Route exact path="/" component={ Login } />
             <Route exact path="/login" component={ Login } />
             <Route exact path="/forgotPassword" component={ForgotPassword}/>

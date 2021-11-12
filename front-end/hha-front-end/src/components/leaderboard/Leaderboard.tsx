@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import './Leaderboard.css';
+import styles from './Leaderboard.module.css';
 
 interface LeaderboardAttribute {
     FirstDepartmentName: string;
@@ -12,8 +12,8 @@ interface LeaderboardAttribute {
 
 const Leaderboard = ({FirstDepartmentName, SecondDepartmentName, ThirdDepartmentName, FirstPoints, SecondPoints, ThirdPoints}:LeaderboardAttribute) => {
     return (
-      <div className = 'grid'>
-         <div className = 'box second'>
+      <div className = {styles.grid}>
+         <div className = {`${styles.box} ${styles.second}`}>
           
           <h3>
             2nd place
@@ -28,7 +28,7 @@ const Leaderboard = ({FirstDepartmentName, SecondDepartmentName, ThirdDepartment
           </h2>
         </div>
         
-        <div className = 'box first'>
+        <div className = {`${styles.box} ${styles.first}`}>
 
           <h3>
             1st place
@@ -43,7 +43,7 @@ const Leaderboard = ({FirstDepartmentName, SecondDepartmentName, ThirdDepartment
           </h2>
 
         </div>
-        <div className = 'box third'>
+        <div className = {`${styles.box} ${styles.third}`}>
           
           <h3>
             3rd place
