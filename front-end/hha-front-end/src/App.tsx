@@ -29,15 +29,12 @@ function App() {
             <Route exact path="/login" component={ Login } />
             <Route exact path="/forgotPassword" component={ForgotPassword}/>
             <Route exact path="/forgotPassword/enterNewPassword" component={EnterNewPassword}/>
-            <Route exact path="/addUser" component={AddUser}/>
-            <Route exact path="/register" component={Registration} />
-            <Route exact path="/userProfile" component={userProfile} />
             <Route exact path="/changePassword" component={ChangePassword} />
-            <Route exact path="/caseStudy" component={CaseStudy} />
-            {/* <PrivateRoute path="/register" Component={Registration} />
-            <PrivateRoute path="/addUser" Component={AddUser} /> */}
-            {/* <PrivateRoute path="/homePage" Component={HomePage} /> */}
-            <Route exact path="/homePage" component={HomePage} />
+            <PrivateRoute path="/userProfile" Component={userProfile} />
+            <PrivateRoute path="/caseStudy" Component={CaseStudy} />
+            <PrivateRoute path="/register" Component={Registration} />
+            <PrivateRoute path="/addUser" Component={AddUser} />
+            <PrivateRoute path="/homePage" Component={HomePage} />
             <Redirect from="*" to="/" />
         </Switch>
     );
