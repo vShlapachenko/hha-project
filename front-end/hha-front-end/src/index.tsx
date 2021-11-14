@@ -4,6 +4,7 @@ import './index.css';
 import App from './App';
 import { BrowserRouter } from 'react-router-dom';
 import Store from "./store/store";
+import './components/i18n/i18n';
 
 interface State {
     store: Store
