@@ -13,14 +13,13 @@ i18n
         supportedLngs: ['en', 'fr'],
         fallbackLng: 'en',
         detection: {
-            order: ['htmlTag', 'cookie', 'localStorage', 'path','subdomain'],
+            order: ['htmlTag','cookie', 'localStorage', 'path','subdomain'],
             caches: ['cookie'],
         },
         backend:{
-            loadPath: './{{lng}}/translation.json'
+            loadPath: './i18n/{{lng}}/translation.json'
         },
         react: {useSuspense: false},
-        debug: true,
 
         interpolation: {
             escapeValue: false,

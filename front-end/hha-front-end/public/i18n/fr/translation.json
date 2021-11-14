@@ -1,0 +1,10 @@
+{
+    "Login": {
+        "login": "Connexion",
+        "enter_your_email": "Entrez votre email et votre mot de passe pour accéder à la page",
+        "username": "Nom d'utilisateur",
+        "password": "Mot de passe",
+        "forgot_password": "Mot de passe oublié?",
+        "difficulties": "Si vous rencontrez des difficultés pour vous connecter à votre compte, veuillez contacter votre <1>Service Informatique</1> ou votre <1>représentant HHA</1> à <1>support@hha.com</1>"
+    }
+}

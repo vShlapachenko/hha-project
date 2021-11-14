@@ -5,7 +5,7 @@ import {observer} from "mobx-react-lite"
 import styles from "./Login.module.css";
 import logo_HHA from "./logo.svg"
 import {Button} from "@mui/material";
-import {useTranslation} from 'react-i18next';
+import {Trans, useTranslation} from 'react-i18next';
 
 
 
@@ -21,7 +21,7 @@ const Login: FC = () => {
             history.push('/homePage');
         }
      }
-     
+
      const {t, i18n} = useTranslation();
      
      const changeLanguage = (language: string) => {
@@ -33,40 +33,44 @@ const Login: FC = () => {
             <img src={logo_HHA} className={styles.logoHHA} alt="logo" />
             <div className= {styles.allignment}>
            
-            <h1><b>{t("Login_login")}</b></h1>
-            <div className={styles.plainText}>{t("Login_enter_your_email")} </div>
+            <h1><b>{t("Login.login")}</b></h1>
+            <div className={styles.plainText}>{t("Login.enter_your_email")} </div>
             <br />
             <div className={styles.textInput}>
-            <div className={styles.plainText}><b>Username</b></div>
+            <div className={styles.plainText}><b>{t("Login.username")}</b></div>
                 <input
                     onChange={e => setEmail(e.target.value)}
                     value={email}
                     type="text"
-                    placeholder="Email"
+                    placeholder={t('Login.username')}
                 />
             </div>
             <div className={styles.textInput}>
             <br />
-            <div className={styles.plainText}><b>Password</b></div>
+            <div className={styles.plainText}><b>{t("Login.password")}</b></div>
                 <input
                     onChange={e => setPassword(e.target.value)}
                     value={password}
                     type="password"
-                    placeholder="Password"
+                    placeholder={t('Login.password')}
                 />
             </div>
-            <a href="./forgotPassword">Forgot Password</a>
+            <a href="./forgotPassword">{t("Login.forgot_password")}</a>
             <br />
             <br />
             <Button className= {styles.loginButton}
                     sx={{width: "475px", height: "42px", background: '#009CC4'}}
                     variant="contained"
                     onClick={onClickFunc}>
-                Login
+                {t("Login.login")}
             </Button>
             <br />
             <br />
-            <div className={styles.plainText}>If you are having any difficulties connecting to your account, please contact your <b>IT service</b> or <b>HHA representative</b> at <b>support@hha.com</b> </div>
+            <div className={styles.plainText}>
+                <Trans i18nKey = 'Login.difficulties'>
+                    If you are having any difficulties connecting to your account, please contact your <b>IT service</b> or <b>HHA representative</b> at <b>support@hha.com</b>
+                </Trans>
+            </div>
         </div>
         </div>
     );
