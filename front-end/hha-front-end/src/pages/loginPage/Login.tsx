@@ -33,11 +33,11 @@ const Login: FC = () => {
             <img src={logo_HHA} className={styles.logoHHA} alt="logo" />
             <div className= {styles.allignment}>
            
-            <h1><b>{t("Login.login")}</b></h1>
-            <div className={styles.plainText}>{t("Login.enter_your_email")} </div>
+            <h1><b><Trans i18nKey ="Login.login">Login</Trans></b></h1>
+            <div className={styles.plainText}><Trans i18nKey = "Login.enter_your_email">Enter your email and password to access the page</Trans> </div>
             <br />
             <div className={styles.textInput}>
-            <div className={styles.plainText}><b>{t("Login.username")}</b></div>
+            <div className={styles.plainText}><b><Trans i18nKey = "Login.username">Username</Trans></b></div>
                 <input
                     onChange={e => setEmail(e.target.value)}
                     value={email}
@@ -62,7 +62,9 @@ const Login: FC = () => {
                     sx={{width: "475px", height: "42px", background: '#009CC4'}}
                     variant="contained"
                     onClick={onClickFunc}>
-                {t("Login.login")}
+                <Trans i18nKey = 'Login.login'>
+                    Login
+                </Trans>
             </Button>
             <br />
             <br />

@@ -61,7 +61,7 @@ const EnterOTP: React.FC<PropsInterface> = (props): JSX.Element => {
     return (
         <div>
             <div className={styles.alignment}>
-                <h1>{t('EnterOTP.title')}</h1>
+                <h1><Trans i18nKey ='EnterOTP.title'>Enter OTP</Trans></h1>
                 <input
                     onChange={(e) => setUserOtp(e.target.value)}
                     value={userOtp}
@@ -73,12 +73,12 @@ const EnterOTP: React.FC<PropsInterface> = (props): JSX.Element => {
                 <Button className={styles.ForgotButton} onClick={validateOTP}
                         sx={{width: "488px", height: "42px", background: '#009CC4'}}
                         variant="contained">
-                    {t('EnterOTP.validate')}
+                    <Trans i18nKey ='EnterOTP.validate'>Validate OTP</Trans>
                 </Button>
                 <Link to="#" onClick={redirectToForgotPassword}>
-                    {t('EnterOTP.enter_email')}
+                    <Trans i18nKey = 'EnterOTP.enter_email'>Enter Email again?</Trans>
                 </Link>
-                <Link to="/">{t('EnterOTP.link')}</Link>
+                <Link to="/"><Trans i18nKey ='EnterOTP.link'>Go Back to Login Page</Trans></Link>
             </div>
         </div>
     );
