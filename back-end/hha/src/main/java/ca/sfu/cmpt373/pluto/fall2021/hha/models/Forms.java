@@ -14,8 +14,11 @@ import java.util.List;
 public class Tables {
 
     private String label; 
+    /*
     private 
-
+  commonColumn: CommonColumn;
+  subTables: SubTable[];
+  */
 
     public String getLabel() {
         return this.label;
