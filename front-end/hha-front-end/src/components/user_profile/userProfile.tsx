@@ -26,68 +26,70 @@ const Profile = ({firstName, lastName, email, staffNumber, profileImage, departm
     return (
         <div>
             <Navbar />
-            {/*<h1 className="header-1">Profile</h1>*/}
+             <h1 className={styles.header_1}>Profile</h1>
 
-                <div className={styles.InfoPane}>
+            <div className={styles.InfoPane}>
 
-                    <h3 className={styles.header_2}>Personal Information</h3>
+                <h3 className={styles.header_2}>Personal Information</h3>
 
-                    <div className={styles.first_last_name}>
+                <div className={styles.first_last_name}>
 
-                        <div className={styles.fisrt_name}>
-                            <TextField
-                                sx={{width: "308px", height: "55px", background: '#FFFFFF', textSizeAdjust: "80%"}}
-                                label="First Name"
-                                defaultValue={firstName}
-                                InputProps={{
-                                    readOnly: true,
-                                }}
-                            />
-                        </div>
-
-                        <div className={styles.Last_Name}>
-                            <TextField
-                                sx={{width: "308px", height: "55px", background: '#FFFFFF'}}
-                                label="Last Name"
-                                defaultValue={lastName}
-                                InputProps={{
-                                    readOnly: true,
-                                }}
-                            />
-                        </div>
-
-                    </div>
-
-                    <div className={styles.email_input}>
+                    <div className={styles.first_name}>
                         <TextField
-                            sx={{width: "488px", height: "55px", background: '#FFFFFF'}}
-                            label="Email"
-                            defaultValue={email}
+                            sx={{width: "258px", height: "55px", background: '#FFFFFF', textSizeAdjust: "80%"}}
+                            label="First Name"
+                            defaultValue={firstName}
                             InputProps={{
                                 readOnly: true,
                             }}
                         />
                     </div>
 
-                    <div className={styles.PSN_input}>
+                    <div className={styles.Last_Name}>
                         <TextField
-                            sx={{width: "488px", height: "55px", background: '#FFFFFF'}}
-                            className="text"
-                            label="Staff Number"
-                            defaultValue={staffNumber}
+                            sx={{width: "258px", height: "55px", background: '#FFFFFF'}}
+                            label="Last Name"
+                            defaultValue={lastName}
                             InputProps={{
-                                readOnly: true
+                                readOnly: true,
                             }}
                         />
                     </div>
 
-                    <div className={styles.change_pass_button}>
-                        <Button onClick={redirectPage}
-                                sx={{width: "488px", height: "55px", background: '#009CC4'}}
-                                variant="contained">Change Password</Button>
-                    </div>
-
                 </div>
+
+                <div className={styles.email_input}>
+                    <TextField
+                        sx={{width: "530px", height: "55px", background: '#FFFFFF'}}
+                        label="Email"
+                        defaultValue={email}
+                        InputProps={{
+                            readOnly: true,
+                        }}
+                    />
+                </div>
+
+                <div className={styles.PSN_input}>
+                    <TextField
+                        sx={{width: "530px", height: "55px", background: '#FFFFFF'}}
+                        className="text"
+                        label="Staff Number"
+                        defaultValue={staffNumber}
+                        InputProps={{
+                            readOnly: true
+                        }}
+                    />
+                </div>
+
+                <div className={styles.change_pass_button}>
+                    <Button
+                        onClick={redirectPage}
+                        sx={{width: "488px", height: "55px", background: '#009CC4'}}
+                        variant="contained">Change Password</Button>
+                </div>
+
+            </div>
+
         </div>
     )
 };
