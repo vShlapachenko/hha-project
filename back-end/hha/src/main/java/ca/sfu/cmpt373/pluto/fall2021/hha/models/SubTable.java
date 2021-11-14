@@ -7,6 +7,7 @@ import java.util.List;
 
 public class SubTable {
     private String label; 
+    private List<Column> columns;
 
     public String getLabel() {
         return this.label;

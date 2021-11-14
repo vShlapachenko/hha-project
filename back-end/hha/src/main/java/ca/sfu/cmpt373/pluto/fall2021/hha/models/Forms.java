@@ -12,9 +12,13 @@ import java.util.List;
 
 @Document
 public class Form {
+    @Id
+    private String id;
+
+
     private String label; 
-    private Table tables;
-    /*
-    date?: string 
-    */
+    private List<Table> tables;
+
+    @CreatedDate
+    private Date submittedDate;
   }

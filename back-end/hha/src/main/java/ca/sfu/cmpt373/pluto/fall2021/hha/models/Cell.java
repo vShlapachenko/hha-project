@@ -15,7 +15,7 @@ public class Cell {
     }
 
     public void setRowLabel(String rowLabel) {
-        this.rowRabel = rowLabel;
+        this.rowLabel = rowLabel;
     }
 
     public String getValue() {
@@ -30,7 +30,7 @@ public class Cell {
         return this.disabled;
     }
 
-    public void setDisabled(booleam disabled) {
+    public void setDisabled(boolean disabled) {
         this.disabled = disabled;
     }
 }

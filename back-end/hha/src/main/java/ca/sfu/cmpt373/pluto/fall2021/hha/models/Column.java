@@ -7,6 +7,7 @@ import java.util.List;
 
 public class Column {
     private String label;
+    private List<Cell> cells;
     
     public String getLabel() {
         return this.label;

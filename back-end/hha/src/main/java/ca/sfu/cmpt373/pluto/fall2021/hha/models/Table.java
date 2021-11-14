@@ -8,11 +8,8 @@ import java.util.List;
 public class Tables {
 
     private String label; 
-    /*
-    private 
-  commonColumn: CommonColumn;
-  subTables: SubTable[];
-  */
+    private CommonColumn commonColumn;
+    private List<SubTable> subTables;
 
     public String getLabel() {
         return this.label;
