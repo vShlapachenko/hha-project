@@ -5,6 +5,8 @@ import {observer} from "mobx-react-lite"
 import styles from "./Login.module.css";
 import logo_HHA from "./logo.svg"
 import {Button} from "@mui/material";
+import {useTranslation} from 'react-i18next';
+
 
 
 const Login: FC = () => {
@@ -19,14 +21,20 @@ const Login: FC = () => {
             history.push('/homePage');
         }
      }
+     
+     const {t, i18n} = useTranslation();
+     
+     const changeLanguage = (language: string) => {
+         i18n.changeLanguage(language);
+     };
 
     return (
         <div className={styles.div}>
             <img src={logo_HHA} className={styles.logoHHA} alt="logo" />
             <div className= {styles.allignment}>
            
-            <h1><b>Login</b></h1>
-            <div className={styles.plainText}>Enter your email and password to access the page </div>
+            <h1><b>{t("Login_login")}</b></h1>
+            <div className={styles.plainText}>{t("Login_enter_your_email")} </div>
             <br />
             <div className={styles.textInput}>
             <div className={styles.plainText}><b>Username</b></div>
