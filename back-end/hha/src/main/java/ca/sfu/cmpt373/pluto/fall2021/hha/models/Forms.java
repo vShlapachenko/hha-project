@@ -11,87 +11,10 @@ import java.util.Date;
 import java.util.List;
 
 @Document
-public class Tables {
-
+public class Form {
     private String label; 
+    private Table tables;
     /*
-    private 
-  commonColumn: CommonColumn;
-  subTables: SubTable[];
-  */
-
-    public String getLabel() {
-        return this.label;
-    }
-
-    public void setLabel(String label) {
-        this.label = label;
-    }
-}
-
-public class CommonColumn {
-    private String label; 
-    private List<String> values;
-
-    public String getLabel() {
-        return this.label;
-    }
-
-    public void setLabel(String label) {
-        this.label = label;
-    }
-}
-
-public class SubTable {
-    private String label; 
-
-    public String getLabel() {
-        return this.label;
-    }
-
-    public void setLabel(String label) {
-        this.label = label;
-    }
-}
-
-public class Column {
-    private String label;
-    
-    public String getLabel() {
-        return this.label;
-    }
-
-    public void setLabel(String label) {
-        this.label = label;
-    }
-}
-
-public class Cell {
-    private String rowLabel; 
-    private boolean disabled;
-    private String value;
-
-    public String getRowLabel() {
-        return this.rowLabel;
-    }
-
-    public void setRowLabel(String rowLabel) {
-        this.rowRabel = rowLabel;
-    }
-
-    public String getValue() {
-        return this.value;
-    }
-
-    public void setValue(String value) {
-        this.value = value;
-    }
-
-    public boolean getDisabled() {
-        return this.disabled;
-    }
-
-    public void setDisabled(booleam disabled) {
-        this.disabled = disabled;
-    }
-}
+    date?: string 
+    */
+  }
