@@ -12,6 +12,17 @@ roles = db.role.find().toArray()
 
 db.createCollection('hhaUser', {capped: false});
 
+db.createCollection('department', {capped: false});
+
+db.department.insert([
+    {"name": "NICUPEAD"},
+    {"name": "MAT"},
+    {"name": "REHAB"},
+    {"name": "COM_HEALTH"}
+])
+
+departments = db.department.find().toArray()
+
 //default password of default user is 1234
 db.hhaUser.insert([
     {
@@ -20,10 +31,32 @@ db.hhaUser.insert([
         activationLink: null, roles: [
             new DBRef('role', roles[1]._id)
         ],
-        deparment: null,
+        department: null,
         activationStatus: "ACTIVATED",
         confirmationLink: null
     }
+])
+
+db.createCollection('departmentPoints', {capped: false});
+
+db.departmentPoints.insert([
+    {
+        department: new DBRef('department', departments[0]._id),
+        monthPoints: 1,
+        yearPoints: 1
+    }, {
+        department: new DBRef('department', departments[1]._id),
+        monthPoints: 2,
+        yearPoints: 2
+    }, {
+        department: new DBRef('department', departments[2]._id),
+        monthPoints: 3,
+        yearPoints: 3
+    }, {
+        department: new DBRef('department', departments[3]._id),
+        monthPoints: 4,
+        yearPoints: 4
+    },
 ])
 
 db.createCollection('caseTemplate', {capped: false});
