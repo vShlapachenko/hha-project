@@ -4,6 +4,7 @@ import { observer } from "mobx-react-lite";
 import { Link, useHistory } from "react-router-dom";
 import styles from "./ForgotPassword.module.css";
 import {Button} from "@mui/material";
+import {Trans, useTranslation} from 'react-i18next'
 
 interface PropsInterface {
     disableOtpPage: () => void;
@@ -14,6 +15,8 @@ const EnterOTP: React.FC<PropsInterface> = (props): JSX.Element => {
     const { store } = useContext(Context);
     const history = useHistory();
     const [storeOtp, setStoreOtp] = useState<string>("");
+
+    const {t, i18n} = useTranslation();
 
     const redirectToForgotPassword = () => {
         props.disableOtpPage();
@@ -58,7 +61,7 @@ const EnterOTP: React.FC<PropsInterface> = (props): JSX.Element => {
     return (
         <div>
             <div className={styles.alignment}>
-                <h1>Enter OTP</h1>
+                <h1>{t('EnterOTP.title')}</h1>
                 <input
                     onChange={(e) => setUserOtp(e.target.value)}
                     value={userOtp}
@@ -70,12 +73,12 @@ const EnterOTP: React.FC<PropsInterface> = (props): JSX.Element => {
                 <Button className={styles.ForgotButton} onClick={validateOTP}
                         sx={{width: "488px", height: "42px", background: '#009CC4'}}
                         variant="contained">
-                    Validate OTP
+                    {t('EnterOTP.validate')}
                 </Button>
                 <Link to="#" onClick={redirectToForgotPassword}>
-                    Enter email again?
+                    {t('EnterOTP.enter_email')}
                 </Link>
-                <Link to="/">Login Page?</Link>
+                <Link to="/">{t('EnterOTP.link')}</Link>
             </div>
         </div>
     );

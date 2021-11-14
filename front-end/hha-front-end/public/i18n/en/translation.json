@@ -6,5 +6,26 @@
         "password": "Password",
         "forgot_password": "Forgot Password?",
         "difficulties": "If you are having any difficulties connecting to your account, please contact your <1>IT service</1> or <1>HHA representative</1> at <1>support@hha.com</1>"
+    },
+    "ForgotPassword": {
+        "pop_up": "Enter a valid email.",
+        "title": "Enter your email",
+        "email": "Email",
+        "button": "Get OTP by Email",
+        "link": "Go Back to Login Page"
+    },
+    "EnterOTP": {
+        "title": "Enter OTP",
+        "validate": "Validate OTP",
+        "enter_email": "Enter Email again?",
+        "link": "Go Back to Login Page"
+    },
+    "EnterPassword": {
+        "title": "Enter New Password",
+        "email": "user email",
+        "enter_pw": "Enter New Password",
+        "confirm_pw": "Confirm New Password",
+        "submit": "Submit",
+        "link": "Go Back to Login Page"
     }
 }
