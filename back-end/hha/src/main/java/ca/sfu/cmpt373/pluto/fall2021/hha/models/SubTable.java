@@ -10,10 +10,18 @@ public class SubTable {
     private List<Column> columns;
 
     public String getLabel() {
-        return this.label;
+        return label;
     }
 
     public void setLabel(String label) {
         this.label = label;
+    }
+
+    public List<Column> getColumns() {
+        return columns;
+    }
+
+    public void setColumns(List<Column> columns) {
+        this.columns = columns;
     }
 }

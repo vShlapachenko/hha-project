@@ -10,10 +10,18 @@ public class CommonColumn {
     private List<String> values;
 
     public String getLabel() {
-        return this.label;
+        return label;
     }
 
     public void setLabel(String label) {
         this.label = label;
+    }
+
+    public List<String> getValues() {
+        return values;
+    }
+
+    public void setValues(List<String> values) {
+        this.values = values;
     }
 }

@@ -12,10 +12,26 @@ public class Tables {
     private List<SubTable> subTables;
 
     public String getLabel() {
-        return this.label;
+        return label;
     }
 
     public void setLabel(String label) {
         this.label = label;
+    }
+
+    public CommonColumn getCommonColumn() {
+        return commonColumn;
+    }
+
+    public void setCommonColumn(CommonColumn commonColumn) {
+        this.commonColumn = commonColumn;
+    }
+
+    public List<SubTable> getSubTables() {
+        return subTables;
+    }
+
+    public void setSubTables(List<SubTable> subTables) {
+        this.subTables = subTables;
     }
 }

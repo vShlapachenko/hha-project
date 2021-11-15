@@ -8,12 +8,20 @@ import java.util.List;
 public class Column {
     private String label;
     private List<Cell> cells;
-    
+
     public String getLabel() {
-        return this.label;
+        return label;
     }
 
     public void setLabel(String label) {
         this.label = label;
+    }
+
+    public List<Cell> getCells() {
+        return cells;
+    }
+
+    public void setCells(List<Cell> cells) {
+        this.cells = cells;
     }
 }

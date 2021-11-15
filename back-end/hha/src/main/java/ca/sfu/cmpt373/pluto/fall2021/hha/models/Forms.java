@@ -21,4 +21,36 @@ public class Form {
 
     @CreatedDate
     private Date submittedDate;
-  }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String getLabel() {
+        return label;
+    }
+
+    public void setLabel(String label) {
+        this.label = label;
+    }
+
+    public List<Table> getTables() {
+        return tables;
+    }
+
+    public void setTables(List<Table> tables) {
+        this.tables = tables;
+    }
+
+    public Date getSubmittedDate() {
+        return submittedDate;
+    }
+
+    public void setSubmittedDate(Date submittedDate) {
+        this.submittedDate = submittedDate;
+    }
+}
