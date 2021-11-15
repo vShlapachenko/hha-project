@@ -59,6 +59,11 @@ const Navbar = () => {
         await store.logout();
         history.push('/');
     }
+
+    const profileFunc = async () => {
+        history.push('/userProfile');
+    }
+
     const handleToggle = () => {
         setOpen((prevOpen) => !prevOpen);
     };
@@ -162,7 +167,7 @@ const Navbar = () => {
                                         })}
                                         <Box mt={2}>
                                             <MenuItem>Create Account</MenuItem>
-                                            <MenuItem>Settings</MenuItem>
+                                            <MenuItem onClick={profileFunc}>Settings</MenuItem>
                                             <MenuItem onClick={logoutFunc}> Logout</MenuItem>
                                         </Box>
                                         </MenuList>
@@ -232,7 +237,7 @@ const Navbar = () => {
                                         <MenuItem>
                                             Create Account
                                         </MenuItem>
-                                        <MenuItem>Settings</MenuItem>
+                                        <MenuItem onClick={profileFunc}>Settings</MenuItem>
                                         <MenuItem onClick={logoutFunc}>Logout</MenuItem>
                                         </MenuList>
                                     </ClickAwayListener>

@@ -1,9 +1,11 @@
-import React from 'react';
+import React, {useContext, useEffect, useState} from 'react';
 import styles from "./user_profile.module.css"
 import Button from '@mui/material/Button'
 import Navbar from '../Navbar/Navbar'
 import TextField from '@mui/material/TextField'
 import {useHistory} from "react-router-dom";
+import {Context} from "../../index";
+import AuthService from "../../service/AuthService";
 
 interface ProfileAttributes {
     firstName: string,
@@ -13,16 +15,26 @@ interface ProfileAttributes {
     profileImage?: string,
     department?: string
 }
-
 const Profile = ({firstName, lastName, email, staffNumber, profileImage, department}: ProfileAttributes) => {
-
+//
+// const Profile: React.FC<{}> = () => {
+//     const [firstName, setFirstName] = useState<string>("");
+//     const [lastName, setLastName] = useState<string>("");
+//     const [email, setEmail] = useState<string>("");
+//     const [staffNumber, setStaffNumber] = useState<string>("");
     const history = useHistory();
+    const { store } = useContext(Context);
 
     const redirectPage = () =>{
         history.push({
             pathname: "/changePassword",
         });
     }
+
+    email = store.currentUserEmail;
+    console.log(store.currentUserEmail);
+    store.userProfile(email);
+
     return (
         <div>
             <Navbar />

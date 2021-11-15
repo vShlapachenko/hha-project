@@ -159,4 +159,12 @@ public class HhaUserService implements UserDetailsService {
             throw new IllegalArgumentException("Old Password do not match for " + changePasswordData.getEmail());
         }
     }
+
+    public HhaUser userProfile(String email){
+        var user = getUser(email);
+        System.out.println(user.getEmail());
+        System.out.println(user.getFirstName());
+        System.out.println(user.getLastName());
+        return user;
+    }
 }
