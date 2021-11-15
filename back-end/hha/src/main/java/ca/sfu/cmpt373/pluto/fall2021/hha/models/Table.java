@@ -5,7 +5,7 @@ import java.util.Collection;
 import java.util.Date;
 import java.util.List;
 
-public class Tables {
+public class Table {
 
     private String label; 
     private CommonColumn commonColumn;

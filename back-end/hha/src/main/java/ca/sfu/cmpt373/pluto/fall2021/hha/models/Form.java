@@ -15,7 +15,6 @@ public class Form {
     @Id
     private String id;
 
-
     private String label; 
     private List<Table> tables;
 
