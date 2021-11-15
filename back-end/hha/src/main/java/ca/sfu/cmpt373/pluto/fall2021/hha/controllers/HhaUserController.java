@@ -1,6 +1,7 @@
 package ca.sfu.cmpt373.pluto.fall2021.hha.controllers;
 
 import ca.sfu.cmpt373.pluto.fall2021.hha.models.*;
+import ca.sfu.cmpt373.pluto.fall2021.hha.repositories.HhaUserRepository;
 import ca.sfu.cmpt373.pluto.fall2021.hha.services.HhaUserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.mongodb.core.aggregation.ComparisonOperators;
@@ -59,7 +60,9 @@ public class HhaUserController {
     }
 
     @PostMapping("userProfile")
-    public void userProfile(@RequestBody String email){
-        userService.userProfile(email);
+    public HhaUser userProfile(@RequestBody String email){
+        System.out.println(email);
+        System.out.println(userService.getUser(email));
+        return userService.getUser(email);
     }
 }

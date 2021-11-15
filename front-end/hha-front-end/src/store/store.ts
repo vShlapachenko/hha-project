@@ -8,7 +8,6 @@ import ForgotPasswordService from "../service/ForgotPasswordService";
 import NewPasswordService from "../service/NewPasswordService";
 import ChangePasswordService from "../service/ChangePasswordService";
 import UserProfileService from "../service/UserProfileService";
-import UserService from "../service/UserService";
 
 export default class Store {
     isAuthorized = false;
@@ -108,9 +107,7 @@ export default class Store {
 
     async userProfile(email: string){
         try {
-            console.log("yeah")
             const response = await UserProfileService.UserProfile(email);
-            console.log("ok")
             console.log(response.data);
         } catch (e: any){
             console.log(e.response?.data?.message);

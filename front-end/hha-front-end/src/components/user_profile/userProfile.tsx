@@ -16,12 +16,6 @@ interface ProfileAttributes {
     department?: string
 }
 const Profile = ({firstName, lastName, email, staffNumber, profileImage, department}: ProfileAttributes) => {
-//
-// const Profile: React.FC<{}> = () => {
-//     const [firstName, setFirstName] = useState<string>("");
-//     const [lastName, setLastName] = useState<string>("");
-//     const [email, setEmail] = useState<string>("");
-//     const [staffNumber, setStaffNumber] = useState<string>("");
     const history = useHistory();
     const { store } = useContext(Context);
 
@@ -32,7 +26,6 @@ const Profile = ({firstName, lastName, email, staffNumber, profileImage, departm
     }
 
     email = store.currentUserEmail;
-    console.log(store.currentUserEmail);
     store.userProfile(email);
 
     return (
