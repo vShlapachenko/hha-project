@@ -1,5 +1,5 @@
 import {User} from "../User";
 
-export interface UserProfileRequest {
+export interface UserProfileResponse {
     data: User;
 }

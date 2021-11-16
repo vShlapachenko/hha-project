@@ -7,7 +7,7 @@ import {API_URL} from "../http";
 import ForgotPasswordService from "../service/ForgotPasswordService";
 import NewPasswordService from "../service/NewPasswordService";
 import ChangePasswordService from "../service/ChangePasswordService";
-import UserProfileService from "../service/UserProfileService";
+import UserService from "../service/UserService";
 
 export default class Store {
     isAuthorized = false;
@@ -105,9 +105,9 @@ export default class Store {
         }
     }
 
-    async userProfile(email: string){
+    async userProfile(firstName: string, lastName: string, email: string){
         try {
-            const response = await UserProfileService.UserProfile(email);
+            const response = await UserService.getUser(firstName, lastName, email);
             console.log(response.data);
         } catch (e: any){
             console.log(e.response?.data?.message);

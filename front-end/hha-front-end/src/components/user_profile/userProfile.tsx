@@ -25,8 +25,8 @@ const Profile = ({firstName, lastName, email, staffNumber, profileImage, departm
         });
     }
 
-    email = store.currentUserEmail;
-    store.userProfile(email);
+    // email = store.currentUserEmail;
+    store.userProfile(firstName, lastName, email);
 
     return (
         <div>

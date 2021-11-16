@@ -10,6 +10,10 @@ export default class UserService {
     static saveUser(firstName: String, lastName: String, password: String): Promise<AxiosResponse<User[]>> {
         return $api.post<User[]>('/hha-user/saveUser', {firstName, lastName, password})
     }
+
+    static getUser(firstName: String, lastName: String, email: String): Promise<AxiosResponse<User>>{
+        return $api.post<User>('hha-user/userProfile', {firstName, lastName, email})
+    }
 }
 
 // i am following the following schema:
