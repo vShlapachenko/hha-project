@@ -16,7 +16,6 @@ const Login: FC = () => {
     const onClickFunc = async () => {
         await store.login(email, password);
         if (store.isAuthorized) {
-            store.setCurrentUserEmail(email);
             history.push('/homePage');
         }
     }

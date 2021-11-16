@@ -14,6 +14,8 @@ export default class Store {
     otp = 0;
     forgotPasswordEmail = "";
     currentUserEmail = "";
+    firstName = "";
+    lastName = "";
 
     constructor() {
         makeAutoObservable(this)
@@ -31,10 +33,18 @@ export default class Store {
         this.forgotPasswordEmail = value;
     }
 
-    setCurrentUserEmail(value: string){
+
+    setCurrentUserEmail(value: string) {
         this.currentUserEmail = value;
     }
 
+    setFirstName(value: string) {
+        this.firstName = value;
+    }
+
+    setLastName(value: string) {
+        this.lastName = value;
+    }
 
     isLogin = () => {
         if (localStorage.getItem('token')) {
@@ -108,7 +118,9 @@ export default class Store {
     async userProfile(firstName: string, lastName: string, email: string){
         try {
             const response = await UserService.getUser(firstName, lastName, email);
-            console.log(response.data);
+            this.setCurrentUserEmail(response.data.email);
+            this.setFirstName(response.data.firstName);
+            this.setLastName(response.data.lastName);
         } catch (e: any){
             console.log(e.response?.data?.message);
         }

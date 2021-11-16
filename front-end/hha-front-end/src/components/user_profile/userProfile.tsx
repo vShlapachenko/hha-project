@@ -7,15 +7,11 @@ import {useHistory} from "react-router-dom";
 import {Context} from "../../index";
 import AuthService from "../../service/AuthService";
 
-interface ProfileAttributes {
-    firstName: string,
-    lastName: string,
-    email: string,
-    staffNumber: string,
-    profileImage?: string,
-    department?: string
-}
-const Profile = ({firstName, lastName, email, staffNumber, profileImage, department}: ProfileAttributes) => {
+const Profile: React.FC<{}> = () => {
+    const [email, setEmail] = useState<string>("");
+    const [firstName, setFirstName] = useState<string>("");
+    const [lastName, setLastName] = useState<string>("");
+    const [staffNumber, setStaffNumber] = useState<string>("");
     const history = useHistory();
     const { store } = useContext(Context);
 
@@ -25,8 +21,21 @@ const Profile = ({firstName, lastName, email, staffNumber, profileImage, departm
         });
     }
 
-    // email = store.currentUserEmail;
     store.userProfile(firstName, lastName, email);
+    useEffect(() => {
+        const emailResponse = store.currentUserEmail;
+        setEmail(emailResponse);
+    }, [store.currentUserEmail]);
+
+    useEffect(() => {
+        const firstNameResponse = store.firstName;
+        setFirstName(firstNameResponse);
+    }, [store.firstName]);
+
+    useEffect(() => {
+        const lastNameResponse = store.lastName;
+        setLastName(lastNameResponse);
+    }, [store.lastName]);
 
     return (
         <div>
@@ -43,7 +52,7 @@ const Profile = ({firstName, lastName, email, staffNumber, profileImage, departm
                         <TextField
                             sx={{width: "258px", height: "55px", background: '#FFFFFF', textSizeAdjust: "80%"}}
                             label="First Name"
-                            defaultValue={firstName}
+                            value={firstName}
                             InputProps={{
                                 readOnly: true,
                             }}
@@ -54,7 +63,7 @@ const Profile = ({firstName, lastName, email, staffNumber, profileImage, departm
                         <TextField
                             sx={{width: "258px", height: "55px", background: '#FFFFFF'}}
                             label="Last Name"
-                            defaultValue={lastName}
+                            value={lastName}
                             InputProps={{
                                 readOnly: true,
                             }}
@@ -67,7 +76,7 @@ const Profile = ({firstName, lastName, email, staffNumber, profileImage, departm
                     <TextField
                         sx={{width: "530px", height: "55px", background: '#FFFFFF'}}
                         label="Email"
-                        defaultValue={email}
+                        value={email}
                         InputProps={{
                             readOnly: true,
                         }}
