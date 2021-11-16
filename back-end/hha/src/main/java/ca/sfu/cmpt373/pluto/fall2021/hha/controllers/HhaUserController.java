@@ -8,6 +8,7 @@ import org.springframework.data.mongodb.core.aggregation.ComparisonOperators;
 import org.springframework.security.access.method.P;
 import org.springframework.web.bind.annotation.*;
 
+import java.security.Principal;
 import java.util.List;
 
 @RestController
@@ -60,9 +61,8 @@ public class HhaUserController {
     }
 
     @PostMapping("userProfile")
-    public HhaUser userProfile(@RequestBody String email){
-        System.out.println(email);
-        System.out.println(userService.getUser(email));
-        return userService.getUser(email);
+    public HhaUser getMe(Principal principal) {
+        System.out.println(principal.getName());
+        return userService.getUser(principal.getName());
     }
 }
