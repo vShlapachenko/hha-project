@@ -49,9 +49,10 @@ const Profile: React.FC<{}> = () => {
         }
     }, [firstName, lastName, email])
 
-    if (loading){
-        <p>Loading</p>
+    if (loading || firstLoading){
+       return <p>Loading</p>
     }
+
     return (
         <div>
             <Navbar />
