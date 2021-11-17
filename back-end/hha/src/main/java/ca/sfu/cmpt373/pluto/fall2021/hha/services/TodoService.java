@@ -10,7 +10,6 @@ import org.springframework.stereotype.Service;
 import java.time.LocalDate;
 import java.time.ZoneId;
 import java.util.Date;
-import java.util.Objects;
 import java.util.concurrent.TimeUnit;
 
 @Service
@@ -19,6 +18,8 @@ public class TodoService {
     private final HhaUserRepository userRepository;
     private final CaseStudyRepository caseStudyRepository;
 
+
+    // TODO: after forms get merged add todo for the forms
     public TodoInfo getTodo(String email) {
         var user = userRepository.findByEmail(email);
 
@@ -36,27 +37,18 @@ public class TodoService {
         var seventhDayOfCurrentMonth = today.withDayOfMonth(7);
         Date convertedSeventhDay = Date.from(seventhDayOfCurrentMonth.atStartOfDay(ZoneId.systemDefault()).toInstant());
 
-        var localDateSubmittedDate = caseStudy.getSubmittedDate().toInstant()
+        var caseStudySubmittedDate = caseStudy.getSubmittedDate().toInstant()
                 .atZone(ZoneId.systemDefault())
                 .toLocalDate();
 
-        if (Objects.equals(today.getMonth(),localDateSubmittedDate.getMonth())) {
+        if (seventhDayOfCurrentMonth.isAfter(caseStudySubmittedDate)) {
             return new TodoInfo(false, null, null);
         }
 
-        if (seventhDayOfCurrentMonth.isAfter(LocalDate.now())) {
-            return new TodoInfo(false, null, null);
-        }
-
-        long diff= convertedSeventhDay.getTime() - new Date().getTime();
+        long diff = convertedSeventhDay.getTime() - caseStudy.getSubmittedDate().getTime();
         var dayDiff = TimeUnit.DAYS.convert(diff, TimeUnit.MILLISECONDS);
 
-        if (dayDiff > 0) {
-            return new TodoInfo(false, null, null);
-        }
-
-
-        var todoInfo = new TodoInfo(shouldBeSeen, Math.abs(dayDiff))
+        return new TodoInfo(true, dayDiff, null);
     }
 
 }

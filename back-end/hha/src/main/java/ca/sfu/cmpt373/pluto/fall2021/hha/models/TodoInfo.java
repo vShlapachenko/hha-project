@@ -3,14 +3,13 @@ package ca.sfu.cmpt373.pluto.fall2021.hha.models;
 public class TodoInfo {
 
     private boolean shouldBeSeen;
-//    private boolean isAnythingDelayed;
-    private Integer daysDelayedCaseStudy;
-    private Integer daysDelayedForm;
+    private Long daysDelayedCaseStudy;
+    private Long daysDelayedForm;
 
     public TodoInfo() {
     }
 
-    public TodoInfo(boolean shouldBeSeen, Integer daysDelayedCaseStudy, Integer daysDelayedForm) {
+    public TodoInfo(boolean shouldBeSeen, Long daysDelayedCaseStudy, Long daysDelayedForm) {
         this.shouldBeSeen = shouldBeSeen;
         this.daysDelayedCaseStudy = daysDelayedCaseStudy;
         this.daysDelayedForm = daysDelayedForm;
@@ -24,19 +23,19 @@ public class TodoInfo {
         this.shouldBeSeen = shouldBeSeen;
     }
 
-    public Integer getDaysDelayedCaseStudy() {
+    public Long getDaysDelayedCaseStudy() {
         return daysDelayedCaseStudy;
     }
 
-    public void setDaysDelayedCaseStudy(Integer daysDelayedCaseStudy) {
+    public void setDaysDelayedCaseStudy(Long daysDelayedCaseStudy) {
         this.daysDelayedCaseStudy = daysDelayedCaseStudy;
     }
 
-    public Integer getDaysDelayedForm() {
+    public Long getDaysDelayedForm() {
         return daysDelayedForm;
     }
 
-    public void setDaysDelayedForm(Integer daysDelayedForm) {
+    public void setDaysDelayedForm(Long daysDelayedForm) {
         this.daysDelayedForm = daysDelayedForm;
     }
 }
