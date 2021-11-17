@@ -3,7 +3,7 @@ import { Context } from "../../index";
 import { Link } from "react-router-dom";
 import { observer } from "mobx-react-lite";
 import EnterOTP from "./EnterOTP";
-import "./ForgotPassword.css";
+import styles from "./ForgotPassword.module.css";
 import logo_HHA from "../../pages/loginPage/logo.svg";
 import {Button} from "@mui/material";
 
@@ -44,11 +44,11 @@ const ForgotPassword: React.FC<{}> = () => {
 
     return (
         <div>
-            <img src={logo_HHA} className="logoHHA" alt="logo" />
+            <img src={logo_HHA} className={styles.logoHHA} alt="logo" />
             {showOTP ? (
                 <EnterOTP disableOtpPage={disableOtpPage} email={email} />
             ) : (
-                <div className="alignment">
+                <div className={styles.alignment}>
                     <h1>Enter your email</h1>
                     <input
                         onChange={(e) => setEmail(e.target.value)}
@@ -58,7 +58,7 @@ const ForgotPassword: React.FC<{}> = () => {
                         required={true}
                     />
 
-                    <Button className="ForgotButton" onClick={handleSendOTP}
+                    <Button className={styles.ForgotButton} onClick={handleSendOTP}
                             sx={{width: "488px", height: "42px", background: '#009CC4'}}
                             variant="contained">
                         Get OTP by email

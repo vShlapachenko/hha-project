@@ -2,6 +2,7 @@ import React,  {useContext, useEffect, useState}  from 'react';
 import { Route, Redirect } from 'react-router-dom';
 import {Context} from "../index";
 import {User} from "../models/User";
+import { observer } from "mobx-react-lite";
 
 
 
@@ -10,7 +11,7 @@ interface PrivateRouteAttributes {
     Component: any;
 }
 
-export default function PrivateRoute({path, Component, ...props }: PrivateRouteAttributes) {
+ function PrivateRoute({path, Component, ...props }: PrivateRouteAttributes) {
     const {store} = useContext(Context)
     const [users, setUsers] = useState<User[]>([])
     useEffect(() => {
@@ -18,13 +19,9 @@ export default function PrivateRoute({path, Component, ...props }: PrivateRouteA
             store.checkAuth()
         }
     }, []);
-
-    
-
     const render = () => {
-        if (store.isAuthorized) {
+        if (store.isLogin()) {
             console.log("is authorized!");
-            
             return ( <Component {...props} />);
         } else {
             console.log("NOT authorized!");
@@ -32,7 +29,7 @@ export default function PrivateRoute({path, Component, ...props }: PrivateRouteA
         }
     }
 
-   
-
     return <Route {...props} render = {render} />;
 }
+
+export default observer(PrivateRoute);

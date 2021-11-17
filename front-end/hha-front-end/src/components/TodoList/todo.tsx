@@ -2,7 +2,7 @@ import React from 'react';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button'
 import { Link } from 'react-router-dom'
-import './todo.css'
+import styles from './todo.module.css'
 import { types } from '@babel/core';
 
 
@@ -16,19 +16,19 @@ interface ToDoAttribute{
 const ToDo = ({firstLine, secondLine, thirdLine, func}:ToDoAttribute) => {
 
     return(
-      <div className = "toDogrid">
-        <div className = "toDobox">
+      <div className ={styles.toDogrid}>
+        <div className = {styles.toDobox}>
 
-            <h2 className = "toDoh2">
+            <h2 className = {styles.toDoh2}>
               {firstLine}
             </h2>
 
-            <p>
+            <p className={styles.p}>
               {secondLine}
             </p>
 
             <Box pt={2}>
-              <button className = "todoButton" onClick = {func}>
+              <button className = {styles.todoButton} onClick = {func}>
                   {thirdLine}
               </button>
             </Box>

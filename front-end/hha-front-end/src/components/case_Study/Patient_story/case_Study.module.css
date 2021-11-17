@@ -1,0 +1,44 @@
+.component{
+    position: absolute;
+    left: 44px;
+    top: 158px;
+
+    background: #FFFFFF;
+    box-shadow: 0px 2px 4px rgba(90, 91, 106, 0.24);
+    backdrop-filter: blur(100px);
+
+    border-radius: 8px;
+}
+
+.employeeStory{
+    font-family: Arial;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 20px;
+    line-height: 150%;
+
+    letter-spacing: 0.0075em;
+
+    color: #000000;
+
+}
+
+/* .expand{
+    background: #009CC4;
+
+box-shadow: 0px 2px 4px rgba(58, 58, 68, 0.2), 0px 4px 8px rgba(90, 91, 106, 0.2);
+border-radius: 4px;
+} */
+
+/* .story{
+
+font-family: Arial;
+font-style: normal;
+font-weight: normal;
+font-size: 20px;
+line-height: 158%;
+
+letter-spacing: 0.0075em;
+
+color: #000000;
+} */

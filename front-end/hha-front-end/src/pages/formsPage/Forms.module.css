@@ -63,7 +63,8 @@ h3 {
   text-transform: none !important;
 }
 
-input {
+.input {
+  max-width: 100px;
   background: #FFFFFF;
   border: 1px solid #B4B4BB;
   box-sizing: border-box;
@@ -73,7 +74,7 @@ input {
   flex-grow: 0;
 }
 
-input:focus {
+.input:focus {
   outline: none !important;
   border: 2px solid #009CC4;
   border-radius: 4px;
@@ -130,11 +131,7 @@ input:focus {
   margin-top: 2%;
 }
 
-input {
-  max-width: 100px;
-}
-
-input:disabled {
+.input:disabled {
   background: none;
   border: none;
   text-align: center;

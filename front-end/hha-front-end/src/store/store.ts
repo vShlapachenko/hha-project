@@ -29,6 +29,15 @@ export default class Store {
         this.forgotPasswordEmail = value;
     }
 
+
+    isLogin = () => {
+        if (localStorage.getItem('token')) {
+            return true;
+        }
+    
+        return false;
+    }
+
     async login (email: string, password: string){
         try {
             const response = await AuthService.login(email, password);

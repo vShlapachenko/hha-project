@@ -11,8 +11,8 @@ import Collapse from '@mui/material/Collapse';
 import IconButton, { IconButtonProps } from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import Navbar from '../../Navbar/Navbar';
-import './Patient_Story.css'
+import Navbar from "../../Navbar/Navbar";
+import styles from './case_Study.module.css'
 
 
 interface CaseStudyAttributes {
@@ -56,7 +56,7 @@ const Patient_Story = ({patient_image, case_image, heading, patient_name = '', p
     return (
         <div>
             <Navbar />
-            <div className={'component'}>
+            <div className={styles.component}>
                 <Card sx={{ maxWidth: 345 }}>
                     <CardHeader
                         avatar={
@@ -74,7 +74,7 @@ const Patient_Story = ({patient_image, case_image, heading, patient_name = '', p
                     <CardContent>
                         <Typography variant="body2" color="text.secondary">
 
-                            <div className={'employeeStory'}>
+                            <div className={styles.employeeStory}>
                                 {employee_story}
                             </div>
                             
@@ -85,7 +85,7 @@ const Patient_Story = ({patient_image, case_image, heading, patient_name = '', p
                     </CardContent>
 
                     <CardActions disableSpacing>
-                        <div className={'expand'}>
+                        <div className={styles.expand}>
                             <h3>Click on this arrow to learn more</h3>
                         </div>
                         
@@ -102,7 +102,7 @@ const Patient_Story = ({patient_image, case_image, heading, patient_name = '', p
                     <Collapse in={expanded} timeout="auto" unmountOnExit>
 
                         <CardContent>
-                            <div className={'moreInfo'}>
+                            <div className={styles.moreInfo}>
                                 <CardContent>
                                         <Typography variant="body2" color="text.secondary">
                                         {patient_location && <Chip sx={{marginLeft: -3, marginRight: 2}} label={'Patient`s Location: ' + patient_location}/> }
@@ -114,7 +114,7 @@ const Patient_Story = ({patient_image, case_image, heading, patient_name = '', p
                             </div>
                             
                                 <Typography paragraph>
-                                    <div className={'story'}>
+                                    <div className={styles.story}>
                                         {story}
                                     </div>
                                 </Typography>
