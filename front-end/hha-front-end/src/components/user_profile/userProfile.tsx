@@ -5,24 +5,13 @@ import Navbar from '../Navbar/Navbar'
 import TextField from '@mui/material/TextField'
 import {useHistory} from "react-router-dom";
 import {Context} from "../../index";
-import AuthService from "../../service/AuthService";
-import UserService from "../../service/UserService";
 
-// interface ProfileAttributes {
-//     firstName: string,
-//     lastName: string,
-//     email: string,
-//     staffNumber: string,
-//     profileImage?: string,
-//     department?: string
-// }
-//
-// const Profile = ({firstName, lastName, email, staffNumber, profileImage, department}: ProfileAttributes) => {
 const Profile: React.FC<{}> = () => {
     const [email, setEmail] = useState<string>("");
     const [firstName, setFirstName] = useState<string>("");
     const [lastName, setLastName] = useState<string>("");
     const [staffNumber, setStaffNumber] = useState<string>("");
+    const [firstLoading, setFirstLoading] = useState<boolean>(true);
     const [loading, setLoading] = useState<boolean>(true);
     const history = useHistory();
     const { store } = useContext(Context);
@@ -34,11 +23,17 @@ const Profile: React.FC<{}> = () => {
     }
 
     useEffect(()=>{
-        store.userProfile();
+        const fetchApi = async ()=>{
+            const response = await store.userProfile();
+            if (response){
+                setFirstLoading(false)
+            }
+        }
+        fetchApi()
     }, [])
 
     useEffect(()=>{
-        if(store.currentUserEmail && store.firstName && store.lastName){
+        if(!firstLoading){
             const emailRes = store.currentUserEmail;
             const FNRes = store.firstName;
             const LNRes = store.lastName;
@@ -46,7 +41,7 @@ const Profile: React.FC<{}> = () => {
             setFirstName(FNRes);
             setLastName(LNRes);
         }
-    }, [store.currentUserEmail, store.firstName, store.lastName])
+    }, [firstLoading])
 
     useEffect(()=>{
         if (firstName && lastName && email){
