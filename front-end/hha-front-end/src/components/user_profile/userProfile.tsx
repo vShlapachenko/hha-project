@@ -6,12 +6,24 @@ import TextField from '@mui/material/TextField'
 import {useHistory} from "react-router-dom";
 import {Context} from "../../index";
 import AuthService from "../../service/AuthService";
+import UserService from "../../service/UserService";
 
+// interface ProfileAttributes {
+//     firstName: string,
+//     lastName: string,
+//     email: string,
+//     staffNumber: string,
+//     profileImage?: string,
+//     department?: string
+// }
+//
+// const Profile = ({firstName, lastName, email, staffNumber, profileImage, department}: ProfileAttributes) => {
 const Profile: React.FC<{}> = () => {
     const [email, setEmail] = useState<string>("");
     const [firstName, setFirstName] = useState<string>("");
     const [lastName, setLastName] = useState<string>("");
     const [staffNumber, setStaffNumber] = useState<string>("");
+    const [loading, setLoading] = useState<boolean>(true);
     const history = useHistory();
     const { store } = useContext(Context);
 
@@ -21,22 +33,30 @@ const Profile: React.FC<{}> = () => {
         });
     }
 
-    store.userProfile(firstName, lastName, email);
-    useEffect(() => {
-        const emailResponse = store.currentUserEmail;
-        setEmail(emailResponse);
-    }, [store.currentUserEmail]);
+    useEffect(()=>{
+        store.userProfile();
+    }, [])
 
-    useEffect(() => {
-        const firstNameResponse = store.firstName;
-        setFirstName(firstNameResponse);
-    }, [store.firstName]);
+    useEffect(()=>{
+        if(store.currentUserEmail && store.firstName && store.lastName){
+            const emailRes = store.currentUserEmail;
+            const FNRes = store.firstName;
+            const LNRes = store.lastName;
+            setEmail(emailRes);
+            setFirstName(FNRes);
+            setLastName(LNRes);
+        }
+    }, [store.currentUserEmail, store.firstName, store.lastName])
 
-    useEffect(() => {
-        const lastNameResponse = store.lastName;
-        setLastName(lastNameResponse);
-    }, [store.lastName]);
+    useEffect(()=>{
+        if (firstName && lastName && email){
+            setLoading(false);
+        }
+    }, [firstName, lastName, email])
 
+    if (loading){
+        <p>Loading</p>
+    }
     return (
         <div>
             <Navbar />

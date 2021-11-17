@@ -115,9 +115,10 @@ export default class Store {
         }
     }
 
-    async userProfile(firstName: string, lastName: string, email: string){
+    async userProfile(){
         try {
-            const response = await UserService.getUser(firstName, lastName, email);
+            const response = await UserService.getUser();
+            console.log(response.data);
             this.setCurrentUserEmail(response.data.email);
             this.setFirstName(response.data.firstName);
             this.setLastName(response.data.lastName);
