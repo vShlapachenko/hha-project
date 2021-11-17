@@ -60,9 +60,8 @@ public class HhaUserController {
         userService.changePassword(changePasswordData);
     }
 
-    @PostMapping("userProfile")
-    public HhaUser getMe(Principal principal) {
-        System.out.println(principal.getName());
+    @GetMapping("userProfile")
+    public HhaUser getCurrentUser(Principal principal) {
         return userService.getUser(principal.getName());
     }
 }

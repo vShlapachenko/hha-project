@@ -12,7 +12,7 @@ export default class UserService {
     }
 
     static getUser(): Promise<AxiosResponse<User>>{
-        return $api.post<User>('hha-user/userProfile')
+        return $api.get<User>('hha-user/userProfile')
     }
 }
 
