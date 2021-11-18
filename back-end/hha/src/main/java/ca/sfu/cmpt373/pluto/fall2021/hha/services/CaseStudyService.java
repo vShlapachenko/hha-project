@@ -1,6 +1,7 @@
 package ca.sfu.cmpt373.pluto.fall2021.hha.services;
 
 import ca.sfu.cmpt373.pluto.fall2021.hha.models.*;
+import ca.sfu.cmpt373.pluto.fall2021.hha.repositories.CaseStudyDraftRepository;
 import ca.sfu.cmpt373.pluto.fall2021.hha.repositories.CaseStudyRepository;
 import ca.sfu.cmpt373.pluto.fall2021.hha.repositories.CaseStudyTemplateRepository;
 import ca.sfu.cmpt373.pluto.fall2021.hha.repositories.PhotoRepository;
@@ -23,6 +24,7 @@ public class CaseStudyService {
     private final CaseStudyRepository caseStudyRepository;
     private final CaseStudyTemplateRepository caseStudyTemplateRepository;
     private final PhotoRepository photoRepository;
+    private final CaseStudyDraftRepository caseStudyDraftRepository;
 
     private final HhaUserService hhaUserService;
 
@@ -47,8 +49,15 @@ public class CaseStudyService {
                 .orElseThrow(() -> new IllegalArgumentException("CaseStudy with ID ==== " + id + " Does not exist"));
     }
 
-    public void createCaseStudy() {
+    public List<CaseStudyDraft> createCaseStudy(HttpServletRequest request) {
+        HhaUser hhaUser = hhaUserService.getUser(request.getUserPrincipal().getName());
         photos = new ArrayList<>();
+
+        return getDraft(hhaUser);
+    }
+
+    public List<CaseStudyDraft> getDraft(HhaUser hhaUser) {
+        return caseStudyDraftRepository.findAllBySubmittedBy(hhaUser);
     }
 
     public CaseStudyTemplate getQuestions(String caseName) {
@@ -72,5 +81,12 @@ public class CaseStudyService {
         caseStudy.setPhotos(photos);
 
         caseStudyRepository.insert(caseStudy);
+    }
+
+    public void saveCaseStudyDraft(HttpServletRequest request, CaseStudyDraft caseStudyDraft) {
+        caseStudyDraft.setSubmittedBy(hhaUserService.getUser(request.getUserPrincipal().getName()));
+        caseStudyDraft.setPhotos(photos);
+
+        caseStudyDraftRepository.insert(caseStudyDraft);
     }
 }

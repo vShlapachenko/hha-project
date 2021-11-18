@@ -1,9 +1,6 @@
 package ca.sfu.cmpt373.pluto.fall2021.hha.controllers;
 
-import ca.sfu.cmpt373.pluto.fall2021.hha.models.CaseStudy;
-import ca.sfu.cmpt373.pluto.fall2021.hha.models.CaseStudyTemplate;
-import ca.sfu.cmpt373.pluto.fall2021.hha.models.CaseStudyTruncated;
-import ca.sfu.cmpt373.pluto.fall2021.hha.models.HhaUser;
+import ca.sfu.cmpt373.pluto.fall2021.hha.models.*;
 import ca.sfu.cmpt373.pluto.fall2021.hha.repositories.CaseStudyRepository;
 import ca.sfu.cmpt373.pluto.fall2021.hha.repositories.PhotoRepository;
 import ca.sfu.cmpt373.pluto.fall2021.hha.services.CaseStudyService;
@@ -31,9 +28,9 @@ public class CaseStudyController {
         return caseStudyService.getCaseStudy(id);
     }
 
-    @PostMapping("create")
-    public void createCaseStudy() {
-        caseStudyService.createCaseStudy();
+    @GetMapping("create")
+    public List<CaseStudyDraft> createCaseStudy(HttpServletRequest request) {
+        return caseStudyService.createCaseStudy(request);
     }
 
     @PostMapping("questions")
@@ -51,5 +48,11 @@ public class CaseStudyController {
     public void saveCaseStudy(HttpServletRequest request,
                               @RequestBody CaseStudy caseStudy) {
         caseStudyService.saveCaseStudy(request, caseStudy);
+    }
+
+    @PostMapping("submitAsDraft")
+    public void saveCaseStudyDraft(HttpServletRequest request,
+                                   @RequestBody CaseStudyDraft caseStudyDraft) {
+        caseStudyService.saveCaseStudyDraft(request, caseStudyDraft);
     }
 }
