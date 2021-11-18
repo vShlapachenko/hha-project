@@ -39,9 +39,14 @@ public class CaseStudyController {
     }
 
     @PostMapping("photo/add")
-    public void savePhoto(@RequestBody MultipartFile photo)
+    public Photo savePhoto(@RequestBody MultipartFile photo)
             throws IOException {
-        caseStudyService.savePhoto(photo);
+        return caseStudyService.savePhoto(photo);
+    }
+
+    @DeleteMapping("photo/delete/{id}")
+    public void deletePhoto(@PathVariable("id") String id) {
+        caseStudyService.deletePhoto(id);
     }
 
     @PostMapping("submit")

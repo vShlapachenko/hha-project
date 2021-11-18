@@ -28,8 +28,6 @@ public class CaseStudyService {
 
     private final HhaUserService hhaUserService;
 
-    private Collection<Photo> photos;
-
     public List<CaseStudyTruncated> getCaseStudies() {
         return toTruncatedCaseStudy(caseStudyRepository.findAll());
     }
@@ -51,8 +49,6 @@ public class CaseStudyService {
 
     public List<CaseStudyDraft> createCaseStudy(HttpServletRequest request) {
         HhaUser hhaUser = hhaUserService.getUser(request.getUserPrincipal().getName());
-        photos = new ArrayList<>();
-
         return getDraft(hhaUser);
     }
 
@@ -64,29 +60,28 @@ public class CaseStudyService {
         return caseStudyTemplateRepository.findByName(caseName);
     }
 
-    public void savePhoto(MultipartFile file) throws IOException {
+    public Photo savePhoto(MultipartFile file) throws IOException {
         Photo photo = new Photo();
         photo.setImage(
                 new Binary(BsonBinarySubType.BINARY, file.getBytes())
         );
         photoRepository.insert(photo);
 
-        photos.add(photo);
+        return photo;
+    }
+
+    public void deletePhoto(String id) {
+        photoRepository.deleteById(id);
     }
 
     public void saveCaseStudy(HttpServletRequest request, CaseStudy caseStudy)
     {
-        // caseStudy.setSubmittedBy(authorizationService.getUser());
         caseStudy.setSubmittedBy(hhaUserService.getUser(request.getUserPrincipal().getName()));
-        caseStudy.setPhotos(photos);
-
         caseStudyRepository.insert(caseStudy);
     }
 
     public void saveCaseStudyDraft(HttpServletRequest request, CaseStudyDraft caseStudyDraft) {
         caseStudyDraft.setSubmittedBy(hhaUserService.getUser(request.getUserPrincipal().getName()));
-        caseStudyDraft.setPhotos(photos);
-
         caseStudyDraftRepository.insert(caseStudyDraft);
     }
 }
