@@ -81,8 +81,6 @@ const Navbar = () => {
 
     const handleClick = (index: number, item: any) => {
         if(index == chosenIndex) return;
-        console.log("here");
-        
         if (item.title === "Case Study") {
             history.push('/caseStudy');
         } else if (item.title === "Home") {
@@ -90,9 +88,6 @@ const Navbar = () => {
         } else if (item.title === "Forms") {
             history.push('/forms');
         } 
-        // else if(item.title === "Create Account") {
-        //     history.push('/register');
-        // }
         
         setIndex(index);
     }
