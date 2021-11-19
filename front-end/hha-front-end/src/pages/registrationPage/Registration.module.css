@@ -135,17 +135,17 @@
     color: #787885;
 }
 
-.disableInput {
+.emailInput {
     position: absolute;
     width: 400px;
     height: 40px;
     left: calc(50% - 488px/2);
     top: 460px;
 
-    background: #B4B4BB;
+    /* background: #B4B4BB; */
     /* Gray / 30 */
 
-    border: 1px solid #B4B4BB;
+    /* border: 1px solid #B4B4BB; */
     box-sizing: border-box;
     border-radius: 4px;
 }
@@ -251,9 +251,39 @@
      color: #787885;
 }
 
+
+.chooseTypeAccount {
+    position: absolute;
+    width: 488px;
+    height: 20px;
+    left: calc(50% - 488px/2);
+    top: 880px;
+
+    /* Inter / Body Small */
+
+    font-family: Inter;
+     font-style: normal;
+     font-weight: normal;
+     font-size: 14px;
+     line-height: 143%;
+    /* identical to box height, or 20px */
+
+    letter-spacing: 0.018em;
+    color: #787885;
+
+}
+
+.chooseTypeAccountDropdown {
+    position: absolute;
+    /* display: flex; */
+    top: 900px;
+    width: 488px;
+    left: calc(50% - 488px/2);
+}
+
 .submitButton {
     position: absolute;
-    top: 900px;
+    top: 1000px;
     width: 488px;
     left: calc(50% - 488px/2);
 }
@@ -264,3 +294,5 @@
     width: 488px;
     left: calc(50% - 488px/2);
 }
+
+
