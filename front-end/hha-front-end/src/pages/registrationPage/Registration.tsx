@@ -18,19 +18,37 @@ const Registration = () => {
     const [confirmPassword, setConfirmPassword] = useState("");
     const [personalStaffNumber, setPersonalStaffNumber] = useState("");
     const [dropdown, setDropdown] = useState("");
+    const [email, setEmail] = useState("");
     const {store} = useContext(Context);
-    const history = useHistory();
-    const hhaUser = {
-        "firstName": firstName,
-        "lastName": lastName,
-        "password": password,
-        "confirmPassword": confirmPassword,
-        "personalStaffNumber": personalStaffNumber,
-        "languageOption": dropdown
-   };
 
+    const [accountDropdown, setAccountDropdown] = useState("");
+    const accoutTypes = [ "Admin", "Staff", "Head Of Department"];
+    const history = useHistory();
+   
+    const ROLES = {
+        ROLE_ADMIN: "ROLE_ADMIN",
+        ROLE_STAFF: "ROLE_STAFF",
+        ROLE_HEAD_OF_DEP: "ROLE_HEAD_OF_DEP"
+    }
     
     const [users, setUsers] = useState<User[]>([]);
+
+
+    async function hasRightToRegister() {
+        try {
+            const response = await UserService.getCurrentUser(store.getUserEmail());
+            if (response.data?.roles[0]?.name === ROLES.ROLE_ADMIN || response.data?.roles[0]?.name === ROLES.ROLE_HEAD_OF_DEP) {
+                return true;
+            } 
+            
+        } catch (error) {
+            console.log(error);
+            return false;
+        }
+        console.log("Only admin or head of department can register a user!")
+        alert("Only admin or head of department can register a user!")
+        return false;
+    }
   
     async function getUsers() {
       try {
@@ -41,16 +59,88 @@ const Registration = () => {
       }
     }
 
-    async function saveUser() {
+    async function elegibleToBeSaved() {
+
+        const emailRegex = /^\w+@[a-zA-Z_0-9]+\.[a-zA-Z]+$/;
+
+        if (!emailRegex.test(email)) {
+            alert("Please enter a valid email.");
+            return false;
+        }
+        
+
+        let userEmailArrays: Array<any>= [];
         try {
-          const response = await UserService.saveUser(hhaUser.firstName, hhaUser.lastName, hhaUser.password);
+            const response = await UserService.fetchUsers();
+            console.log(response);
+            userEmailArrays = response.data;
+            for (let i = 0; i < userEmailArrays.length; i++) {
+                if (userEmailArrays[i].email === email) {
+                    alert("Email already exists! Please choose a different one!")
+                    return false;
+                }
+            } 
+          } catch (e) {
+              console.log(e);
+              return false;
+        }
+
+        if (password !== confirmPassword || password === "") {
+            alert("Passwords are not the same or password is empty!");
+            return false;
+        }
+
+        return true;
+    }
+
+    async function saveUser() {
+
+        if (!await hasRightToRegister()) {
+            return;
+        }
+
+        if (!await elegibleToBeSaved()) {
+            return;
+        }
+
+        
+
+        let role = "";
+        if (accountDropdown === "Admin") {
+            role = ROLES.ROLE_ADMIN;
+        } else if (accountDropdown === "Staff") {
+            role = ROLES.ROLE_STAFF;
+        } else {
+            role = ROLES.ROLE_HEAD_OF_DEP;
+        }
+
+        let roleArray: Array<any> = [];
+        let obj = {
+            id: "",
+            name: role
+        };
+
+        roleArray.push(obj);
+        const hhaUser = {
+            "firstName": firstName,
+            "lastName": lastName,
+            "email": email,
+            "password": password,
+            "confirmPassword": confirmPassword,
+            "personalStaffNumber": personalStaffNumber,
+            "languageOption": dropdown,
+            "roles": roleArray
+       };
+
+        try {
+          const response = await UserService.saveUser(hhaUser.firstName, hhaUser.lastName, hhaUser.password, hhaUser.email, hhaUser.roles);
           console.log(response);
+          console.log("register success");
           history.push("/");
         } catch (e) {
             console.log(e);
-            
         }
-      }
+    }
 
         
     
@@ -75,6 +165,11 @@ const Registration = () => {
         setConfirmPassword(event.target.value);
     }
 
+    const setEmailFunc = (event: any) => {
+        event.preventDefault();
+        setEmail(event.target.value);
+    }
+
     const setPersonalStaffNumberFunc = (event: any) => {
         event.preventDefault();
         setPersonalStaffNumber(event.target.value);
@@ -86,11 +181,18 @@ const Registration = () => {
         
     }
 
+    const setAccountDropdownFunc = (event: any) => {
+        event.preventDefault();
+        
+        setAccountDropdown(event.target.value);
+    }
+
     return (
         <div>
              <div>
                  <div>
-                    <img src={logo_HHA} className={registrationStyle.logo} alt="logo" />
+                    {/* <img src={logo_HHA} className={registrationStyle.logo} alt="logo" /> */}
+                    <Navbar />
                  </div>
                 <h5 className={registrationStyle.header}>Personal Information</h5>
                 <h6 className={registrationStyle.subHeader}>Enter your personal information below</h6>
@@ -108,11 +210,15 @@ const Registration = () => {
                 </div>
             </div>
         
-            <div className={registrationStyle.assignEmail}>
+            {/* <div className={registrationStyle.assignEmail}>
                Email assigned to you
+            </div> */}
+            <div className={registrationStyle.assignEmail}>
+               Enter your email
             </div>
-            <div >
-                <input value="  staff@hha.com" className={registrationStyle.disableInput} disabled />
+            <div className={registrationStyle.emailInput}>
+                {/* <input value="  staff@hha.com" className={registrationStyle.disableInput} disabled /> */}
+                <Input userInput={email} type="email" label="" onChangeFunc={setEmailFunc} />
             </div>
 
             <div className= {registrationStyle.enterPassword} >
@@ -131,6 +237,12 @@ const Registration = () => {
                     Choose your preferred language
                 <Dropdown listItems={listItems} itemName={""} onChangeFunc={setDropdownFunc} initialValue={dropdown} />
             </div>
+            <div className={registrationStyle.chooseTypeAccount}>
+            <h5 >Choose type of account</h5>
+            </div>
+            <div className= {registrationStyle.chooseTypeAccountDropdown}>
+            <Dropdown listItems={accoutTypes} itemName={""} onChangeFunc={setAccountDropdownFunc} initialValue={accountDropdown} />
+            </div>
             <div className={registrationStyle.submitButton }>
                 <Button variant="contained" onClick={saveUser} >Submit</Button>
             </div>
@@ -139,3 +251,6 @@ const Registration = () => {
 };
 
 export default Registration;
+
+
+
