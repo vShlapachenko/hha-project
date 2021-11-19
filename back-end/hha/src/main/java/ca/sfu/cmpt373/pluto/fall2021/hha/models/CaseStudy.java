@@ -22,7 +22,6 @@ public class CaseStudy {
     private Date submittedDate;
     private List<CaseStudyEntry> entryList;
 
-    @DBRef(lazy = true)
     private Collection<Photo> photos = new ArrayList<>();
 
     public String getId() {
