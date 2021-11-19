@@ -59,6 +59,11 @@ const Navbar = () => {
         await store.logout();
         history.push('/');
     }
+
+    const createAccountFunc = () => {
+        history.push('/register');
+    }
+
     const handleToggle = () => {
         setOpen((prevOpen) => !prevOpen);
     };
@@ -76,6 +81,7 @@ const Navbar = () => {
 
     const handleClick = (index: number, item: any) => {
         if(index == chosenIndex) return;
+        console.log("here");
         
         if (item.title === "Case Study") {
             history.push('/caseStudy');
@@ -83,7 +89,10 @@ const Navbar = () => {
             history.push('/homePage');
         } else if (item.title === "Forms") {
             history.push('/forms');
-        }
+        } 
+        // else if(item.title === "Create Account") {
+        //     history.push('/register');
+        // }
         
         setIndex(index);
     }
@@ -161,7 +170,7 @@ const Navbar = () => {
                                         ) 
                                         })}
                                         <Box mt={2}>
-                                            <MenuItem>Create Account</MenuItem>
+                                            <MenuItem onClick={createAccountFunc}>Create Account</MenuItem>
                                             <MenuItem>Settings</MenuItem>
                                             <MenuItem onClick={logoutFunc}> Logout</MenuItem>
                                         </Box>
@@ -229,7 +238,7 @@ const Navbar = () => {
                                         aria-labelledby="composition-button"
                                         onKeyDown={handleListKeyDown}
                                         >
-                                        <MenuItem>
+                                        <MenuItem onClick={createAccountFunc}>
                                             Create Account
                                         </MenuItem>
                                         <MenuItem>Settings</MenuItem>
