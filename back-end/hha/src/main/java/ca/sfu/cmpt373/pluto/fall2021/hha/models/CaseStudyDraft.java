@@ -15,6 +15,7 @@ public class CaseStudyDraft {
 
     private String caseName;
     private List<String> answers;
+    private List<CaseStudyEntry> entryList;
 
     @DBRef
     private HhaUser submittedBy;
@@ -44,6 +45,14 @@ public class CaseStudyDraft {
 
     public void setAnswers(List<String> answers) {
         this.answers = answers;
+    }
+
+    public List<CaseStudyEntry> getEntryList() {
+        return entryList;
+    }
+
+    public void setEntryList(List<CaseStudyEntry> entryList) {
+        this.entryList = entryList;
     }
 
     public HhaUser getSubmittedBy() {
