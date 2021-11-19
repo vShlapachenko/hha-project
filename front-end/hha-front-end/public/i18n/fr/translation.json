@@ -27,5 +27,44 @@
         "confirm_pw": "Confirmer le nouveau mot de passe",
         "submit": "Soumettre",
         "link": "Revenir à la page de connexion"
+    },
+    "Homepage": {
+        "title": "Classement",
+        "best": "Meilleur rayon du mois",
+        "todo": "Qu'est-ce que la liste TODO",
+        "first":"1ère place",
+        "second": "2ème place",
+        "third": "3ème place",
+        "maternity": "Maternité",
+        "rehab": "Désintox",
+        "comm_health": "Santé communautaire"
+    },
+    "Register":{
+        "title": "Informations personnelles",
+        "body": "Entrez vos informations personnelles ci-dessous",
+        "first": "Prénom",
+        "last": "Nom de famille",
+        "email": "E-mail qui vous est attribué",
+        "enter": "Tapez votre mot de passe",
+        "confirm": "Confirmer votre mot de passe",
+        "personal": "Entrez votre numéro personnel (facultatif)",
+        "choose": "Choisissez votre langue préférée",
+        "submit": "Soumettre"
+    },
+    "Changepw":{
+        "title": "Formulaire de changement de mot de passe",
+        "enter_email": "Entrer votre Email",
+        "curr_pw": "Saisissez le mot de passe actuel",
+        "new_pw": "Entrez un nouveau mot de passe",
+        "confirm_pw": "Confirmer le nouveau mot de passe",
+        "submit": "Soumettre",
+        "back": "Retour à la page de profil"
+    },
+    "Navbar":{
+        "create":"Créer un compte",
+        "settings": "Les paramètres",
+        "logout": "Se déconnecter"
     }
+
+
 }

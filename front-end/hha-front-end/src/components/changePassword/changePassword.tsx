@@ -4,7 +4,7 @@ import logo_HHA from "../../pages/loginPage/logo.svg";
 import styles from "./changePassword.module.css"
 import {useHistory} from "react-router-dom";
 import {Button} from "@mui/material";
-
+import { useTranslation, Trans } from "react-i18next";
 const ChangePassword: React.FC<{}> = () => {
     const [oldPassword, setOldPassword] = useState<string>("");
     const [newPassword, setNewPassword] = useState<string>("");
@@ -33,10 +33,12 @@ const ChangePassword: React.FC<{}> = () => {
         }
     };
 
+    const {t,i18n} = useTranslation();
+
     return(
         <div>
             <img src={logo_HHA} className={styles.logo} alt="logo" />
-            <h1 className={styles.header}>Change Password Form</h1>
+            <h1 className={styles.header}><Trans i18nKey = 'Changepw.title'>Change Password Form</Trans></h1>
             <div className={styles.emailInput}>
                 <input className={styles.input}
                     onChange={(e) => setUserEmail(e.target.value)}

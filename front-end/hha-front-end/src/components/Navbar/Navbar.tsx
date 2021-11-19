@@ -13,6 +13,8 @@ import MenuList from '@mui/material/MenuList';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import {Context} from "../../index";
 import { useHistory } from "react-router-dom";
+import { useTranslation, Trans } from "react-i18next";
+
 
 const MenuItems = [
     {
@@ -107,6 +109,8 @@ const Navbar = () => {
         prevOpen.current = open;
     }, [open]);
   
+    const {t, i18n} = useTranslation();
+
     return (
         <Box sx={{ flexGrow: 1, fontFamily: 'Arial', fontWeight: 'light' }} >
             <AppBar position="static" style={navStyle}>
@@ -230,10 +234,14 @@ const Navbar = () => {
                                         onKeyDown={handleListKeyDown}
                                         >
                                         <MenuItem>
-                                            Create Account
+                                            <Trans i18nKey = 'Navbar.create'>Create Account</Trans>
                                         </MenuItem>
-                                        <MenuItem>Settings</MenuItem>
-                                        <MenuItem onClick={logoutFunc}>Logout</MenuItem>
+                                        <MenuItem>
+                                            <Trans i18nKey = 'Navbar.settings'>Settings</Trans>
+                                        </MenuItem>
+                                        <MenuItem onClick={logoutFunc}>
+                                            <Trans i18nKey = 'Navbar.logout'>Logout</Trans>
+                                            </MenuItem>
                                         </MenuList>
                                     </ClickAwayListener>
                                     </Paper>

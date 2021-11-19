@@ -22,11 +22,7 @@ const Login: FC = () => {
         }
      }
 
-     const {t, i18n} = useTranslation();
-     
-     const changeLanguage = (language: string) => {
-         i18n.changeLanguage(language);
-     };
+     const {t, i18n} = useTranslation('translation');
 
     return (
         <div className={styles.div}>
