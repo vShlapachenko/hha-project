@@ -14,4 +14,20 @@ export default class CaseStudyService {
         return $api.post<CaseStudy>(`/case-study/submit`, {id, submittedBy, caseName, submittedDate, entryList, photo});
     }
 
+    static submitAnswersAsDraft(caseName: string, submittedBy: any, entryList: Array<any>, photo: any): Promise<AxiosResponse<CaseStudy>> {
+        
+        return $api.post<CaseStudy>(`/case-study/submitAsDraft`, {submittedBy, caseName, entryList, photo});
+    }
+
+
+    static createCaseStudy(): Promise<AxiosResponse<CaseStudy[]>> {
+        
+        return $api.get<CaseStudy[]>(`/case-study/create`);
+    }
+
+    static addPhoto(photo: any): Promise<AxiosResponse<CaseStudy>> {
+        
+        return $api.post<CaseStudy>(`/case-study/photo/add`, {photo});
+    }
+
 }
