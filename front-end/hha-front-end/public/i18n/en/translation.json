@@ -27,5 +27,46 @@
         "confirm_pw": "Confirm New Password",
         "submit": "Submit",
         "link": "Go Back to Login Page"
+    },
+    "HomePage": {
+        "title": "Leaderboard",
+        "best": "Best department of the month",
+        "todo": "What's TODO List",
+        "first":"1st place",
+        "second": "2nd place",
+        "third": "3rd place",
+        "maternity": "Maternity",
+        "rehab": "Rehab",
+        "comm_health": "Community Health"
+    },
+    "Register":{
+        "title": "Personal Information",
+        "body": "Enter your personal information below",
+        "first": "First name",
+        "last": "Last name",
+        "email": "Email assigned to you",
+        "enter": "Enter your password",
+        "confirm": "Confirm your password",
+        "personal": "Enter your personal staff number (optional)",
+        "choose": "Choose your preferred language",
+        "submit": "Submit"
+    },
+    "Changepw":{
+        "title": "Change Password Form",
+        "enter_email": "Enter your email",
+        "curr_pw": "Enter current password",
+        "new_pw": "Enter new password",
+        "confirm_pw": "Confirm new password",
+        "submit": "Submit",
+        "back": "Back to profile page"
+    },
+    "Navbar":{
+        "create":"Create Account",
+        "settings": "Settings",
+        "logout": "Logout"
+    },
+    "Userprofile":{
+        "per"
     }
+
 }
