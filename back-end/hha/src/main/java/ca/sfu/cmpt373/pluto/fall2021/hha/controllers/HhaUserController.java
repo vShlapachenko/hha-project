@@ -20,6 +20,11 @@ public class HhaUserController {
         return userService.getUsers();
     }
 
+    @GetMapping("getCurrentUser")
+    public HhaUser getCurrentUser(@RequestParam String email) {
+        return userService.getUser(email);
+    }
+
     @PostMapping("invite")
     public void invite(@RequestBody UserInvitation userInvitation) {
         userService.invite(userInvitation);
