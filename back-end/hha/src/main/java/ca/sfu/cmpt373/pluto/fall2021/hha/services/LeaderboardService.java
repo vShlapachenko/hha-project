@@ -8,11 +8,13 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.data.mongodb.core.mapping.event.AbstractMongoEventListener;
 import org.springframework.data.mongodb.core.mapping.event.AfterSaveEvent;
 import org.springframework.scheduling.annotation.Scheduled;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
 
+@Component
 @Service
 @RequiredArgsConstructor
 public class LeaderboardService extends AbstractMongoEventListener<CaseStudy> {
@@ -43,8 +45,9 @@ public class LeaderboardService extends AbstractMongoEventListener<CaseStudy> {
 
     @Override
     public void onAfterSave(AfterSaveEvent<CaseStudy> event){
-        DepartmentPoints points = departmentPointsRepository.findByDepartment(
-                event.getSource().getSubmittedBy().getDepartment());
+        HhaUser hhaUser = event.getSource().getSubmittedBy();
+        DepartmentPoints points = departmentPointsRepository.findByDepartment(hhaUser.getDepartment());
         points.setMonthPoints(points.getMonthPoints() + 200);
+        departmentPointsRepository.save(points);
     }
 }

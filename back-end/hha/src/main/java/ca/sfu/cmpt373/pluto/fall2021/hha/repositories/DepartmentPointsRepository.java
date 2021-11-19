@@ -6,7 +6,7 @@ import org.springframework.data.mongodb.repository.MongoRepository;
 
 import java.util.List;
 
-public interface DepartmentPointsRepository extends MongoRepository<DepartmentPoints, Department> {
+public interface DepartmentPointsRepository extends MongoRepository<DepartmentPoints, String> {
     DepartmentPoints findByDepartment(Department department);
 
     List<DepartmentPoints> findByOrderByMonthPointsDesc();

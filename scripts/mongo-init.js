@@ -31,7 +31,7 @@ db.hhaUser.insert([
         activationLink: null, roles: [
             new DBRef('role', roles[1]._id)
         ],
-        department: null,
+        department: new DBRef('department', departments[0]._id),
         activationStatus: "ACTIVATED",
         confirmationLink: null
     }
