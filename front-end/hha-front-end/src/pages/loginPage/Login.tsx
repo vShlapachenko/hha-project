@@ -18,7 +18,7 @@ const Login: FC = () => {
         if (store.isAuthorized) {
             history.push('/homePage');
         }
-     }
+    }
 
     return (
         <div className={styles.div}>

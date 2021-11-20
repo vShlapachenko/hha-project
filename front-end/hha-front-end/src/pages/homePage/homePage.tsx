@@ -3,6 +3,8 @@ import Leaderboard from "../../components/leaderboard/Leaderboard";
 import ToDo from "../../components/TodoList/todo";
 import Navbar from "../../components/Navbar/Navbar";
 import { useHistory } from "react-router";
+import {useContext} from "react";
+import {Context} from "../../index";
 
 const HomePage = () => {
     let history = useHistory();
