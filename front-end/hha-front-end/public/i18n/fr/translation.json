@@ -64,7 +64,26 @@
         "create":"Créer un compte",
         "settings": "Les paramètres",
         "logout": "Se déconnecter"
+    },
+    "Form":{
+        "alert":"Soumettre le formulaire ?",
+        "description": "Vous allez soumettre le formulaire pour le département ${form.label}. Cliquez sur « Envoyer » pour continuer.",
+        "submit": "Soumettre",
+        "export": "Exporter au format CSV",
+        "failed": "Échec de la soumission!",
+        "some": "Certains champs ne sont pas remplis. Veuillez vous assurer que tous les champs sont remplis avant la soumission.",
+        "save": "Enregistrer comme brouillon",
+        "prev": "Passer à l'étape précédente",
+        "next": "Passer à l'étape suivante"
+    },
+    "Adduser":{
+        "create": "Créer un nouveau compte",
+        "enter": "Entrez l'email d'un nouvel utilisateur",
+        "confirm": "Confirmer l'e-mail d'un nouvel utilisateur",
+        "choose": "Choisissez le type de compte",
+        "pw": "Choisissez votre mot de passe",
+        "submit": "Soumettre",
+        "home": "Retour à la page d'accueil"
     }
-
 
 }

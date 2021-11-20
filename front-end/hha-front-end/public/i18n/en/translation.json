@@ -65,8 +65,24 @@
         "settings": "Settings",
         "logout": "Logout"
     },
-    "Userprofile":{
-        "per"
+    "Form":{
+        "alert":"Submit the form?",
+        "description": "You are going to submit the form for ${form.label} department. Click on 'Submit' to proceed.",
+        "submit": "Submit",
+        "export": "Export to CSV",
+        "failed": "Submission Failed!",
+        "some": "Some of the fields are not filled. Please insure that all fields are filled before the submission.",
+        "save": "Save as Draft",
+        "prev": "Move to the Previous Step",
+        "next": "Proceed to Next Step"
+    },
+    "Adduser":{
+        "create": "Create New Account",
+        "enter": "Enter the email of a new user",
+        "confirm": "Confirm email of a new user",
+        "choose": "Choose type of account",
+        "pw": "Choose your password",
+        "submit": "Submit",
+        "home": "Back to Home Page"
     }
-
 }

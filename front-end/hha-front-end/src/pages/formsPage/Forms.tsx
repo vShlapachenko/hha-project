@@ -17,7 +17,7 @@ import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
-import { style } from "@mui/system";
+import { useTranslation,Trans } from "react-i18next";
 
 const notChosenBtnStyle : CommonProps["style"] = {
   backgroundColor: '#EEEEEE',
@@ -37,6 +37,8 @@ const Forms: FC = () => {
   const [currentIndex, setCurrentIndex] = useState<number[]>([0, 0])
   const [openConfirmDialog, setOpenConfirmDialog] = React.useState(false);
   const [openErrorDialog, setOpenErrorDialog] = React.useState(false);
+
+  const {t, i18n} = useTranslation();
 
   const handleClickOpen = () => {
     setOpenConfirmDialog(true);
@@ -140,7 +142,7 @@ const Forms: FC = () => {
       aria-describedby="alert-dialog-description"
     >
       <DialogTitle id="alert-dialog-title">
-        {"Submit the form?"}
+        {t("Form.alert")}
       </DialogTitle>
       <DialogContent>
         <DialogContentText id="alert-dialog-description">
@@ -150,9 +152,11 @@ const Forms: FC = () => {
       <DialogActions>
         <Button onClick={handleClose}>Cancel</Button>
         <Button onClick={submitForm} autoFocus>
-          Submit
+          <Trans i18nKey='Form.submit'>Submit</Trans>
         </Button>
-        <Button>Export to CSV</Button>
+        <Button>
+          <Trans i18nKey='Form.export'>Export to CSV</Trans>
+        </Button>
       </DialogActions>
     </Dialog>
   }
@@ -165,11 +169,11 @@ const Forms: FC = () => {
       aria-describedby="alert-dialog-description"
     >
       <DialogTitle id="alert-dialog-title">
-        {"Submission Falied!"}
+        {t('Form.failed')}
       </DialogTitle>
       <DialogContent>
         <DialogContentText id="alert-dialog-description">
-          {`Some of the fields are not filled. Please insure that all fields are filled before the submission.`}
+          <Trans i18nKey='Form.some'>Some of the fields are not filled. Please insure that all fields are filled before the submission.</Trans>
         </DialogContentText>
       </DialogContent>
       <DialogActions>
@@ -260,7 +264,7 @@ const Forms: FC = () => {
                 </Table>
               </TableContainer>
               <div className={styles.btns}>
-                <Button>Save as Draft</Button>
+                <Button><Trans i18nKey='Form.save'>Save as Draft</Trans></Button>
                 {
                   currentIndex[0] === 0 && currentIndex[1] === 0
                     ? null
@@ -268,7 +272,7 @@ const Forms: FC = () => {
                     className={styles.btn}
                     onClick={moveBack}
                     >
-                      Move to the Previous Step
+                      <Trans i18nKey='Form.prev'>Move to the Previous Step</Trans>
                     </Button>
                 }
                 <Button 

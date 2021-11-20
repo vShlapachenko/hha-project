@@ -44,7 +44,7 @@ const ChangePassword: React.FC<{}> = () => {
                     onChange={(e) => setUserEmail(e.target.value)}
                     value={userEmail}
                     type="email"
-                    placeholder="Enter your email"
+                    placeholder={t('Changepw.enter_email')}
                 />
             </div>
             <div className={styles.currPassInput}>
@@ -52,7 +52,7 @@ const ChangePassword: React.FC<{}> = () => {
                        onChange={(e) => setOldPassword(e.target.value)}
                        value={oldPassword}
                        type="password"
-                       placeholder="Enter current password"
+                       placeholder={t('Changepw.curr_pw')}
                 />
             </div>
             <div className={styles.newPassInput}>
@@ -60,7 +60,7 @@ const ChangePassword: React.FC<{}> = () => {
                     onChange={(e) => setNewPassword(e.target.value)}
                     value={newPassword}
                     type="password"
-                    placeholder="Enter new password"
+                    placeholder={t('Changepw.new_pw')}
                 />
             </div>
             <div className={styles.confirmPassInput}>
@@ -68,21 +68,21 @@ const ChangePassword: React.FC<{}> = () => {
                     onChange={(e) => setConfirmPassword(e.target.value)}
                     value={confirmPassword}
                     type="password"
-                    placeholder="Confirm new password"
+                    placeholder={t('Changepw.confirm_pw')}
                 />
             </div>
             <div className={styles.submit}>
                 <Button onClick={handleChangePassword}
                         sx={{width: "500px", height: "42px", background: '#009CC4'}}
                         variant="contained">
-                    Submit
+                    <Trans i18nKey='Changepw.submit'>Submit</Trans>
                 </Button>
             </div>
             <div className={styles.profPage}>
                 <Button onClick={redirectPage}
                         sx={{width: "488px", height: "42px", background: '#009CC4'}}
                         variant="contained">
-                    Back to Profile Page
+                    <Trans i18nKey='Changepw.back'>Back to Profile Page</Trans>
                 </Button>
             </div>
 
