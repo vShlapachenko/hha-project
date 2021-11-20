@@ -15,6 +15,9 @@ export default class UserService {
         return $api.get<User>(`/hha-user/getCurrentUser?email=${email}`);
     }
 
+    static getUser(): Promise<AxiosResponse<User>>{
+        return $api.get<User>('hha-user/userProfile')
+    }
 }
 
 // i am following the following schema:

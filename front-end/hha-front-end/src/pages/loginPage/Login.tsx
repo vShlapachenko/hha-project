@@ -21,7 +21,7 @@ const Login: FC = () => {
         } else {
             alert("You have the wrong credentials!");
         }
-     }
+    }
 
     return (
         <div className={styles.div}>

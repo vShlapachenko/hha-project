@@ -63,6 +63,9 @@ const Navbar = () => {
     const createAccountFunc = () => {
         history.push('/register');
     }
+    const profileFunc = async () => {
+        history.push('/userProfile');
+    }
 
     const handleToggle = () => {
         setOpen((prevOpen) => !prevOpen);
@@ -167,6 +170,8 @@ const Navbar = () => {
                                         <Box mt={2}>
                                             <MenuItem onClick={createAccountFunc}>Create Account</MenuItem>
                                             <MenuItem>Settings</MenuItem>
+                                            <MenuItem>Create Account</MenuItem>
+                                            <MenuItem onClick={profileFunc}>Settings</MenuItem>
                                             <MenuItem onClick={logoutFunc}> Logout</MenuItem>
                                         </Box>
                                         </MenuList>
@@ -236,7 +241,7 @@ const Navbar = () => {
                                         <MenuItem onClick={createAccountFunc}>
                                             Create Account
                                         </MenuItem>
-                                        <MenuItem>Settings</MenuItem>
+                                        <MenuItem onClick={profileFunc}>Settings</MenuItem>
                                         <MenuItem onClick={logoutFunc}>Logout</MenuItem>
                                         </MenuList>
                                     </ClickAwayListener>

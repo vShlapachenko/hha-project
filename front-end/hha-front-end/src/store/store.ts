@@ -7,11 +7,15 @@ import {API_URL} from "../http";
 import ForgotPasswordService from "../service/ForgotPasswordService";
 import NewPasswordService from "../service/NewPasswordService";
 import ChangePasswordService from "../service/ChangePasswordService";
+import UserService from "../service/UserService";
 
 export default class Store {
     isAuthorized = false;
     otp = 0;
     forgotPasswordEmail = "";
+    currentUserEmail = "";
+    firstName = "";
+    lastName = "";
 
     constructor() {
         makeAutoObservable(this)
@@ -30,11 +34,22 @@ export default class Store {
     }
 
 
+    setCurrentUserEmail(value: string) {
+        this.currentUserEmail = value;
+    }
+
+    setFirstName(value: string) {
+        this.firstName = value;
+    }
+
+    setLastName(value: string) {
+        this.lastName = value;
+    }
+
     isLogin = () => {
         if (localStorage.getItem('token')) {
             return true;
         }
-    
         return false;
     }
 
@@ -104,4 +119,20 @@ export default class Store {
             console.log(e.response?.data?.message);
         }
     }
+
+    async userProfile(){
+        try {
+            const response = await UserService.getUser();
+            if (response.data){
+                this.setCurrentUserEmail(response.data.email);
+                this.setFirstName(response.data.firstName);
+                this.setLastName(response.data.lastName);
+                return true;
+            }
+            return false;
+        } catch (e: any){
+            console.log(e.response?.data?.message);
+        }
+    }
+
 }
