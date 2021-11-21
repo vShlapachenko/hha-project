@@ -86,7 +86,7 @@ public class HhaUserService implements UserDetailsService {
             e.printStackTrace();
             throw new IllegalArgumentException("Something is wrong");
         }
-        userRepository.save(new HhaUser(null, userInvitation.email(), null, null, null,
+        userRepository.save(new HhaUser(null, userInvitation.email(), null, null, null, true,
                 activationLink, null, null, ActivationStatus.CREATED_BY_ADMIN, null));
     }
 

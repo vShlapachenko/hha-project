@@ -17,6 +17,7 @@ const Registration = () => {
     const [password, setPassword] = useState("");
     const [confirmPassword, setConfirmPassword] = useState("");
     const [personalStaffNumber, setPersonalStaffNumber] = useState("");
+    const [firstTimeUser] = useState(true);
     const [dropdown, setDropdown] = useState("");
     const {store} = useContext(Context);
     const history = useHistory();
@@ -26,6 +27,7 @@ const Registration = () => {
         "password": password,
         "confirmPassword": confirmPassword,
         "personalStaffNumber": personalStaffNumber,
+        "firstTimeUser": firstTimeUser,
         "languageOption": dropdown
    };
 
@@ -43,7 +45,7 @@ const Registration = () => {
 
     async function saveUser() {
         try {
-          const response = await UserService.saveUser(hhaUser.firstName, hhaUser.lastName, hhaUser.password);
+          const response = await UserService.saveUser(hhaUser.firstName, hhaUser.lastName, hhaUser.password, hhaUser.firstTimeUser);
           console.log(response);
           history.push("/");
         } catch (e) {
