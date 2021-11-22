@@ -85,6 +85,7 @@
         "home": "Retour à la page d'accueil"
     },
     "Profile":{
+        "profile": "Profil",
         "title": "Informations personnelles",
         "first": "Prénom",
         "last": "Nom de famille",
