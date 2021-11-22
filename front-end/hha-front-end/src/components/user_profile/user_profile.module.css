@@ -100,7 +100,32 @@
     box-sizing: border-box;
     border-radius: 4px;
 }
+.change_lang{
+    position: absolute;
+    width: 488px;
+    height: 40px;
+    left: calc(50% - 488px/2);
+    top: 500px;
+}
+.lang_button{
+    position: absolute;
+    width: 488px;
+    height: 40px;
+    left: calc(50% - 488px/2);
+    top: 530px;
+}
+.button_en{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
 
+    position: absolute;
+    width: 462px;
+    height: 42px;
+    left: calc(50% - 488px/2);
+    top: 600px;
+}
 .change_pass_button{
     display: flex;
     flex-direction: row;
@@ -111,7 +136,7 @@
     width: 462px;
     height: 42px;
     left: calc(50% - 488px/2);
-    top: 500px;
+    top: 600px;
 
     background: #009CC4;
     /* Shadow Dark / 4dp */

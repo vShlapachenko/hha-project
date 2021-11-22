@@ -48,7 +48,6 @@
         "enter": "Tapez votre mot de passe",
         "confirm": "Confirmer votre mot de passe",
         "personal": "Entrez votre numéro personnel (facultatif)",
-        "choose": "Choisissez votre langue préférée",
         "submit": "Soumettre"
     },
     "Changepw":{
@@ -67,7 +66,7 @@
     },
     "Form":{
         "alert":"Soumettre le formulaire ?",
-        "description": "Vous allez soumettre le formulaire pour le département ${form.label}. Cliquez sur « Envoyer » pour continuer.",
+        "description": "Vous allez soumettre le formulaire pour le département {{form.label}}. Cliquez sur « Envoyer » pour continuer.",
         "submit": "Soumettre",
         "export": "Exporter au format CSV",
         "failed": "Échec de la soumission!",
@@ -84,6 +83,14 @@
         "pw": "Choisissez votre mot de passe",
         "submit": "Soumettre",
         "home": "Retour à la page d'accueil"
+    },
+    "Profile":{
+        "title": "Informations personnelles",
+        "first": "Prénom",
+        "last": "Nom de famille",
+        "staff": "Numéro du personnel",
+        "choose": "Langue préférée",
+        "change": "Changer le mot de passe"
     }
 
 }

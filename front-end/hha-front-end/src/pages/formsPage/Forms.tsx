@@ -146,7 +146,7 @@ const Forms: FC = () => {
       </DialogTitle>
       <DialogContent>
         <DialogContentText id="alert-dialog-description">
-          {`You are going to submit the form for ${form.label} department. Click on 'Submit' to proceed.`}
+          {t('Form.description')}
         </DialogContentText>
       </DialogContent>
       <DialogActions>

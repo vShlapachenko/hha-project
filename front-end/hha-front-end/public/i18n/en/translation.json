@@ -48,7 +48,6 @@
         "enter": "Enter your password",
         "confirm": "Confirm your password",
         "personal": "Enter your personal staff number (optional)",
-        "choose": "Choose your preferred language",
         "submit": "Submit"
     },
     "Changepw":{
@@ -67,7 +66,7 @@
     },
     "Form":{
         "alert":"Submit the form?",
-        "description": "You are going to submit the form for ${form.label} department. Click on 'Submit' to proceed.",
+        "description": "You are going to submit the form for {{form.label}} department. Click on 'Submit' to proceed.",
         "submit": "Submit",
         "export": "Export to CSV",
         "failed": "Submission Failed!",
@@ -84,5 +83,13 @@
         "pw": "Choose your password",
         "submit": "Submit",
         "home": "Back to Home Page"
+    },
+    "Profile":{
+        "title": "Personal Information",
+        "first": "First name",
+        "last": "Last name",
+        "staff": "Staff Number",
+        "choose": "Preferred language",
+        "change": "Change Password"
     }
 }

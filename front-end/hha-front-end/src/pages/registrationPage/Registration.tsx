@@ -28,14 +28,23 @@ const Registration = () => {
         "personalStaffNumber": personalStaffNumber,
         "languageOption": dropdown
    };
+   const languages = [
+       {
+           code: 'fr',
+           name: 'Français',
+           country_code: 'fr'
+       },
+       {
+           code: 'en',
+           name: 'English',
+           country_code: 'gb'
+       }
+   ]
 
     
     const [users, setUsers] = useState<User[]>([]);
     
     const {t, i18n} = useTranslation();
-    const changeLanguage = (language: string) => {
-        i18n.changeLanguage(language);
-    };
   
     async function getUsers() {
       try {
@@ -132,10 +141,6 @@ const Registration = () => {
                     <Trans i18nKey='Register.personal'>Enter your personal staff number (optional)</Trans>
                 <Input userInput={personalStaffNumber} type="text" label="" onChangeFunc={setPersonalStaffNumberFunc} />
             </div> 
-            <div className={registrationStyle.choosePreferredLanguage }>
-                    <Trans i18nKey='Register.choose'>Choose your preferred language</Trans>
-                <Dropdown listItems={listItems} itemName={""} onChangeFunc={setDropdownFunc} initialValue={dropdown} />
-            </div>
             <div className={registrationStyle.submitButton }>
                 <Button variant="contained" onClick={saveUser} ><Trans i18nKey='Register.submit'>Submit</Trans></Button>
             </div>
