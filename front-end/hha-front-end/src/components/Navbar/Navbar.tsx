@@ -247,6 +247,7 @@ const Navbar = () => {
                                         <MenuItem onClick={logoutFunc}>
                                             <Trans i18nKey = 'Navbar.logout'>Logout</Trans>
                                         </MenuItem>
+                                        </MenuList>
                                     </ClickAwayListener>
                                     </Paper>
                                 </Grow>

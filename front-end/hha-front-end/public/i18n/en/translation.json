@@ -85,6 +85,7 @@
         "home": "Back to Home Page"
     },
     "Profile":{
+        "profile": "Profile",
         "title": "Personal Information",
         "first": "First name",
         "last": "Last name",

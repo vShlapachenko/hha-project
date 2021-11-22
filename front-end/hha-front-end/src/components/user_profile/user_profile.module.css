@@ -131,18 +131,6 @@
     left: calc(50% - 488px/2);
     top: 530px;
 }
-.button_en{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-
-    position: absolute;
-    width: 462px;
-    height: 42px;
-    left: calc(50% - 488px/2);
-    top: 600px;
-}
 .change_pass_button{
     display: flex;
     flex-direction: row;
