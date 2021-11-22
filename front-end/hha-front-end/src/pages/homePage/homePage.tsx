@@ -4,6 +4,8 @@ import ToDo from "../../components/TodoList/todo";
 import Navbar from "../../components/Navbar/Navbar";
 import { useHistory } from "react-router";
 import { Trans, useTranslation} from 'react-i18next'
+import {useContext} from "react";
+import {Context} from "../../index";
 
 const HomePage = () => {
     let history = useHistory();
