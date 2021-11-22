@@ -3,15 +3,18 @@ import { Context } from "../../index";
 import { Link } from "react-router-dom";
 import { observer } from "mobx-react-lite";
 import EnterOTP from "./EnterOTP";
-import "./ForgotPassword.css";
+import styles from "./ForgotPassword.module.css";
 import logo_HHA from "../../pages/loginPage/logo.svg";
 import {Button} from "@mui/material";
+import {Trans, useTranslation} from 'react-i18next';
 
 const ForgotPassword: React.FC<{}> = () => {
 
     const [email, setEmail] = useState<string>("");
     const { store } = useContext(Context);
     const [showOTP, setShowOtp] = useState(false);
+
+    const {t, i18n} = useTranslation();
 
     useEffect(()=>{
         if(store.otp.toString().length === 6){
@@ -44,26 +47,26 @@ const ForgotPassword: React.FC<{}> = () => {
 
     return (
         <div>
-            <img src={logo_HHA} className="logoHHA" alt="logo" />
+            <img src={logo_HHA} className={styles.logoHHA} alt="logo" />
             {showOTP ? (
                 <EnterOTP disableOtpPage={disableOtpPage} email={email} />
             ) : (
-                <div className="alignment">
-                    <h1>Enter your email</h1>
+                <div className={styles.alignment}>
+                    <h1><Trans i18nKey ='ForgotPassword.title'>Enter your email</Trans></h1>
                     <input
                         onChange={(e) => setEmail(e.target.value)}
                         value={email}
                         type="email"
-                        placeholder="Email"
+                        placeholder={t('ForgotPassword.email')}
                         required={true}
                     />
 
-                    <Button className="ForgotButton" onClick={handleSendOTP}
+                    <Button className={styles.ForgotButton} onClick={handleSendOTP}
                             sx={{width: "488px", height: "42px", background: '#009CC4'}}
                             variant="contained">
-                        Get OTP by email
+                        <Trans i18nKey ='ForgotPassword.button'>Get OTP by Email</Trans>
                     </Button>
-                    <Link to="/">Login Page?</Link>
+                    <Link to="/"><Trans i18nKey ='ForgotPassword.link'>Go Back to Login Page</Trans></Link>
                 </div>
             )}
         </div>

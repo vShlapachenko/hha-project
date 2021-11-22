@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
-import './Leaderboard.css';
+import styles from './Leaderboard.module.css';
+import {Trans, useTranslation} from 'react-i18next'
 
 interface LeaderboardAttribute {
     FirstDepartmentName: string;
@@ -11,12 +12,15 @@ interface LeaderboardAttribute {
 }
 
 const Leaderboard = ({FirstDepartmentName, SecondDepartmentName, ThirdDepartmentName, FirstPoints, SecondPoints, ThirdPoints}:LeaderboardAttribute) => {
-    return (
-      <div className = 'grid'>
-         <div className = 'box second'>
+
+  const {t, i18n} = useTranslation();
+
+  return (
+      <div className = {styles.grid}>
+         <div className = {`${styles.box} ${styles.second}`}>
           
           <h3>
-            2nd place
+            <Trans i18nKey='Homepage.second'>2nd place</Trans>
           </h3>
 
           <h1>
@@ -28,10 +32,10 @@ const Leaderboard = ({FirstDepartmentName, SecondDepartmentName, ThirdDepartment
           </h2>
         </div>
         
-        <div className = 'box first'>
+        <div className = {`${styles.box} ${styles.first}`}>
 
           <h3>
-            1st place
+            <Trans i18nKey = 'Homepage.first'>1st place</Trans>
           </h3>
 
           <h1>
@@ -43,10 +47,10 @@ const Leaderboard = ({FirstDepartmentName, SecondDepartmentName, ThirdDepartment
           </h2>
 
         </div>
-        <div className = 'box third'>
+        <div className = {`${styles.box} ${styles.third}`}>
           
           <h3>
-            3rd place
+            <Trans i18nKey = 'Homepage.third'>3rd place</Trans>
           </h3>
 
           <h1>

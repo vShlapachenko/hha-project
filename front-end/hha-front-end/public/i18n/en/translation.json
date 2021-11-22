@@ -1,0 +1,95 @@
+{
+    "Login": {
+        "login": "Login",
+        "enter_your_email": "Enter your email and password to access the page",
+        "username": "Username",
+        "password": "Password",
+        "forgot_password": "Forgot Password?",
+        "difficulties": "If you are having any difficulties connecting to your account, please contact your <1>IT service</1> or <1>HHA representative</1> at <1>support@hha.com</1>"
+    },
+    "ForgotPassword": {
+        "pop_up": "Enter a valid email.",
+        "title": "Enter your email",
+        "email": "Email",
+        "button": "Get OTP by Email",
+        "link": "Go Back to Login Page"
+    },
+    "EnterOTP": {
+        "title": "Enter OTP",
+        "validate": "Validate OTP",
+        "enter_email": "Enter Email again?",
+        "link": "Go Back to Login Page"
+    },
+    "EnterPassword": {
+        "title": "Enter New Password",
+        "email": "user email",
+        "enter_pw": "Enter New Password",
+        "confirm_pw": "Confirm New Password",
+        "submit": "Submit",
+        "link": "Go Back to Login Page"
+    },
+    "HomePage": {
+        "title": "Leaderboard",
+        "best": "Best department of the month",
+        "todo": "What's TODO List",
+        "first":"1st place",
+        "second": "2nd place",
+        "third": "3rd place",
+        "maternity": "Maternity",
+        "rehab": "Rehab",
+        "comm_health": "Community Health"
+    },
+    "Register":{
+        "title": "Personal Information",
+        "body": "Enter your personal information below",
+        "first": "First name",
+        "last": "Last name",
+        "email": "Email assigned to you",
+        "enter": "Enter your password",
+        "confirm": "Confirm your password",
+        "personal": "Enter your personal staff number (optional)",
+        "submit": "Submit"
+    },
+    "Changepw":{
+        "title": "Change Password Form",
+        "enter_email": "Enter your email",
+        "curr_pw": "Enter current password",
+        "new_pw": "Enter new password",
+        "confirm_pw": "Confirm new password",
+        "submit": "Submit",
+        "back": "Back to profile page"
+    },
+    "Navbar":{
+        "create":"Create Account",
+        "settings": "Settings",
+        "logout": "Logout"
+    },
+    "Form":{
+        "alert":"Submit the form?",
+        "description": "You are going to submit the form for {{form.label}} department. Click on 'Submit' to proceed.",
+        "submit": "Submit",
+        "export": "Export to CSV",
+        "failed": "Submission Failed!",
+        "some": "Some of the fields are not filled. Please insure that all fields are filled before the submission.",
+        "save": "Save as Draft",
+        "prev": "Move to the Previous Step",
+        "next": "Proceed to Next Step"
+    },
+    "Adduser":{
+        "create": "Create New Account",
+        "enter": "Enter the email of a new user",
+        "confirm": "Confirm email of a new user",
+        "choose": "Choose type of account",
+        "pw": "Choose your password",
+        "submit": "Submit",
+        "home": "Back to Home Page"
+    },
+    "Profile":{
+        "title": "Personal Information",
+        "first": "First name",
+        "last": "Last name",
+        "staff": "Staff Number",
+        "choose": "Preferred language",
+        "change": "Change Password"
+    }
+}

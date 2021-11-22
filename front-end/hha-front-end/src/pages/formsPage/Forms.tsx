@@ -2,7 +2,7 @@ import { Button } from "@mui/material";
 import React, {FC, useContext, useState, useEffect} from "react";
 import Navbar from "../../components/Navbar/Navbar";
 import {Form} from '../../models/forms/Form'
-import "./Forms.css";
+import styles from "./Forms.module.css";
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
@@ -17,6 +17,7 @@ import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
+import { useTranslation,Trans } from "react-i18next";
 
 const notChosenBtnStyle : CommonProps["style"] = {
   backgroundColor: '#EEEEEE',
@@ -36,6 +37,8 @@ const Forms: FC = () => {
   const [currentIndex, setCurrentIndex] = useState<number[]>([0, 0])
   const [openConfirmDialog, setOpenConfirmDialog] = React.useState(false);
   const [openErrorDialog, setOpenErrorDialog] = React.useState(false);
+
+  const {t, i18n} = useTranslation();
 
   const handleClickOpen = () => {
     setOpenConfirmDialog(true);
@@ -139,19 +142,21 @@ const Forms: FC = () => {
       aria-describedby="alert-dialog-description"
     >
       <DialogTitle id="alert-dialog-title">
-        {"Submit the form?"}
+        {t("Form.alert")}
       </DialogTitle>
       <DialogContent>
         <DialogContentText id="alert-dialog-description">
-          {`You are going to submit the form for ${form.label} department. Click on 'Submit' to proceed.`}
+          {t('Form.description')}
         </DialogContentText>
       </DialogContent>
       <DialogActions>
         <Button onClick={handleClose}>Cancel</Button>
         <Button onClick={submitForm} autoFocus>
-          Submit
+          <Trans i18nKey='Form.submit'>Submit</Trans>
         </Button>
-        <Button>Export to CSV</Button>
+        <Button>
+          <Trans i18nKey='Form.export'>Export to CSV</Trans>
+        </Button>
       </DialogActions>
     </Dialog>
   }
@@ -164,11 +169,11 @@ const Forms: FC = () => {
       aria-describedby="alert-dialog-description"
     >
       <DialogTitle id="alert-dialog-title">
-        {"Submission Falied!"}
+        {t('Form.failed')}
       </DialogTitle>
       <DialogContent>
         <DialogContentText id="alert-dialog-description">
-          {`Some of the fields are not filled. Please insure that all fields are filled before the submission.`}
+          <Trans i18nKey='Form.some'>Some of the fields are not filled. Please insure that all fields are filled before the submission.</Trans>
         </DialogContentText>
       </DialogContent>
       <DialogActions>
@@ -181,21 +186,21 @@ const Forms: FC = () => {
     return(
       <>
       <Navbar />
-      <h1 className='header'>{form.date}</h1>
+      <h1 className={styles.header}>{form.date}</h1>
       </>
     )
   } else {
     return (
       <>
         <Navbar />
-        <div className='container'>
-          <div className='sideMenuBackground'>
-            <div className='sideMenu'>
+        <div className={styles.container}>
+          <div className={styles.sideMenuBackground}>
+            <div className={styles.sideMenu}>
               <h3>{form.label}</h3>
               {form.tables.map((table, tableIndex) => (
                 table.subTables.map((subTable, stIndex) => {
                   return <Button 
-                    className='menuBtn'
+                    className={styles.menuBtn}
                     style={(tableIndex === currentIndex[0] && stIndex == currentIndex[1]) ? chosenBtnStyle : notChosenBtnStyle}
                     onClick={() => setCurrentIndex([tableIndex, stIndex])}
                     >
@@ -209,18 +214,18 @@ const Forms: FC = () => {
               }
             </div>
           </div>
-          <div className='mainContentBackgroud'>
-            <div className='mainContent'>
-              <h2 className='header'>{form.date}</h2>
+          <div className={styles.mainContentBackgroud}>
+            <div className={styles.mainContent}>
+              <h2 className={styles.header}>{form.date}</h2>
               <TableContainer>
-                <h4 className='test'>
+                <h4 className={styles.test}>
                     {form.tables[currentIndex[0]].subTables[currentIndex[1]].label === '' 
                         ? form.tables[currentIndex[0]].label
                         : `${form.tables[currentIndex[0]].label} (${form.tables[currentIndex[0]].subTables[currentIndex[1]].label})`
                       }</h4>
-                <Table className='table' area-aria-label='simple table' style={{backgroundColor: '#EEEEEE'}}>
+                <Table className={styles.table} area-aria-label='simple table' style={{backgroundColor: '#EEEEEE'}}>
                   <TableHead>
-                    <TableRow className='tableRow'>
+                    <TableRow className={styles.tableRow}>
                       <TableCell>{form.tables[currentIndex[0]].commonColumn.label}</TableCell>
                       {form.tables[currentIndex[0]].subTables[currentIndex[1]].columns.map((column) => (
                         <TableCell align="center">{column.label}</TableCell>
@@ -232,16 +237,17 @@ const Forms: FC = () => {
                       form.tables[currentIndex[0]].commonColumn.values.map((label, cellIndex) => (
                         <TableRow
                           key={label}
-                          className='tableRow'
+                          className={styles.tableRow}
                         >
-                          <TableCell className='table' component='th' scope='row'>
+                          <TableCell className={styles.table} component='th' scope='row'>
                             {label}
                           </TableCell>
                           {
                             form.tables[currentIndex[0]].subTables[currentIndex[1]].columns.map((col, colIndex) => (
                               col.cells[cellIndex] && col.cells[cellIndex].type ?
                               <TableCell align="center">
-                                <input 
+                                <input
+                                  className={styles.input} 
                                   value={col.cells[cellIndex].value ? col.cells[cellIndex].value : ''} 
                                   type={col.cells[cellIndex].type}
                                   onChange={(e) => onInputChange(e, col, colIndex, cellIndex)}
@@ -257,20 +263,20 @@ const Forms: FC = () => {
                   </TableBody>
                 </Table>
               </TableContainer>
-              <div className='btns'>
-                <Button>Save as Draft</Button>
+              <div className={styles.btns}>
+                <Button><Trans i18nKey='Form.save'>Save as Draft</Trans></Button>
                 {
                   currentIndex[0] === 0 && currentIndex[1] === 0
                     ? null
                     : <Button 
-                    className='btn'
+                    className={styles.btn}
                     onClick={moveBack}
                     >
-                      Move to the Previous Step
+                      <Trans i18nKey='Form.prev'>Move to the Previous Step</Trans>
                     </Button>
                 }
                 <Button 
-                  className='btn'
+                  className={styles.btn}
                   onClick={proceedToNext}
                   >{(currentIndex[0] === form.tables.length - 1 && currentIndex[1] === form.tables[currentIndex[0]].subTables.length - 1)
                     ? 'Preview' 

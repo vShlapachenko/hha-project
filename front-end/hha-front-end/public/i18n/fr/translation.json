@@ -1,0 +1,96 @@
+{
+    "Login": {
+        "login": "Connexion",
+        "enter_your_email": "Entrez votre email et votre mot de passe pour accéder à la page",
+        "username": "Nom d'utilisateur",
+        "password": "Mot de passe",
+        "forgot_password": "Mot de passe oublié?",
+        "difficulties": "Si vous rencontrez des difficultés pour vous connecter à votre compte, veuillez contacter votre <1>Service Informatique</1> ou votre <1>représentant HHA</1> à <1>support@hha.com</1>"
+    },
+    "ForgotPassword": {
+        "pop_up": "Entrez un email valide.",
+        "title": "Entrer votre Email",
+        "email": "Email",
+        "button": "Obtenez OTP par Email",
+        "link": "Revenir à la page de connexion"
+    },
+    "EnterOTP": {
+        "title": "Entrez OTP",
+        "validate": "Valider OTP",
+        "enter_email": "Entrer à nouveau l'e-mail ?",
+        "link": "Revenir à la page de connexion"
+    },
+    "EnterPassword": {
+        "title": "Entrez un nouveau mot de passe",
+        "email": "e-mail de l'utilisateur",
+        "enter_pw": "Entrez un nouveau mot de passe",
+        "confirm_pw": "Confirmer le nouveau mot de passe",
+        "submit": "Soumettre",
+        "link": "Revenir à la page de connexion"
+    },
+    "Homepage": {
+        "title": "Classement",
+        "best": "Meilleur rayon du mois",
+        "todo": "Qu'est-ce que la liste TODO",
+        "first":"1ère place",
+        "second": "2ème place",
+        "third": "3ème place",
+        "maternity": "Maternité",
+        "rehab": "Désintox",
+        "comm_health": "Santé communautaire"
+    },
+    "Register":{
+        "title": "Informations personnelles",
+        "body": "Entrez vos informations personnelles ci-dessous",
+        "first": "Prénom",
+        "last": "Nom de famille",
+        "email": "E-mail qui vous est attribué",
+        "enter": "Tapez votre mot de passe",
+        "confirm": "Confirmer votre mot de passe",
+        "personal": "Entrez votre numéro personnel (facultatif)",
+        "submit": "Soumettre"
+    },
+    "Changepw":{
+        "title": "Formulaire de changement de mot de passe",
+        "enter_email": "Entrer votre Email",
+        "curr_pw": "Saisissez le mot de passe actuel",
+        "new_pw": "Entrez un nouveau mot de passe",
+        "confirm_pw": "Confirmer le nouveau mot de passe",
+        "submit": "Soumettre",
+        "back": "Retour à la page de profil"
+    },
+    "Navbar":{
+        "create":"Créer un compte",
+        "settings": "Les paramètres",
+        "logout": "Se déconnecter"
+    },
+    "Form":{
+        "alert":"Soumettre le formulaire ?",
+        "description": "Vous allez soumettre le formulaire pour le département {{form.label}}. Cliquez sur « Envoyer » pour continuer.",
+        "submit": "Soumettre",
+        "export": "Exporter au format CSV",
+        "failed": "Échec de la soumission!",
+        "some": "Certains champs ne sont pas remplis. Veuillez vous assurer que tous les champs sont remplis avant la soumission.",
+        "save": "Enregistrer comme brouillon",
+        "prev": "Passer à l'étape précédente",
+        "next": "Passer à l'étape suivante"
+    },
+    "Adduser":{
+        "create": "Créer un nouveau compte",
+        "enter": "Entrez l'email d'un nouvel utilisateur",
+        "confirm": "Confirmer l'e-mail d'un nouvel utilisateur",
+        "choose": "Choisissez le type de compte",
+        "pw": "Choisissez votre mot de passe",
+        "submit": "Soumettre",
+        "home": "Retour à la page d'accueil"
+    },
+    "Profile":{
+        "title": "Informations personnelles",
+        "first": "Prénom",
+        "last": "Nom de famille",
+        "staff": "Numéro du personnel",
+        "choose": "Langue préférée",
+        "change": "Changer le mot de passe"
+    }
+
+}

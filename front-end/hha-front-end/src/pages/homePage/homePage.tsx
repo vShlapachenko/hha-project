@@ -1,22 +1,26 @@
-import "./homePage.css";
+import styles from "./homePage.module.css";
 import Leaderboard from "../../components/leaderboard/Leaderboard";
 import ToDo from "../../components/TodoList/todo";
 import Navbar from "../../components/Navbar/Navbar";
 import { useHistory } from "react-router";
+import { Trans, useTranslation} from 'react-i18next'
 
 const HomePage = () => {
     let history = useHistory();
 
     const startForm = () => {history.push("/forms")}
-    const createStory = () => {history.push("/caseStudies")}
+    const createStory = () => {history.push("/caseStudy")}
+
+    const {t, i18n} = useTranslation();
+
     return(
         <>
         <Navbar />
-        <h1 className = "textLeaderboard">
-            Leaderboard
+        <h1 className = {styles.textLeaderboard}>
+            <Trans i18nKey= 'Homepage.title'>Leaderboard</Trans>
         </h1>
-        <h2 className = "textBest">
-            Best department of the month
+        <h2 className = {styles.textBest}>
+            <Trans i18nKey='Homepage.best'>Best department of the month</Trans>
         </h2>
 
         <div>
@@ -24,8 +28,8 @@ const HomePage = () => {
             FirstPoints={"120" + " points"} SecondPoints={"100" + " points"} ThirdPoints={"80" + " points"} />
         </div>
                     
-        <h1 className = "textTODO">
-            What's TODO List
+        <h1 className = {styles.textTODO}>
+            <Trans i18nKey='Homepage.todo'>What's TODO List</Trans>
         </h1>
         
         <div>
