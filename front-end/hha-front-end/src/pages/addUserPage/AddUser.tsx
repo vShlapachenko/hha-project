@@ -16,6 +16,7 @@ const AddUser: FC = () => {
     const [dropdown, setDropdown] = useState("");
     const [password, setPassword] = useState("");
     const listItems = [ "Admin", "Staff", "Head Of Department"];
+    const firstTimeUser = true;
 
     const setEmailFunc = (event: any) => {
         event.preventDefault();

@@ -16,6 +16,7 @@ export default class Store {
     currentUserEmail = "";
     firstName = "";
     lastName = "";
+    firstTimeUser = false;
 
     constructor() {
         makeAutoObservable(this)
@@ -44,6 +45,10 @@ export default class Store {
 
     setLastName(value: string) {
         this.lastName = value;
+    }
+
+    setFirstTimeUser(value: boolean){
+        this.firstTimeUser = value;
     }
 
     isLogin = () => {
@@ -122,6 +127,7 @@ export default class Store {
                 this.setCurrentUserEmail(response.data.email);
                 this.setFirstName(response.data.firstName);
                 this.setLastName(response.data.lastName);
+                this.setFirstTimeUser(response.data.firstTimeUser);
                 return true;
             }
             return false;

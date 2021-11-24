@@ -14,7 +14,7 @@ interface PrivateRouteAttributes {
 
  function PrivateRoute({path, Component, ...props }: PrivateRouteAttributes) {
     const {store} = useContext(Context)
-   // const [users, setUsers] = useState(User)
+    const [users, setUsers] = useState<User[]>([])
     useEffect(() => {
         if (localStorage.getItem('token')) {
             store.checkAuth()
@@ -23,14 +23,13 @@ interface PrivateRouteAttributes {
     const render = () => {
         if (store.isLogin()) {
             console.log("is authorized!");
-            if(User.firstTimeUser == true)
+            if(store.firstTimeUser === true)
             {
                 return <Redirect to={{ pathname: '/changePassword' }} />; 
             }
             else{
                 return ( <Component {...props} />);
             }
-            
         } else {
             console.log("NOT authorized!");
             return <Redirect to={{ pathname: '/' }} />;
