@@ -10,6 +10,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
+import java.security.Principal;
 import java.util.List;
 
 @RestController
@@ -29,8 +30,8 @@ public class CaseStudyController {
     }
 
     @GetMapping("create")
-    public List<CaseStudyDraft> createCaseStudy(HttpServletRequest request) {
-        return caseStudyService.createCaseStudy(request);
+    public List<CaseStudyDraft> createCaseStudy(Principal principal) {
+        return caseStudyService.createCaseStudy(principal);
     }
 
     @PostMapping("questions")
@@ -39,20 +40,25 @@ public class CaseStudyController {
     }
 
     @PostMapping("photo/add")
-    public void savePhoto(@RequestBody MultipartFile photo)
+    public Photo savePhoto(@RequestBody MultipartFile photo)
             throws IOException {
-        caseStudyService.savePhoto(photo);
+        return caseStudyService.savePhoto(photo);
+    }
+
+    @DeleteMapping("photo/delete/{id}")
+    public void deletePhoto(@PathVariable("id") String id) {
+        caseStudyService.deletePhoto(id);
     }
 
     @PostMapping("submit")
-    public void saveCaseStudy(HttpServletRequest request,
+    public void saveCaseStudy(Principal principal,
                               @RequestBody CaseStudy caseStudy) {
-        caseStudyService.saveCaseStudy(request, caseStudy);
+        caseStudyService.saveCaseStudy(principal, caseStudy);
     }
 
     @PostMapping("submitAsDraft")
-    public void saveCaseStudyDraft(HttpServletRequest request,
+    public void saveCaseStudyDraft(Principal principal,
                                    @RequestBody CaseStudyDraft caseStudyDraft) {
-        caseStudyService.saveCaseStudyDraft(request, caseStudyDraft);
+        caseStudyService.saveCaseStudyDraft(principal, caseStudyDraft);
     }
 }
