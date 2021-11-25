@@ -2,7 +2,7 @@
     position: absolute;
     height: 420px;
     width: 660px;
-    left: 310px;
+    left: calc(50% - 688px/2);;
     top: 200px;
     border-radius: 8px;
     background: #EEEEEE;
