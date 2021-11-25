@@ -21,6 +21,7 @@ import { style } from "@mui/system";
 import { Bar } from 'react-chartjs-2';
 import { ChartOptions } from 'chart.js';
 import { type } from "os";
+import { Trans, useTranslation } from 'react-i18next';
 
 type FormType = 'fill' | 'display'
 
@@ -54,6 +55,8 @@ const GeneratedForm = (props: FormProps) => {
   const [openConfirmDialog, setOpenConfirmDialog] = React.useState(false);
   const [openErrorDialog, setOpenErrorDialog] = React.useState(false);
   const [display, setDisplay] = useState<DisplayOption>('table')
+  
+  const {t, i18n} = useTranslation();
 
   const handleClickOpen = () => {
     setOpenConfirmDialog(true);
@@ -173,11 +176,11 @@ const GeneratedForm = (props: FormProps) => {
         </DialogContentText>
       </DialogContent>
       <DialogActions>
-        <Button onClick={handleClose}>Cancel</Button>
+        <Button onClick={handleClose}><Trans i18nKey='Generate.cancel'>Cancel</Trans></Button>
         <Button onClick={submitForm} autoFocus>
-          Submit
+          <Trans i18nKey='Generate.submit'>Submit</Trans>
         </Button>
-        <Button>Export to CSV</Button>
+        <Button><Trans i18nKey='Generate.export'>Export to CSV</Trans></Button>
       </DialogActions>
     </Dialog>
   }
@@ -198,7 +201,7 @@ const GeneratedForm = (props: FormProps) => {
         </DialogContentText>
       </DialogContent>
       <DialogActions>
-        <Button onClick={handleClose}>Ok</Button>
+        <Button onClick={handleClose}><Trans i18nKey='Generate.ok'>Ok</Trans></Button>
       </DialogActions>
     </Dialog>
   }
@@ -288,7 +291,7 @@ const GeneratedForm = (props: FormProps) => {
         <div className={styles.container}>
           <div className={styles.sideMenuBackground}>
             <div className={styles.sideMenu}>
-              <h3>{form.label + ' (Preview)'}</h3>
+              <h3>{form.label + " (Preview)"}</h3>
               {form.tables.map((table, tableIndex) => (
                 table.subTables.map((subTable, stIndex) => {
                   return <Button 
@@ -318,14 +321,14 @@ const GeneratedForm = (props: FormProps) => {
                      style={display === 'table' ? props.chosenBtnStyle : props.notChosenBtnStyle}
                      onClick={() => toggleDisplay('table')}
                     >
-                      Table
+                      <Trans i18nKey='Generate.table'>Table</Trans>
                     </Button>
                     <Button
                       className={styles.tabBtn} 
                       style={display === 'chart' ? props.chosenBtnStyle : props.notChosenBtnStyle}
                       onClick={() => toggleDisplay('chart')}
                     >
-                      Chart
+                      <Trans i18nKey='Generate.chart'>Chart</Trans>
                     </Button>
                   </div>
                   : <></>
@@ -336,7 +339,7 @@ const GeneratedForm = (props: FormProps) => {
                   : showChart()
               }
               <div className={styles.btns}>
-                <Button>{props.type === 'fill' ? 'Save as Draft' : 'Export as CSV'}</Button>
+                <Button>{props.type === 'fill' ? <Trans i18nKey='Generate.save'>Save as Draft</Trans> : <Trans i18nKey='Generate.export'>Export as CSV</Trans>}</Button>
                 {
                   currentIndex[0] === 0 && currentIndex[1] === 0
                     ? null
@@ -344,15 +347,15 @@ const GeneratedForm = (props: FormProps) => {
                     className={styles.btn}
                     onClick={moveBack}
                     >
-                      {props.type === 'fill' ? 'Move to the Previous Step' : 'Back' }
+                      {props.type === 'fill' ? <Trans i18nKey='Generate.prev'>Move to the Previous Step</Trans> : <Trans i18nKey='Generate.back'>Back</Trans> }
                     </Button>
                 }
                 <Button 
                   className={styles.btn}
                   onClick={proceedToNext}
                   >{(currentIndex[0] === form.tables.length - 1 && currentIndex[1] === form.tables[currentIndex[0]].subTables.length - 1)
-                    ? props.type === 'fill' ? 'Preview' : 'Exit' 
-                    : props.type === 'fill' ? 'Proceed to Next Step' : 'Next'}
+                    ? props.type === 'fill' ? <Trans i18nKey='Generate.preview'>Preview</Trans> : <Trans i18nKey='Generate.exit'>Exit</Trans> 
+                    : props.type === 'fill' ? <Trans i18nKey='Generate.proceed_next'>Proceed to Next Step</Trans> : <Trans i18nKey='Generate.next'>Next</Trans>}
                   </Button>
               </div>
             </div>

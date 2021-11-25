@@ -98,5 +98,51 @@
         "staff": "Staff Number",
         "choose": "Preferred language",
         "change": "Change Password"
+    },
+    "Generate":{
+        "cancel": "Cancel",
+        "submit": "Submit",
+        "export": "Export to CSV",
+        "ok": "Ok",
+        "table": "Table",
+        "chart": "Chart",
+        "save": "Save as Draft",
+        "prev":"Move to the Previous Step",
+        "back": "Back",
+        "preview": "Preview",
+        "exit": "Exit",
+        "proceed_next":"Proceed to Next Step",
+        "next": "Next"
+    },
+    "Case":{
+        "name": "Patient's Name: ",
+        "age": "Patient's Age: ",
+        "click": "Click on this arrow to learn more",
+        "location": "Patient's Location: ",
+        "reason": "Reason: ",
+        "duration": "Duration at HCBH: ",  
+        "diagnosis": "Patient's Diagnosis: ",
+        "show": "show more"        
+    },
+    "Add_case":{
+        "story": "Patient Story",
+        "staff": "Staff Recognization",
+        "training": "Training Session",
+        "equipment": "Equipment Received",
+        "other": "Other Story",
+        "success": "saved success!",
+        "save": "save",
+        "submit": "Submit"
+    },
+    "Case_study":{
+        "name": "Name: ",
+        "age": "Age; ",
+        "location": "Location: ",
+        "visiting": "Visiting Reason: ",
+        "duration": "Duration: ", 
+        "diagnosis": "Diagnosis: ", 
+        "click": "Click on the arrow to know more",
+        "show": "show more",
+        "story": "Story: "
     }
 }
