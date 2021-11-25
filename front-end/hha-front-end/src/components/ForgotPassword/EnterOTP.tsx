@@ -58,24 +58,34 @@ const EnterOTP: React.FC<PropsInterface> = (props): JSX.Element => {
     return (
         <div>
             <div className={styles.alignment}>
-                <h1>Enter OTP</h1>
-                <input
-                    onChange={(e) => setUserOtp(e.target.value)}
-                    value={userOtp}
-                    type="text"
-                    placeholder="OTP"
-                    required={true}
-                />
+                <h1 className={styles.header_1}>Enter OTP</h1>
+                <div  className={styles.textInput}>
+                    <input className={styles.input}
+                        onChange={(e) => setUserOtp(e.target.value)}
+                        value={userOtp}
+                        type="text"
+                        placeholder="OTP"
+                        required={true}
+                    />
+                </div>
 
-                <Button className={styles.ForgotButton} onClick={validateOTP}
+                <div className={styles.Button}>
+                <Button onClick={validateOTP}
                         sx={{width: "488px", height: "42px", background: '#009CC4'}}
                         variant="contained">
                     Validate OTP
                 </Button>
-                <Link to="#" onClick={redirectToForgotPassword}>
-                    Enter email again?
-                </Link>
-                <Link to="/">Login Page?</Link>
+                </div>
+
+                <div className={styles.link}>
+                    <Link to="#" onClick={redirectToForgotPassword}>
+                        Enter email again?
+                    </Link>
+                </div>
+
+                <div className={styles.link}>
+                    <Link to="/">Login Page?</Link>
+                </div>
             </div>
         </div>
     );

@@ -48,22 +48,28 @@ const ForgotPassword: React.FC<{}> = () => {
             {showOTP ? (
                 <EnterOTP disableOtpPage={disableOtpPage} email={email} />
             ) : (
-                <div className={styles.alignment}>
-                    <h1>Enter your email</h1>
-                    <input
-                        onChange={(e) => setEmail(e.target.value)}
-                        value={email}
-                        type="email"
-                        placeholder="Email"
-                        required={true}
-                    />
+                <div className ={styles.alignment}>
+                    <h1 className={styles.header_1}>Enter your email</h1>
+                    <div  className={styles.textInput}>
+                        <input className={styles.input}
+                            onChange={(e) => setEmail(e.target.value)}
+                            value={email}
+                            type="email"
+                            placeholder="Email"
+                            required={true}
+                        />
+                    </div>
 
-                    <Button className={styles.ForgotButton} onClick={handleSendOTP}
-                            sx={{width: "488px", height: "42px", background: '#009CC4'}}
-                            variant="contained">
-                        Get OTP by email
-                    </Button>
-                    <Link to="/">Login Page?</Link>
+                    <div className={styles.Button}>
+                        <Button onClick={handleSendOTP}
+                                sx={{background: '#009CC4'}}
+                                variant="contained">
+                            Get OTP by email
+                        </Button>
+                    </div>
+                    <div className={styles.link}>
+                        <Link to="/">Login Page</Link>
+                    </div>
                 </div>
             )}
         </div>

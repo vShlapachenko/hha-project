@@ -36,27 +36,37 @@ const EnterNewPassword: React.FC<{}> = () => {
         <div>
             <img src={logo_HHA} className={styles.logoHHA} alt="logo" />
             <div className={styles.alignment}>
-                <h1>Enter New Password</h1>
-                <p>user email - {userEmail || "unknown"}</p>
-                <input
-                    onChange={(e) => setPassword(e.target.value)}
-                    value={password}
-                    type="password"
-                    placeholder="Enter new password"
-                />
-                <input
-                    onChange={(e) => setConfirmPassword(e.target.value)}
-                    value={confirmPassword}
-                    type="password"
-                    placeholder="Confirm new password"
-                />
+                <h1 className={styles.header_1}>Enter New Password</h1>
+                <p className={styles.header_2}>user email - {userEmail || "unknown"}</p>
+                <div className={styles.textInput}>
+                    <input className={styles.input}
+                        onChange={(e) => setPassword(e.target.value)}
+                        value={password}
+                        type="password"
+                        placeholder="Enter new password"
+                    />
+                </div>
 
-                <Button className={styles.ForgotButton} onClick={handleSetNewPassword}
-                        sx={{width: "488px", height: "42px", background: '#009CC4'}}
-                        variant="contained">
-                    Submit
-                </Button>
-                <Link to="/">Login Page?</Link>
+                <div className={styles.confirmInput}>
+                    <input className={styles.input}
+                        onChange={(e) => setConfirmPassword(e.target.value)}
+                        value={confirmPassword}
+                        type="password"
+                        placeholder="Confirm new password"
+                    />
+                </div>
+
+                <div className={styles.Button}>
+                    <Button className={styles.ForgotButton} onClick={handleSetNewPassword}
+                            sx={{width: "488px", height: "42px", background: '#009CC4'}}
+                            variant="contained">
+                        Submit
+                    </Button>
+                </div>
+
+                <div className={styles.link}>
+                    <Link to="/">Login Page?</Link>
+                </div>
             </div>
         </div>
     );
