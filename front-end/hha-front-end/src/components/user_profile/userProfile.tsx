@@ -56,6 +56,7 @@ const Profile: React.FC<{}> = () => {
     return (
         <div>
             <Navbar />
+            <div className={styles.alignment}>
              <h1 className={styles.header_1}>Profile</h1>
 
             <div className={styles.InfoPane}>
@@ -114,12 +115,12 @@ const Profile: React.FC<{}> = () => {
                 <div className={styles.change_pass_button}>
                     <Button
                         onClick={redirectPage}
-                        sx={{width: "488px", height: "55px", background: '#009CC4'}}
+                        sx={{background: '#009CC4'}}
                         variant="contained">Change Password</Button>
                 </div>
 
             </div>
-
+            </div>
         </div>
     )
 };
