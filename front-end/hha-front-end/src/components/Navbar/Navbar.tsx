@@ -15,22 +15,6 @@ import {Context} from "../../index";
 import { useHistory } from "react-router-dom";
 import { useTranslation, Trans } from "react-i18next";
 
-
-const MenuItems = [
-    {
-        title: 'Home',
-    },
-    {
-        title: 'Departments',
-    },
-    {
-        title: 'Forms',
-    },
-    {
-        title: 'Case Study',
-    },
-]
-
 const navStyle = {
     background: '#ffffff',
 };
@@ -56,6 +40,23 @@ const Navbar = () => {
     const anchorRef = React.useRef<HTMLButtonElement>(null);
     const {store} = useContext(Context);
     const history = useHistory();
+
+    const {t, i18n} = useTranslation();
+
+    const MenuItems = [
+        {
+            title: <Trans i18nKey='Navbar.home'>Home</Trans>,
+        },
+        {
+            title: <Trans i18nKey='Navbar.departments'>Departments</Trans>,
+        },
+        {
+            title: <Trans i18nKey='Navbar.forms'>Forms</Trans>,
+        },
+        {
+            title: <Trans i18nKey='Navbar.case'>Case Study</Trans>,
+        },
+    ]
 
     const logoutFunc = async () => {
         await store.logout();
@@ -114,8 +115,6 @@ const Navbar = () => {
         prevOpen.current = open;
     }, [open]);
   
-    const {t, i18n} = useTranslation();
-
     return (
         <Box sx={{ flexGrow: 1, fontFamily: 'Arial', fontWeight: 'light' }} >
             <AppBar position="static" style={navStyle}>

@@ -60,6 +60,10 @@
         "back": "Retour à la page de profil"
     },
     "Navbar":{
+        "home": "Home",
+        "departments": "Departments",
+        "forms":"Forms",
+        "case": "Case Study",
         "create":"Créer un compte",
         "settings": "Les paramètres",
         "logout": "Se déconnecter"
@@ -73,7 +77,9 @@
         "some": "Certains champs ne sont pas remplis. Veuillez vous assurer que tous les champs sont remplis avant la soumission.",
         "save": "Enregistrer comme brouillon",
         "prev": "Passer à l'étape précédente",
-        "next": "Passer à l'étape suivante"
+        "next": "Passer à l'étape suivante",
+        "display": "Afficher le Formulaire",
+        "fill": "Remplir le Formulaire"
     },
     "Adduser":{
         "create": "Créer un nouveau compte",

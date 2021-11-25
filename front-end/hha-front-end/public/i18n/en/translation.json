@@ -60,6 +60,10 @@
         "back": "Back to profile page"
     },
     "Navbar":{
+        "home": "Home",
+        "departments": "Departments",
+        "forms":"Forms",
+        "case": "Case Study",
         "create":"Create Account",
         "settings": "Settings",
         "logout": "Logout"
@@ -73,7 +77,9 @@
         "some": "Some of the fields are not filled. Please insure that all fields are filled before the submission.",
         "save": "Save as Draft",
         "prev": "Move to the Previous Step",
-        "next": "Proceed to Next Step"
+        "next": "Proceed to Next Step",
+        "display": "Display the Form",
+        "fill": "Fill the Form"
     },
     "Adduser":{
         "create": "Create New Account",
