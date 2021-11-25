@@ -58,7 +58,7 @@ const EnterNewPassword: React.FC<{}> = () => {
 
                 <div className={styles.Button}>
                     <Button className={styles.ForgotButton} onClick={handleSetNewPassword}
-                            sx={{width: "488px", height: "42px", background: '#009CC4'}}
+                            sx={{background: '#009CC4'}}
                             variant="contained">
                         Submit
                     </Button>

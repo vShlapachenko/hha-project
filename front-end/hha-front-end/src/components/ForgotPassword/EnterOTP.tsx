@@ -71,7 +71,7 @@ const EnterOTP: React.FC<PropsInterface> = (props): JSX.Element => {
 
                 <div className={styles.Button}>
                 <Button onClick={validateOTP}
-                        sx={{width: "488px", height: "42px", background: '#009CC4'}}
+                        sx={{background: '#009CC4'}}
                         variant="contained">
                     Validate OTP
                 </Button>

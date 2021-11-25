@@ -35,7 +35,8 @@ const ChangePassword: React.FC<{}> = () => {
 
     return(
         <div>
-            <img src={logo_HHA} className={styles.logo} alt="logo" />
+            <img src={logo_HHA} className={styles.logoHHA} alt="logo" />
+            <div className={styles.alignment}>
             <h1 className={styles.header}>Change Password Form</h1>
             <div className={styles.emailInput}>
                 <input className={styles.input}
@@ -45,7 +46,7 @@ const ChangePassword: React.FC<{}> = () => {
                     placeholder="Enter your email"
                 />
             </div>
-            <div className={styles.currPassInput}>
+            <div className={styles.PasswordInput}>
                 <input className={styles.input}
                        onChange={(e) => setOldPassword(e.target.value)}
                        value={oldPassword}
@@ -53,7 +54,7 @@ const ChangePassword: React.FC<{}> = () => {
                        placeholder="Enter current password"
                 />
             </div>
-            <div className={styles.newPassInput}>
+            <div className={styles.PasswordInput}>
                 <input className={styles.input}
                     onChange={(e) => setNewPassword(e.target.value)}
                     value={newPassword}
@@ -61,7 +62,7 @@ const ChangePassword: React.FC<{}> = () => {
                     placeholder="Enter new password"
                 />
             </div>
-            <div className={styles.confirmPassInput}>
+            <div className={styles.PasswordInput}>
                 <input className={styles.input}
                     onChange={(e) => setConfirmPassword(e.target.value)}
                     value={confirmPassword}
@@ -69,21 +70,21 @@ const ChangePassword: React.FC<{}> = () => {
                     placeholder="Confirm new password"
                 />
             </div>
-            <div className={styles.submit}>
+            <div className={styles.Button}>
                 <Button onClick={handleChangePassword}
-                        sx={{width: "500px", height: "42px", background: '#009CC4'}}
+                        sx={{background: '#009CC4'}}
                         variant="contained">
                     Submit
                 </Button>
             </div>
-            <div className={styles.profPage}>
+            <div className={styles.Button}>
                 <Button onClick={redirectPage}
-                        sx={{width: "488px", height: "42px", background: '#009CC4'}}
+                        sx={{ background: '#009CC4'}}
                         variant="contained">
                     Back to Profile Page
                 </Button>
             </div>
-
+            </div>
         </div>
     );
 }
