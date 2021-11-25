@@ -23,42 +23,43 @@ const Login: FC = () => {
     return (
         <div className={styles.div}>
             <img src={logo_HHA} className={styles.logoHHA} alt="logo" />
-            <div className= {styles.allignment}>
+            <div className= {styles.alignment}>
            
-            <h1><b>Login</b></h1>
-            <div className={styles.plainText}>Enter your email and password to access the page </div>
-            <br />
-            <div className={styles.textInput}>
-            <div className={styles.plainText}><b>Username</b></div>
-                <input
-                    onChange={e => setEmail(e.target.value)}
-                    value={email}
-                    type="text"
-                    placeholder="Email"
-                />
-            </div>
-            <div className={styles.textInput}>
-            <br />
-            <div className={styles.plainText}><b>Password</b></div>
-                <input
-                    onChange={e => setPassword(e.target.value)}
-                    value={password}
-                    type="password"
-                    placeholder="Password"
-                />
-            </div>
-            <a href="./forgotPassword">Forgot Password</a>
-            <br />
-            <br />
-            <Button className= {styles.loginButton}
-                    sx={{width: "475px", height: "42px", background: '#009CC4'}}
-                    variant="contained"
-                    onClick={onClickFunc}>
-                Login
-            </Button>
-            <br />
-            <br />
-            <div className={styles.plainText}>If you are having any difficulties connecting to your account, please contact your <b>IT service</b> or <b>HHA representative</b> at <b>support@hha.com</b> </div>
+                <h1 className={styles.header_1}><b>Login</b></h1>
+                <div className={styles.plainText}>Enter your email and password to access the page </div>
+                <div className={styles.emailInput}>
+                <div className={styles.plainText}><b>Username</b></div>
+                    <input className={styles.input}
+                        onChange={e => setEmail(e.target.value)}
+                        value={email}
+                        type="text"
+                        placeholder="Email"
+                    />
+                </div>
+                <div className={styles.passwordInput}>
+                <div className={styles.plainText}><b>Password</b></div>
+                    <input className={styles.input}
+                        onChange={e => setPassword(e.target.value)}
+                        value={password}
+                        type="password"
+                        placeholder="Password"
+                    />
+                </div>
+                <div className={styles.loginButton}>
+                    <Button
+                            sx={{width: "475px", height: "42px", background: '#009CC4'}}
+                            variant="contained"
+                            onClick={onClickFunc}>
+                        Login
+                    </Button>
+                </div>
+                <div className={styles.link}>
+                    <a href="./forgotPassword">Forgot Password</a>
+                </div>
+
+                <div className={styles.plainText}>If you are having any difficulties connecting
+                    to your account, please contact your <b>IT service</b>or
+                        <b>HHA representative</b> at <b>support@hha.com</b></div>
         </div>
         </div>
     );
