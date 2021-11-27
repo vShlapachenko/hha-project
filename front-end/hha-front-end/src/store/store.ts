@@ -16,7 +16,7 @@ export default class Store {
     currentUserEmail = "";
     firstName = "";
     lastName = "";
-    firstTimeUser = false;
+    firstTimeUser = true;
 
     constructor() {
         makeAutoObservable(this)

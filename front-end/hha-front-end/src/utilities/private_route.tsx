@@ -25,6 +25,7 @@ interface PrivateRouteAttributes {
             console.log("is authorized!");
             if(store.firstTimeUser === true)
             {
+                store.firstTimeUser = false;
                 return <Redirect to={{ pathname: '/changePassword' }} />; 
             }
             else{
