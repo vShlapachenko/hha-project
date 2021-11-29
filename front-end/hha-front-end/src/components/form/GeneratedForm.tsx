@@ -21,6 +21,7 @@ import { style } from "@mui/system";
 import { Bar } from 'react-chartjs-2';
 import { ChartOptions } from 'chart.js';
 import { type } from "os";
+import GetAppIcon from '@mui/icons-material/GetApp';
 
 type FormType = 'fill' | 'display'
 
@@ -89,7 +90,7 @@ const GeneratedForm = (props: FormProps) => {
   }, []);
 
   const fetchData = async () => {
-    const res = props.type == 'fill' ? await fetch('http://localhost:5000/form') : await fetch(`http://localhost:5000/submittedForms/${props.formId}`);
+    const res = props.type == 'fill' ? await fetch('http://localhost:5000/maternityForm') : await fetch(`http://localhost:5000/submittedForms/${props.formId}`);
     const newForm = await res.json();
     return newForm;
   }
@@ -99,6 +100,12 @@ const GeneratedForm = (props: FormProps) => {
       setCurrentIndex([currentIndex[0] - 1, form.tables[currentIndex[0] - 1].subTables.length - 1])
     } else {
       setCurrentIndex([currentIndex[0], currentIndex[1] - 1])
+    }
+  }
+
+  const onSaveDraft = () => {
+    if(props.type === 'display') {
+      props.exit();
     }
   }
 
@@ -287,6 +294,14 @@ const GeneratedForm = (props: FormProps) => {
         <Navbar />
         <div className={styles.container}>
           <div className={styles.sideMenuBackground}>
+          {
+            props.type === 'display' ?
+            <Button className={styles.exportBtn} style={props.chosenBtnStyle}>
+              <GetAppIcon />
+              Export as CSV
+            </Button>
+            : null
+          }
             <div className={styles.sideMenu}>
               <h3>{form.label + ' (Preview)'}</h3>
               {form.tables.map((table, tableIndex) => (
@@ -336,7 +351,7 @@ const GeneratedForm = (props: FormProps) => {
                   : showChart()
               }
               <div className={styles.btns}>
-                <Button>{props.type === 'fill' ? 'Save as Draft' : 'Export as CSV'}</Button>
+                <Button onClick={onSaveDraft}>{props.type === 'fill' ? 'Save as Draft' : 'Exit'}</Button>
                 {
                   currentIndex[0] === 0 && currentIndex[1] === 0
                     ? null
@@ -347,13 +362,17 @@ const GeneratedForm = (props: FormProps) => {
                       {props.type === 'fill' ? 'Move to the Previous Step' : 'Back' }
                     </Button>
                 }
-                <Button 
-                  className={styles.btn}
-                  onClick={proceedToNext}
-                  >{(currentIndex[0] === form.tables.length - 1 && currentIndex[1] === form.tables[currentIndex[0]].subTables.length - 1)
-                    ? props.type === 'fill' ? 'Preview' : 'Exit' 
-                    : props.type === 'fill' ? 'Proceed to Next Step' : 'Next'}
-                  </Button>
+                {
+                  !(props.type === 'display' && currentIndex[0] === form.tables.length - 1 && currentIndex[1] === form.tables[currentIndex[0]].subTables.length - 1) ?
+                    <Button 
+                    className={styles.btn}
+                    onClick={proceedToNext}
+                    >{(currentIndex[0] === form.tables.length - 1 && currentIndex[1] === form.tables[currentIndex[0]].subTables.length - 1)
+                      ? props.type === 'fill' ? 'Preview' : 'Exit' 
+                      : props.type === 'fill' ? 'Proceed to Next Step' : 'Next'}
+                    </Button>
+                    : null
+                }
               </div>
             </div>
           </div>
