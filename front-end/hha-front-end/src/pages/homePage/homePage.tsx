@@ -16,7 +16,7 @@ const HomePage = () => {
       .then((res) => {
         setTodoData(res.data)
       })
-  })
+  }, [todoData])
   return (
     <>
       <Navbar/>
@@ -35,6 +35,7 @@ const HomePage = () => {
 
       {
         (() => {
+          console.log(todoData)
           if (todoData)
             return <Todo/>
         })
