@@ -22,6 +22,7 @@ import { Bar } from 'react-chartjs-2';
 import { ChartOptions } from 'chart.js';
 import { type } from "os";
 import GetAppIcon from '@mui/icons-material/GetApp';
+import { Trans, useTranslation } from 'react-i18next';
 
 type FormType = 'fill' | 'display'
 
@@ -300,7 +301,7 @@ const GeneratedForm = (props: FormProps) => {
             props.type === 'display' ?
             <Button className={styles.exportBtn} style={props.chosenBtnStyle}>
               <GetAppIcon />
-              Export as CSV
+              <Trans i18nKey = 'Generate.export'>Export as CSV</Trans>
             </Button>
             : null
           }
