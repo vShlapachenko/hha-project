@@ -16,7 +16,7 @@ interface CaseStudyAttributes {
     patient_name?: string,
     patient_age?: string,
     patient_location?: string,
-    visiting_reason?: string, 
+    visiting_reason?: string,
     duration?: string,
     diagnosis?: string,
     story: string,
