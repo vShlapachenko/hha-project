@@ -354,7 +354,7 @@ const GeneratedForm = (props: FormProps) => {
                   : showChart()
               }
               <div className={styles.btns}>
-                <Button onClick={onSaveDraft}>{props.type === 'fill' ? 'Save as Draft' : 'Exit'}</Button>
+                <Button onClick={onSaveDraft}>{props.type === 'fill' ? <Trans i18nKey='Generate.save'>Save as Draft</Trans> : <Trans i18nKey='Generate.exit'>Exit</Trans>}</Button>
                 {
                   currentIndex[0] === 0 && currentIndex[1] === 0
                     ? null
@@ -371,8 +371,8 @@ const GeneratedForm = (props: FormProps) => {
                     className={styles.btn}
                     onClick={proceedToNext}
                     >{(currentIndex[0] === form.tables.length - 1 && currentIndex[1] === form.tables[currentIndex[0]].subTables.length - 1)
-                      ? props.type === 'fill' ? 'Preview' : 'Exit' 
-                      : props.type === 'fill' ? 'Proceed to Next Step' : 'Next'}
+                      ? props.type === 'fill' ? <Trans i18nKey='Generate.preview'>Preview</Trans> : <Trans i18nKey='Generate.exit'>Exit</Trans> 
+                      : props.type === 'fill' ? <Trans i18nKey='Generate.proceed_next'>Proceed to Next Step</Trans> : <Trans i18nKey='Generate.next'>Next</Trans>}
                     </Button>
                     : null
                 }
