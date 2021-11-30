@@ -6,16 +6,16 @@ import java.util.Date;
 import java.util.List;
 
 public class Cell {
-    private String rowLabel; 
+    private String type; 
     private boolean disabled;
     private String value;
 
-    public String getRowLabel() {
-        return this.rowLabel;
+    public String getType() {
+        return this.type;
     }
 
-    public void setRowLabel(String rowLabel) {
-        this.rowLabel = rowLabel;
+    public void setType(String type) {
+        this.type = type;
     }
 
     public String getValue() {
