@@ -98,6 +98,7 @@ public class HhaUserService implements UserDetailsService {
         user.setPassword(userRegistrationCredentials.getPassword());
         user.setFirstName(userRegistrationCredentials.getFirstName());
         user.setLastName(userRegistrationCredentials.getLastName());
+        user.setFirstTimeUser(true);
         user.setActivationStatus(ActivationStatus.FILLED_INFO);
 
         var confirmationLink = UUID.randomUUID().toString();
