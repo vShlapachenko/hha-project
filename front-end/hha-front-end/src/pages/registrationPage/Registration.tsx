@@ -249,7 +249,7 @@ const Registration = () => {
                 <Dropdown listItems={listItems} itemName={""} onChangeFunc={setDropdownFunc} initialValue={dropdown} />
             </div>
             <div className={registrationStyle.chooseTypeAccount}>
-            <h5 >Choose type of account</h5>
+            <h5 >Choose type of account, (🚨:Only Admin and Head Of Depart have the right to create new accounts!)</h5>
             </div>
             <div className= {registrationStyle.chooseTypeAccountDropdown}>
             <Dropdown listItems={accoutTypes} itemName={""} onChangeFunc={setAccountDropdownFunc} initialValue={accountDropdown} />
