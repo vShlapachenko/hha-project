@@ -9,6 +9,7 @@ import UserService from "../../service/UserService";
 import {Context} from "../../index";
 import {User} from "../../models/User";
 import Navbar from "../../components/Navbar/Navbar";
+import { Alert } from "@mui/material";
 
 const Registration = () => {
     const listItems = [ "English", "French"];
@@ -24,6 +25,8 @@ const Registration = () => {
     const [accountDropdown, setAccountDropdown] = useState("");
     const accoutTypes = [ "Admin", "Staff", "Head Of Department"];
     const history = useHistory();
+
+    const [sumbitSuccessMessage, setSumbitSuccessMessage] = useState(false);
    
     const ROLES = {
         ROLE_ADMIN: "ROLE_ADMIN",
@@ -136,7 +139,11 @@ const Registration = () => {
           const response = await UserService.saveUser(hhaUser.firstName, hhaUser.lastName, hhaUser.password, hhaUser.email, hhaUser.roles);
           console.log(response);
           console.log("register success");
-          history.push("/");
+          setTimeout(() => {
+            history.push("/homePage");
+          },3000);
+    
+            setSumbitSuccessMessage(true);
         } catch (e) {
             console.log(e);
         }
@@ -187,13 +194,21 @@ const Registration = () => {
         setAccountDropdown(event.target.value);
     }
 
+    const renderAlert =() => {
+        return <Alert severity="success">Register user successfully! redirecting...</Alert>;
+    }
+
+    const renderNothing =() => {
+        return <></>;
+    }
+
     return (
         <div>
              <div>
                  <div>
-                    {/* <img src={logo_HHA} className={registrationStyle.logo} alt="logo" /> */}
                     <Navbar />
                  </div>
+                 {sumbitSuccessMessage?renderAlert():renderNothing()}
                 <h5 className={registrationStyle.header}>Personal Information</h5>
                 <h6 className={registrationStyle.subHeader}>Enter your personal information below</h6>
             </div>
@@ -209,10 +224,6 @@ const Registration = () => {
                     <Input userInput={lastName} type="text" label="" onChangeFunc={setLastNameFunc} />
                 </div>
             </div>
-        
-            {/* <div className={registrationStyle.assignEmail}>
-               Email assigned to you
-            </div> */}
             <div className={registrationStyle.assignEmail}>
                Enter your email
             </div>
