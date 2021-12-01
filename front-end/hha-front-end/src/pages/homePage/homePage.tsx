@@ -3,12 +3,26 @@ import Leaderboard from "../../components/leaderboard/Leaderboard";
 import ToDo from "../../components/TodoList/todo";
 import Navbar from "../../components/Navbar/Navbar";
 import { useHistory } from "react-router";
+import $api from "../../http";
+import { Points } from "../../models/homepage/Points"
+import { useEffect, useState } from "react";
+
+
 
 const HomePage = () => {
     let history = useHistory();
 
     const startForm = () => {history.push("/forms")}
     const createStory = () => {history.push("/caseStudy")}
+    const [points, setpoints] = useState<Points[]>([])
+
+    useEffect(() => {
+        $api.get<Points[]>('/leaderboard/monthDepartments').then((r) => {
+            setpoints(r.data)
+        });
+
+    }, [])
+
     return(
         <>
         <Navbar />
@@ -20,8 +34,8 @@ const HomePage = () => {
         </h2>
 
         <div>
-            <Leaderboard FirstDepartmentName={"Maternity"} SecondDepartmentName={"Rehab"} ThirdDepartmentName={"Community Health"} 
-            FirstPoints={"120" + " points"} SecondPoints={"100" + " points"} ThirdPoints={"80" + " points"} />
+            <Leaderboard FirstDepartmentName={points[0].department.name} SecondDepartmentName={points[1].department.name} ThirdDepartmentName={points[2].department.name} 
+            FirstPoints={points[0].monthPoints + " points"} SecondPoints={points[1].monthPoints + " points"} ThirdPoints={points[2].monthPoints + " points"} />
         </div>
                     
         <h1 className = {styles.textTODO}>
