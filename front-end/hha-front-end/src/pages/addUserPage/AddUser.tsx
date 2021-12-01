@@ -62,10 +62,10 @@ const AddUser: FC = () => {
     return (
         <div>
             <Navbar />
+            <div className={styles.alignment}>
             <div className={styles.header}>
                 <h5 >Create New Account</h5>
             </div>
-            
             <div className={styles.enterEmail}>
                 <h5 >Enter the email of a new user</h5>
             </div>
@@ -99,6 +99,7 @@ const AddUser: FC = () => {
 
             <div className={styles.backToHomePage} >
                 <Button variant="contained" onClick={backToHomePage} >Back to Home Page</Button>
+            </div>
             </div>
         </div>
     );
