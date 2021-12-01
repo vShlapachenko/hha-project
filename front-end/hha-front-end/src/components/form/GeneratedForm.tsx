@@ -21,7 +21,10 @@ import { style } from "@mui/system";
 import { Bar } from 'react-chartjs-2';
 import { ChartOptions } from 'chart.js';
 import { type } from "os";
+<<<<<<< HEAD
 import GetAppIcon from '@mui/icons-material/GetApp';
+=======
+>>>>>>> cb66286aad75bb011b6f520d68fb5bd9aaa6d9fc
 
 type FormType = 'fill' | 'display'
 
@@ -90,7 +93,11 @@ const GeneratedForm = (props: FormProps) => {
   }, []);
 
   const fetchData = async () => {
+<<<<<<< HEAD
     const res = props.type == 'fill' ? await fetch('http://localhost:5000/maternityForm') : await fetch(`http://localhost:5000/submittedForms/${props.formId}`);
+=======
+    const res = props.type == 'fill' ? await fetch('http://localhost:5000/form') : await fetch(`http://localhost:5000/submittedForms/${props.formId}`);
+>>>>>>> cb66286aad75bb011b6f520d68fb5bd9aaa6d9fc
     const newForm = await res.json();
     return newForm;
   }
@@ -103,12 +110,15 @@ const GeneratedForm = (props: FormProps) => {
     }
   }
 
+<<<<<<< HEAD
   const onSaveDraft = () => {
     if(props.type === 'display') {
       props.exit();
     }
   }
 
+=======
+>>>>>>> cb66286aad75bb011b6f520d68fb5bd9aaa6d9fc
   const proceedToNext = () => {
     if(form.tables && currentIndex[1] < form.tables[currentIndex[0]].subTables.length - 1) {
       setCurrentIndex([currentIndex[0], currentIndex[1] + 1])
@@ -294,6 +304,7 @@ const GeneratedForm = (props: FormProps) => {
         <Navbar />
         <div className={styles.container}>
           <div className={styles.sideMenuBackground}>
+<<<<<<< HEAD
           {
             props.type === 'display' ?
             <Button className={styles.exportBtn} style={props.chosenBtnStyle}>
@@ -302,6 +313,8 @@ const GeneratedForm = (props: FormProps) => {
             </Button>
             : null
           }
+=======
+>>>>>>> cb66286aad75bb011b6f520d68fb5bd9aaa6d9fc
             <div className={styles.sideMenu}>
               <h3>{form.label + ' (Preview)'}</h3>
               {form.tables.map((table, tableIndex) => (
@@ -351,7 +364,11 @@ const GeneratedForm = (props: FormProps) => {
                   : showChart()
               }
               <div className={styles.btns}>
+<<<<<<< HEAD
                 <Button onClick={onSaveDraft}>{props.type === 'fill' ? 'Save as Draft' : 'Exit'}</Button>
+=======
+                <Button>{props.type === 'fill' ? 'Save as Draft' : 'Export as CSV'}</Button>
+>>>>>>> cb66286aad75bb011b6f520d68fb5bd9aaa6d9fc
                 {
                   currentIndex[0] === 0 && currentIndex[1] === 0
                     ? null
@@ -362,6 +379,7 @@ const GeneratedForm = (props: FormProps) => {
                       {props.type === 'fill' ? 'Move to the Previous Step' : 'Back' }
                     </Button>
                 }
+<<<<<<< HEAD
                 {
                   !(props.type === 'display' && currentIndex[0] === form.tables.length - 1 && currentIndex[1] === form.tables[currentIndex[0]].subTables.length - 1) ?
                     <Button 
@@ -373,6 +391,15 @@ const GeneratedForm = (props: FormProps) => {
                     </Button>
                     : null
                 }
+=======
+                <Button 
+                  className={styles.btn}
+                  onClick={proceedToNext}
+                  >{(currentIndex[0] === form.tables.length - 1 && currentIndex[1] === form.tables[currentIndex[0]].subTables.length - 1)
+                    ? props.type === 'fill' ? 'Preview' : 'Exit' 
+                    : props.type === 'fill' ? 'Proceed to Next Step' : 'Next'}
+                  </Button>
+>>>>>>> cb66286aad75bb011b6f520d68fb5bd9aaa6d9fc
               </div>
             </div>
           </div>

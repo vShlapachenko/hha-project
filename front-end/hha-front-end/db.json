@@ -602,6 +602,7 @@
                       "value": 5,
                       "type": "number"
                     },
+<<<<<<< HEAD
                     {
                       "disabled": false,
                       "value": 5,
@@ -617,6 +618,8 @@
                 {
                   "label": "Autres",
                   "cells": [
+=======
+>>>>>>> cb66286aad75bb011b6f520d68fb5bd9aaa6d9fc
                     {
                       "disabled": false,
                       "value": 5,
@@ -626,6 +629,24 @@
                       "disabled": false,
                       "value": 5,
                       "type": "number"
+<<<<<<< HEAD
+=======
+                    }
+                  ]
+                },
+                {
+                  "label": "Autres",
+                  "cells": [
+                    {
+                      "disabled": false,
+                      "value": 5,
+                      "type": "number"
+                    },
+                    {
+                      "disabled": false,
+                      "value": 5,
+                      "type": "number"
+>>>>>>> cb66286aad75bb011b6f520d68fb5bd9aaa6d9fc
                     },
                     {
                       "disabled": false,
