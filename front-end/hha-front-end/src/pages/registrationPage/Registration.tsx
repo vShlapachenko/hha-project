@@ -2,13 +2,11 @@ import React, {useState, useContext} from "react";
 import { useHistory } from "react-router-dom";
 import logo_HHA from "../loginPage/logo.svg"
 import registrationStyle from "./Registration.module.css";
-import Input  from "../../components/Input/Input";
 import Dropdown from "../../components/dropdown/Dropdown";
 import { Button } from "@mui/material";
 import UserService from "../../service/UserService";
 import {Context} from "../../index";
 import {User} from "../../models/User";
-import Navbar from "../../components/Navbar/Navbar";
 
 const Registration = () => {
     const listItems = [ "English", "French"];
@@ -87,24 +85,31 @@ const Registration = () => {
     }
 
     return (
-        <div>
+        <div >
              <div>
-                 <div>
-                    <img src={logo_HHA} className={registrationStyle.logo} alt="logo" />
-                 </div>
-                <h5 className={registrationStyle.header}>Personal Information</h5>
-                <h6 className={registrationStyle.subHeader}>Enter your personal information below</h6>
-            </div>
+                <img src={logo_HHA} className={registrationStyle.logoHHA} alt="logo" />
+             </div>
+            <div className={registrationStyle.alignment}>
+            <h5 className={registrationStyle.header}>Personal Information</h5>
+            <h6 className={registrationStyle.subHeader}>Enter your personal information below</h6>
             <div className= {registrationStyle.name} >
                 <div className={registrationStyle.firstName}>First name</div>
                 <div className={registrationStyle.lastName}>Last name</div>
             </div>
-            <div className= {registrationStyle.nameInput}>
+            <div className={registrationStyle.first_last_name}>
                 <div className= {registrationStyle.firstNameInput} >                  
-                    <Input userInput={firstName} type="text" label="" onChangeFunc={setFirstNameFunc} />
+                    <input className= {registrationStyle.nameInput}
+                           value={firstName}
+                           type="text"
+                           onChange={setFirstNameFunc}
+                           placeholder="First name"/>
                 </div>
                 <div className= {registrationStyle.lastNameInput} >
-                    <Input userInput={lastName} type="text" label="" onChangeFunc={setLastNameFunc} />
+                    <input className= {registrationStyle.nameInput}
+                           value={lastName}
+                           type="text"
+                           onChange={setLastNameFunc}
+                           placeholder="Last name"/>
                 </div>
             </div>
         
@@ -117,22 +122,37 @@ const Registration = () => {
 
             <div className= {registrationStyle.enterPassword} >
                     Enter your password
-                <Input userInput={password} type="password" label="" onChangeFunc={setPasswordFunc} />
+                <input className= {registrationStyle.input}
+                       value={password}
+                       type="password"
+                       onChange={setPasswordFunc}
+                       placeholder="Password"/>
             </div>
             <div className={registrationStyle.confirmPassword}>
                     Confirm your password
-                <Input userInput={password} type="password" label="" onChangeFunc={setConfirmPasswordFunc} />
+                <input className= {registrationStyle.input}
+                       value={password}
+                       type="password"
+                       onChange={setConfirmPasswordFunc}
+                       placeholder="Password"/>
             </div> 
             <div className={registrationStyle.enterPersonalStaffNumber }>
                     Enter your personal staff number (optional)
-                <Input userInput={personalStaffNumber} type="text" label="" onChangeFunc={setPersonalStaffNumberFunc} />
+                <input className= {registrationStyle.input}
+                       value={personalStaffNumber}
+                       type="text"
+                       onChange={setPersonalStaffNumberFunc}
+                       placeholder="Personal Staff Number (Optional)"/>
             </div> 
             <div className={registrationStyle.choosePreferredLanguage }>
                     Choose your preferred language
                 <Dropdown listItems={listItems} itemName={""} onChangeFunc={setDropdownFunc} initialValue={dropdown} />
             </div>
+
             <div className={registrationStyle.submitButton }>
-                <Button variant="contained" onClick={saveUser} >Submit</Button>
+                <Button sx={{ background: '#009CC4'}}
+                        variant="contained" onClick={saveUser}>Submit</Button>
+            </div>
             </div>
         </div>
     );
