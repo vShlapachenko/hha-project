@@ -17,13 +17,13 @@ import Navbar from '../../Navbar/Navbar';
 
 interface CaseStudyAttributes {
     staff_image?: string,
-    name: string,
-    heading: string,
-    job_title: string,
-    department: string,
-    duration_hcbh: string,
-    enjoy_the_most: string,
-    story: string
+    name?: string,
+    heading?: string,
+    job_title?: string,
+    department?: string,
+    duration_hcbh?: string,
+    enjoy_the_most?: string,
+    story?: string
 }
 
 interface ExpandMoreProps extends IconButtonProps {
@@ -68,11 +68,13 @@ const Staff_Recognition = ({staff_image, name, heading, job_title, department, d
                     <CardContent>
                         <Typography variant="body2" color="text.secondary">
                             
-                            <Chip label={'Name: ' + name}/>
+                            {name && <Chip label={'Name: ' + name}/>}
 
-                            <div className={'enjoy_the_most'}>
-                                <Chip label={'Enjoy`s: ' + enjoy_the_most}/>
-                            </div>
+                            {enjoy_the_most && 
+                                <div className={'enjoy_the_most'}>
+                                    <Chip label={'Enjoy`s: ' + enjoy_the_most}/>
+                                </div>
+                            }                      
                                                         
                         </Typography>
                     </CardContent>

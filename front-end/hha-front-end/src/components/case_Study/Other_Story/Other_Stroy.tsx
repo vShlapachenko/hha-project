@@ -15,10 +15,10 @@ import Navbar from '../../Navbar/Navbar';
 
 
 interface CaseStudyAttributes {
-    image: string,
-    heading: string,
-    breif: string,
-    story:string
+    image?: string,
+    heading?: string,
+    breif?: string,
+    story?: string
 }
 
 interface ExpandMoreProps extends IconButtonProps {
@@ -65,7 +65,7 @@ const Other_Story = ({image, heading, breif, story}: CaseStudyAttributes) => {
                         <Typography variant="body2" color="text.secondary">
 
                             <div className={'employeeStory'}>
-                                <Chip label={'Breif: ' + breif}/>
+                                {breif && <Chip label={'Breif: ' + breif}/>}
                             </div>
                             
                         </Typography>

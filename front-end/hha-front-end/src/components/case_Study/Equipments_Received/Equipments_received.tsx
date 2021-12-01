@@ -15,14 +15,14 @@ import Navbar from '../../Navbar/Navbar';
 
 
 interface CaseStudyAttributes {
-    equipment_image: string,
-    heading: string,
-    equipment_received: string,
-    department: string,
-    equipment_from: string,
-    donated_or_purchased: string,
-    equipment_use: string,
-    story: string
+    equipment_image?: string,
+    heading?: string,
+    equipment_received?: string,
+    department?: string,
+    equipment_from?: string,
+    donated_or_purchased?: string,
+    equipment_use?: string,
+    story?: string
 }
 
 interface ExpandMoreProps extends IconButtonProps {
@@ -69,11 +69,11 @@ const Equipment_Received = ({equipment_image, heading, equipment_received, depar
                         <Typography variant="body2" color="text.secondary">
 
                             <div className={'employeeStory'}>
-                                <Chip label={'Equipment Use: ' + equipment_use}/>
+                                {equipment_use && <Chip label={'Equipment Use: ' + equipment_use}/>}
                             </div>
                             
-                            <Chip label={'Equipment: ' + equipment_received}/>
-                            <Chip label={'Equipment From: ' + equipment_from}/> 
+                            {equipment_received && <Chip label={'Equipment: ' + equipment_received}/>}
+                            {equipment_from && <Chip label={'Equipment From: ' + equipment_from}/>}
                             
                         </Typography>
                     </CardContent>
@@ -99,8 +99,8 @@ const Equipment_Received = ({equipment_image, heading, equipment_received, depar
                             <div className={'moreInfo'}>
                                 <CardContent>
                                         <Typography variant="body2" color="text.secondary">
-                                        <Chip sx={{marginLeft: -3, marginRight: 2}} label={'Department: ' + department}/> 
-                                        <Chip sx={{marginLeft: -3, marginTop: 2}} label={donated_or_purchased}/>
+                                        {department && <Chip sx={{marginLeft: -3, marginRight: 2}} label={'Department: ' + department}/>} 
+                                        {donated_or_purchased && <Chip sx={{marginLeft: -3, marginTop: 2}} label={donated_or_purchased}/>}
                                         </Typography>
                                 </CardContent>
                             </div>

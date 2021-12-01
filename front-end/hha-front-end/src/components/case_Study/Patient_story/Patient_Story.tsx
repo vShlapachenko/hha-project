@@ -16,17 +16,17 @@ import styles from './case_Study.module.css'
 
 
 interface CaseStudyAttributes {
-    patient_image?: string,
-    case_image: string,
-    heading: string,
+    patient_image ?: string,
+    case_image ?: string,
+    heading ?: string,
     patient_name ?: string,
     patient_age ?: string,
-    patient_location?: string,
-    reason_hcbh: string, 
-    duration_hcbh: string,
-    diagnosis?: string,
-    story:string,
-    employee_story: string
+    patient_location ?: string,
+    reason_hcbh ?: string, 
+    duration_hcbh ?: string,
+    diagnosis ?: string,
+    story ?:string,
+    employee_story ?: string
 
 }
 
@@ -74,9 +74,11 @@ const Patient_Story = ({patient_image, case_image, heading, patient_name = '', p
                     <CardContent>
                         <Typography variant="body2" color="text.secondary">
 
-                            <div className={styles.employeeStory}>
-                                {employee_story}
-                            </div>
+                            {employee_story && 
+                                <div className={styles.employeeStory}>
+                                    {employee_story}
+                                </div>
+                            }
                             
                             {patient_name && <Chip label={'Patient`s Name: ' + patient_name}/> }
                             {patient_age && <Chip label={'Patient`s Age: ' + patient_age}/> }

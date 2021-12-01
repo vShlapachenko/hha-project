@@ -15,14 +15,14 @@ import Navbar from '../../Navbar/Navbar';
 
 
 interface CaseStudyAttributes {
-    training_image: string,
-    heading: string,
-    training_date: string,
-    training_topic: string,
-    trainer: string, 
-    attendees: string,
-    benefits: string,
-    story: string
+    training_image ?: string,
+    heading ?: string,
+    training_date ?: string,
+    training_topic ?: string,
+    trainer ?: string, 
+    attendees ?: string,
+    benefits ?: string,
+    story ?: string
 }
 
 interface ExpandMoreProps extends IconButtonProps {
@@ -68,12 +68,14 @@ const Training_Session = ({training_image, heading, training_date, training_topi
                     <CardContent>
                         <Typography variant="body2" color="text.secondary">
 
-                            <div className={'benefits'}>
-                                <Chip label={'Benefits: ' + benefits}/>
-                            </div>
+                            {benefits &&
+                                <div className={'benefits'}>
+                                    <Chip label={'Benefits: ' + benefits}/>
+                                </div>
+                            }
                             
-                            <Chip label={'Trainer: ' + trainer}/>
-                            <Chip label={'Topic: ' + training_topic}/> 
+                            {trainer && <Chip label={'Trainer: ' + trainer}/>}
+                            {training_topic && <Chip label={'Topic: ' + training_topic}/>}
                             
                         </Typography>
                     </CardContent>
@@ -99,8 +101,8 @@ const Training_Session = ({training_image, heading, training_date, training_topi
                             <div className={'moreInfo'}>
                                 <CardContent>
                                         <Typography variant="body2" color="text.secondary">
-                                        <Chip sx={{marginLeft: -3, marginRight: 2}} label={'Attendees: ' + attendees}/> 
-                                        <Chip sx={{marginLeft: -3, marginRight: 2}} label={'Date: ' + training_date}/> 
+                                        {attendees && <Chip sx={{marginLeft: -3, marginRight: 2}} label={'Attendees: ' + attendees}/> }
+                                        {training_date && <Chip sx={{marginLeft: -3, marginRight: 2}} label={'Date: ' + training_date}/> }
                                         </Typography>
                                 </CardContent>
                             </div>
