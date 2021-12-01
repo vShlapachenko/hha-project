@@ -60,6 +60,10 @@
         "back": "Retour à la page de profil"
     },
     "Navbar":{
+        "home": "Accueil",
+        "departments": "Départements",
+        "forms":"Formes",
+        "case": "Étude de cas",
         "create":"Créer un compte",
         "settings": "Les paramètres",
         "logout": "Se déconnecter"
@@ -73,7 +77,9 @@
         "some": "Certains champs ne sont pas remplis. Veuillez vous assurer que tous les champs sont remplis avant la soumission.",
         "save": "Enregistrer comme brouillon",
         "prev": "Passer à l'étape précédente",
-        "next": "Passer à l'étape suivante"
+        "next": "Passer à l'étape suivante",
+        "display": "Afficher le Formulaire",
+        "fill": "Remplir le Formulaire"
     },
     "Adduser":{
         "create": "Créer un nouveau compte",
@@ -85,12 +91,58 @@
         "home": "Retour à la page d'accueil"
     },
     "Profile":{
+        "profile": "Profil",
         "title": "Informations personnelles",
         "first": "Prénom",
         "last": "Nom de famille",
         "staff": "Numéro du personnel",
         "choose": "Langue préférée",
         "change": "Changer le mot de passe"
+    },
+    "Generate":{
+        "cancel": "Annuler",
+        "submit": "Soumettre",
+        "export": "Exporter au format CSV",
+        "ok": "D'accord",
+        "table": "Table",
+        "chart": "Graphique",
+        "save": "Enregistrer comme brouillon",
+        "prev":"Passer à l'étape précédente",
+        "back": "Arrière",
+        "preview": "Aperçu",
+        "exit": "Sortir",
+        "proceed_next":"Passer à l'étape suivante",
+        "next": "Prochain"
+    },
+    "Case":{
+        "name": "Le nom du patient: ",
+        "age": "Âge du patient: ",
+        "click": "Cliquez sur cette flèche pour en savoir plus",
+        "location": "Emplacement du patient: ",
+        "reason": "Raison: ",
+        "duration": "Durée à la HCBH: ",  
+        "diagnosis": "Diagnostic du patient: ",
+        "show": "montre plus"        
+    },
+    "Add_case":{
+        "story": "Témoignage de patients",
+        "staff": "Reconnaissance du personnel",
+        "training": "Session de formation",
+        "equipment": "Équipement reçu",
+        "other": "Autre histoire",
+        "success": "succès sauvé!",
+        "save": "enregistrer",
+        "submit": "Soumettre"
+    },
+    "Case_study":{
+        "name": "Nom: ",
+        "age": "Âge: ",
+        "location": "Emplacement: ",
+        "visiting": "Raison de la visite: ",
+        "duration": "Durée: ", 
+        "diagnosis": "Diagnostic: ", 
+        "click": "Cliquez sur la flèche pour en savoir plus",
+        "show": "montre plus",
+        "story": "Histoire: "
     }
-
 }

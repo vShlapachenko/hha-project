@@ -20,7 +20,7 @@ const Login: FC = () => {
         if (store.isAuthorized) {
             history.push('/homePage');
         }
-     }
+    }
 
      const {t, i18n} = useTranslation('translation');
 

@@ -15,22 +15,6 @@ import {Context} from "../../index";
 import { useHistory } from "react-router-dom";
 import { useTranslation, Trans } from "react-i18next";
 
-
-const MenuItems = [
-    {
-        title: 'Home',
-    },
-    {
-        title: 'Departments',
-    },
-    {
-        title: 'Forms',
-    },
-    {
-        title: 'Case Study',
-    },
-]
-
 const navStyle = {
     background: '#ffffff',
 };
@@ -57,10 +41,32 @@ const Navbar = () => {
     const {store} = useContext(Context);
     const history = useHistory();
 
+    const {t, i18n} = useTranslation();
+
+    const MenuItems = [
+        {
+            title: <Trans i18nKey='Navbar.home'>Home</Trans>,
+        },
+        {
+            title: <Trans i18nKey='Navbar.departments'>Departments</Trans>,
+        },
+        {
+            title: <Trans i18nKey='Navbar.forms'>Forms</Trans>,
+        },
+        {
+            title: <Trans i18nKey='Navbar.case'>Case Study</Trans>,
+        },
+    ]
+
     const logoutFunc = async () => {
         await store.logout();
         history.push('/');
     }
+
+    const profileFunc = async () => {
+        history.push('/userProfile');
+    }
+
     const handleToggle = () => {
         setOpen((prevOpen) => !prevOpen);
     };
@@ -109,8 +115,6 @@ const Navbar = () => {
         prevOpen.current = open;
     }, [open]);
   
-    const {t, i18n} = useTranslation();
-
     return (
         <Box sx={{ flexGrow: 1, fontFamily: 'Arial', fontWeight: 'light' }} >
             <AppBar position="static" style={navStyle}>
@@ -166,7 +170,7 @@ const Navbar = () => {
                                         })}
                                         <Box mt={2}>
                                             <MenuItem>Create Account</MenuItem>
-                                            <MenuItem>Settings</MenuItem>
+                                            <MenuItem onClick={profileFunc}>Settings</MenuItem>
                                             <MenuItem onClick={logoutFunc}> Logout</MenuItem>
                                         </Box>
                                         </MenuList>
@@ -236,12 +240,12 @@ const Navbar = () => {
                                         <MenuItem>
                                             <Trans i18nKey = 'Navbar.create'>Create Account</Trans>
                                         </MenuItem>
-                                        <MenuItem>
+                                        <MenuItem onClick={profileFunc}>
                                             <Trans i18nKey = 'Navbar.settings'>Settings</Trans>
                                         </MenuItem>
                                         <MenuItem onClick={logoutFunc}>
                                             <Trans i18nKey = 'Navbar.logout'>Logout</Trans>
-                                            </MenuItem>
+                                        </MenuItem>
                                         </MenuList>
                                     </ClickAwayListener>
                                     </Paper>
