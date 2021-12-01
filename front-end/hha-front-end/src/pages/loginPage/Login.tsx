@@ -55,11 +55,15 @@ const Login: FC = () => {
                 </div>
                 <div className={styles.link}>
                     <a href="./forgotPassword">Forgot Password</a>
+                    <br/>
                 </div>
 
-                <div className={styles.plainText}>If you are having any difficulties connecting
-                    to your account, please contact your <b>IT service</b>or
-                        <b>HHA representative</b> at <b>support@hha.com</b></div>
+                <div className={styles.plainText}>
+                    <p>If you are having any difficulties connecting
+                    to your account, <br/>please contact your <b>IT service </b>or
+                        <b> HHA representative</b> <br/>at <b>support@hha.com</b>
+                    </p>
+                </div>
         </div>
         </div>
     );
