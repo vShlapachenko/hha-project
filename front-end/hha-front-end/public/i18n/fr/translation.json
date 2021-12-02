@@ -48,7 +48,8 @@
         "enter": "Tapez votre mot de passe",
         "confirm": "Confirmer votre mot de passe",
         "personal": "Entrez votre numéro personnel (facultatif)",
-        "submit": "Soumettre"
+        "submit": "Soumettre",
+        "choose": "Choisissez votre préféré"
     },
     "Changepw":{
         "title": "Formulaire de changement de mot de passe",
