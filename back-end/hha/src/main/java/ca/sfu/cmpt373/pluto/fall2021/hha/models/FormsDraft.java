@@ -9,7 +9,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 import java.util.List;
 
 @Document
-public class Form {
+public class FormsDraft {
 
     @Id
     private String id;
