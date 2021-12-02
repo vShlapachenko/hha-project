@@ -3,5 +3,6 @@ export interface CaseStudyDraft {
     entryList: Array<any>;
     answers: Array<any>;
     submittedBy: any;
-    photo: any;
+    photos: Array<any>;
+    photoId: any;
 }

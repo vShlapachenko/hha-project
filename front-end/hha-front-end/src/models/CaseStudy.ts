@@ -5,5 +5,6 @@ export interface CaseStudy {
     id: string;
     submittedBy: any;
     entryList: Array<any>;
-    photo: any;
+    photos: Array<any>;
+    photoId: any;
 }
