@@ -16,8 +16,14 @@ public class FormController {
         return formService.getForm(id);
     }
 
-    @PostMapping("submit")
-    public void createForm(@RequestBody Form form) {
+    @PostMapping("save")
+    public void saveForms(@RequestBody Form form) {
         formService.saveForm(form);
+    }
+
+    @PostMapping("submit")
+    public void createForm(HttpServletRequest request,
+    @RequestBody Form form) {
+        formService.saveForm(request, form);
     }
 }
