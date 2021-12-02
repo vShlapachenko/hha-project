@@ -141,6 +141,10 @@ const Registration = () => {
                     <Trans i18nKey='Register.personal'>Enter your personal staff number (optional)</Trans>
                 <Input userInput={personalStaffNumber} type="text" label="" onChangeFunc={setPersonalStaffNumberFunc} />
             </div> 
+            <div className={registrationStyle.choosePreferredLanguage }>
+                    <Trans i18nKey='Register.choose'>Choose your preferred language</Trans>
+                <Dropdown listItems={listItems} itemName={""} onChangeFunc={setDropdownFunc} initialValue={dropdown} />
+            </div>
             <div className={registrationStyle.submitButton }>
                 <Button variant="contained" onClick={saveUser} ><Trans i18nKey='Register.submit'>Submit</Trans></Button>
             </div>
