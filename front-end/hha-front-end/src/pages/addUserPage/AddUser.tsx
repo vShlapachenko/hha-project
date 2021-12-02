@@ -71,14 +71,14 @@ const AddUser: FC = () => {
             </div>
 
             <div className= {styles.emailInput} >                  
-                <Input userInput={email} type="text" label="" onChangeFunc={setEmailFunc} />
+                <input value={email} type="text" placeholder="Email" onChange={setEmailFunc} />
             </div>
 
             <div className={styles.confirmEmail}>
                 <h5 >Confirm email of a new user</h5>
             </div>
             <div className= {styles.confirmEmailInput} >                  
-                <Input userInput={confirmEmail} type="text" label="" onChangeFunc={setConfirmEmailFunc} />
+                <input value={confirmEmail} type="text" placeholder="Confirm Email" onChange={setConfirmEmailFunc} />
             </div>
 
             <div className={styles.chooseTypeAccount}>
@@ -91,14 +91,14 @@ const AddUser: FC = () => {
                 <h5 >Choose your password</h5>
             </div>
             <div className= {styles.password} >                  
-                <Input userInput={password} type="text" label="" onChangeFunc={setPasswordFunc} />
+                <input value={password} type="text" placeholder="Password" onChange={setPasswordFunc} />
             </div>
             <div className={styles.submitButton} >
-                <Button variant="contained" onClick={createAccount} >Submit</Button>
+                <Button sx={{ background: '#009CC4'}} variant="contained" onClick={createAccount} >Submit</Button>
             </div>
 
             <div className={styles.backToHomePage} >
-                <Button variant="contained" onClick={backToHomePage} >Back to Home Page</Button>
+                <Button sx={{ background: '#009CC4'}} variant="contained" onClick={backToHomePage} >Back to Home Page</Button>
             </div>
             </div>
         </div>
