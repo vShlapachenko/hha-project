@@ -17,7 +17,7 @@ public class FormController {
     }
 
     @PostMapping("submit")
-    public void creatForm(@RequestBody Form form) {
+    public void createForm(@RequestBody Form form) {
         formService.saveForm(form);
     }
 }
