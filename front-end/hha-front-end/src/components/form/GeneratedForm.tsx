@@ -21,8 +21,6 @@ import { style } from "@mui/system";
 import { Bar } from 'react-chartjs-2';
 import { ChartOptions } from 'chart.js';
 import { type } from "os";
-import GetAppIcon from '@mui/icons-material/GetApp';
-import { Trans, useTranslation } from 'react-i18next';
 
 type FormType = 'fill' | 'display'
 
@@ -56,8 +54,6 @@ const GeneratedForm = (props: FormProps) => {
   const [openConfirmDialog, setOpenConfirmDialog] = React.useState(false);
   const [openErrorDialog, setOpenErrorDialog] = React.useState(false);
   const [display, setDisplay] = useState<DisplayOption>('table')
-  
-  const {t, i18n} = useTranslation();
 
   const handleClickOpen = () => {
     setOpenConfirmDialog(true);
@@ -72,20 +68,20 @@ const GeneratedForm = (props: FormProps) => {
     const getForm = async () => {
       const formFromServer : Form = await fetchData()
       const newForm : Form = props.type == 'fill' ? {...formFromServer, tables: formFromServer.tables.map(t => (
-        {...t, subTables: t.subTables.map(st => (
-          {...st, columns: st.columns.map(c => (
-            {...c, cells: !c.cells || c.cells.length === 0 ? t.commonColumn.values.map((cc) => (
-              {
-                disabled: false,
-                value: undefined,
-                type: 'number'
-              }
-            ))
-          : c.cells
-        }))}
-        ))}
-      ))}
-      : formFromServer;
+                {...t, subTables: t.subTables.map(st => (
+                      {...st, columns: st.columns.map(c => (
+                            {...c, cells: !c.cells || c.cells.length === 0 ? t.commonColumn.values.map((cc) => (
+                                      {
+                                        disabled: false,
+                                        value: undefined,
+                                        type: 'number'
+                                      }
+                                  ))
+                                  : c.cells
+                            }))}
+                  ))}
+            ))}
+          : formFromServer;
       setForm(newForm)
     }
 
@@ -93,7 +89,7 @@ const GeneratedForm = (props: FormProps) => {
   }, []);
 
   const fetchData = async () => {
-    const res = props.type == 'fill' ? await fetch('http://localhost:5000/maternityForm') : await fetch(`http://localhost:5000/submittedForms/${props.formId}`);
+    const res = props.type == 'fill' ? await fetch('http://localhost:5000/form') : await fetch(`http://localhost:5000/submittedForms/${props.formId}`);
     const newForm = await res.json();
     return newForm;
   }
@@ -106,19 +102,13 @@ const GeneratedForm = (props: FormProps) => {
     }
   }
 
-  const onSaveDraft = () => {
-    if(props.type === 'display') {
-      props.exit();
-    }
-  }
-
   const proceedToNext = () => {
     if(form.tables && currentIndex[1] < form.tables[currentIndex[0]].subTables.length - 1) {
       setCurrentIndex([currentIndex[0], currentIndex[1] + 1])
     } else if(form.tables && currentIndex[0] < form.tables.length - 1) {
       setCurrentIndex([currentIndex[0] + 1, 0])
     }
-     else if(props.type === 'fill') {
+    else if(props.type === 'fill') {
       var isValid = true
       for(var t of form.tables) {
         for(var st of t.subTables) {
@@ -142,9 +132,9 @@ const GeneratedForm = (props: FormProps) => {
   }
 
   const onInputChange = (
-    e: React.ChangeEvent<HTMLInputElement>, 
-    colIndex: number,
-    cellIndex: number
+      e: React.ChangeEvent<HTMLInputElement>,
+      colIndex: number,
+      cellIndex: number
   ) => {
     form.tables[currentIndex[0]].subTables[currentIndex[1]].columns[colIndex].cells[cellIndex].value = Number(e.target.value)
     setForm({...form})
@@ -169,10 +159,10 @@ const GeneratedForm = (props: FormProps) => {
 
   const showConfirmDialog = () => {
     return <Dialog
-      open={openConfirmDialog}
-      onClose={handleClose}
-      aria-labelledby="alert-dialog-title"
-      aria-describedby="alert-dialog-description"
+        open={openConfirmDialog}
+        onClose={handleClose}
+        aria-labelledby="alert-dialog-title"
+        aria-describedby="alert-dialog-description"
     >
       <DialogTitle id="alert-dialog-title">
         {"Submit the form?"}
@@ -183,21 +173,21 @@ const GeneratedForm = (props: FormProps) => {
         </DialogContentText>
       </DialogContent>
       <DialogActions>
-        <Button onClick={handleClose}><Trans i18nKey='Generate.cancel'>Cancel</Trans></Button>
+        <Button onClick={handleClose}>Cancel</Button>
         <Button onClick={submitForm} autoFocus>
-          <Trans i18nKey='Generate.submit'>Submit</Trans>
+          Submit
         </Button>
-        <Button><Trans i18nKey='Generate.export'>Export to CSV</Trans></Button>
+        <Button>Export to CSV</Button>
       </DialogActions>
     </Dialog>
   }
 
   const showErrorDialog = () => {
     return <Dialog
-      open={openErrorDialog}
-      onClose={handleClose}
-      aria-labelledby="alert-dialog-title"
-      aria-describedby="alert-dialog-description"
+        open={openErrorDialog}
+        onClose={handleClose}
+        aria-labelledby="alert-dialog-title"
+        aria-describedby="alert-dialog-description"
     >
       <DialogTitle id="alert-dialog-title">
         {"Submission Falied!"}
@@ -208,72 +198,72 @@ const GeneratedForm = (props: FormProps) => {
         </DialogContentText>
       </DialogContent>
       <DialogActions>
-        <Button onClick={handleClose}><Trans i18nKey='Generate.ok'>Ok</Trans></Button>
+        <Button onClick={handleClose}>Ok</Button>
       </DialogActions>
     </Dialog>
   }
 
   const showTable = () => (
-    <TableContainer>
-      <h4 className={styles.test}>
-          {form.tables[currentIndex[0]].subTables[currentIndex[1]].label === '' 
+      <TableContainer>
+        <h4 className={styles.test}>
+          {form.tables[currentIndex[0]].subTables[currentIndex[1]].label === ''
               ? form.tables[currentIndex[0]].label
               : `${form.tables[currentIndex[0]].label} (${form.tables[currentIndex[0]].subTables[currentIndex[1]].label})`
-            }</h4>
-      <Table className={styles.table} area-aria-label='simple table' style={{backgroundColor: '#EEEEEE'}}>
-        <TableHead>
-          <TableRow className={styles.tableRow}>
-            <TableCell>{form.tables[currentIndex[0]].commonColumn.label}</TableCell>
-            {form.tables[currentIndex[0]].subTables[currentIndex[1]].columns.map((column) => (
-              <TableCell align="center">{column.label}</TableCell>
-            ))}
-          </TableRow>
-        </TableHead>
-        <TableBody>
-          {
-            form.tables[currentIndex[0]].commonColumn.values.map((label, cellIndex) => (
-              <TableRow
-                key={label}
-                className={styles.tableRow}
-              >
-                <TableCell className={styles.table} component='th' scope='row'>
-                  {label}
-                </TableCell>
-                {
-                  form.tables[currentIndex[0]].subTables[currentIndex[1]].columns.map((col, colIndex) => (
-                    col.cells[cellIndex] && col.cells[cellIndex].type ?
-                    <TableCell align="center">
-                      <input
-                        className={`${styles.input} ${props.type === 'display' && !col.cells[cellIndex].disabled ? styles.displayData : ''}`} 
-                        value={col.cells[cellIndex].value !== undefined ? col.cells[cellIndex].value?.toString() : ''} 
-                        type={col.cells[cellIndex].type}
-                        onChange={(e) => onInputChange(e, colIndex, cellIndex)}
-                        disabled={props.type === 'fill' ? col.cells[cellIndex].disabled : true}
-                        min={0}
-                      />
+          }</h4>
+        <Table className={styles.table} area-aria-label='simple table' style={{backgroundColor: '#EEEEEE'}}>
+          <TableHead>
+            <TableRow className={styles.tableRow}>
+              <TableCell>{form.tables[currentIndex[0]].commonColumn.label}</TableCell>
+              {form.tables[currentIndex[0]].subTables[currentIndex[1]].columns.map((column) => (
+                  <TableCell align="center">{column.label}</TableCell>
+              ))}
+            </TableRow>
+          </TableHead>
+          <TableBody>
+            {
+              form.tables[currentIndex[0]].commonColumn.values.map((label, cellIndex) => (
+                  <TableRow
+                      key={label}
+                      className={styles.tableRow}
+                  >
+                    <TableCell className={styles.table} component='th' scope='row'>
+                      {label}
                     </TableCell>
-                    : null
-                  ))
-                }
-              </TableRow>
-            ))
-          }
-        </TableBody>
-      </Table>
-    </TableContainer>
+                    {
+                      form.tables[currentIndex[0]].subTables[currentIndex[1]].columns.map((col, colIndex) => (
+                          col.cells[cellIndex] && col.cells[cellIndex].type ?
+                              <TableCell align="center">
+                                <input
+                                    className={`${styles.input} ${props.type === 'display' && !col.cells[cellIndex].disabled ? styles.displayData : ''}`}
+                                    value={col.cells[cellIndex].value !== undefined ? col.cells[cellIndex].value?.toString() : ''}
+                                    type={col.cells[cellIndex].type}
+                                    onChange={(e) => onInputChange(e, colIndex, cellIndex)}
+                                    disabled={props.type === 'fill' ? col.cells[cellIndex].disabled : true}
+                                    min={0}
+                                />
+                              </TableCell>
+                              : null
+                      ))
+                    }
+                  </TableRow>
+              ))
+            }
+          </TableBody>
+        </Table>
+      </TableContainer>
   )
 
   const showChart = () => {
     const datasets = form.tables[currentIndex[0]].subTables[currentIndex[1]].columns.map((c, index) => (
-      {
-        label: c.label,
-        data: c.cells.map((c) => {
-          if(!c.disabled) {
-            return c.value
-          }
-        }),
-        backgroundColor: colorList[index % colorList.length],
-      }
+        {
+          label: c.label,
+          data: c.cells.map((c) => {
+            if(!c.disabled) {
+              return c.value
+            }
+          }),
+          backgroundColor: colorList[index % colorList.length],
+        }
     ));
 
     const data = {
@@ -286,103 +276,91 @@ const GeneratedForm = (props: FormProps) => {
 
   if(form.tables.length === 0) {
     return(
-      <>
-      <Navbar />
-      <h1 className={styles.header}>{form.date}</h1>
-      </>
+        <>
+          <Navbar />
+          <h1 className={styles.header}>{form.date}</h1>
+        </>
     )
   } else {
     return (
-      <>
-        <Navbar />
-        <div className={styles.container}>
-          <div className={styles.sideMenuBackground}>
-          {
-            props.type === 'display' ?
-            <Button className={styles.exportBtn} style={props.chosenBtnStyle}>
-              <GetAppIcon />
-              <Trans i18nKey = 'Generate.export'>Export as CSV</Trans>
-            </Button>
-            : null
-          }
-            <div className={styles.sideMenu}>
-              <h3>{form.label + " (Preview)"}</h3>
-              {form.tables.map((table, tableIndex) => (
-                table.subTables.map((subTable, stIndex) => {
-                  return <Button 
-                    className={styles.menuBtn}
-                    style={(tableIndex === currentIndex[0] && stIndex == currentIndex[1]) ? props.chosenBtnStyle : props.notChosenBtnStyle}
-                    onClick={() => setCurrentIndex([tableIndex, stIndex])}
-                    >
-                      {subTable.label === '' 
-                        ? table.label
-                        : `${table.label} (${subTable.label})`
-                      }
-                  </Button>
-                  })
+        <>
+          <Navbar />
+          <div className={styles.container}>
+            <div className={styles.sideMenuBackground}>
+              <div className={styles.sideMenu}>
+                <h3>{form.label + ' (Preview)'}</h3>
+                {form.tables.map((table, tableIndex) => (
+                        table.subTables.map((subTable, stIndex) => {
+                          return <Button
+                              className={styles.menuBtn}
+                              style={(tableIndex === currentIndex[0] && stIndex == currentIndex[1]) ? props.chosenBtnStyle : props.notChosenBtnStyle}
+                              onClick={() => setCurrentIndex([tableIndex, stIndex])}
+                          >
+                            {subTable.label === ''
+                                ? table.label
+                                : `${table.label} (${subTable.label})`
+                            }
+                          </Button>
+                        })
+                    )
                 )
-              )
-              }
-            </div>
-          </div>
-          <div className={styles.mainContentBackgroud}>
-            <div className={styles.mainContent}>
-              <h2 className={styles.header}>{form.date}</h2>
-              {
-                props.type === 'display' ?
-                  <div className={styles.btns}>
-                    <Button
-                     className={styles.tabBtn} 
-                     style={display === 'table' ? props.chosenBtnStyle : props.notChosenBtnStyle}
-                     onClick={() => toggleDisplay('table')}
-                    >
-                      <Trans i18nKey='Generate.table'>Table</Trans>
-                    </Button>
-                    <Button
-                      className={styles.tabBtn} 
-                      style={display === 'chart' ? props.chosenBtnStyle : props.notChosenBtnStyle}
-                      onClick={() => toggleDisplay('chart')}
-                    >
-                      <Trans i18nKey='Generate.chart'>Chart</Trans>
-                    </Button>
-                  </div>
-                  : <></>
-              }
-              {
-                display === 'table'
-                  ? showTable()
-                  : showChart()
-              }
-              <div className={styles.btns}>
-                <Button onClick={onSaveDraft}>{props.type === 'fill' ? <Trans i18nKey='Generate.save'>Save as Draft</Trans> : <Trans i18nKey='Generate.exit'>Exit</Trans>}</Button>
-                {
-                  currentIndex[0] === 0 && currentIndex[1] === 0
-                    ? null
-                    : <Button 
-                    className={styles.btn}
-                    onClick={moveBack}
-                    >
-                      {props.type === 'fill' ? <Trans i18nKey='Generate.prev'>Move to the Previous Step</Trans> : <Trans i18nKey='Generate.back'>Back</Trans> }
-                    </Button>
-                }
-                {
-                  !(props.type === 'display' && currentIndex[0] === form.tables.length - 1 && currentIndex[1] === form.tables[currentIndex[0]].subTables.length - 1) ?
-                    <Button 
-                    className={styles.btn}
-                    onClick={proceedToNext}
-                    >{(currentIndex[0] === form.tables.length - 1 && currentIndex[1] === form.tables[currentIndex[0]].subTables.length - 1)
-                      ? props.type === 'fill' ? <Trans i18nKey='Generate.preview'>Preview</Trans> : <Trans i18nKey='Generate.exit'>Exit</Trans> 
-                      : props.type === 'fill' ? <Trans i18nKey='Generate.proceed_next'>Proceed to Next Step</Trans> : <Trans i18nKey='Generate.next'>Next</Trans>}
-                    </Button>
-                    : null
                 }
               </div>
             </div>
+            <div className={styles.mainContentBackgroud}>
+              <div className={styles.mainContent}>
+                <h2 className={styles.header}>{form.date}</h2>
+                {
+                  props.type === 'display' ?
+                      <div className={styles.btns}>
+                        <Button
+                            className={styles.tabBtn}
+                            style={display === 'table' ? props.chosenBtnStyle : props.notChosenBtnStyle}
+                            onClick={() => toggleDisplay('table')}
+                        >
+                          Table
+                        </Button>
+                        <Button
+                            className={styles.tabBtn}
+                            style={display === 'chart' ? props.chosenBtnStyle : props.notChosenBtnStyle}
+                            onClick={() => toggleDisplay('chart')}
+                        >
+                          Chart
+                        </Button>
+                      </div>
+                      : <></>
+                }
+                {
+                  display === 'table'
+                      ? showTable()
+                      : showChart()
+                }
+                <div className={styles.btns}>
+                  <Button>{props.type === 'fill' ? 'Save as Draft' : 'Export as CSV'}</Button>
+                  {
+                    currentIndex[0] === 0 && currentIndex[1] === 0
+                        ? null
+                        : <Button
+                            className={styles.btn}
+                            onClick={moveBack}
+                        >
+                          {props.type === 'fill' ? 'Move to the Previous Step' : 'Back' }
+                        </Button>
+                  }
+                  <Button
+                      className={styles.btn}
+                      onClick={proceedToNext}
+                  >{(currentIndex[0] === form.tables.length - 1 && currentIndex[1] === form.tables[currentIndex[0]].subTables.length - 1)
+                      ? props.type === 'fill' ? 'Preview' : 'Exit'
+                      : props.type === 'fill' ? 'Proceed to Next Step' : 'Next'}
+                  </Button>
+                </div>
+              </div>
+            </div>
           </div>
-        </div>
-        {showConfirmDialog()}
-        {showErrorDialog()}
-      </>
+          {showConfirmDialog()}
+          {showErrorDialog()}
+        </>
     )
   }
 }
