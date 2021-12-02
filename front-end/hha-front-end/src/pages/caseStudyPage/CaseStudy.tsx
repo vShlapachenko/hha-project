@@ -19,8 +19,10 @@ const CaseStudy: FC = () => {
     let caseStudyEntryLists: Array<any> = [];
     const caseStudyMap = new Map();
     const caseStudyAnswerMap = new Map();
+    const photoMapping = new Map();
     const [draftData, setDraftData] = useState(objArray);
     const [map, setMap] = useState(caseStudyMap);
+    const [draftStyle, setDraftStyle] = useState(false);
 
     const getCaseStudyWithoutQuotes = (caseStudyOption: any)=> {
         switch(caseStudyOption) {
@@ -48,11 +50,13 @@ const CaseStudy: FC = () => {
             const response = await CaseStudyService.createCaseStudy();
             let tempArray: Array<any> = [];
           
-            response.data.forEach(element => {  
+            response.data.forEach(element => {
                 let tempArrayEntryList: Array<any> = []; 
                 let tempArrayAnswers: Array<any> = [];            
                 const caseStudyName = getCaseStudyWithoutQuotes(JSON.stringify(element.caseName));
-                const caseStudyId = JSON.stringify(element.id);
+                const caseStudyId = JSON.stringify(element.id).replace(/[\?\"\(\)\']/g, "");
+                const caseStudyPhotoId = JSON.stringify(element.photoId).replace(/[\?\"\(\)\']/g, "");
+                
                 const entryListObj = element?.entryList;
                 entryListObj.forEach(element => {
                     const questions = element?.question;
@@ -71,7 +75,8 @@ const CaseStudy: FC = () => {
                 caseStudyAnswerMap.set(caseStudyId, tempArrayAnswers);
                 const buttonObj = {
                     caseStudyName,
-                    caseStudyId 
+                    caseStudyId,
+                    caseStudyPhotoId
                 }
                 tempArray.push(buttonObj);
             });
@@ -100,6 +105,7 @@ const CaseStudy: FC = () => {
     const emptyList: Array<any> = [];
     const [finalQuetionsAndAnswers, setFinalQuetionsAndAnswers] = useState(emptyList);
     const setDropdownFunc = useCallback(async (event) => {
+        setImageIsSet(false);
         // we only click the dropdown and not clicking the draft
         setDropdown(event.target.value);
         let response = await CaseStudyService.getQuestions(event.target.value);
@@ -107,38 +113,128 @@ const CaseStudy: FC = () => {
          return setQuestions(JSON.stringify(response.data.questions));
     },[]);
 
+    const splitString = (stringArray: string, splitChar: string) => {
+        let container: Array<string>;
+        stringArray = stringArray?.replace(/[\{\}\[\]]/g, "");
+        container = stringArray?.split(splitChar);
+        return container;
+    }
+
     const getQuestionsAndAnswers = useCallback(async (event: any) => {
-        const entryList =  map.get(event.target.id);
+        
+        const entryList =  map.get(event.target.id);  
         return setFinalQuetionsAndAnswers(entryList);
     },[]);
 
 
-    const getDrafts = (event: any) => {
-        setDropdown(event.target.value); // invoke the dropdown so that the draft can fill in the dropdown
+    const getDrafts = async (event: any) => {
+        await getPhotos();
+        let array = splitString(event.target.value, ",");
+        let arrayElementsWithoutDot: Array<any> = [];
+        array.forEach(element => {
+            arrayElementsWithoutDot.push(element);
+        });
+
+        const arrayStringMap = new Map();
+
+        for (let i = 0; i < arrayElementsWithoutDot.length; i++) {
+            let strippedResult = splitString(arrayElementsWithoutDot[i], ":");
+            arrayStringMap.set(i, strippedResult);
+        }
+
+        let finalCaseStudyName = arrayStringMap.get(0)[1].replace(/[\{\}\[\]\"]/g, "");
+        const finalCaseStudyPhotoId = arrayStringMap.get(2)[1].replace(/[\{\}\[\]\"]/g, "");
+        setDropdown(finalCaseStudyName); // invoke the dropdown so that the draft can fill in the dropdown
+        let src = photoMapping.get(finalCaseStudyPhotoId);
+
+        if (src === undefined) {
+            setImageIsSet(false);
+        }  else {
+            setImage(src);
+            setImageIsSet(true);
+        }
+        
         getQuestionsAndAnswers(event); // get the list of questions and answers and fill into the dropdown
         setQuestions("");
+        setDraftStyle(true);
     }
+
+    const [image, setImage] = useState("");
+    const [imageIsSet, setImageIsSet] = useState(false);
+  
+    const getPhotos = async () => {
+        try {
+            const response = await CaseStudyService.getPhotosByCurrentUser();
+            let photoArray = response.data;
+            for (let i = 0; i < photoArray.length; i++) {
+                var src = `data:image;base64,${photoArray[i].image.data}`;
+                photoMapping.set(photoArray[i].id,src);
+            }
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
+    const deleteDraft = async (event: any) => {
+        try {
+            const response = await CaseStudyService.deleteCaseStudyDraftById(event.target.id.replace(/[\?\"\(\)\']/g, ""));
+            console.log(response);
+            setTimeout(() => {
+                document.location.reload();
+            },1000);
+        } catch (error) {
+            console.log(error);
+            
+        }
+        
+    }
+
+    
 
     return (
         <div>
             <Navbar />
-            <div className={CaseStudyStyle.leftPane}>
-                <div>
-                    <h4>List of Drafts:</h4>
-                    {draftData.map((item, key) => {
-                        return <Button onClick={getDrafts} key={key} id={item.caseStudyId} value={item.caseStudyName}>{item.caseStudyName}</Button>
-                    })}
-                </div>
-                {/* <div>
-                    {entryList.map((item, key) => <ListItem key={key}><ListItemText primary={item} /></ListItem>)}
-                </div> */}
-            </div>
-            
             <div className={CaseStudyStyle.mainDiv}>
-                <Dropdown listItems={listItems} itemName={""} onChangeFunc={setDropdownFunc} initialValue={dropdown} />
-                {questions?<AddCaseStudy caseName={dropdown}  questions={questions} />:<></>}
-                {finalQuetionsAndAnswers?<AddCaseStudyDraft caseName={dropdown}  questionsAndAnswers={finalQuetionsAndAnswers} />:<></>}
+                <div className={CaseStudyStyle.leftPane}>
+                    <div className={CaseStudyStyle.leftPaneTitle}>
+                        <h4>Your previous drafts:</h4>
+                    </div>
+                    <div className={CaseStudyStyle.draftParentStyle}>
+                        {draftData.map((item, key) => {
+                            return <>
+                            <div className={CaseStudyStyle.draftButtonStyle}>
+                                <Button  onClick={getDrafts} key={key} id={item.caseStudyId} value={JSON.stringify(item)}>{item.caseStudyName}</Button>
+                                <div className={CaseStudyStyle.draftDeleteButton} >
+                                    <Button onClick={deleteDraft} variant="contained" size="small" key={key} id={item.caseStudyId} value={item.caseStudyName} color="error">Delete</Button>
+                                </div>
+                            </div>
+                            </>
+                        })}
+                    </div>
+                </div>
+                <div>
+                </div>
+                <div className={CaseStudyStyle.caseStudies}>
+                    <div className={CaseStudyStyle.castStudiesTitle}>
+                        <h1>Select different Case Study below to fill in:</h1>
+                    </div>
+                    <div className={CaseStudyStyle.caseStudiesDropdown}>
+                        <Dropdown listItems={listItems} itemName={""} onChangeFunc={setDropdownFunc} initialValue={dropdown} />
+                    </div>
+                    <div className={ draftStyle||questions?CaseStudyStyle.caseStudiesDropdownDisplayCustom:CaseStudyStyle.caseStudiesDropdownDisplay}>
+                        {questions?<AddCaseStudy caseName={dropdown}  questions={questions} />:<></>}
+                        {finalQuetionsAndAnswers?<AddCaseStudyDraft caseName={dropdown}  questionsAndAnswers={finalQuetionsAndAnswers} />:<></>}
+                        <div className={CaseStudyStyle.draftPhoto}>
+                            
+                            {imageIsSet?<div><p>Draft Photo Preview</p><img src={image} alt="no photo uploaded for this draft" width="200" height="200"  /></div>:<></>}
+                        </div>
+                    </div>
+                    
+                </div>
             </div>
+            <footer className={CaseStudyStyle.footer}>
+                Copyright © 2021 HHA Group | Sitemap | Site Designed and Powered by CMPT373 Group Pluto
+            </footer>
         </div>
     );
 }
