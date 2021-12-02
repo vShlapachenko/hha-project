@@ -34,8 +34,8 @@ const HomePage = () => {
         </h2>
 
         <div>
-            <Leaderboard FirstDepartmentName={points[0].department.name} SecondDepartmentName={points[1].department.name} ThirdDepartmentName={points[2].department.name} 
-            FirstPoints={points[0].monthPoints + " points"} SecondPoints={points[1].monthPoints + " points"} ThirdPoints={points[2].monthPoints + " points"} />
+            <Leaderboard FirstDepartmentName={points[0].depName} SecondDepartmentName={points[1].depName} ThirdDepartmentName={points[2].depName}
+            FirstPoints={points[0].depPoints + " points"} SecondPoints={points[1].depPoints + " points"} ThirdPoints={points[2].depPoints + " points"} />
         </div>
                     
         <h1 className = {styles.textTODO}>

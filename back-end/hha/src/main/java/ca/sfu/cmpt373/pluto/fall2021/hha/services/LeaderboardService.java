@@ -1,31 +1,38 @@
 package ca.sfu.cmpt373.pluto.fall2021.hha.services;
 
-import ca.sfu.cmpt373.pluto.fall2021.hha.models.CaseStudy;
 import ca.sfu.cmpt373.pluto.fall2021.hha.models.DepartmentPoints;
-import ca.sfu.cmpt373.pluto.fall2021.hha.models.HhaUser;
+import ca.sfu.cmpt373.pluto.fall2021.hha.models.DepartmentRank;
 import ca.sfu.cmpt373.pluto.fall2021.hha.repositories.DepartmentPointsRepository;
 import lombok.RequiredArgsConstructor;
-import org.springframework.data.mongodb.core.mapping.event.AbstractMongoEventListener;
-import org.springframework.data.mongodb.core.mapping.event.AfterSaveEvent;
 import org.springframework.scheduling.annotation.Scheduled;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
-@Component
 @Service
 @RequiredArgsConstructor
-public class LeaderboardService extends AbstractMongoEventListener<CaseStudy> {
+public class LeaderboardService {
     private final DepartmentPointsRepository departmentPointsRepository;
 
-    public List<DepartmentPoints> getMonthDesc() {
-        return departmentPointsRepository.findByOrderByMonthPointsDesc();
+    public List<DepartmentRank> getMonthDesc() {
+        return toMonthDepartmentRank(departmentPointsRepository.findByOrderByMonthPointsDesc());
     }
 
-    public List<DepartmentPoints> getYearDesc() {
-        return departmentPointsRepository.findByOrderByYearPointsDesc();
+    public List<DepartmentRank> getYearDesc() {
+        return toYearDepartmentRank(departmentPointsRepository.findByOrderByYearPointsDesc());
+    }
+
+    private List<DepartmentRank> toMonthDepartmentRank(List<DepartmentPoints> departmentPoints) {
+        return departmentPoints.stream().map(
+                departmentPoint -> new DepartmentRank(departmentPoint.getDepartment().getName(), departmentPoint.getMonthPoints())
+        ).collect(Collectors.toList());
+    }
+
+    private List<DepartmentRank> toYearDepartmentRank(List<DepartmentPoints> departmentPoints) {
+        return departmentPoints.stream().map(
+                departmentPoint -> new DepartmentRank(departmentPoint.getDepartment().getName(), departmentPoint.getYearPoints())
+        ).collect(Collectors.toList());
     }
 
     @Scheduled(cron = "0 0 0 1 1/1 *")
@@ -41,13 +48,5 @@ public class LeaderboardService extends AbstractMongoEventListener<CaseStudy> {
         for (DepartmentPoints points : departmentPointsRepository.findAll()) {
             points.setYearPoints(0);
         }
-    }
-
-    @Override
-    public void onAfterSave(AfterSaveEvent<CaseStudy> event){
-        HhaUser hhaUser = event.getSource().getSubmittedBy();
-        DepartmentPoints points = departmentPointsRepository.findByDepartment(hhaUser.getDepartment());
-        points.setMonthPoints(points.getMonthPoints() + 200);
-        departmentPointsRepository.save(points);
     }
 }

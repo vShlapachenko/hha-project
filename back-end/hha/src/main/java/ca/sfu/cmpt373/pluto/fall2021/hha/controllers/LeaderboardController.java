@@ -1,6 +1,7 @@
 package ca.sfu.cmpt373.pluto.fall2021.hha.controllers;
 
 import ca.sfu.cmpt373.pluto.fall2021.hha.models.DepartmentPoints;
+import ca.sfu.cmpt373.pluto.fall2021.hha.models.DepartmentRank;
 import ca.sfu.cmpt373.pluto.fall2021.hha.services.LeaderboardService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -20,12 +21,12 @@ public class LeaderboardController {
     }
 
     @GetMapping("monthDepartments")
-    public List<DepartmentPoints> getMonthDepartments() {
+    public List<DepartmentRank> getMonthDepartments() {
         return leaderboardService.getMonthDesc();
     }
 
     @GetMapping("yearDepartments")
-    public List<DepartmentPoints> getYearDepartments() {
+    public List<DepartmentRank> getYearDepartments() {
         return leaderboardService.getYearDesc();
     }
 }
