@@ -32,9 +32,8 @@ const HomePage = () => {
         <h2 className = {styles.textBest}>
             Best department of the month
         </h2>
-
         <div>
-            <Leaderboard FirstDepartmentName={points[0].depName} SecondDepartmentName={points[1].depName} ThirdDepartmentName={points[2].depName}
+            <Leaderboard FirstDepartmentName={points[0].depPoints + ""} SecondDepartmentName={points[1].depName} ThirdDepartmentName={points[2].depName}
             FirstPoints={points[0].depPoints + " points"} SecondPoints={points[1].depPoints + " points"} ThirdPoints={points[2].depPoints + " points"} />
         </div>
                     

@@ -18,7 +18,7 @@ db.department.insert([
     {"name": "NICUPEAD"},
     {"name": "MAT"},
     {"name": "REHAB"},
-    {"name": "COM_HEALTH"}
+    {"name": "COMMUNITY HEALTH"}
 ])
 
 departments = db.department.find().toArray()
@@ -42,15 +42,15 @@ db.createCollection('departmentPoints', {capped: false});
 db.departmentPoints.insert([
     {
         department: new DBRef('department', departments[0]._id),
-        monthPoints: 0,
+        monthPoints: 50,
         yearPoints: 0
     }, {
         department: new DBRef('department', departments[1]._id),
-        monthPoints: 0,
+        monthPoints: 20,
         yearPoints: 0
     }, {
         department: new DBRef('department', departments[2]._id),
-        monthPoints: 0,
+        monthPoints: 30,
         yearPoints: 0
     }, {
         department: new DBRef('department', departments[3]._id),
