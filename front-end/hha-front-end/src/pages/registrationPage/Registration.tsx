@@ -66,9 +66,6 @@ const Registration = () => {
         }
       }
 
-        
-    
-
     const setFirstNameFunc = (event: any) => {
         event.preventDefault();
         setFirstName(event.target.value);
@@ -106,81 +103,68 @@ const Registration = () => {
                 <img src={logo_HHA} className={registrationStyle.logoHHA} alt="logo" />
              </div>
             <div className={registrationStyle.alignment}>
-            <h5 className={registrationStyle.header}>Personal Information</h5>
-            <h6 className={registrationStyle.subHeader}>Enter your personal information below</h6>
-                 <div>
-                    <img src={logo_HHA} className={registrationStyle.logo} alt="logo" />
-                 </div>
                 <h5 className={registrationStyle.header}><Trans i18nKey = 'Register.title'>Personal Information</Trans></h5>
                 <h6 className={registrationStyle.subHeader}><Trans i18nKey = 'Register.body'>Enter your personal information below</Trans></h6>
-            </div>
-            <div className= {registrationStyle.name} >
-                <div className={registrationStyle.firstName}><Trans i18nKey = 'Register.first'>First name</Trans></div>
-                <div className={registrationStyle.lastName}><Trans i18nKey = 'Register.last'>Last name</Trans></div>
-            </div>
-            <div className={registrationStyle.first_last_name}>
-                <div className= {registrationStyle.firstNameInput} >                  
-                    <input className= {registrationStyle.nameInput}
-                           value={firstName}
-                           type="text"
-                           onChange={setFirstNameFunc}
-                           placeholder="First name"/>
+                <div className= {registrationStyle.name} >
+                    <div className={registrationStyle.firstName}><Trans i18nKey = 'Register.first'>First name</Trans></div>
+                    <div className={registrationStyle.lastName}><Trans i18nKey = 'Register.last'>Last name</Trans></div>
                 </div>
-                <div className= {registrationStyle.lastNameInput} >
-                    <input className= {registrationStyle.nameInput}
-                           value={lastName}
-                           type="text"
-                           onChange={setLastNameFunc}
-                           placeholder="Last name"/>
+                <div className={registrationStyle.first_last_name}>
+                    <div className= {registrationStyle.firstNameInput} >
+                        <input className= {registrationStyle.nameInput}
+                               value={firstName}
+                               type="text"
+                               onChange={setFirstNameFunc}
+                               placeholder="First name"/>
+                    </div>
+                    <div className= {registrationStyle.lastNameInput} >
+                        <input className= {registrationStyle.nameInput}
+                               value={lastName}
+                               type="text"
+                               onChange={setLastNameFunc}
+                               placeholder="Last name"/>
+                    </div>
                 </div>
-            </div>
-        
-            <div className={registrationStyle.assignEmail}>
-               <Trans i18nKey = 'Register.email'>Email assigned to you</Trans>
-            </div>
-            <div >
-                <input value="  staff@hha.com" className={registrationStyle.disableInput} disabled />
-            </div>
 
-            <div className= {registrationStyle.enterPassword} >
-                    Enter your password
-                <input className= {registrationStyle.input}
-                       value={password}
-                       type="password"
-                       onChange={setPasswordFunc}
-                       placeholder="Password"/>
+                <div className={registrationStyle.assignEmail}>
+                   <Trans i18nKey = 'Register.email'>Email assigned to you</Trans>
+                </div>
+                <div >
+                    <input value="  staff@hha.com" className={registrationStyle.disableInput} disabled />
+                </div>
+
+                <div className= {registrationStyle.enterPassword} >
                     <Trans i18nKey='Register.enter'>Enter your password</Trans>
-                <Input userInput={password} type="password" label="" onChangeFunc={setPasswordFunc} />
-            </div>
-            <div className={registrationStyle.confirmPassword}>
-                    Confirm your password
-                <input className= {registrationStyle.input}
-                       value={password}
-                       type="password"
-                       onChange={setConfirmPasswordFunc}
-                       placeholder="Password"/>
+                    <input className= {registrationStyle.input}
+                           value={password}
+                           type="password"
+                           onChange={setPasswordFunc}
+                           placeholder="Password"/>
+                </div>
+                <div className={registrationStyle.confirmPassword}>
                     <Trans i18nKey='Register.confirm'>Confirm your password</Trans>
-                <Input userInput={password} type="password" label="" onChangeFunc={setConfirmPasswordFunc} />
-            </div>
-            <div className={registrationStyle.enterPersonalStaffNumber }>
-                    Enter your personal staff number (optional)
-                <input className= {registrationStyle.input}
-                       value={personalStaffNumber}
-                       type="text"
-                       onChange={setPersonalStaffNumberFunc}
-                       placeholder="Personal Staff Number (Optional)"/>
+                    <input className= {registrationStyle.input}
+                           value={password}
+                           type="password"
+                           onChange={setConfirmPasswordFunc}
+                           placeholder="Password"/>
+                </div>
+                <div className={registrationStyle.enterPersonalStaffNumber }>
                     <Trans i18nKey='Register.personal'>Enter your personal staff number (optional)</Trans>
-                <Input userInput={personalStaffNumber} type="text" label="" onChangeFunc={setPersonalStaffNumberFunc} />
-            </div>
-            <div className={registrationStyle.choosePreferredLanguage }>
-                    <Trans i18nKey='Register.choose'>Choose your preferred language</Trans>
-                <Dropdown listItems={listItems} itemName={""} onChangeFunc={setDropdownFunc} initialValue={dropdown} />
-            </div>
-            <div className={registrationStyle.submitButton }>
-                <Button sx={{ background: '#009CC4'}}
-                        variant="contained" onClick={saveUser}>Submit</Button>
-            </div>
-                <Button variant="contained" onClick={saveUser} ><Trans i18nKey='Register.submit'>Submit</Trans></Button>
+                    <input className= {registrationStyle.input}
+                           value={personalStaffNumber}
+                           type="text"
+                           onChange={setPersonalStaffNumberFunc}
+                           placeholder="Personal Staff Number (Optional)"/>
+                </div>
+                <div className={registrationStyle.choosePreferredLanguage }>
+                        <Trans i18nKey='Register.choose'>Choose your preferred language</Trans>
+                    <Dropdown listItems={listItems} itemName={""} onChangeFunc={setDropdownFunc} initialValue={dropdown} />
+                </div>
+                <div className={registrationStyle.submitButton }>
+                    <Button sx={{ background: '#009CC4'}}
+                            variant="contained" onClick={saveUser}><Trans i18nKey='Register.submit'>Submit</Trans></Button>
+                </div>
             </div>
         </div>
     );

@@ -61,7 +61,7 @@ const EnterOTP: React.FC<PropsInterface> = (props): JSX.Element => {
     return (
         <div>
             <div className={styles.alignment}>
-                <h1 className={styles.header_1}>Enter OTP</h1>
+                <h1 className={styles.header_1}><Trans i18nKey ='EnterOTP.title'>Enter OTP</Trans></h1>
                 <div  className={styles.textInput}>
                     <input className={styles.input}
                         onChange={(e) => setUserOtp(e.target.value)}
@@ -71,14 +71,6 @@ const EnterOTP: React.FC<PropsInterface> = (props): JSX.Element => {
                         required={true}
                     />
                 </div>
-                <h1><Trans i18nKey ='EnterOTP.title'>Enter OTP</Trans></h1>
-                <input
-                    onChange={(e) => setUserOtp(e.target.value)}
-                    value={userOtp}
-                    type="text"
-                    placeholder="OTP"
-                    required={true}
-                />
 
                 <div className={styles.Button}>
                 <Button onClick={validateOTP}
@@ -90,17 +82,13 @@ const EnterOTP: React.FC<PropsInterface> = (props): JSX.Element => {
 
                 <div className={styles.link}>
                     <Link to="#" onClick={redirectToForgotPassword}>
-                        Enter email again?
+                        <Trans i18nKey = 'EnterOTP.enter_email'>Enter Email again?</Trans>
                     </Link>
                 </div>
 
                 <div className={styles.link}>
-                    <Link to="/">Login Page?</Link>
+                    <Link to="/"><Trans i18nKey ='EnterOTP.link'>Go Back to Login Page</Trans></Link>
                 </div>
-                <Link to="#" onClick={redirectToForgotPassword}>
-                    <Trans i18nKey = 'EnterOTP.enter_email'>Enter Email again?</Trans>
-                </Link>
-                <Link to="/"><Trans i18nKey ='EnterOTP.link'>Go Back to Login Page</Trans></Link>
             </div>
         </div>
     );

@@ -52,42 +52,27 @@ const ForgotPassword: React.FC<{}> = () => {
                 <EnterOTP disableOtpPage={disableOtpPage} email={email} />
             ) : (
                 <div className ={styles.alignment}>
-                    <h1 className={styles.header_1}>Enter your email</h1>
+                    <h1 className={styles.header_1}><Trans i18nKey ='ForgotPassword.title'>Enter your email</Trans></h1>
                     <div  className={styles.textInput}>
                         <input className={styles.input}
                             onChange={(e) => setEmail(e.target.value)}
                             value={email}
                             type="email"
-                            placeholder="Email"
+                            placeholder={t('ForgotPassword.email')}
                             required={true}
                         />
                     </div>
-                <div className={styles.alignment}>
-                    <h1><Trans i18nKey ='ForgotPassword.title'>Enter your email</Trans></h1>
-                    <input
-                        onChange={(e) => setEmail(e.target.value)}
-                        value={email}
-                        type="email"
-                        placeholder={t('ForgotPassword.email')}
-                        required={true}
-                    />
-
                     <div className={styles.Button}>
                         <Button onClick={handleSendOTP}
                                 sx={{background: '#009CC4'}}
                                 variant="contained">
-                            Get OTP by email
+                            <Trans i18nKey ='ForgotPassword.button'>Get OTP by Email</Trans>
                         </Button>
                     </div>
                     <div className={styles.link}>
-                        <Link to="/">Login Page</Link>
+                        <Link to="/"><Trans i18nKey ='ForgotPassword.link'>Go Back to Login Page</Trans></Link>
                     </div>
-                    <Button className={styles.ForgotButton} onClick={handleSendOTP}
-                            sx={{width: "488px", height: "42px", background: '#009CC4'}}
-                            variant="contained">
-                        <Trans i18nKey ='ForgotPassword.button'>Get OTP by Email</Trans>
-                    </Button>
-                    <Link to="/"><Trans i18nKey ='ForgotPassword.link'>Go Back to Login Page</Trans></Link>
+
                 </div>
             )}
         </div>

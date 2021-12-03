@@ -29,24 +29,24 @@ const Login: FC = () => {
             <img src={logo_HHA} className={styles.logoHHA} alt="logo" />
             <div className= {styles.alignment}>
            
-                <h1 className={styles.header_1}><b>Login</b></h1>
-                <div className={styles.plainText}>Enter your email and password to access the page </div>
+                <h1 className={styles.header_1}><b><Trans i18nKey ="Login.login">Login</Trans></b></h1>
+                <div className={styles.plainText}><Trans i18nKey = "Login.enter_your_email">Enter your email and password to access the page</Trans></div>
                 <div className={styles.emailInput}>
-                <div className={styles.plainText}><b>Username</b></div>
+                <div className={styles.plainText}><b><Trans i18nKey = "Login.username">Username</Trans></b></div>
                     <input className={styles.input}
                         onChange={e => setEmail(e.target.value)}
                         value={email}
                         type="text"
-                        placeholder="Email"
+                        placeholder={t('Login.username')}
                     />
                 </div>
                 <div className={styles.passwordInput}>
-                <div className={styles.plainText}><b>Password</b></div>
+                <div className={styles.plainText}><b>{t("Login.password")}</b></div>
                     <input className={styles.input}
                         onChange={e => setPassword(e.target.value)}
                         value={password}
                         type="password"
-                        placeholder="Password"
+                        placeholder={t('Login.password')}
                     />
                 </div>
                 <div className={styles.loginButton}>
@@ -54,61 +54,26 @@ const Login: FC = () => {
                             sx={{width: "475px", height: "42px", background: '#009CC4'}}
                             variant="contained"
                             onClick={onClickFunc}>
-                        Login
+                        <Trans i18nKey = 'Login.login'>
+                            Login
+                        </Trans>
                     </Button>
                 </div>
                 <div className={styles.link}>
-                    <a href="./forgotPassword">Forgot Password</a>
+                    <a href="./forgotPassword">{t("Login.forgot_password")}</a>
                     <br/>
                 </div>
 
                 <div className={styles.plainText}>
+                    <Trans i18nKey = 'Login.difficulties'>
                     <p>If you are having any difficulties connecting
                     to your account, <br/>please contact your <b>IT service </b>or
                         <b> HHA representative</b> <br/>at <b>support@hha.com</b>
                     </p>
+                    </Trans>
                 </div>
-            <h1><b><Trans i18nKey ="Login.login">Login</Trans></b></h1>
-            <div className={styles.plainText}><Trans i18nKey = "Login.enter_your_email">Enter your email and password to access the page</Trans> </div>
-            <br />
-            <div className={styles.textInput}>
-            <div className={styles.plainText}><b><Trans i18nKey = "Login.username">Username</Trans></b></div>
-                <input
-                    onChange={e => setEmail(e.target.value)}
-                    value={email}
-                    type="text"
-                    placeholder={t('Login.username')}
-                />
+
             </div>
-            <div className={styles.textInput}>
-            <br />
-            <div className={styles.plainText}><b>{t("Login.password")}</b></div>
-                <input
-                    onChange={e => setPassword(e.target.value)}
-                    value={password}
-                    type="password"
-                    placeholder={t('Login.password')}
-                />
-            </div>
-            <a href="./forgotPassword">{t("Login.forgot_password")}</a>
-            <br />
-            <br />
-            <Button className= {styles.loginButton}
-                    sx={{width: "475px", height: "42px", background: '#009CC4'}}
-                    variant="contained"
-                    onClick={onClickFunc}>
-                <Trans i18nKey = 'Login.login'>
-                    Login
-                </Trans>
-            </Button>
-            <br />
-            <br />
-            <div className={styles.plainText}>
-                <Trans i18nKey = 'Login.difficulties'>
-                    If you are having any difficulties connecting to your account, please contact your <b>IT service</b> or <b>HHA representative</b> at <b>support@hha.com</b>
-                </Trans>
-            </div>
-        </div>
         </div>
     );
 };
