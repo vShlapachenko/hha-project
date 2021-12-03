@@ -13,6 +13,7 @@ import Typography from '@mui/material/Typography';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import Navbar from "../../Navbar/Navbar";
 import styles from './case_Study.module.css'
+import { Trans, useTranslation } from "react-i18next";
 
 
 interface CaseStudyAttributes {
@@ -49,6 +50,7 @@ const Patient_Story = ({patient_image, case_image, heading, patient_name = '', p
     reason_hcbh, duration_hcbh,  diagnosis= '', story, employee_story}: CaseStudyAttributes) => {
     
     const [expanded, setExpanded] = React.useState(false);
+    const {t,i18n} = useTranslation();
     const handleExpandClick = () => {
         setExpanded(!expanded);
     };
@@ -80,22 +82,22 @@ const Patient_Story = ({patient_image, case_image, heading, patient_name = '', p
                                 </div>
                             }
                             
-                            {patient_name && <Chip label={'Patient`s Name: ' + patient_name}/> }
-                            {patient_age && <Chip label={'Patient`s Age: ' + patient_age}/> }
+                            {patient_name && <Chip label={<Trans i18nKey='Case.name'>Patient`s Name: </Trans> + patient_name}/> }
+                            {patient_age && <Chip label={<Trans i18nKey='Case.age'>Patient`s Age: </Trans> + patient_age}/> }
                             
                         </Typography>
                     </CardContent>
 
                     <CardActions disableSpacing>
                         <div className={styles.expand}>
-                            <h3>Click on this arrow to learn more</h3>
+                            <h3><Trans i18nKey='Case.click'>Click on this arrow to learn more</Trans></h3>
                         </div>
                         
                         <ExpandMore
                             expand={expanded}
                             onClick={handleExpandClick}
                             aria-expanded={expanded}
-                            aria-label="show more"
+                            aria-label={t('Case.show')}
                             >
                         <ExpandMoreIcon />
                         </ExpandMore>
@@ -107,10 +109,10 @@ const Patient_Story = ({patient_image, case_image, heading, patient_name = '', p
                             <div className={styles.moreInfo}>
                                 <CardContent>
                                         <Typography variant="body2" color="text.secondary">
-                                        {patient_location && <Chip sx={{marginLeft: -3, marginRight: 2}} label={'Patient`s Location: ' + patient_location}/> }
-                                        {reason_hcbh && <Chip label={'Reason: ' + reason_hcbh}/> }
-                                        {duration_hcbh && <Chip sx={{marginLeft: -3, marginTop: 2}} label={'Duration at HCBH: ' + duration_hcbh}/> }
-                                        {diagnosis && <Chip sx={{marginLeft: -3, marginTop: 2}} label={'Patient`s Diagnosis: ' + diagnosis}/> } 
+                                        {patient_location && <Chip sx={{marginLeft: -3, marginRight: 2}} label={<Trans i18nKey='Case.location'>Patient`s Location: </Trans> + patient_location}/> }
+                                        {reason_hcbh && <Chip label={<Trans i18nKey='Case.reason'>Reason: </Trans> + reason_hcbh}/> }
+                                        {duration_hcbh && <Chip sx={{marginLeft: -3, marginTop: 2}} label={<Trans i18nKey='Case.duration'>Duration at HCBH: </Trans> + duration_hcbh}/> }
+                                        {diagnosis && <Chip sx={{marginLeft: -3, marginTop: 2}} label={<Trans i18nKey='Case.diagnosis'>Patient`s Diagnosis: </Trans> + diagnosis}/> } 
                                         </Typography>
                                 </CardContent>
                             </div>

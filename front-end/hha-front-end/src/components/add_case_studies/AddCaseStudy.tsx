@@ -11,6 +11,7 @@ import { CaseStudy } from "../../models/CaseStudy";
 import AddCaseStudyStyle from "./AddCaseStudy.module.css";
 import { Button } from "@mui/material";
 import Alert from '@mui/material/Alert';
+import { Trans, useTranslation } from "react-i18next";
 
 interface listName {
     caseName: string
@@ -20,6 +21,7 @@ interface listName {
 const AddCaseStudy = ({caseName, questions}: listName) => {
     const history = useHistory();
     const [alert, setAlert] = useState(false);
+    const {t,i18n} = useTranslation();
     const splitString = (stringArray: string) => {
         let container: Array<string>;
         stringArray = stringArray?.replace(/[\{\}\[\]]/g, " ");
@@ -30,11 +32,11 @@ const AddCaseStudy = ({caseName, questions}: listName) => {
     let listOfQuestions = splitString(questions);
 
     const CASE_STUDY_OPTIONS = {
-        PATIENT_STORY: "Patient Story",
-        STAFF_RECOGNIZATION: "Staff Recognization",
-        TRAINING_SESSION: "Training Session",
-        EQUIMENT_RECEIVED: "Equipment Received",
-        OTHER_STORY: "Other Story"
+        PATIENT_STORY: <Trans i18nKey='Add_case.story'>Patient Story</Trans>,
+        STAFF_RECOGNIZATION: <Trans i18nKey='Add_case.staff'>Staff Recognization</Trans>,
+        TRAINING_SESSION: <Trans i18nKey='Add_case.training'>Training Session</Trans>,
+        EQUIMENT_RECEIVED: <Trans i18nKey='Add_case.equipment'>Equipment Received</Trans>,
+        OTHER_STORY: <Trans i18nKey='Add_case.submit'>Other Story</Trans>
     }
 
     let initialArray: any = [];
@@ -78,7 +80,7 @@ const AddCaseStudy = ({caseName, questions}: listName) => {
     }
 
     const renderAlert =() => {
-        return <Alert severity="success">saved success!</Alert>;
+        return <Alert severity="success"><Trans i18nKey='Add_case.success'>saved success!</Trans></Alert>;
     }
 
     const renderNothing =() => {
@@ -93,12 +95,12 @@ const AddCaseStudy = ({caseName, questions}: listName) => {
                <div>
                     <h5>{item}</h5>
                     {item?<Input key={item} userInput={answer} type="text" label="" onChangeFunc={setPatientNameFunc} />: <div></div>}
-                    <Button variant="outlined" onClick={submitSave} >save</Button>
+                    <Button variant="outlined" onClick={submitSave} ><Trans i18nKey='Add_case.save'>save</Trans></Button>
                   
                </div>
                )
            })} 
-           <Button variant="contained" onClick={submitAnswer} >Submit</Button>
+           <Button variant="contained" onClick={submitAnswer} ><Trans i18nKey='Add_case.submit'>Submit</Trans></Button>
           
         </div>
     )
