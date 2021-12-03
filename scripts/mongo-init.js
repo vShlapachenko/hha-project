@@ -114,7 +114,7 @@ db.caseTemplate.insert([
 db.createCollection('communityHealth', {capped: false});
 db.communityHealth.insert([
     {
-    name: "Community Health",
+    label: "Community Health",
     date: "September 2021",
     tables: [
         {
@@ -632,7 +632,7 @@ db.communityHealth.insert([
 db.createCollection('NICUPaeds', {capped: false});
 db.NICUPaeds.insert([
     {
-        name: "NICU/PAED MONTHLY DATA COLLECTION",
+        label: "NICU/PAED MONTHLY DATA COLLECTION",
         date: "September 2021",
         tables: [
             {
@@ -867,7 +867,7 @@ db.NICUPaeds.insert([
 db.createCollection('maternity', {capped: false});
 db.maternity.insert([
     {
-        name: "MATERNITY DATA COLLECTION",
+        label: "MATERNITY DATA COLLECTION",
         date: "Septemper 2021",
         tables: [
             {
@@ -1210,7 +1210,7 @@ db.maternity.insert([
 db.createCollection('rehab', {capped: false});
 db.rehab.insert([
     {
-    name: "REHAB MONTHLY DATA COLLECTION",
+    label: "REHAB MONTHLY DATA COLLECTION",
     date: "Septemper 2021",
     tables: [
         {
