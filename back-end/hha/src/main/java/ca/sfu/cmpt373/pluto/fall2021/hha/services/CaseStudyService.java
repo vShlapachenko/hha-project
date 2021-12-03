@@ -49,6 +49,11 @@ public class CaseStudyService {
                 .orElseThrow(() -> new IllegalArgumentException("CaseStudy with ID ==== " + id + " Does not exist"));
     }
 
+
+    public List<CaseStudy> getAllCaseStudies() {
+        return caseStudyRepository.findAll();
+    }
+
     public List<CaseStudyDraft> createCaseStudy(Principal principal) {
         HhaUser hhaUser = hhaUserService.getUser(principal.getName());
         return getDraft(hhaUser);
@@ -62,11 +67,22 @@ public class CaseStudyService {
         return caseStudyTemplateRepository.findByName(caseName);
     }
 
-    public Photo savePhoto(MultipartFile file) throws IOException {
+    public List<Photo> getAllPhotos() {
+        return photoRepository.findAll();
+    }
+
+    public List<Photo> getPhotosByCurrentUser(Principal principal) {
+        HhaUser hhaUser = hhaUserService.getUser(principal.getName());
+        return photoRepository.findAllBySubmittedBy(hhaUser);
+    }
+
+    public Photo savePhoto(Principal principal, MultipartFile file) throws IOException {
+        HhaUser hhaUser = hhaUserService.getUser(principal.getName());
         Photo photo = new Photo();
         photo.setImage(
                 new Binary(BsonBinarySubType.BINARY, file.getBytes())
         );
+        photo.setSubmittedBy(hhaUser);
         photoRepository.insert(photo);
 
         return photo;
@@ -85,5 +101,10 @@ public class CaseStudyService {
     public void saveCaseStudyDraft(Principal principal, CaseStudyDraft caseStudyDraft) {
         caseStudyDraft.setSubmittedBy(hhaUserService.getUser(principal.getName()));
         caseStudyDraftRepository.insert(caseStudyDraft);
+    }
+
+
+    public void deleteCasetStudyDraftById(String id) {
+        caseStudyDraftRepository.deleteById(id);
     }
 }
