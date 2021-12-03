@@ -22,17 +22,25 @@ const AddCaseStudy = ({caseName, questions}: listName) => {
     const history = useHistory();
     const [alert, setAlert] = useState(false);
     const { store } = useContext(Context);
-    const userEmail = store.getUserEmail();
-    const [photo, setPhoto] = useState("");
+    const [pho, setPho] = useState("");
+    const [photoId, setPhotoId] = useState("");
 
     const [submitDrafAlert, setSubmitDrafAlert] = useState(false);
     const [submitAnswerAlert, setSubmitAnswerAlert] = useState(false);
+    const [shouldRenderFailAlert, setShouldRenderFailAlert] = useState(false);
+    const [submitPhotoAlert, setSubmitPhotoAlert] = useState(false);
+
+    const userEmail: any = store.getUserEmail();
 
     const splitString = (stringArray: string) => {
         let container: Array<string>;
-        stringArray = stringArray?.replace(/[\{\}\[\]]/g, " ");
+        stringArray = stringArray?.replace(/[\{\}\[\]]/g, "");
         container = stringArray?.split(",");
         return container;
+    }
+
+    const formatQuestions = (item: any) => {
+        return item.replace(/[\)\"\(]/g, "");
     }
 
     let listOfQuestions = splitString(questions);
@@ -60,21 +68,23 @@ const AddCaseStudy = ({caseName, questions}: listName) => {
     }
 
     const submitSave = (event: any) => {
-        console.log(event.target.value + "s");
-        
         event.preventDefault();
         if (answer === "") {
+            setShouldRenderFailAlert(true);
+            setAlert(false);
             console.log("failed to save from save button");
             return;
         }
 
         setAlert(true);
+        setShouldRenderFailAlert(false);
         const obj = {
             question: event.target.value,
             answer
         }
         setArray([...array, obj]);
         setDraftArray([...draftArray, answer]);
+        setAnswer("");
     }
 
 
@@ -91,11 +101,11 @@ const AddCaseStudy = ({caseName, questions}: listName) => {
             "caseName": caseName,
             "submittedDate": null,
             "entryList": array,
-            "photo": null
+            "photoId": photoId
         }
 
         try {
-            const response = await CaseStudyService.submitAnswers(body.id, body.submittedBy, body.caseName, body.submittedDate, body.entryList, body.photo);
+            const response = await CaseStudyService.submitAnswers(body.id, body.submittedBy, body.caseName, body.submittedDate, body.entryList, body.photoId);
             console.log(response);
             setSubmitAnswerAlert(true);
         } catch (e) {
@@ -112,27 +122,33 @@ const AddCaseStudy = ({caseName, questions}: listName) => {
             return;
         }
 
-        const formData = new FormData();
-        // Upload photo is not done yet!
+        const photoArray = [];
+        const photo = new FormData();
+        
+        photo.append(
+            "file",
+            pho,
+          );
 
         // Update the formData object
-        formData.append(
-          "myFile",
-          photo,
-        );
-
+        
+        photoArray.push(photo);
+        
         const body = {
             "submittedBy": null,
             "caseName": caseName,
             "entryList": array,
-            "photo": formData
+            "photoId": photoId
         }
         
         try {
-            const response = await CaseStudyService.submitAnswersAsDraft(body.caseName, body.submittedBy, body.entryList, body.photo);
+            const response = await CaseStudyService.submitAsDraft(body.caseName, body.submittedBy, body.entryList, body.photoId);
             console.log(response);
             setSubmitDrafAlert(true);
-            // history.push("/");
+            setTimeout(() => {
+                document.location.reload();
+            },1000);
+            
         } catch (e) {
             console.log(e);
         }
@@ -144,12 +160,21 @@ const AddCaseStudy = ({caseName, questions}: listName) => {
         return <Alert severity="success">submit draft success!</Alert>;
     }
 
+    const submitPhotoSuccess = () => {
+        return <Alert severity="success">submit Photo success!</Alert>;
+    }
+
+
     const sumbitSuccess =() => {
         return <Alert severity="success">submit success!</Alert>;
     }
 
     const renderAlert =() => {
         return <Alert severity="success">saved success!</Alert>;
+    }
+
+    const renderFailAlert =() => {
+        return <Alert severity="error">Please put in content to save!</Alert>;
     }
 
     const renderNothing =() => {
@@ -159,65 +184,64 @@ const AddCaseStudy = ({caseName, questions}: listName) => {
     const [photoName, setPhotoName] = useState("");
 
     const onFileUpload = async () => {
-    
         // Create an object of formData
-        const formData = new FormData();
-        let jsonBodyData = { 'someKey': 'someValue' };
-        // Update the formData object
-        formData.append(
-          "myFile",
-          photo
+        const photo = new FormData();
+
+        photo.append(
+            "file",
+            pho
         );
 
         try {
-            // const response = await CaseStudyService.createCaseStudy();
-            // console.log(response);
-            // history.push("/");
-
-            const addPhotoResponse = await CaseStudyService.addPhoto(formData);
-            console.log(addPhotoResponse);
+            const addPhotoResponse = await CaseStudyService.addPhoto(photo);
+            setSubmitPhotoAlert(true);
+            setPhotoId(addPhotoResponse.data.id);
         } catch (e) {
             console.log(e);
         }
-      };
+    };
 
     
     const onFileChange = async (event: any) => {
-        // console.log("the email of the user is ", localStorage.getItem("email"));
-        
         event.preventDefault();
               
         if (event.target.files[0]) {
             console.log(event.target.files[0].name); 
             setPhotoName(event.target.files[0].name);
-            setPhoto(event.target.files[0]);
+            setPho(event.target.files[0]);
         }
         
-      };
+    };
+
+
 
     return (
         <div>
              {alert?renderAlert(): renderNothing()}
+             {shouldRenderFailAlert?renderFailAlert():renderNothing()}
            {listOfQuestions.map((item, key) => {
                return( 
                <div>
-                    <h5>{item}</h5>
-                    {item?<Input key={item} userInput={answer} type="text" label="" onChangeFunc={setPatientNameFunc} />: <div></div>}
+                   <div className={AddCaseStudyStyle.questions}>
+                        <h3>{formatQuestions(item)}</h3>
+                   </div>
+                    {item?<Input key={item} userInput={answer} type="text" label="" onChangeFunc={setPatientNameFunc} sx={{width: "43rem"}}/>: <div></div>}
                     <Button variant="outlined" onClick={submitSave} value={item} >save</Button>
                </div>
                )
            })} 
            
-           <div>
-                <input type="file" onChange={onFileChange} />
-                <button onClick={onFileUpload}>
-                  Upload
-                </button>
-            </div>
+           {submitPhotoAlert?submitPhotoSuccess(): renderNothing()}
+           <div className={AddCaseStudyStyle.uploadSection} >
+           <label htmlFor="file-upload" className={AddCaseStudyStyle.fileUpload}>
+                <input id="file-upload" type="file" onChange={onFileChange} />
+            </label>
+                <Button variant="contained" onClick={onFileUpload} className={AddCaseStudyStyle.uploadSectionButton}>Upload Photo</Button>
+            </div> 
             {submitDrafAlert?submitDraftSuccess(): renderNothing()}
             {submitAnswerAlert?sumbitSuccess(): renderNothing()}
-           <Button variant="contained" onClick={submitDraftAnswer} >Submit Draft</Button>
-           <Button variant="contained" onClick={submitAnswer} >Submit</Button>
+           <Button variant="contained" onClick={submitDraftAnswer} >Submit As Draft</Button>
+           <Button variant="contained" onClick={submitAnswer} >Submit Now!</Button>
         </div>
     )
 }
