@@ -4,6 +4,7 @@ import { observer } from "mobx-react-lite";
 import { Link, useHistory } from "react-router-dom";
 import styles from "./ForgotPassword.module.css";
 import {Button} from "@mui/material";
+import {Trans, useTranslation} from 'react-i18next'
 
 interface PropsInterface {
     disableOtpPage: () => void;
@@ -14,6 +15,8 @@ const EnterOTP: React.FC<PropsInterface> = (props): JSX.Element => {
     const { store } = useContext(Context);
     const history = useHistory();
     const [storeOtp, setStoreOtp] = useState<string>("");
+
+    const {t, i18n} = useTranslation();
 
     const redirectToForgotPassword = () => {
         props.disableOtpPage();
@@ -68,12 +71,20 @@ const EnterOTP: React.FC<PropsInterface> = (props): JSX.Element => {
                         required={true}
                     />
                 </div>
+                <h1><Trans i18nKey ='EnterOTP.title'>Enter OTP</Trans></h1>
+                <input
+                    onChange={(e) => setUserOtp(e.target.value)}
+                    value={userOtp}
+                    type="text"
+                    placeholder="OTP"
+                    required={true}
+                />
 
                 <div className={styles.Button}>
                 <Button onClick={validateOTP}
                         sx={{background: '#009CC4'}}
                         variant="contained">
-                    Validate OTP
+                    <Trans i18nKey ='EnterOTP.validate'>Validate OTP</Trans>
                 </Button>
                 </div>
 
@@ -86,6 +97,10 @@ const EnterOTP: React.FC<PropsInterface> = (props): JSX.Element => {
                 <div className={styles.link}>
                     <Link to="/">Login Page?</Link>
                 </div>
+                <Link to="#" onClick={redirectToForgotPassword}>
+                    <Trans i18nKey = 'EnterOTP.enter_email'>Enter Email again?</Trans>
+                </Link>
+                <Link to="/"><Trans i18nKey ='EnterOTP.link'>Go Back to Login Page</Trans></Link>
             </div>
         </div>
     );

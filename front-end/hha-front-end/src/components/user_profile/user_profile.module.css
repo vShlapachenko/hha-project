@@ -80,7 +80,20 @@
     box-sizing: border-box;
     border-radius: 4px;
 }
-
+.change_lang{
+    position: absolute;
+    width: 488px;
+    height: 40px;
+    left: calc(50% - 488px/2);
+    top: 300px;
+}
+.lang_button{
+    position: absolute;
+    width: 488px;
+    height: 40px;
+    left: calc(50% - 400px/2);
+    top: 330px;
+}
 .change_pass_button{
     display: flex;
     flex-direction: row;

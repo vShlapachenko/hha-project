@@ -6,12 +6,15 @@ import EnterOTP from "./EnterOTP";
 import styles from "./ForgotPassword.module.css";
 import logo_HHA from "../../pages/loginPage/logo.svg";
 import {Button} from "@mui/material";
+import {Trans, useTranslation} from 'react-i18next';
 
 const ForgotPassword: React.FC<{}> = () => {
 
     const [email, setEmail] = useState<string>("");
     const { store } = useContext(Context);
     const [showOTP, setShowOtp] = useState(false);
+
+    const {t, i18n} = useTranslation();
 
     useEffect(()=>{
         if(store.otp.toString().length === 6){
@@ -59,6 +62,15 @@ const ForgotPassword: React.FC<{}> = () => {
                             required={true}
                         />
                     </div>
+                <div className={styles.alignment}>
+                    <h1><Trans i18nKey ='ForgotPassword.title'>Enter your email</Trans></h1>
+                    <input
+                        onChange={(e) => setEmail(e.target.value)}
+                        value={email}
+                        type="email"
+                        placeholder={t('ForgotPassword.email')}
+                        required={true}
+                    />
 
                     <div className={styles.Button}>
                         <Button onClick={handleSendOTP}
@@ -70,6 +82,12 @@ const ForgotPassword: React.FC<{}> = () => {
                     <div className={styles.link}>
                         <Link to="/">Login Page</Link>
                     </div>
+                    <Button className={styles.ForgotButton} onClick={handleSendOTP}
+                            sx={{width: "488px", height: "42px", background: '#009CC4'}}
+                            variant="contained">
+                        <Trans i18nKey ='ForgotPassword.button'>Get OTP by Email</Trans>
+                    </Button>
+                    <Link to="/"><Trans i18nKey ='ForgotPassword.link'>Go Back to Login Page</Trans></Link>
                 </div>
             )}
         </div>

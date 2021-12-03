@@ -21,6 +21,8 @@ import { style } from "@mui/system";
 import { Bar } from 'react-chartjs-2';
 import { ChartOptions } from 'chart.js';
 import { type } from "os";
+import GetAppIcon from '@mui/icons-material/GetApp';
+import { Trans, useTranslation } from 'react-i18next';
 
 type FormType = 'fill' | 'display'
 
@@ -54,6 +56,8 @@ const GeneratedForm = (props: FormProps) => {
   const [openConfirmDialog, setOpenConfirmDialog] = React.useState(false);
   const [openErrorDialog, setOpenErrorDialog] = React.useState(false);
   const [display, setDisplay] = useState<DisplayOption>('table')
+
+  const {t, i18n} = useTranslation();
 
   const handleClickOpen = () => {
     setOpenConfirmDialog(true);
@@ -173,11 +177,11 @@ const GeneratedForm = (props: FormProps) => {
         </DialogContentText>
       </DialogContent>
       <DialogActions>
-        <Button onClick={handleClose}>Cancel</Button>
+        <Button onClick={handleClose}><Trans i18nKey='Generate.cancel'>Cancel</Trans></Button>
         <Button onClick={submitForm} autoFocus>
-          Submit
+          <Trans i18nKey='Generate.submit'>Submit</Trans>
         </Button>
-        <Button>Export to CSV</Button>
+        <Button><Trans i18nKey='Generate.export'>Export to CSV</Trans></Button>
       </DialogActions>
     </Dialog>
   }
@@ -198,7 +202,7 @@ const GeneratedForm = (props: FormProps) => {
         </DialogContentText>
       </DialogContent>
       <DialogActions>
-        <Button onClick={handleClose}>Ok</Button>
+        <Button onClick={handleClose}><Trans i18nKey='Generate.ok'>Ok</Trans></Button>
       </DialogActions>
     </Dialog>
   }
@@ -366,4 +370,3 @@ const GeneratedForm = (props: FormProps) => {
 }
 
 export default GeneratedForm
-

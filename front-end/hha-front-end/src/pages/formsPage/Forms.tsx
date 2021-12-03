@@ -19,6 +19,7 @@ import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 import { style } from "@mui/system";
 import GeneratedForm from '../../components/form/GeneratedForm'
+import { Trans, useTranslation } from 'react-i18next'
 
 const notChosenBtnStyle: CommonProps["style"] = {
   backgroundColor: '#EEEEEE',
@@ -37,6 +38,8 @@ type FormOption = 'fill' | 'display'
 const Forms: FC = () => {
   const [option, setOption] = useState<FormOption>()
 
+  const {t,i18n} = useTranslation();
+
   const exit = () => {
     setOption(undefined)
   }
@@ -49,13 +52,13 @@ const Forms: FC = () => {
           style={chosenBtnStyle}
           onClick={() => setOption('fill')}
         >
-          Fill The Form
+          <Trans i18nKey = 'Form.fill'>Fill The Form</Trans>
         </Button>
         <Button
           style={notChosenBtnStyle}
           onClick={() => setOption('display')}
         >
-          Display The Form
+          <Trans i18nKey = 'Form.display'>Display The Form</Trans>
         </Button>
       </>
     );

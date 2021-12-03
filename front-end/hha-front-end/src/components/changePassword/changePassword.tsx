@@ -4,7 +4,7 @@ import logo_HHA from "../../pages/loginPage/logo.svg";
 import styles from "./changePassword.module.css"
 import {useHistory} from "react-router-dom";
 import {Button} from "@mui/material";
-
+import { useTranslation, Trans } from "react-i18next";
 const ChangePassword: React.FC<{}> = () => {
     const [oldPassword, setOldPassword] = useState<string>("");
     const [newPassword, setNewPassword] = useState<string>("");
@@ -33,17 +33,21 @@ const ChangePassword: React.FC<{}> = () => {
         }
     };
 
+    const {t,i18n} = useTranslation();
+
     return(
         <div>
             <img src={logo_HHA} className={styles.logoHHA} alt="logo" />
             <div className={styles.alignment}>
             <h1 className={styles.header}>Change Password Form</h1>
+            <img src={logo_HHA} className={styles.logo} alt="logo" />
+            <h1 className={styles.header}><Trans i18nKey = 'Changepw.title'>Change Password Form</Trans></h1>
             <div className={styles.emailInput}>
                 <input className={styles.input}
                     onChange={(e) => setUserEmail(e.target.value)}
                     value={userEmail}
                     type="email"
-                    placeholder="Enter your email"
+                    placeholder={t('Changepw.enter_email')}
                 />
             </div>
             <div className={styles.PasswordInput}>
@@ -51,7 +55,7 @@ const ChangePassword: React.FC<{}> = () => {
                        onChange={(e) => setOldPassword(e.target.value)}
                        value={oldPassword}
                        type="password"
-                       placeholder="Enter current password"
+                       placeholder={t('Changepw.curr_pw')}
                 />
             </div>
             <div className={styles.PasswordInput}>
@@ -59,7 +63,7 @@ const ChangePassword: React.FC<{}> = () => {
                     onChange={(e) => setNewPassword(e.target.value)}
                     value={newPassword}
                     type="password"
-                    placeholder="Enter new password"
+                    placeholder={t('Changepw.new_pw')}
                 />
             </div>
             <div className={styles.PasswordInput}>
@@ -67,21 +71,21 @@ const ChangePassword: React.FC<{}> = () => {
                     onChange={(e) => setConfirmPassword(e.target.value)}
                     value={confirmPassword}
                     type="password"
-                    placeholder="Confirm new password"
+                    placeholder={t('Changepw.confirm_pw')}
                 />
             </div>
             <div className={styles.Button}>
                 <Button onClick={handleChangePassword}
                         sx={{background: '#009CC4'}}
                         variant="contained">
-                    Submit
+                    <Trans i18nKey='Changepw.submit'>Submit</Trans>
                 </Button>
             </div>
             <div className={styles.Button}>
                 <Button onClick={redirectPage}
                         sx={{ background: '#009CC4'}}
                         variant="contained">
-                    Back to Profile Page
+                    <Trans i18nKey='Changepw.back'>Back to Profile Page</Trans>
                 </Button>
             </div>
             </div>

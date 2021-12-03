@@ -2,14 +2,16 @@ import React, {useState, useContext} from "react";
 import { useHistory } from "react-router-dom";
 import logo_HHA from "../loginPage/logo.svg"
 import registrationStyle from "./Registration.module.css";
+import Input  from "../../components/Input/Input";
 import Dropdown from "../../components/dropdown/Dropdown";
 import { Button } from "@mui/material";
 import UserService from "../../service/UserService";
 import {Context} from "../../index";
 import {User} from "../../models/User";
+import {Trans, useTranslation} from 'react-i18next';
 
 const Registration = () => {
-    const listItems = [ "English", "French"];
+    const listItems = [ "English", "Français"];
     const [firstName, setFirstName] = useState("");
     const [lastName, setLastName] = useState("");
     const [password, setPassword] = useState("");
@@ -26,10 +28,24 @@ const Registration = () => {
         "personalStaffNumber": personalStaffNumber,
         "languageOption": dropdown
    };
+   const languages = [
+       {
+           code: 'fr',
+           name: 'Français',
+           country_code: 'fr'
+       },
+       {
+           code: 'en',
+           name: 'English',
+           country_code: 'gb'
+       }
+   ]
 
     
     const [users, setUsers] = useState<User[]>([]);
-  
+
+    const {t, i18n} = useTranslation();
+
     async function getUsers() {
       try {
         const response = await UserService.fetchUsers();
@@ -85,16 +101,22 @@ const Registration = () => {
     }
 
     return (
-        <div >
+        <div>
              <div>
                 <img src={logo_HHA} className={registrationStyle.logoHHA} alt="logo" />
              </div>
             <div className={registrationStyle.alignment}>
             <h5 className={registrationStyle.header}>Personal Information</h5>
             <h6 className={registrationStyle.subHeader}>Enter your personal information below</h6>
+                 <div>
+                    <img src={logo_HHA} className={registrationStyle.logo} alt="logo" />
+                 </div>
+                <h5 className={registrationStyle.header}><Trans i18nKey = 'Register.title'>Personal Information</Trans></h5>
+                <h6 className={registrationStyle.subHeader}><Trans i18nKey = 'Register.body'>Enter your personal information below</Trans></h6>
+            </div>
             <div className= {registrationStyle.name} >
-                <div className={registrationStyle.firstName}>First name</div>
-                <div className={registrationStyle.lastName}>Last name</div>
+                <div className={registrationStyle.firstName}><Trans i18nKey = 'Register.first'>First name</Trans></div>
+                <div className={registrationStyle.lastName}><Trans i18nKey = 'Register.last'>Last name</Trans></div>
             </div>
             <div className={registrationStyle.first_last_name}>
                 <div className= {registrationStyle.firstNameInput} >                  
@@ -114,7 +136,7 @@ const Registration = () => {
             </div>
         
             <div className={registrationStyle.assignEmail}>
-               Email assigned to you
+               <Trans i18nKey = 'Register.email'>Email assigned to you</Trans>
             </div>
             <div >
                 <input value="  staff@hha.com" className={registrationStyle.disableInput} disabled />
@@ -127,6 +149,8 @@ const Registration = () => {
                        type="password"
                        onChange={setPasswordFunc}
                        placeholder="Password"/>
+                    <Trans i18nKey='Register.enter'>Enter your password</Trans>
+                <Input userInput={password} type="password" label="" onChangeFunc={setPasswordFunc} />
             </div>
             <div className={registrationStyle.confirmPassword}>
                     Confirm your password
@@ -135,7 +159,9 @@ const Registration = () => {
                        type="password"
                        onChange={setConfirmPasswordFunc}
                        placeholder="Password"/>
-            </div> 
+                    <Trans i18nKey='Register.confirm'>Confirm your password</Trans>
+                <Input userInput={password} type="password" label="" onChangeFunc={setConfirmPasswordFunc} />
+            </div>
             <div className={registrationStyle.enterPersonalStaffNumber }>
                     Enter your personal staff number (optional)
                 <input className= {registrationStyle.input}
@@ -143,16 +169,18 @@ const Registration = () => {
                        type="text"
                        onChange={setPersonalStaffNumberFunc}
                        placeholder="Personal Staff Number (Optional)"/>
-            </div> 
+                    <Trans i18nKey='Register.personal'>Enter your personal staff number (optional)</Trans>
+                <Input userInput={personalStaffNumber} type="text" label="" onChangeFunc={setPersonalStaffNumberFunc} />
+            </div>
             <div className={registrationStyle.choosePreferredLanguage }>
-                    Choose your preferred language
+                    <Trans i18nKey='Register.choose'>Choose your preferred language</Trans>
                 <Dropdown listItems={listItems} itemName={""} onChangeFunc={setDropdownFunc} initialValue={dropdown} />
             </div>
-
             <div className={registrationStyle.submitButton }>
                 <Button sx={{ background: '#009CC4'}}
                         variant="contained" onClick={saveUser}>Submit</Button>
             </div>
+                <Button variant="contained" onClick={saveUser} ><Trans i18nKey='Register.submit'>Submit</Trans></Button>
             </div>
         </div>
     );
