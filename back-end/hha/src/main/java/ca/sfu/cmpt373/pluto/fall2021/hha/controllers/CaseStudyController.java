@@ -29,10 +29,26 @@ public class CaseStudyController {
         return caseStudyService.getCaseStudy(id);
     }
 
+    @GetMapping("getAllCaseStudies")
+    public List<CaseStudy> getAllCaseStudies() {
+        return caseStudyService.getAllCaseStudies();
+    }
+
     @GetMapping("create")
     public List<CaseStudyDraft> createCaseStudy(Principal principal) {
         return caseStudyService.createCaseStudy(principal);
     }
+
+    @GetMapping("photo/getAllPhotos")
+    public List<Photo> getAllPhotos() {
+        return caseStudyService.getAllPhotos();
+    }
+
+    @GetMapping("photo/getPhotosByCurrentUser")
+    public List<Photo> getPhotosByCurrentUser(Principal principal) {
+        return caseStudyService.getPhotosByCurrentUser(principal);
+    }
+
 
     @PostMapping("questions")
     public CaseStudyTemplate getQuestions(@RequestParam String caseName) {
@@ -40,9 +56,9 @@ public class CaseStudyController {
     }
 
     @PostMapping("photo/add")
-    public Photo savePhoto(@RequestBody MultipartFile photo)
+    public Photo savePhoto(Principal principal, @RequestPart("file")  MultipartFile photo)
             throws IOException {
-        return caseStudyService.savePhoto(photo);
+        return caseStudyService.savePhoto(principal,photo);
     }
 
     @DeleteMapping("photo/delete/{id}")
@@ -61,4 +77,11 @@ public class CaseStudyController {
                                    @RequestBody CaseStudyDraft caseStudyDraft) {
         caseStudyService.saveCaseStudyDraft(principal, caseStudyDraft);
     }
+
+
+    @DeleteMapping("delete/{id}")
+    public void deleteCasetStudyDraftById(@PathVariable("id") String id) {
+       caseStudyService.deleteCasetStudyDraftById(id);
+    }
+
 }
