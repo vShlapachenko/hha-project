@@ -20,8 +20,10 @@ public class CaseStudyDraft {
     @DBRef
     private HhaUser submittedBy;
 
-    @DBRef(lazy = true)
+    @DBRef(lazy = false)
     private Collection<Photo> photos = new ArrayList<>();
+
+    private String photoId;
 
     public String getId() {
         return id;
@@ -29,6 +31,14 @@ public class CaseStudyDraft {
 
     public void setId(String id) {
         this.id = id;
+    }
+
+    public String getPhotoId() {
+        return photoId;
+    }
+
+    public void setPhotoId(String photoId) {
+        this.photoId = photoId;
     }
 
     public String getCaseName() {

@@ -24,12 +24,22 @@ public class CaseStudy {
 
     private Collection<Photo> photos = new ArrayList<>();
 
+    private String photoId;
+
     public String getId() {
         return id;
     }
 
     public void setId(String id) {
         this.id = id;
+    }
+
+    public String getPhotoId() {
+        return photoId;
+    }
+
+    public void setPhotoId(String photoId) {
+        this.photoId = photoId;
     }
 
     public HhaUser getSubmittedBy() {
