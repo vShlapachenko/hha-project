@@ -1,3 +1,25 @@
 .mainDiv {
     text-align: center;
 }
+
+.questions {
+    padding: 1rem;
+ }
+
+ .uploadSection {
+    padding: 2rem;
+}
+
+.uploadSectionButton {
+    margin: 2rem;
+}
+
+
+.fileUpload {
+    border: 1px solid;
+    display: inline-block;
+    cursor: pointer;
+    border-radius: 5px;
+    background-color: #F5F5F5;
+    margin: 5px;
+}
