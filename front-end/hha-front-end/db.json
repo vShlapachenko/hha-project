@@ -1,4 +1,48 @@
 {
+  "maternityForm": {
+    "label": "Maternity",
+    "date": "November 2021",
+    "tables": [
+      {
+        "label": "General Information",
+        "commonColumn": {
+          "label": "General Information",
+          "values": [
+            "Beds available",
+            "Bed days",
+            "Patient days",
+            "Hospitalized",
+            "Discharged alive",
+            "Died before 48h"
+          ]
+        },
+        "subTables": [
+          {
+            "label": "",
+            "columns": [
+              {
+                "label": "Quantity (number)",
+                "cells": []
+              }
+            ],
+            "secondaryData": [
+              {
+                "isPatientData": true,
+                "cellLocation": [0, 5],
+                "table": {
+                  "label": "Patients(Died before 48h)",
+                  "commonColumn": [
+                    "Age",
+                    "Cause of Death"
+                  ]
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
   "form": {
     "label": "Community Health",
     "date": "Septemper 2021",

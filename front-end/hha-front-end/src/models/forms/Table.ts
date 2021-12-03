@@ -6,5 +6,4 @@ export interface Table {
   label: string;
   commonColumn: CommonColumn;
   subTables: SubTable[];
-  // columns: Column[];
 }
