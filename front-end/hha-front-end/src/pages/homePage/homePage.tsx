@@ -33,13 +33,7 @@ const HomePage = () => {
                      FirstPoints={"120" + " points"} SecondPoints={"100" + " points"} ThirdPoints={"80" + " points"}/>
       </div>
 
-      {
-        (() => {
-          console.log(todoData)
-          if (todoData)
-            return <Todo/>
-        })
-      }
+      <Todo todoData={todoData}/>
 
     </>
   );
