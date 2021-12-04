@@ -8,20 +8,20 @@ import { Points } from "../../models/homepage/Points"
 import { useEffect, useState } from "react";
 
 
-
 const HomePage = () => {
     let history = useHistory();
 
     const startForm = () => {history.push("/forms")}
     const createStory = () => {history.push("/caseStudy")}
     const [points, setpoints] = useState<Points[]>([])
-
     useEffect(() => {
         $api.get<Points[]>('/leaderboard/monthDepartments').then((r) => {
+            console.log(r.data)
             setpoints(r.data)
         });
 
     }, [])
+
 
     return(
         <>
@@ -33,8 +33,8 @@ const HomePage = () => {
             Best department of the month
         </h2>
         <div>
-            <Leaderboard FirstDepartmentName={points[0].depPoints + ""} SecondDepartmentName={points[1].depName} ThirdDepartmentName={points[2].depName}
-            FirstPoints={points[0].depPoints + " points"} SecondPoints={points[1].depPoints + " points"} ThirdPoints={points[2].depPoints + " points"} />
+            {/* <Leaderboard FirstDepartmentName={points[0].depName + ""} SecondDepartmentName={points[1].depName} ThirdDepartmentName={points[2].depName}
+            FirstPoints={points[0].depPoints + " points"} SecondPoints={points[1].depPoints + " points"} ThirdPoints={points[2].depPoints + " points"} /> */}
         </div>
                     
         <h1 className = {styles.textTODO}>
