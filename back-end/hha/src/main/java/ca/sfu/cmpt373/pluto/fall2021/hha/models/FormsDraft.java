@@ -1,17 +1,15 @@
 package ca.sfu.cmpt373.pluto.fall2021.hha.models;
 
-import org.springframework.data.annotation.CreatedDate;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Date;
 import java.util.List;
 
 @Document
-public class Form {
+public class FormsDraft {
 
     @Id
     private String id;
@@ -19,9 +17,6 @@ public class Form {
     private String label;
     private String date;
     private List<Table> tables;
-
-    @CreatedDate
-    private Date submittedDate;
 
     public String getId() {
         return id;
@@ -39,14 +34,6 @@ public class Form {
         this.label = label;
     }
 
-    public List<Table> getTables() {
-        return tables;
-    }
-
-    public void setTables(List<Table> tables) {
-        this.tables = tables;
-    }
-
     public String getDate() {
         return date;
     }
@@ -55,11 +42,11 @@ public class Form {
         this.date = date;
     }
 
-    public Date getSubmittedDate() {
-        return submittedDate;
+    public List<Table> getTables() {
+        return tables;
     }
 
-    public void setSubmittedDate(Date submittedDate) {
-        this.submittedDate = submittedDate;
+    public void setTables(List<Table> tables) {
+        this.tables = tables;
     }
 }
