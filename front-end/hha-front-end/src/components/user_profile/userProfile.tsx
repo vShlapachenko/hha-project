@@ -71,7 +71,7 @@ const Profile: React.FC<{}> = () => {
                 <div className={styles.first_last_name}>
                     <div className={styles.first_name}>
                         <TextField
-                            sx={{width: "258px", height: "55px", background: '#FFFFFF', textSizeAdjust: "80%"}}
+                            sx={{width: "258px", height: "55px", background: '#FFFFFF'}}
                             label={t('Profile.first')}
                             value={firstName}
                             InputProps={{
@@ -92,7 +92,7 @@ const Profile: React.FC<{}> = () => {
                 </div>
                 <div className={styles.email_input}>
                     <TextField
-                        sx={{width: "530px", height: "55px", background: '#FFFFFF'}}
+                        sx={{width: "530px", height: "55px",background: '#FFFFFF'}}
                         label="Email"
                         value={email}
                         InputProps={{
@@ -102,7 +102,7 @@ const Profile: React.FC<{}> = () => {
                 </div>
                 <div className={styles.PSN_input}>
                     <TextField
-                        sx={{width: "530px", height: "55px", background: '#FFFFFF'}}
+                        sx={{width: "530px", height: "55px",background: '#FFFFFF'}}
                         className="text"
                         label={t('Profile.staff')}
                         defaultValue={staffNumber}
@@ -116,10 +116,10 @@ const Profile: React.FC<{}> = () => {
                 </div>
                 <div className = {styles.lang_button}>
                         <Button onClick = {()=>changeLanguage("en")}
-                         sx={{width: "200px", height: "55px", background: '#009CC4'}}
+                         sx={{left: "60px", width: "200px", height: "40px", background: '#009CC4'}}
                          variant="contained">EN</Button>
                         <Button onClick = {()=>changeLanguage("fr")}
-                         sx={{left: "10px",width: "200px", height: "55px", background: '#009CC4'}}
+                         sx={{left: "70px",width: "200px", height: "40px", background: '#009CC4'}}
                          variant="contained">FR</Button>
                 </div>
 
