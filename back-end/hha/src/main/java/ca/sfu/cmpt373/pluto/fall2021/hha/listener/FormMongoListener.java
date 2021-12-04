@@ -30,15 +30,18 @@ public class FormMongoListener extends AbstractMongoEventListener<Form> {
 
     @Override
     public void onAfterSave(AfterSaveEvent<Form> event){
-        Date submit = event.getSource().getSubmittedDate();
-        System.out.println(submit);
-
         Department department = departmentRepository.findByName(event.getSource().getLabel());
         DepartmentPoints points = departmentPointsRepository.findByDepartment(department);
 
+        Date submit = event.getSource().getSubmittedDate();
+
         String formDate = event.getSource().getDate();
         Calendar ddl = getDeadLine(formDate);
-        System.out.println(ddl.getTime());
+
+        int newPoint = getPoints(ddl.getTime(), submit);
+        points.setMonthPoints(points.getMonthPoints() + newPoint);
+        points.setYearPoints(points.getYearPoints() + newPoint);
+        departmentPointsRepository.save(points);
     }
 
     private Calendar getDeadLine(String formDate) {
@@ -59,5 +62,9 @@ public class FormMongoListener extends AbstractMongoEventListener<Form> {
         }
 
         return calendar;
+    }
+
+    private int getPoints(Date ddl, Date submit) {
+        return (int) ((ddl.getTime() - submit.getTime()) / (1000*3600));
     }
 }
