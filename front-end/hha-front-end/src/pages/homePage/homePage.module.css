@@ -5,6 +5,13 @@
     font-family: Arial, Helvetica, sans-serif;
   }
 
+.alignment{
+    display: flex;
+    flex-direction: column;
+    height: 120vh;
+    position: relative;
+    justify-content: center;
+}
 
 .textLeaderboard{
     text-align: center;
@@ -29,4 +36,16 @@
     font-weight: bold;
     text-align: left;
     font-size: 2.5rem;
+}
+
+@media only screen and (max-width: 1028px) {
+    .alignment{
+        height: 130vh;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .alignment{
+        height: 240vh;
+    }
 }

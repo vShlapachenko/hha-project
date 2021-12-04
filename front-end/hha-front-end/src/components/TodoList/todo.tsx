@@ -28,9 +28,10 @@ const ToDo = ({firstLine, secondLine, thirdLine, func}:ToDoAttribute) => {
             </p>
 
             <Box pt={2}>
-              <button className = {styles.todoButton} onClick = {func}>
+              <Button sx={{ background: '#009CC4'}}
+                      variant="contained" className = {styles.todoButton} onClick = {func}>
                   {thirdLine}
-              </button>
+              </Button>
             </Box>
         </div>
       </div>
