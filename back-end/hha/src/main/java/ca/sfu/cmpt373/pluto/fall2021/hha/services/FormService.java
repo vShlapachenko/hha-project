@@ -28,7 +28,16 @@ public class FormService {
                 .orElseThrow(() -> new IllegalArgumentException("Form with ID ==== " + id + " Does not exist"));
     }
 
+    public FormsDraft getFormsDraft(String id) {
+        return formsDraftRepository.findById(id)
+                .orElseThrow(() -> new IllegalArgumentException("Form Draft with ID ==== " + id + " Does not exist"));
+    }
+
     public void saveForm(Form form) {
-        formRepository.insert(form);
+        formRepository.save(form);
+    }
+
+    public void saveFormAsDraft(FormsDraft formsDraft) {
+        formsDraftRepository.save(formsDraft);
     }
 }

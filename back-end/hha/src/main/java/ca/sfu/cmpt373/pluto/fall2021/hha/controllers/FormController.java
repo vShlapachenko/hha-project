@@ -1,6 +1,7 @@
 package ca.sfu.cmpt373.pluto.fall2021.hha.controllers;
 
 import ca.sfu.cmpt373.pluto.fall2021.hha.models.Form;
+import ca.sfu.cmpt373.pluto.fall2021.hha.models.FormsDraft;
 import ca.sfu.cmpt373.pluto.fall2021.hha.services.FormService;
 import ca.sfu.cmpt373.pluto.fall2021.hha.models.HhaUser;
 import lombok.RequiredArgsConstructor;
@@ -17,14 +18,18 @@ public class FormController {
         return formService.getForm(id);
     }
 
-    @PostMapping("save")
+    @GetMapping("draft/{id}")
+    public FormsDraft getFormsDraft(@PathVariable String id) {
+        return formService.getFormsDraft(id);
+    }
+
+    @PostMapping("submit")
     public void saveForms(@RequestBody Form form) {
         formService.saveForm(form);
     }
 
-    @PostMapping("submit")
-    public void createForm(HttpServletRequest request,
-    @RequestBody Form form) {
-        formService.saveForm(request, form);
+    @PostMapping("submitAsDraft")
+    public void saveFormsDraft(@RequestBody FormsDraft formsDraft) {
+        formService.saveFormAsDraft(formsDraft);
     }
 }

@@ -15,10 +15,9 @@ public class Form {
 
     @Id
     private String id;
-    @DBRef
-    private HhaUser submittedBy;
 
-    private String label; 
+    private String label;
+    private String date;
     private List<Table> tables;
 
     @CreatedDate
@@ -30,14 +29,6 @@ public class Form {
 
     public void setId(String id) {
         this.id = id;
-    }
-
-    public HhaUser getSubmittedBy() {
-        return submittedBy;
-    }
-
-    public void setSubmittedBy(HhaUser submittedBy) {
-        this.submittedBy = submittedBy;
     }
     
     public String getLabel() {
@@ -54,6 +45,14 @@ public class Form {
 
     public void setTables(List<Table> tables) {
         this.tables = tables;
+    }
+
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
     }
 
     public Date getSubmittedDate() {
