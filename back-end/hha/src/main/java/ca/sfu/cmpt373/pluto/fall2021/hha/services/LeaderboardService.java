@@ -38,7 +38,6 @@ public class LeaderboardService {
     @Scheduled(cron = "0 0 0 1 1/1 *")
     public void resetMonthPoints() {
         for (DepartmentPoints points : departmentPointsRepository.findAll()) {
-            points.setYearPoints(points.getMonthPoints() + points.getMonthPoints());
             points.setMonthPoints(0);
         }
     }

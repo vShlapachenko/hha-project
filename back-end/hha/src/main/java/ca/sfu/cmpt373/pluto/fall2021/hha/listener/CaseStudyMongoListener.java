@@ -19,6 +19,7 @@ public class CaseStudyMongoListener extends AbstractMongoEventListener<CaseStudy
         HhaUser hhaUser = event.getSource().getSubmittedBy();
         DepartmentPoints points = departmentPointsRepository.findByDepartment(hhaUser.getDepartment());
         points.setMonthPoints(points.getMonthPoints() + 200);
+        points.setYearPoints(points.getYearPoints() + 200);
         departmentPointsRepository.save(points);
     }
 }
