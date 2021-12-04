@@ -117,7 +117,7 @@ const Navbar = () => {
   
     return (
         <Box sx={{ flexGrow: 1, fontFamily: 'Arial', fontWeight: 'light' }} >
-            <AppBar position="static" style={navStyle}>
+            <AppBar position="fixed" style={navStyle} z-index='99'>
                 <Toolbar>
                         { isMobile ?
                             <React.Fragment>
@@ -169,9 +169,9 @@ const Navbar = () => {
                                         ) 
                                         })}
                                         <Box mt={2}>
-                                            <MenuItem>Create Account</MenuItem>
-                                            <MenuItem onClick={profileFunc}>Settings</MenuItem>
-                                            <MenuItem onClick={logoutFunc}> Logout</MenuItem>
+                                            <MenuItem><Trans i18nKey='Navbar.create'>Create Account</Trans></MenuItem>
+                                            <MenuItem onClick={profileFunc}><Trans i18nKey='Navbar.settings'>Settings</Trans></MenuItem>
+                                            <MenuItem onClick={logoutFunc}><Trans i18nKey='Navbar.logout'>Logout</Trans></MenuItem>
                                         </Box>
                                         </MenuList>
                                     </ClickAwayListener>
