@@ -40,8 +40,6 @@ const ChangePassword: React.FC<{}> = () => {
             <img src={logo_HHA} className={styles.logoHHA} alt="logo" />
             <div className={styles.alignment}>
                 <h1 className={styles.header}><Trans i18nKey = 'Changepw.title'>Change Password Form</Trans></h1>
-                <img src={logo_HHA} className={styles.logo} alt="logo" />
-
                 <div className={styles.emailInput}>
                     <input className={styles.input}
                         onChange={(e) => setUserEmail(e.target.value)}
