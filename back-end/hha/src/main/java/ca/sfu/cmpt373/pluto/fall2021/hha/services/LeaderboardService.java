@@ -35,10 +35,15 @@ public class LeaderboardService {
         ).collect(Collectors.toList());
     }
 
+    private void saveDepartmentPoints(DepartmentPoints departmentPoints) {
+        departmentPointsRepository.save(departmentPoints);
+    }
+
     @Scheduled(cron = "0 0 0 1 1/1 *")
     public void resetMonthPoints() {
         for (DepartmentPoints points : departmentPointsRepository.findAll()) {
             points.setMonthPoints(0);
+            saveDepartmentPoints(points);
         }
     }
 
@@ -46,6 +51,7 @@ public class LeaderboardService {
     public void resetYearPoints() {
         for (DepartmentPoints points : departmentPointsRepository.findAll()) {
             points.setYearPoints(0);
+            saveDepartmentPoints(points);
         }
     }
 }
