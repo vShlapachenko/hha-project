@@ -71,7 +71,7 @@ const Profile: React.FC<{}> = () => {
                 <div className={styles.first_last_name}>
                     <div className={styles.first_name}>
                         <TextField
-                            sx={{width: "258px", height: "55px", background: '#FFFFFF'}}
+                            sx={{width: ["190px", "215px", "258px"], height: "55px", background: '#FFFFFF'}}
                             label={t('Profile.first')}
                             value={firstName}
                             InputProps={{
@@ -81,7 +81,7 @@ const Profile: React.FC<{}> = () => {
                     </div>
                     <div className={styles.Last_Name}>
                         <TextField
-                            sx={{width: "258px", height: "55px", background: '#FFFFFF'}}
+                            sx={{width: ["190px", "215px", "258px"], height: "55px", background: '#FFFFFF'}}
                             label={t('Profile.last')}
                             value={lastName}
                             InputProps={{
@@ -92,7 +92,7 @@ const Profile: React.FC<{}> = () => {
                 </div>
                 <div className={styles.email_input}>
                     <TextField
-                        sx={{width: "530px", height: "55px",background: '#FFFFFF'}}
+                        sx={{width: ["400px", "450px", "530px"], height: "55px",background: '#FFFFFF'}}
                         label="Email"
                         value={email}
                         InputProps={{
@@ -102,7 +102,7 @@ const Profile: React.FC<{}> = () => {
                 </div>
                 <div className={styles.PSN_input}>
                     <TextField
-                        sx={{width: "530px", height: "55px",background: '#FFFFFF'}}
+                        sx={{width: ["400px", "450px", "530px"], height: "55px",background: '#FFFFFF'}}
                         className="text"
                         label={t('Profile.staff')}
                         defaultValue={staffNumber}
@@ -116,10 +116,10 @@ const Profile: React.FC<{}> = () => {
                 </div>
                 <div className = {styles.lang_button}>
                         <Button onClick = {()=>changeLanguage("en")}
-                         sx={{left: "60px", width: "200px", height: "40px", background: '#009CC4'}}
+                         sx={{left: "60px", width: ["100px", "150px", "200px"], height: "40px", background: '#009CC4'}}
                          variant="contained">EN</Button>
                         <Button onClick = {()=>changeLanguage("fr")}
-                         sx={{left: "70px",width: "200px", height: "40px", background: '#009CC4'}}
+                         sx={{left: "70px",width: ["100px", "150px", "200px"], height: "40px", background: '#009CC4'}}
                          variant="contained">FR</Button>
                 </div>
 

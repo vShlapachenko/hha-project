@@ -1,7 +1,7 @@
 .alignment{
     display: flex;
     flex-direction: column;
-    height: 100vh;
+    height: 80vh;
     position: relative;
     align-items: center;
     justify-content: center;
@@ -118,8 +118,12 @@
 }
 
 @media only screen and (max-width: 1028px) {
+    .alignment{
+        height: 100vh;
+    }
+
     .InfoPane {
-        width: 600px;
+        width: 550px;
     }
 
     .header_1 {
@@ -156,8 +160,12 @@
 }
 
 @media only screen and (max-width: 600px) {
+    .alignment{
+        height: 110vh;
+    }
+
     .InfoPane {
-        width: 550px;
+        width: 500px;
     }
 
     .header_1 {
