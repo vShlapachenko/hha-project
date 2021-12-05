@@ -41,7 +41,7 @@ const Login: FC = () => {
                     />
                 </div>
                 <div className={styles.passwordInput}>
-                <div className={styles.plainText}><b>{t("Login.password")}</b></div>
+                <div className={styles.plainText}><b><Trans i18nKey = "Login.password">Password</Trans></b></div>
                     <input className={styles.input}
                         onChange={e => setPassword(e.target.value)}
                         value={password}
@@ -60,7 +60,7 @@ const Login: FC = () => {
                     </Button>
                 </div>
                 <div className={styles.link}>
-                    <a href="./forgotPassword">{t("Login.forgot_password")}</a>
+                    <a href="./forgotPassword"><Trans i18nKey = "Login.forgot_password">Forgot Password?</Trans></a>
                     <br/>
                 </div>
 
