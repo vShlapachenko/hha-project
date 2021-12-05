@@ -96,6 +96,7 @@
 .plainText{
   color: rgb(86, 86, 90);
   font-size: 18px;
+  width: 488px;
 }
 
 @media only screen and (max-width: 1028px) {
@@ -121,6 +122,7 @@
 
   .plainText{
     font-size: 14px;
+    width: 388px;
   }
 }
 
@@ -147,5 +149,6 @@
 
   .plainText{
     font-size: 12px;
+    width: 288px;
   }
 }

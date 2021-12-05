@@ -31,10 +31,6 @@
 
 
 @media only screen and (max-width: 1028px) {
-    .alignment{
-        height: 140vh;
-    }
-
     .textBest{
         font-size: 18px;
     }
@@ -45,10 +41,6 @@
 }
 
 @media only screen and (max-width: 600px) {
-    .alignment{
-        height: 190vh;
-    }
-
     .textBest{
         font-size: 16px;
     }
