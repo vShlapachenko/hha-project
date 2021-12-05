@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, useContext } from "react";
 import "./Navbar.css";
 import logo from "./logo.svg";
 import Button from '@mui/material/Button';
@@ -11,6 +11,8 @@ import Popper from '@mui/material/Popper';
 import MenuItem from '@mui/material/MenuItem';
 import MenuList from '@mui/material/MenuList';
 import useMediaQuery from '@mui/material/useMediaQuery';
+import {Context} from "../../index";
+import { useHistory } from "react-router-dom";
 
 const MenuItems = [
     {
@@ -50,8 +52,13 @@ const Navbar = () => {
     const [open, setOpen] = React.useState(false);
     const [chosenIndex, setIndex] = React.useState(0);
     const anchorRef = React.useRef<HTMLButtonElement>(null);
-    
+    const {store} = useContext(Context);
+    const history = useHistory();
 
+    const logoutFunc = async () => {
+        await store.logout();
+        history.push('/');
+    }
     const handleToggle = () => {
         setOpen((prevOpen) => !prevOpen);
     };
@@ -67,7 +74,14 @@ const Navbar = () => {
         setOpen(false);
     };
 
-    const handleClick = (index: number) => {
+    const handleClick = (index: number, item: any) => {
+        console.log(item);
+        if (item.title === "Case Study") {
+            history.push('/caseStudy');
+        } else if (item.title === "Home") {
+            history.push('/homePage');
+        }
+        
         if(index == chosenIndex) return;
         setIndex(index);
     }
@@ -136,7 +150,7 @@ const Navbar = () => {
                                                 <Box ml={2}>
                                                     <Button sx={{fontFamily: 'Arial', fontWeight: 400, flexGrow: 1}}
                                                     style={chosenIndex == index ? buttonStyleChoosen : buttonStyle}
-                                                    onClick={() => handleClick(index)}
+                                                    onClick={() => handleClick(index, item)}
                                                     >
                                                         {item.title}
                                                     </Button>
@@ -147,7 +161,7 @@ const Navbar = () => {
                                         <Box mt={2}>
                                             <MenuItem>Create Account</MenuItem>
                                             <MenuItem>Settings</MenuItem>
-                                            <MenuItem>Logout</MenuItem>
+                                            <MenuItem onClick={logoutFunc}> Logout</MenuItem>
                                         </Box>
                                         </MenuList>
                                     </ClickAwayListener>
@@ -168,7 +182,7 @@ const Navbar = () => {
                                     <Box mr={4}>
                                             <Button sx={{fontFamily: 'Arial', fontWeight: 400}}
                                             style={chosenIndex == index ? buttonStyleChoosen : buttonStyle}
-                                            onClick={() => handleClick(index)}
+                                            onClick={() => handleClick(index, item)}
                                             >
                                                 {item.title}
                                             </Button>
@@ -217,7 +231,7 @@ const Navbar = () => {
                                             Create Account
                                         </MenuItem>
                                         <MenuItem>Settings</MenuItem>
-                                        <MenuItem>Logout</MenuItem>
+                                        <MenuItem onClick={logoutFunc}>Logout</MenuItem>
                                         </MenuList>
                                     </ClickAwayListener>
                                     </Paper>

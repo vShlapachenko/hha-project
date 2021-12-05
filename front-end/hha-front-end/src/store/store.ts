@@ -5,7 +5,8 @@ import {AuthResponse} from "../models/response/AuthResponse";
 import {API_URL} from "../http";
 
 import ForgotPasswordService from "../service/ForgotPasswordService";
-import setNewPasswordService from "../service/NewPasswordService";
+import NewPasswordService from "../service/NewPasswordService";
+import ChangePasswordService from "../service/ChangePasswordService";
 
 export default class Store {
     isAuthorized = false;
@@ -23,6 +24,7 @@ export default class Store {
     setOtp(value: number) {
         this.otp = value;
     }
+
     setForgotPasswordEmail(value: string) {
         this.forgotPasswordEmail = value;
     }
@@ -61,14 +63,10 @@ export default class Store {
         try {
             console.log("email", email);
 
-            const response = await ForgotPasswordService.ForgotPassword(email);
+            const request = await ForgotPasswordService.ForgotPassword(email);
 
-            if (response) {
-                if (response.data === 0){
-                    this.setOtp(403)
-                }else {
-                    this.setOtp(response.data);
-                }
+            if (request) {
+                this.setOtp(request.data);
             } else {
                 console.log("Error in store.forgotPassword");
             }
@@ -79,13 +77,17 @@ export default class Store {
 
     async setNewPassword(email: string, password: string) {
         try {
-            const response = await setNewPasswordService.setNewPassword(
-                email,
-                password
-            );
+            await NewPasswordService.NewPassword(email, password);
         } catch (e: any) {
             console.log(e.response?.data?.message);
         }
     }
 
+    async changeOldPassword(email: string, oldPassword: string, newPassword: string) {
+        try{
+            await ChangePasswordService.ChangePassword(email, oldPassword, newPassword);
+        } catch(e:any){
+            console.log(e.response?.data?.message);
+        }
+    }
 }
