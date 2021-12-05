@@ -8,7 +8,7 @@
 .alignment{
     display: flex;
     flex-direction: column;
-    height: 120vh;
+    height: 100vh;
     position: relative;
     justify-content: center;
 }
@@ -40,12 +40,28 @@
 
 @media only screen and (max-width: 1028px) {
     .alignment{
-        height: 130vh;
+        height: 140vh;
+    }
+
+    .textBest{
+        font-size: 18px;
+    }
+
+    .textTODO{
+        font-size: 2.0rem;
     }
 }
 
 @media only screen and (max-width: 600px) {
     .alignment{
-        height: 240vh;
+        height: 190vh;
+    }
+
+    .textBest{
+        font-size: 16px;
+    }
+
+    .textTODO{
+        font-size: 1.5rem;
     }
 }

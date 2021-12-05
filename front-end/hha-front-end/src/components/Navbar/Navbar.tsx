@@ -117,7 +117,7 @@ const Navbar = () => {
   
     return (
         <Box sx={{ flexGrow: 1, fontFamily: 'Arial', fontWeight: 'light' }} >
-            <AppBar position="fixed" style={navStyle} z-index='99'>
+            <AppBar position='relative' style={navStyle} z-index='1'>
                 <Toolbar>
                         { isMobile ?
                             <React.Fragment>

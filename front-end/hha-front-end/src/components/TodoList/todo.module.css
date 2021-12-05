@@ -63,37 +63,29 @@
 }
 
 @media only screen and (max-width: 1028px) {
-    .alignment{
-        height: 190vh;
-    }
-
-    .grid{
+    .toDogrid{
         flex-direction: column;
     }
 
-    .box{
+    .toDobox{
         width: 1028px;
     }
 
-    .Button{
+    .todoButton{
         width: 388px;
     }
 }
 
 @media only screen and (max-width: 600px) {
-    .alignment{
-        height: 200vh;
-    }
-
-    .grid{
+    .toDogrid{
         flex-direction: column;
     }
 
-    .box{
+    .toDobox{
         width: 600px;
     }
 
-    .Button{
+    .todoButton{
         width: 300px;
     }
 }

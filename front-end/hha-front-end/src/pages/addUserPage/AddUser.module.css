@@ -3,7 +3,7 @@
 .alignment{
     display: flex;
     flex-direction: column;
-    height: 110vh;
+    height: 100vh;
     position: relative;
     align-items: center;
     justify-content: center;
@@ -123,11 +123,7 @@
 }
 
 @media only screen and (max-width: 1028px) {
-    .alignment{
-        height: 110vh;
-    }
-
-    .header {
+   .header {
         width: 388px;
         font-size: 22px;
     }
@@ -170,10 +166,6 @@
 }
 
 @media only screen and (max-width: 600px) {
-    .alignment{
-        height: 130vh;
-    }
-
     .header {
         width: 288px;
         font-size: 22px;
