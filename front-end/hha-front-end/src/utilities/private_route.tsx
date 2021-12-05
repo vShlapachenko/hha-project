@@ -23,9 +23,11 @@ interface PrivateRouteAttributes {
     const render = () => {
         if (store.isLogin()) {
             console.log("is authorized!");
-            if(store.firstTimeUser === true)
+            var checker = store.checkCurrentEmailinList(store.currentUserEmail);
+            if(store.firstTimeUser === true &&  checker === false)
             {
-                store.firstTimeUser = false;
+                store.setFirstTimeUser(false);
+                store.addDataToList(store.currentUserEmail);
                 return <Redirect to={{ pathname: '/changePassword' }} />; 
             }
             else{

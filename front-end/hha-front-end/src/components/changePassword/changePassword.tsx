@@ -15,7 +15,7 @@ const ChangePassword: React.FC<{}> = () => {
 
     const redirectPage = () =>{
         history.push({
-            pathname: "/userProfile",
+            pathname: "/homePage",
         });
     }
 

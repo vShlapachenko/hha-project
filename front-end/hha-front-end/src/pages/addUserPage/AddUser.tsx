@@ -17,6 +17,7 @@ const AddUser: FC = () => {
     const [password, setPassword] = useState("");
     const listItems = [ "Admin", "Staff", "Head Of Department"];
     const firstTimeUser = true;
+   
 
     const setEmailFunc = (event: any) => {
         event.preventDefault();
@@ -41,10 +42,10 @@ const AddUser: FC = () => {
     }
 
 
+
     async function createAccount() {
         try {
             console.log("save user hit API");
-            
         } catch (e) {
             console.log(e);
             
@@ -94,6 +95,7 @@ const AddUser: FC = () => {
             <div className= {styles.password} >                  
                 <Input userInput={password} type="text" label="" onChangeFunc={setPasswordFunc} />
             </div>
+
             <div className={styles.submitButton} >
                 <Button variant="contained" onClick={createAccount} >Submit</Button>
             </div>
