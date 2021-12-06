@@ -18,22 +18,12 @@ const HomePage = () => {
     const [check, setCheck] = useState<Boolean>()
 
     useEffect(() => {
-        // async function fetchData(){
-        //     const request = await $api.get('/leaderboard/monthDepartments');
-        //     setPoints(request.data);
-        //     console.log(points);
-        //     return request;
-        // }
-        // fetchData();
         $api.get<Points[]>('/leaderboard/monthDepartments').then((r) => {
             console.log(r.data)
             setPoints(r.data)
             setCheck(true)
         });
     }, []);
-    
-    if (points.length > 0)
-        console.log(check);
 
     return(
         <>
