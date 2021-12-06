@@ -17,6 +17,7 @@ import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 import { Bar } from 'react-chartjs-2';
 import { Trans, useTranslation } from 'react-i18next';
+import FormService from "../../service/FormService";
 
 type FormType = 'fill' | 'display'
 
@@ -155,6 +156,11 @@ const GeneratedForm = (props: FormProps) => {
     setDisplay(option);
   }
 
+  const exportCSV = async () => {
+    let response = await FormService.exportForm();
+    
+  };
+
   const showConfirmDialog = () => {
     return <Dialog
         open={openConfirmDialog}
@@ -175,7 +181,7 @@ const GeneratedForm = (props: FormProps) => {
         <Button onClick={submitForm} autoFocus>
           <Trans i18nKey='Generate.submit'>Submit</Trans>
         </Button>
-        <Button><Trans i18nKey='Generate.export'>Export to CSV</Trans></Button>
+        <Button onClick={exportCSV}><Trans i18nKey='Generate.export'>Export to CSV</Trans></Button>
       </DialogActions>
     </Dialog>
   }
@@ -334,7 +340,7 @@ const GeneratedForm = (props: FormProps) => {
                       : showChart()
                 }
                 <div className={styles.btns}>
-                  <Button>{props.type === 'fill' ? 'Save as Draft' : 'Export as CSV'}</Button>
+                  <Button onClick = {exportCSV}>{props.type === 'fill' ? 'Save as Draft' : 'Export as CSV'}</Button>
                   {
                     currentIndex[0] === 0 && currentIndex[1] === 0
                         ? null

@@ -8,6 +8,9 @@ import ca.sfu.cmpt373.pluto.fall2021.hha.models.HhaUser;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("api/form")
@@ -34,6 +37,13 @@ public class FormController {
         formService.saveFormAsDraft(formsDraft);
     }
 
+    @GetMapping("export")
+    public void exportToCsv(@RequestBody Form form, HttpServletResponse response) {
+        try {
+            formService.exportFormToCsv(form, response);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     @PostMapping("getForm")
     public Date getFormByDate(@RequestBody Date date){
         System.out.println("hi" + date);
