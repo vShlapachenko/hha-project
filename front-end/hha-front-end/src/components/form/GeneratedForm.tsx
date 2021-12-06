@@ -17,6 +17,7 @@ import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 import { Bar } from 'react-chartjs-2';
 import { Trans, useTranslation } from 'react-i18next';
+import FormService from '../../service/FormService'
 
 type FormType = 'fill' | 'display'
 
@@ -64,7 +65,11 @@ const GeneratedForm = (props: FormProps) => {
 
   useEffect(() => {
     const getForm = async () => {
-      const formFromServer : Form = await fetchData()
+      FormService.test().then((r) => console.log(r.data));
+      const formFromServer : Form = await FormService.getCommunityHealth().then((response) => {
+        console.log(response.data)
+        return response.data;
+      });
       const newForm : Form = props.type == 'fill' ? {...formFromServer, tables: formFromServer.tables.map(t => (
                 {...t, subTables: t.subTables.map(st => (
                       {...st, columns: st.columns.map(c => (
@@ -86,11 +91,12 @@ const GeneratedForm = (props: FormProps) => {
     getForm();
   }, []);
 
-  const fetchData = async () => {
-    const res = props.type == 'fill' ? await fetch('http://localhost:5000/form') : await fetch(`http://localhost:5000/submittedForms/${props.formId}`);
-    const newForm = await res.json();
-    return newForm;
-  }
+  // const fetchData = async () => {
+  //   // const res = props.type == 'fill' ? await FormService.getCommunityHealth() : await fetch(`http://localhost:5000/submittedForms/${props.formId}`);
+  //   var newForm : Form;
+  //   FormService.getCommunityHealth().then((response) => newForm = response.data)
+  //   return newForm;
+  // }
 
   const moveBack = () => {
     if(currentIndex[1] === 0) {
