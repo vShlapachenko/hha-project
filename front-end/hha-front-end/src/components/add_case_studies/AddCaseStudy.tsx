@@ -16,10 +16,11 @@ import Alert from '@mui/material/Alert';
 interface listName {
     caseName: string
     questions: any
+    onChangeFunc: any
+    onChangeFunc2: any
 }
 
-const AddCaseStudy = ({caseName, questions}: listName) => {
-    const history = useHistory();
+const AddCaseStudy = ({caseName, questions, onChangeFunc, onChangeFunc2}: listName) => {
     const [alert, setAlert] = useState(false);
     const { store } = useContext(Context);
     const [pho, setPho] = useState("");
@@ -29,8 +30,6 @@ const AddCaseStudy = ({caseName, questions}: listName) => {
     const [submitAnswerAlert, setSubmitAnswerAlert] = useState(false);
     const [shouldRenderFailAlert, setShouldRenderFailAlert] = useState(false);
     const [submitPhotoAlert, setSubmitPhotoAlert] = useState(false);
-
-    const userEmail: any = store.getUserEmail();
 
     const splitString = (stringArray: string) => {
         let container: Array<string>;
@@ -72,7 +71,6 @@ const AddCaseStudy = ({caseName, questions}: listName) => {
         if (answer === "") {
             setShouldRenderFailAlert(true);
             setAlert(false);
-            console.log("failed to save from save button");
             return;
         }
 
@@ -85,6 +83,15 @@ const AddCaseStudy = ({caseName, questions}: listName) => {
         setArray([...array, obj]);
         setDraftArray([...draftArray, answer]);
         setAnswer("");
+    }
+
+    const resetState = () => {
+        setSubmitDrafAlert(false);
+        setSubmitAnswerAlert(false);
+        setSubmitPhotoAlert(false);
+        // setArray([]);
+        // setDraftArray([]);
+        setAlert(false);
     }
 
 
@@ -108,6 +115,11 @@ const AddCaseStudy = ({caseName, questions}: listName) => {
             const response = await CaseStudyService.submitAnswers(body.id, body.submittedBy, body.caseName, body.submittedDate, body.entryList, body.photoId);
             console.log(response);
             setSubmitAnswerAlert(true);
+
+            setTimeout(()=> {
+                resetState();
+            }, 500);
+            onChangeFunc2();
         } catch (e) {
             console.log(e);
         }
@@ -145,9 +157,10 @@ const AddCaseStudy = ({caseName, questions}: listName) => {
             const response = await CaseStudyService.submitAsDraft(body.caseName, body.submittedBy, body.entryList, body.photoId);
             console.log(response);
             setSubmitDrafAlert(true);
-            setTimeout(() => {
-                document.location.reload();
-            },1000);
+            setTimeout(()=> {
+                resetState();
+            }, 500);
+            onChangeFunc();
             
         } catch (e) {
             console.log(e);
