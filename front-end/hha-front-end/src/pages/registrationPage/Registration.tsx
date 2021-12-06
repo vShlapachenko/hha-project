@@ -259,7 +259,10 @@ const Registration = () => {
 
                 <div className={registrationStyle.assignEmail}>
                    <Trans > Enter your email or a user name of your choice</Trans>
-                   <Input userInput={email} type="email" label="" onChangeFunc={setEmailFunc} />
+                   <input className={registrationStyle.input}
+                          type="email"
+                          onChange={setEmailFunc}
+                          placeholder="Email"/>
                 </div>
                 <div className= {registrationStyle.enterPassword} >
                     <Trans i18nKey='Register.enter'>Enter your password</Trans>
