@@ -99,6 +99,8 @@ const Navbar = () => {
             history.push('/homePage');
         } else if (item.navTitle === "Forms") {
             history.push('/forms');
+        } else if (item.navTitle === "Departments") {
+            history.push('/department');
         } 
         
         setIndex(index);

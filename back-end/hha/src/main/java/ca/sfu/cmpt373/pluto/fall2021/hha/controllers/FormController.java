@@ -1,5 +1,6 @@
 package ca.sfu.cmpt373.pluto.fall2021.hha.controllers;
 
+import ca.sfu.cmpt373.pluto.fall2021.hha.models.Date;
 import ca.sfu.cmpt373.pluto.fall2021.hha.models.Form;
 import ca.sfu.cmpt373.pluto.fall2021.hha.models.FormsDraft;
 import ca.sfu.cmpt373.pluto.fall2021.hha.services.FormService;
@@ -31,5 +32,11 @@ public class FormController {
     @PostMapping("submitAsDraft")
     public void saveFormsDraft(@RequestBody FormsDraft formsDraft) {
         formService.saveFormAsDraft(formsDraft);
+    }
+
+    @PostMapping("getForm")
+    public Date getFormByDate(@RequestBody Date date){
+        System.out.println("hi" + date);
+        return date;
     }
 }

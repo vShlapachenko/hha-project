@@ -82,6 +82,3 @@ const Login: FC = () => {
 };
 
 export default observer(Login);
-
-
-

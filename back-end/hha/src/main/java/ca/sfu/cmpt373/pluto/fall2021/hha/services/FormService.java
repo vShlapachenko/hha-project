@@ -40,4 +40,9 @@ public class FormService {
     public void saveFormAsDraft(FormsDraft formsDraft) {
         formsDraftRepository.save(formsDraft);
     }
+
+    public Form getFormByDate(String date){
+        return formRepository.findByDate(date);
+    }
+
 }
