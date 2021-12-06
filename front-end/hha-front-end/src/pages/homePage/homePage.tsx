@@ -57,10 +57,6 @@ const HomePage = () => {
             <h2 className = {styles.textBest}>Loading...</h2>
             }
         </div>
-                    
-        <h1 className = {styles.textTODO}>
-            <Trans i18nKey='Homepage.todo'>What's TODO List</Trans>
-        </h1>
         
         <Todo todoData={todoData}/>
         </>
