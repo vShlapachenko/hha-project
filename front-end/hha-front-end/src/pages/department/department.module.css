@@ -1,0 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@700&family=Poppins:wght@400;500;600&display=swap');
+
+.alignment{
+    display: flex;
+    flex-direction: column;
+    height: 30vh;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+}
+
+.header{
+    font-family: Arial, Helvetica, sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 10px;
+    color: #000000;
+}
+
+.date{
+    margin-top: 25px;
+}

@@ -369,4 +369,4 @@ const GeneratedForm = (props: FormProps) => {
   }
 }
 
-export default GeneratedForm
+export default GeneratedForm;
