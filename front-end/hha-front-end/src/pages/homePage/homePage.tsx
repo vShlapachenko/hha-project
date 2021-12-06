@@ -1,6 +1,6 @@
 import styles from "./homePage.module.css";
 import Leaderboard from "../../components/leaderboard/Leaderboard";
-import ToDo from "../../components/TodoList/todo";
+import ToDo from "../../components/TodoList/ToDoSingle";
 import Navbar from "../../components/Navbar/Navbar";
 import { useHistory } from "react-router";
 import { Trans, useTranslation} from 'react-i18next'
@@ -9,6 +9,9 @@ import {Context} from "../../index";
 import $api from "../../http";
 import { Points } from "../../models/homepage/Points"
 import { useEffect, useState } from "react";
+import ToDoSingle from "../../components/TodoList/ToDoSingle";
+import Todo from "../../components/TodoList/Todo";
+
 
 
 const HomePage = () => {
@@ -20,6 +23,15 @@ const HomePage = () => {
     const {t, i18n} = useTranslation();
     const [points, setPoints] = useState<Points[]>([])
     const [check, setCheck] = useState<Boolean>()
+
+    const [todoData, setTodoData] = useState([]);
+
+    useEffect(() => {
+      $api.get("/todo")
+        .then((res) => {
+          setTodoData(res.data)
+        })
+    }, [])
 
     useEffect(() => {
         $api.get<Points[]>('/leaderboard/monthDepartments').then((r) => {
@@ -50,19 +62,7 @@ const HomePage = () => {
             <Trans i18nKey='Homepage.todo'>What's TODO List</Trans>
         </h1>
         
-        <div>
-            <ToDo firstLine = {"Form for Sep, 2021 is ready to fill in."} 
-            secondLine = {"Click on the button to start filling in the form for Sep, 2021 or go to Forms Tab to start the form."}
-            thirdLine = {"Start the form"}
-            func = {startForm}/>
-        </div> 
-
-        <div>
-            <ToDo firstLine = {"Create New Story"}
-            secondLine = {"Click on the button to create a new story or go to Case Study Tab"}
-            thirdLine = {"Create New Story"}
-            func = {createStory}/>
-        </div>
+        <Todo todoData={todoData}/>
         </>
     );
 

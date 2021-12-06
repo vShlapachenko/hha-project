@@ -53,15 +53,15 @@ db.createCollection('departmentPoints', {capped: false});
 db.departmentPoints.insert([
     {
         department: new DBRef('department', departments[0]._id),
-        monthPoints: 50,
+        monthPoints: 0,
         yearPoints: 0
     }, {
         department: new DBRef('department', departments[1]._id),
-        monthPoints: 20,
+        monthPoints: 0,
         yearPoints: 0
     }, {
         department: new DBRef('department', departments[2]._id),
-        monthPoints: 30,
+        monthPoints: 0,
         yearPoints: 0
     }, {
         department: new DBRef('department', departments[3]._id),
