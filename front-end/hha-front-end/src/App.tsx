@@ -33,6 +33,7 @@ function App() {
             <PrivateRoute path="/addUser" Component={AddUser} />
             <PrivateRoute path="/homePage" Component={HomePage} />
             <PrivateRoute path="/forms" Component={Forms} />
+            <PrivateRoute path="/department" Component={Department} />
             <Redirect from="*" to="/" />
         </Switch>
     );
