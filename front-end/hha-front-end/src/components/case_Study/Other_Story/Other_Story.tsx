@@ -12,17 +12,14 @@ import IconButton, { IconButtonProps } from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import Navbar from '../../Navbar/Navbar';
-import './Training_Session.css';
+import "./Other_Story.css";
+
 
 interface CaseStudyAttributes {
-    training_image ?: string,
-    heading ?: string,
-    training_date ?: string,
-    training_topic ?: string,
-    trainer ?: string, 
-    attendees ?: string,
-    benefits ?: string,
-    story ?: string
+    image?: string,
+    heading?: string,
+    breif?: string,
+    story?: string
 }
 
 interface ExpandMoreProps extends IconButtonProps {
@@ -40,7 +37,7 @@ const ExpandMore = styled((props: ExpandMoreProps) => {
     }),
   }));
 
-const Training_Session = ({training_image, heading, training_date, training_topic, trainer, attendees, benefits, story}: CaseStudyAttributes) => {
+const Other_Story = ({image, heading, breif, story}: CaseStudyAttributes) => {
     
     const [expanded, setExpanded] = React.useState(false);
     const handleExpandClick = () => {
@@ -52,29 +49,24 @@ const Training_Session = ({training_image, heading, training_date, training_topi
             <div className={'component'}>
                 <Card sx={{ maxWidth: 345 }}>
                     <CardHeader
-                        avatar={
-                            <Avatar src={training_image}> </Avatar>
-                        }
+                        // avatar={
+                        //     <Avatar src={image}> </Avatar>
+                        // }
                         title={heading}
                     />
 
                     <CardMedia
                         component="img"
                         height="194"
-                        image={training_image}
+                        image={image}
                     />
 
                     <CardContent>
                         <Typography variant="body2" color="text.secondary">
 
-                            {benefits &&
-                                <div className={'benefits'}>
-                                    <Chip label={'Benefits: ' + benefits}/>
-                                </div>
-                            }
-                            
-                            {trainer && <Chip label={'Trainer: ' + trainer}/>}
-                            {training_topic && <Chip label={'Topic: ' + training_topic}/>}
+                            <div className={'employeeStory'}>
+                                {breif && <Chip label={'Breif: ' + breif}/>}
+                            </div>
                             
                         </Typography>
                     </CardContent>
@@ -98,12 +90,6 @@ const Training_Session = ({training_image, heading, training_date, training_topi
 
                         <CardContent>
                             <div className={'moreInfo'}>
-                                <CardContent>
-                                        <Typography variant="body2" color="text.secondary">
-                                        {attendees && <Chip sx={{marginLeft: -3, marginRight: 2}} label={'Attendees: ' + attendees}/> }
-                                        {training_date && <Chip sx={{marginLeft: -3, marginRight: 2}} label={'Date: ' + training_date}/> }
-                                        </Typography>
-                                </CardContent>
                             </div>
                             
                                 <Typography paragraph>
@@ -122,4 +108,4 @@ const Training_Session = ({training_image, heading, training_date, training_topi
         </div>
     );
 }
-export default Training_Session;
+export default Other_Story;
