@@ -12,6 +12,7 @@ import IconButton, { IconButtonProps } from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import Navbar from '../../Navbar/Navbar';
+import "./Other_Story.css";
 
 
 interface CaseStudyAttributes {
@@ -45,13 +46,12 @@ const Other_Story = ({image, heading, breif, story}: CaseStudyAttributes) => {
 
     return (
         <div>
-            <Navbar />
             <div className={'component'}>
                 <Card sx={{ maxWidth: 345 }}>
                     <CardHeader
-                        avatar={
-                            <Avatar src={image}> </Avatar>
-                        }
+                        // avatar={
+                        //     <Avatar src={image}> </Avatar>
+                        // }
                         title={heading}
                     />
 

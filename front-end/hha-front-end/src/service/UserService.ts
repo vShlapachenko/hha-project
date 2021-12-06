@@ -7,8 +7,12 @@ export default class UserService {
         return $api.get<User[]>('/hha-user/getUsers')
     }
 
-    static saveUser(firstName: String, lastName: String, password: String): Promise<AxiosResponse<User[]>> {
-        return $api.post<User[]>('/hha-user/saveUser', {firstName, lastName, password})
+    static saveUser(firstName: String, lastName: String, password: String, email: string, roles: Array<any>): Promise<AxiosResponse<User[]>> {
+        return $api.post<User[]>('/hha-user/saveUser', {firstName, lastName, password, email, roles})
+    }
+
+    static getCurrentUser(email: any): Promise<AxiosResponse<User>> {
+        return $api.get<User>(`/hha-user/getCurrentUser?email=${email}`);
     }
 
     static getUser(): Promise<AxiosResponse<User>>{
@@ -26,7 +30,7 @@ export default class UserService {
 //     private String password;
 //     private String activationLink;
 //     @DBRef(lazy = true)
-//     private Collection<Role> roles = new ArrayList<>();
+//     private List<Role> roles = new ArrayList<>();
 //     @DBRef
 //     private Department department;
 //     private ActivationStatus activationStatus;

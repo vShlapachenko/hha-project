@@ -22,7 +22,7 @@ public class HhaUser {
     private String lastName;
     private String password;
     private String activationLink;
-    @DBRef(lazy = true)
+    // @DBRef(lazy = true)
     private Collection<Role> roles = new ArrayList<>();
     @DBRef
     private Department department;

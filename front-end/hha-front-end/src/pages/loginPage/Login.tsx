@@ -18,7 +18,10 @@ const Login: FC = () => {
     const onClickFunc = async () => {
         await store.login(email, password);
         if (store.isAuthorized) {
+            localStorage.setItem('email', email);
             history.push('/homePage');
+        } else {
+            alert("You have the wrong credentials!");
         }
     }
 
