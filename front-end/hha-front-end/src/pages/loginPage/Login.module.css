@@ -6,65 +6,152 @@
   font-family: Arial, Helvetica, sans-serif;
 }
 
-.div {
+.alignment{
+  display: flex;
+  flex-direction: column;
+  height: 60vh;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+}
+
+.header_1 {
+  font-family: Arial;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 30px;
+  line-height: 100%;
+  color: #000000;
+  margin: 0 0 10px 0;
+  width: 488px;
+}
+
+.input {
   width: 100%;
-  height:100%;
-}
-
-.allignment{
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  height: fit-content;
-  width: 500px;
-}
-
-.allignment h1{
-  padding: 20px 0;
-  color: rgb(86, 86, 90);
-  font-weight: bolder;
-  font-size: 35px;
-}
-
-.textInput input{
-  width: 95%;
-  left: calc(50% - 488px/2);
   padding: 10px 10px;
-  height: 42px;
+  height: 100%;
   font-size: 15px;
-  border-color: #ffffff;
+  /*border-color: #ffffff;*/
   border-radius: 5px;
+  border: 1px solid rgba(0, 0, 0, 0.8);
   background-color: rgb(245, 245, 245);
 }
 
+.emailInput{
+  width: 488px;
+  height: 40px;
+  background: #FFFFFF;
+  margin: 20px 0 40px 0;
+  border: 1px;
+  box-sizing: border-box;
+  border-radius: 4px;
+}
+
+.passwordInput{
+  width: 488px;
+  height: 40px;
+  background: #FFFFFF;
+  margin: 0 0 40px 0;
+  border: 1px;
+  box-sizing: border-box;
+  border-radius: 4px;
+}
+
 .loginButton{
-  padding: 10px 10px 10px 10px;
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
 
-  position: absolute;
-  width: 462px;
+  width: 488px;
   height: 42px;
-  left: calc(50% - 500px/2);
 
   background: #009CC4;
   /* Shadow Dark / 4dp */
 
-  box-shadow: 0px 2px 4px rgba(58, 58, 68, 0.2), 0px 4px 8px rgba(90, 91, 106, 0.2);
+
   border-radius: 4px;
 }
 
+.loginButton >button{
+  width: 100%;
+  height: 100%;
+  box-shadow: 0 2px 4px rgba(58, 58, 68, 0.2), 0 4px 8px rgba(90, 91, 106, 0.2);
+}
+
 .logoHHA{
-    height: 95px;
-    width: auto;
-    object-fit: contain;
-    margin: 20px 20px;
+  height: 95px;
+  width: auto;
+  object-fit: contain;
+  margin: 20px 20px;
+}
+
+.link{
+  width: 488px;
+  display: flex;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  text-align: left;
 }
 
 .plainText{
-    color: rgb(86, 86, 90);
-    font-size: 17px;
+  color: rgb(86, 86, 90);
+  font-size: 18px;
+  width: 488px;
+}
+
+@media only screen and (max-width: 1028px) {
+  .header_1 {
+    font-size: 24px;
+    width: 388px;
+  }
+
+  .emailInput{
+    width: 388px;
+  }
+
+  .passwordInput{
+    width: 388px;
+  }
+
+  .loginButton{
+    width: 388px;
+  }
+
+  .link{
+    width: 388px;
+  }
+
+  .plainText{
+    font-size: 14px;
+    width: 388px;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .header_1 {
+    font-size: 20px;
+    width: 300px;
+  }
+
+  .emailInput{
+    width: 300px;
+  }
+
+  .passwordInput{
+    width: 300px;
+  }
+
+  .loginButton{
+    width: 300px;
+  }
+
+  .link{
+    width: 300px;
+  }
+
+  .plainText{
+    font-size: 12px;
+    width: 300px;
+  }
 }

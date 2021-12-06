@@ -1,0 +1,149 @@
+{
+    "Login": {
+        "login": "Connexion",
+        "enter_your_email": "Entrez votre email et votre mot de passe pour accéder à la page",
+        "username": "Nom d'utilisateur",
+        "password": "Mot de passe",
+        "forgot_password": "Mot de passe oublié?",
+        "difficulties": "Si vous rencontrez des difficultés pour vous connecter à votre compte, veuillez contacter votre <1>Service Informatique</1> ou votre <1>représentant HHA</1> à <1>support@hha.com</1>"
+    },
+    "ForgotPassword": {
+        "pop_up": "Entrez un email valide.",
+        "title": "Entrer votre Email",
+        "email": "Email",
+        "button": "Obtenez OTP par Email",
+        "link": "Revenir à la page de connexion"
+    },
+    "EnterOTP": {
+        "title": "Entrez OTP",
+        "validate": "Valider OTP",
+        "enter_email": "Entrer à nouveau l'e-mail ?",
+        "link": "Revenir à la page de connexion"
+    },
+    "EnterPassword": {
+        "title": "Entrez un nouveau mot de passe",
+        "email": "e-mail de l'utilisateur",
+        "enter_pw": "Entrez un nouveau mot de passe",
+        "confirm_pw": "Confirmer le nouveau mot de passe",
+        "submit": "Soumettre",
+        "link": "Revenir à la page de connexion"
+    },
+    "Homepage": {
+        "title": "Classement",
+        "best": "Meilleur rayon du mois",
+        "todo": "Qu'est-ce que la liste TODO",
+        "first":"1ère place",
+        "second": "2ème place",
+        "third": "3ème place",
+        "maternity": "Maternité",
+        "rehab": "Désintox",
+        "comm_health": "Santé communautaire"
+    },
+    "Register":{
+        "title": "Informations personnelles",
+        "body": "Entrez vos informations personnelles ci-dessous",
+        "first": "Prénom",
+        "last": "Nom de famille",
+        "email": "E-mail qui vous est attribué",
+        "enter": "Tapez votre mot de passe",
+        "confirm": "Confirmer votre mot de passe",
+        "personal": "Entrez votre numéro personnel (facultatif)",
+        "submit": "Soumettre",
+        "choose": "Choisissez votre préféré"
+    },
+    "Changepw":{
+        "title": "Changer le formulaire de mot de passe",
+        "enter_email": "Entrer votre Email",
+        "curr_pw": "Saisissez le mot de passe actuel",
+        "new_pw": "Entrez un nouveau mot de passe",
+        "confirm_pw": "Confirmer le nouveau mot de passe",
+        "submit": "Soumettre",
+        "back": "Retour à la page de profil"
+    },
+    "Navbar":{
+        "home": "Accueil",
+        "departments": "Départements",
+        "forms":"Formes",
+        "case": "Étude de cas",
+        "create":"Créer un compte",
+        "settings": "Les paramètres",
+        "logout": "Se déconnecter"
+    },
+    "Form":{
+        "alert":"Soumettre le formulaire ?",
+        "description": "Vous allez soumettre le formulaire pour le département {{form.label}}. Cliquez sur « Envoyer » pour continuer.",
+        "submit": "Soumettre",
+        "export": "Exporter au format CSV",
+        "failed": "Échec de la soumission!",
+        "some": "Certains champs ne sont pas remplis. Veuillez vous assurer que tous les champs sont remplis avant la soumission.",
+        "save": "Enregistrer comme brouillon",
+        "prev": "Passer à l'étape précédente",
+        "next": "Passer à l'étape suivante",
+        "display": "Afficher le Formulaire",
+        "fill": "Remplir le Formulaire"
+    },
+    "Adduser":{
+        "create": "Créer un nouveau compte",
+        "enter": "Entrez l'email d'un nouvel utilisateur",
+        "confirm": "Confirmer l'e-mail d'un nouvel utilisateur",
+        "choose": "Choisissez le type de compte",
+        "pw": "Choisissez votre mot de passe",
+        "submit": "Soumettre",
+        "home": "Retour à la page d'accueil"
+    },
+    "Profile":{
+        "profile": "Profil",
+        "title": "Informations personnelles",
+        "first": "Prénom",
+        "last": "Nom de famille",
+        "staff": "Numéro du personnel",
+        "choose": "Langue préférée",
+        "change": "Changer le mot de passe"
+    },
+    "Generate":{
+        "cancel": "Annuler",
+        "submit": "Soumettre",
+        "export": "Exporter au format CSV",
+        "ok": "D'accord",
+        "table": "Table",
+        "chart": "Graphique",
+        "save": "Enregistrer comme brouillon",
+        "prev":"Passer à l'étape précédente",
+        "back": "Arrière",
+        "preview": "Aperçu",
+        "exit": "Sortir",
+        "proceed_next":"Passer à l'étape suivante",
+        "next": "Prochain"
+    },
+    "Case":{
+        "name": "Le nom du patient: ",
+        "age": "Âge du patient: ",
+        "click": "Cliquez sur cette flèche pour en savoir plus",
+        "location": "Emplacement du patient: ",
+        "reason": "Raison: ",
+        "duration": "Durée à la HCBH: ",  
+        "diagnosis": "Diagnostic du patient: ",
+        "show": "montre plus"        
+    },
+    "Add_case":{
+        "story": "Témoignage de patients",
+        "staff": "Reconnaissance du personnel",
+        "training": "Session de formation",
+        "equipment": "Équipement reçu",
+        "other": "Autre histoire",
+        "success": "succès sauvé!",
+        "save": "enregistrer",
+        "submit": "Soumettre"
+    },
+    "Case_study":{
+        "name": "Nom: ",
+        "age": "Âge: ",
+        "location": "Emplacement: ",
+        "visiting": "Raison de la visite: ",
+        "duration": "Durée: ", 
+        "diagnosis": "Diagnostic: ", 
+        "click": "Cliquez sur la flèche pour en savoir plus",
+        "show": "montre plus",
+        "story": "Histoire: "
+    }
+}

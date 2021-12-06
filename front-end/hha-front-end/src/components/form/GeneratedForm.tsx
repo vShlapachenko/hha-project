@@ -9,18 +9,14 @@ import TableCell from '@mui/material/TableCell';
 import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
-import Paper from '@mui/material/Paper';
 import { CommonProps } from "@mui/material/OverridableComponent";
-import { Column } from "../../models/forms/Column";
 import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
-import { style } from "@mui/system";
 import { Bar } from 'react-chartjs-2';
-import { ChartOptions } from 'chart.js';
-import { type } from "os";
+import { Trans, useTranslation } from 'react-i18next';
 
 type FormType = 'fill' | 'display'
 
@@ -54,6 +50,8 @@ const GeneratedForm = (props: FormProps) => {
   const [openConfirmDialog, setOpenConfirmDialog] = React.useState(false);
   const [openErrorDialog, setOpenErrorDialog] = React.useState(false);
   const [display, setDisplay] = useState<DisplayOption>('table')
+
+  const {t, i18n} = useTranslation();
 
   const handleClickOpen = () => {
     setOpenConfirmDialog(true);
@@ -173,11 +171,11 @@ const GeneratedForm = (props: FormProps) => {
         </DialogContentText>
       </DialogContent>
       <DialogActions>
-        <Button onClick={handleClose}>Cancel</Button>
+        <Button onClick={handleClose}><Trans i18nKey='Generate.cancel'>Cancel</Trans></Button>
         <Button onClick={submitForm} autoFocus>
-          Submit
+          <Trans i18nKey='Generate.submit'>Submit</Trans>
         </Button>
-        <Button>Export to CSV</Button>
+        <Button><Trans i18nKey='Generate.export'>Export to CSV</Trans></Button>
       </DialogActions>
     </Dialog>
   }
@@ -198,7 +196,7 @@ const GeneratedForm = (props: FormProps) => {
         </DialogContentText>
       </DialogContent>
       <DialogActions>
-        <Button onClick={handleClose}>Ok</Button>
+        <Button onClick={handleClose}><Trans i18nKey='Generate.ok'>Ok</Trans></Button>
       </DialogActions>
     </Dialog>
   }

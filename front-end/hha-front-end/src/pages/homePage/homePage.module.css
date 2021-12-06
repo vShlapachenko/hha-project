@@ -5,6 +5,13 @@
     font-family: Arial, Helvetica, sans-serif;
   }
 
+.alignment{
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    position: relative;
+    justify-content: center;
+}
 
 .textLeaderboard{
     text-align: center;
@@ -21,12 +28,24 @@
     margin-bottom: 20px;
 }
 
-.textTODO{
-    margin-top: 50px;
-    margin-left: 10px;
-    margin-bottom: 20px;
-    color:black;
-    font-weight: bold;
-    text-align: left;
-    font-size: 2.5rem;
+
+
+@media only screen and (max-width: 1028px) {
+    .textBest{
+        font-size: 18px;
+    }
+
+    .textTODO{
+        font-size: 2.0rem;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .textBest{
+        font-size: 16px;
+    }
+
+    .textTODO{
+        font-size: 1.5rem;
+    }
 }

@@ -2,7 +2,7 @@ import React from 'react';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button'
 import { Link } from 'react-router-dom'
-import styles from './todo.module.css'
+import styles from './ToDoSingle.module.css'
 import { types } from '@babel/core';
 
 
@@ -13,7 +13,7 @@ interface ToDoAttribute{
     func: () => void;
 }
 
-const ToDo = ({firstLine, secondLine, thirdLine, func}:ToDoAttribute) => {
+const ToDoSingle = ({firstLine, secondLine, thirdLine, func}:ToDoAttribute) => {
 
     return(
       <div className ={styles.toDogrid}>
@@ -28,12 +28,13 @@ const ToDo = ({firstLine, secondLine, thirdLine, func}:ToDoAttribute) => {
             </p>
 
             <Box pt={2}>
-              <button className = {styles.todoButton} onClick = {func}>
+              <Button sx={{ background: '#009CC4'}}
+                      variant="contained" className = {styles.todoButton} onClick = {func}>
                   {thirdLine}
-              </button>
+              </Button>
             </Box>
         </div>
       </div>
     );
 };
-export default ToDo;
+export default ToDoSingle;

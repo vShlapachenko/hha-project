@@ -14,6 +14,7 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import Navbar from "../../Navbar/Navbar";
 import styles from './Patient_Story.module.css'
 import Button from '@mui/material/Button';
+import { Trans, useTranslation } from "react-i18next";
 
 
 interface CaseStudyAttributes {
@@ -51,6 +52,7 @@ const Patient_Story = ({patient_image, case_image, heading, patient_name = '', p
     reason_hcbh, duration_hcbh,  diagnosis= '', story, employee_story, onChangeFunc}: CaseStudyAttributes) => {
     
     const [expanded, setExpanded] = React.useState(false);
+    const {t,i18n} = useTranslation();
     const handleExpandClick = () => {
         setExpanded(!expanded);
     };
@@ -100,14 +102,14 @@ const Patient_Story = ({patient_image, case_image, heading, patient_name = '', p
 
                     <CardActions disableSpacing>
                         <div className={styles.expand}>
-                            <h3>Click arrow on the right to learn more</h3>
+                            <h3><Trans i18nKey='Case.click'>Click on this arrow to learn more</Trans></h3>
                         </div>
                         
                         <ExpandMore
                             expand={expanded}
                             onClick={handleExpandClick}
                             aria-expanded={expanded}
-                            aria-label="show more"
+                            aria-label={t('Case.show')}
                             >
                         <ExpandMoreIcon />
                         </ExpandMore>

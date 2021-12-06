@@ -10,9 +10,10 @@ import {Context} from "../../index";
 import {User} from "../../models/User";
 import Navbar from "../../components/Navbar/Navbar";
 import { Alert } from "@mui/material";
+import {Trans, useTranslation} from 'react-i18next';
 
 const Registration = () => {
-    const listItems = [ "English", "French"];
+    const listItems = [ "English", "Français"];
     const [firstName, setFirstName] = useState("");
     const [lastName, setLastName] = useState("");
     const [password, setPassword] = useState("");
@@ -25,6 +26,26 @@ const Registration = () => {
     const [accountDropdown, setAccountDropdown] = useState("");
     const accoutTypes = [ "Admin", "Staff", "Head Of Department"];
     const history = useHistory();
+//     const hhaUser = {
+//         "firstName": firstName,
+//         "lastName": lastName,
+//         "password": password,
+//         "confirmPassword": confirmPassword,
+//         "personalStaffNumber": personalStaffNumber,
+//         "languageOption": dropdown
+//    };
+   const languages = [
+       {
+           code: 'fr',
+           name: 'Français',
+           country_code: 'fr'
+       },
+       {
+           code: 'en',
+           name: 'English',
+           country_code: 'gb'
+       }
+   ]
 
     const [sumbitSuccessMessage, setSumbitSuccessMessage] = useState(false);
    
@@ -53,6 +74,8 @@ const Registration = () => {
         return false;
     }
   
+    const {t, i18n} = useTranslation();
+
     async function getUsers() {
       try {
         const response = await UserService.fetchUsers();
@@ -152,9 +175,6 @@ const Registration = () => {
         }
     }
 
-        
-    
-
     const setFirstNameFunc = (event: any) => {
         event.preventDefault();
         setFirstName(event.target.value);
@@ -208,57 +228,75 @@ const Registration = () => {
     return (
         <div>
              <div>
-                 <div>
+                <div>
                     <Navbar />
                  </div>
                  {sumbitSuccessMessage?renderAlert():renderNothing()}
-                <h5 className={registrationStyle.header}>Personal Information</h5>
-                <h6 className={registrationStyle.subHeader}>Enter your personal information below</h6>
-            </div>
-            <div className= {registrationStyle.name} >
-                <div className={registrationStyle.firstName}>First name</div>
-                <div className={registrationStyle.lastName}>Last name</div>
-            </div>
-            <div className= {registrationStyle.nameInput}>
-                <div className= {registrationStyle.firstNameInput} >                  
-                    <Input userInput={firstName} type="text" label="" onChangeFunc={setFirstNameFunc} />
+             </div>
+            <div className={registrationStyle.alignment}>
+                <h5 className={registrationStyle.header}><Trans i18nKey = 'Register.title'>Personal Information</Trans></h5>
+                <h6 className={registrationStyle.subHeader}><Trans i18nKey = 'Register.body'>Enter your personal information below</Trans></h6>
+                <div className= {registrationStyle.name} >
+                    <div className={registrationStyle.firstName}><Trans i18nKey = 'Register.first'>First name</Trans></div>
+                    <div className={registrationStyle.lastName}><Trans i18nKey = 'Register.last'>Last name</Trans></div>
                 </div>
-                <div className= {registrationStyle.lastNameInput} >
-                    <Input userInput={lastName} type="text" label="" onChangeFunc={setLastNameFunc} />
+                <div className={registrationStyle.first_last_name}>
+                    <div className= {registrationStyle.firstNameInput} >
+                        <input className= {registrationStyle.nameInput}
+                               value={firstName}
+                               type="text"
+                               onChange={setFirstNameFunc}
+                               placeholder="First name"/>
+                    </div>
+                    <div className= {registrationStyle.lastNameInput} >
+                        <input className= {registrationStyle.nameInput}
+                               value={lastName}
+                               type="text"
+                               onChange={setLastNameFunc}
+                               placeholder="Last name"/>
+                    </div>
                 </div>
-            </div>
-            <div className={registrationStyle.assignEmail}>
-               Enter your email or a user name of your choice
-            </div>
-            <div className={registrationStyle.emailInput}>
-                {/* <input value="  staff@hha.com" className={registrationStyle.disableInput} disabled /> */}
-                <Input userInput={email} type="email" label="" onChangeFunc={setEmailFunc} />
-            </div>
 
-            <div className= {registrationStyle.enterPassword} >
-                    Enter your password
-                <Input userInput={password} type="password" label="" onChangeFunc={setPasswordFunc} />
-            </div>
-            <div className={registrationStyle.confirmPassword}>
-                    Confirm your password
-                <Input userInput={password} type="password" label="" onChangeFunc={setConfirmPasswordFunc} />
-            </div> 
-            <div className={registrationStyle.enterPersonalStaffNumber }>
-                    Enter your personal staff number (optional)
-                <Input userInput={personalStaffNumber} type="text" label="" onChangeFunc={setPersonalStaffNumberFunc} />
-            </div> 
-            <div className={registrationStyle.choosePreferredLanguage }>
-                    Choose your preferred language
-                <Dropdown listItems={listItems} itemName={""} onChangeFunc={setDropdownFunc} initialValue={dropdown} />
-            </div>
-            <div className={registrationStyle.chooseTypeAccount}>
-            <h5 >Choose type of account, (🚨:Only Admin and Head Of Depart have the right to create new accounts!)</h5>
-            </div>
-            <div className= {registrationStyle.chooseTypeAccountDropdown}>
+                <div className={registrationStyle.assignEmail}>
+                   <Trans > Enter your email or a user name of your choice</Trans>
+                   <Input userInput={email} type="email" label="" onChangeFunc={setEmailFunc} />
+                </div>
+                <div className= {registrationStyle.enterPassword} >
+                    <Trans i18nKey='Register.enter'>Enter your password</Trans>
+                    <input className= {registrationStyle.input}
+                           type="password"
+                           onChange={setPasswordFunc}
+                           placeholder="Password"/>
+                </div>
+                <div className={registrationStyle.confirmPassword}>
+                    <Trans i18nKey='Register.confirm'>Confirm your password</Trans>
+                    <input className= {registrationStyle.input}
+                           type="password"
+                           onChange={setConfirmPasswordFunc}
+                           placeholder="Password"/>
+                </div>
+                <div className={registrationStyle.enterPersonalStaffNumber }>
+                    <Trans i18nKey='Register.personal'>Enter your personal staff number (optional)</Trans>
+                    <input className= {registrationStyle.input}
+                           value={personalStaffNumber}
+                           type="text"
+                           onChange={setPersonalStaffNumberFunc}
+                           placeholder="Personal Staff Number (Optional)"/>
+                </div>
+                <div className={registrationStyle.choosePreferredLanguage }>
+                        <Trans i18nKey='Register.choose'>Choose your preferred language</Trans>
+                    <Dropdown listItems={listItems} itemName={""} onChangeFunc={setDropdownFunc} initialValue={dropdown} />
+                </div>
+                <div className={registrationStyle.choosePreferredLanguage}>
+                    <h5 ><Trans>Choose type of account, (🚨:Only Admin and Head Of Depart have the right to create new accounts!)</Trans></h5>
+                </div>
+                <div className= {registrationStyle.choosePreferredLanguage}>
                 <Dropdown listItems={accoutTypes} itemName={""} onChangeFunc={setAccountDropdownFunc} initialValue={accountDropdown} />
             </div>
-            <div className={registrationStyle.submitButton }>
-                <Button variant="contained" onClick={saveUser} >Submit</Button>
+                <div className={registrationStyle.submitButton }>
+                    <Button sx={{ background: '#009CC4'}}
+                            variant="contained" onClick={saveUser}><Trans i18nKey='Register.submit'>Submit</Trans></Button>
+                </div>
             </div>
         </div>
     );

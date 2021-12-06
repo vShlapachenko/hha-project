@@ -13,21 +13,7 @@ import MenuList from '@mui/material/MenuList';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import {Context} from "../../index";
 import { useHistory } from "react-router-dom";
-
-const MenuItems = [
-    {
-        title: 'Home',
-    },
-    {
-        title: 'Departments',
-    },
-    {
-        title: 'Forms',
-    },
-    {
-        title: 'Case Study',
-    },
-]
+import { useTranslation, Trans } from "react-i18next";
 
 const navStyle = {
     background: '#ffffff',
@@ -54,6 +40,27 @@ const Navbar = () => {
     const anchorRef = React.useRef<HTMLButtonElement>(null);
     const {store} = useContext(Context);
     const history = useHistory();
+
+    const {t, i18n} = useTranslation();
+
+    const MenuItems = [
+        {
+            title: <Trans i18nKey='Navbar.home'>Home</Trans>,
+            navTitle: "Home"
+        },
+        {
+            title: <Trans i18nKey='Navbar.departments'>Departments</Trans>,
+            navTitle: "Departments"
+        },
+        {
+            title: <Trans i18nKey='Navbar.forms'>Forms</Trans>,
+            navTitle: "Forms"
+        },
+        {
+            title: <Trans i18nKey='Navbar.case'>Case Study</Trans>,
+            navTitle: "Case Study"
+        },
+    ]
 
     const logoutFunc = async () => {
         await store.logout();
@@ -83,12 +90,14 @@ const Navbar = () => {
     };
 
     const handleClick = (index: number, item: any) => {
+        console.log(item);
+        
         if(index == chosenIndex) return;
-        if (item.title === "Case Study") {
+        if (item.navTitle === "Case Study") {
             history.push('/caseStudy');
-        } else if (item.title === "Home") {
+        } else if (item.navTitle === "Home") {
             history.push('/homePage');
-        } else if (item.title === "Forms") {
+        } else if (item.navTitle === "Forms") {
             history.push('/forms');
         } 
         
@@ -116,7 +125,7 @@ const Navbar = () => {
   
     return (
         <Box sx={{ flexGrow: 1, fontFamily: 'Arial', fontWeight: 'light' }} >
-            <AppBar position="static" style={navStyle}>
+            <AppBar position='sticky' style={navStyle} z-index='1'>
                 <Toolbar>
                         { isMobile ?
                             <React.Fragment>
@@ -168,11 +177,9 @@ const Navbar = () => {
                                         ) 
                                         })}
                                         <Box mt={2}>
-                                            <MenuItem onClick={createAccountFunc}>Create Account</MenuItem>
-                                            <MenuItem>Settings</MenuItem>
-                                            <MenuItem>Create Account</MenuItem>
-                                            <MenuItem onClick={profileFunc}>Settings</MenuItem>
-                                            <MenuItem onClick={logoutFunc}> Logout</MenuItem>
+                                            <MenuItem onClick={createAccountFunc}><Trans i18nKey='Navbar.create'>Create Account</Trans></MenuItem>
+                                            <MenuItem onClick={profileFunc}><Trans i18nKey='Navbar.settings'>Settings</Trans></MenuItem>
+                                            <MenuItem onClick={logoutFunc}><Trans i18nKey='Navbar.logout'>Logout</Trans></MenuItem>
                                         </Box>
                                         </MenuList>
                                     </ClickAwayListener>
@@ -239,10 +246,14 @@ const Navbar = () => {
                                         onKeyDown={handleListKeyDown}
                                         >
                                         <MenuItem onClick={createAccountFunc}>
-                                            Create Account
+                                            <Trans i18nKey = 'Navbar.create'>Create Account</Trans>
                                         </MenuItem>
-                                        <MenuItem onClick={profileFunc}>Settings</MenuItem>
-                                        <MenuItem onClick={logoutFunc}>Logout</MenuItem>
+                                        <MenuItem onClick={profileFunc}>
+                                            <Trans i18nKey = 'Navbar.settings'>Settings</Trans>
+                                        </MenuItem>
+                                        <MenuItem onClick={logoutFunc}>
+                                            <Trans i18nKey = 'Navbar.logout'>Logout</Trans>
+                                        </MenuItem>
                                         </MenuList>
                                     </ClickAwayListener>
                                     </Paper>
