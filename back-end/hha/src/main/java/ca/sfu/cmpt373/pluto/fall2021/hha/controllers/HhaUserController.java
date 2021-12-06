@@ -1,12 +1,14 @@
 package ca.sfu.cmpt373.pluto.fall2021.hha.controllers;
 
 import ca.sfu.cmpt373.pluto.fall2021.hha.models.*;
+import ca.sfu.cmpt373.pluto.fall2021.hha.repositories.HhaUserRepository;
 import ca.sfu.cmpt373.pluto.fall2021.hha.services.HhaUserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.mongodb.core.aggregation.ComparisonOperators;
-import org.springframework.security.core.parameters.P;
+import org.springframework.security.access.method.P;
 import org.springframework.web.bind.annotation.*;
 
+import java.security.Principal;
 import java.util.List;
 
 @RestController
@@ -58,4 +60,8 @@ public class HhaUserController {
         userService.changePassword(changePasswordData);
     }
 
+    @GetMapping("userProfile")
+    public HhaUser getCurrentUser(Principal principal) {
+        return userService.getUser(principal.getName());
+    }
 }

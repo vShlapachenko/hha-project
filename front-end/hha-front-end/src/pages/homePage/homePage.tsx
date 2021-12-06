@@ -3,10 +3,12 @@ import Leaderboard from "../../components/leaderboard/Leaderboard";
 import ToDo from "../../components/TodoList/todo";
 import Navbar from "../../components/Navbar/Navbar";
 import { useHistory } from "react-router";
+import { Trans, useTranslation} from 'react-i18next'
+import {useContext} from "react";
+import {Context} from "../../index";
 import $api from "../../http";
 import { Points } from "../../models/homepage/Points"
 import { useEffect, useState } from "react";
-// import axios from "axios";
 
 
 const HomePage = () => {
@@ -14,6 +16,8 @@ const HomePage = () => {
 
     const startForm = () => {history.push("/forms")}
     const createStory = () => {history.push("/caseStudy")}
+
+    const {t, i18n} = useTranslation();
     const [points, setPoints] = useState<Points[]>([])
     const [check, setCheck] = useState<Boolean>()
 
@@ -29,10 +33,10 @@ const HomePage = () => {
         <>
         <Navbar />
         <h1 className = {styles.textLeaderboard}>
-            Leaderboard
+            <Trans i18nKey= 'Homepage.title'>Leaderboard</Trans>
         </h1>
         <h2 className = {styles.textBest}>
-            Best department of the month
+            <Trans i18nKey='Homepage.best'>Best department of the month</Trans>
         </h2>
         <div>
             {check ?
@@ -43,7 +47,7 @@ const HomePage = () => {
         </div>
                     
         <h1 className = {styles.textTODO}>
-            What's TODO List
+            <Trans i18nKey='Homepage.todo'>What's TODO List</Trans>
         </h1>
         
         <div>
