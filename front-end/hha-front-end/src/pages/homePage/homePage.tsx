@@ -1,11 +1,8 @@
 import styles from "./homePage.module.css";
 import Leaderboard from "../../components/leaderboard/Leaderboard";
-import ToDoSingle from "../../components/TodoList/ToDoSingle";
 import Navbar from "../../components/Navbar/Navbar";
-import {useHistory} from "react-router";
 import { Trans, useTranslation} from 'react-i18next'
 import {useContext, useEffect, useState} from "react";
-import {Context} from "../../index";
 import Todo from "../../components/TodoList/Todo";
 import $api from "../../http";
 

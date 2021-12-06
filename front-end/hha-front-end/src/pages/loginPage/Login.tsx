@@ -22,38 +22,38 @@ const Login: FC = () => {
         }
     }
 
-    const {t, i18n} = useTranslation('translation');
+     const {t, i18n} = useTranslation('translation');
 
     return (
         <div className={styles.div}>
             <img src={logo_HHA} className={styles.logoHHA} alt="logo" />
             <div className= {styles.alignment}>
-
+           
                 <h1 className={styles.header_1}><b><Trans i18nKey ="Login.login">Login</Trans></b></h1>
                 <div className={styles.plainText}><Trans i18nKey = "Login.enter_your_email">Enter your email and password to access the page</Trans></div>
                 <div className={styles.emailInput}>
-                    <div className={styles.plainText}><b><Trans i18nKey = "Login.username">Username</Trans></b></div>
+                <div className={styles.plainText}><b><Trans i18nKey = "Login.username">Username</Trans></b></div>
                     <input className={styles.input}
-                           onChange={e => setEmail(e.target.value)}
-                           value={email}
-                           type="text"
-                           placeholder={t('Login.username')}
+                        onChange={e => setEmail(e.target.value)}
+                        value={email}
+                        type="text"
+                        placeholder={t('Login.username')}
                     />
                 </div>
                 <div className={styles.passwordInput}>
-                    <div className={styles.plainText}><b><Trans i18nKey = "Login.password">Password</Trans></b></div>
+                <div className={styles.plainText}><b><Trans i18nKey = "Login.password">Password</Trans></b></div>
                     <input className={styles.input}
-                           onChange={e => setPassword(e.target.value)}
-                           value={password}
-                           type="password"
-                           placeholder={t('Login.password')}
+                        onChange={e => setPassword(e.target.value)}
+                        value={password}
+                        type="password"
+                        placeholder={t('Login.password')}
                     />
                 </div>
                 <div className={styles.loginButton}>
                     <Button
-                        sx={{width: "475px", height: "42px", background: '#009CC4'}}
-                        variant="contained"
-                        onClick={onClickFunc}>
+                            sx={{width: "475px", height: "42px", background: '#009CC4'}}
+                            variant="contained"
+                            onClick={onClickFunc}>
                         <Trans i18nKey = 'Login.login'>
                             Login
                         </Trans>
@@ -66,10 +66,10 @@ const Login: FC = () => {
 
                 <div className={styles.plainText}>
                     <Trans i18nKey = 'Login.difficulties'>
-                        <p>If you are having any difficulties connecting
-                            to your account, <br/>please contact your <b>IT service </b>or
-                            <b> HHA representative</b> <br/>at <b>support@hha.com</b>
-                        </p>
+                    <p>If you are having any difficulties connecting
+                    to your account, <br/>please contact your <b>IT service </b>or
+                        <b> HHA representative</b> <br/>at <b>support@hha.com</b>
+                    </p>
                     </Trans>
                 </div>
 
@@ -79,4 +79,3 @@ const Login: FC = () => {
 };
 
 export default observer(Login);
-
