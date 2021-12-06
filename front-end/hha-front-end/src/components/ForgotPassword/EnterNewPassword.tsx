@@ -4,6 +4,7 @@ import {Link, useHistory} from "react-router-dom";
 import styles from "./ForgotPassword.module.css";
 import logo_HHA from "../../pages/loginPage/logo.svg";
 import {Button} from "@mui/material";
+import {Trans, useTranslation} from 'react-i18next';
 
 const EnterNewPassword: React.FC<{}> = () => {
     const [password, setPassword] = useState<string>("");
@@ -11,6 +12,8 @@ const EnterNewPassword: React.FC<{}> = () => {
     const { store } = useContext(Context);
     const history = useHistory();
     const [userEmail, setUserEmail] = useState<string>("");
+
+    const {t, i18n} = useTranslation();
 
     useEffect(() => {
         if (store.forgotPasswordEmail) {
@@ -36,8 +39,10 @@ const EnterNewPassword: React.FC<{}> = () => {
         <div>
             <img src={logo_HHA} className={styles.logoHHA} alt="logo" />
             <div className={styles.alignment}>
-                <h1>Enter New Password</h1>
-                <p>user email - {userEmail || "unknown"}</p>
+                <h1>
+                    <Trans i18nKey = 'EnterPassword.title'>Enter New Password</Trans>
+                </h1>
+                <p>{t('EnterPassword.email')} - {userEmail || "unknown"}</p>
                 <input
                     onChange={(e) => setPassword(e.target.value)}
                     value={password}
@@ -56,7 +61,7 @@ const EnterNewPassword: React.FC<{}> = () => {
                         variant="contained">
                     Submit
                 </Button>
-                <Link to="/">Login Page?</Link>
+                <Link to="/"><Trans i18nKey = 'EnterPassword.link'>Login Page?</Trans></Link>
             </div>
         </div>
     );

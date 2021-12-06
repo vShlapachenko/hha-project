@@ -5,7 +5,12 @@ import {observer} from "mobx-react-lite"
 import styles from "./Login.module.css";
 import logo_HHA from "./logo.svg"
 import {Button} from "@mui/material";
+<<<<<<< HEAD
 import Department from "../department/department";
+=======
+import {Trans, useTranslation} from 'react-i18next';
+
+>>>>>>> master
 
 
 const Login: FC = () => {
@@ -21,9 +26,59 @@ const Login: FC = () => {
         }
     }
 
+     const {t, i18n} = useTranslation('translation');
+
     return (
+<<<<<<< HEAD
         <div>
             <Department/>
+=======
+        <div className={styles.div}>
+            <img src={logo_HHA} className={styles.logoHHA} alt="logo" />
+            <div className= {styles.allignment}>
+           
+            <h1><b><Trans i18nKey ="Login.login">Login</Trans></b></h1>
+            <div className={styles.plainText}><Trans i18nKey = "Login.enter_your_email">Enter your email and password to access the page</Trans> </div>
+            <br />
+            <div className={styles.textInput}>
+            <div className={styles.plainText}><b><Trans i18nKey = "Login.username">Username</Trans></b></div>
+                <input
+                    onChange={e => setEmail(e.target.value)}
+                    value={email}
+                    type="text"
+                    placeholder={t('Login.username')}
+                />
+            </div>
+            <div className={styles.textInput}>
+            <br />
+            <div className={styles.plainText}><b>{t("Login.password")}</b></div>
+                <input
+                    onChange={e => setPassword(e.target.value)}
+                    value={password}
+                    type="password"
+                    placeholder={t('Login.password')}
+                />
+            </div>
+            <a href="./forgotPassword">{t("Login.forgot_password")}</a>
+            <br />
+            <br />
+            <Button className= {styles.loginButton}
+                    sx={{width: "475px", height: "42px", background: '#009CC4'}}
+                    variant="contained"
+                    onClick={onClickFunc}>
+                <Trans i18nKey = 'Login.login'>
+                    Login
+                </Trans>
+            </Button>
+            <br />
+            <br />
+            <div className={styles.plainText}>
+                <Trans i18nKey = 'Login.difficulties'>
+                    If you are having any difficulties connecting to your account, please contact your <b>IT service</b> or <b>HHA representative</b> at <b>support@hha.com</b>
+                </Trans>
+            </div>
+        </div>
+>>>>>>> master
         </div>
         // <div className={styles.div}>
         //     <img src={logo_HHA} className={styles.logoHHA} alt="logo" />

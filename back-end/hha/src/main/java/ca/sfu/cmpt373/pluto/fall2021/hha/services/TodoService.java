@@ -30,8 +30,11 @@ public class TodoService {
         if (!shouldBeSeen) {
             return new TodoInfo(false, null, null);
         }
-
+        
         var caseStudy = caseStudyRepository.findFirstBySubmittedBy_DepartmentOrderBySubmittedDateDesc(user.getDepartment());
+        if (caseStudy == null) {
+            return new TodoInfo(true, null, null);
+        }
 
         var today = LocalDate.now();
         var seventhDayOfCurrentMonth = today.withDayOfMonth(7);
