@@ -37,9 +37,9 @@ public class FormController {
     }
 
     @GetMapping("export")
-    public void exportToCsv(@RequestParam String label, HttpServletResponse response) {
+    public void exportToCsv(@RequestBody Form form, HttpServletResponse response) {
         try {
-            formService.exportFormToCsv(label, response);
+            formService.exportFormToCsv(form, response);
         } catch (IOException e) {
             e.printStackTrace();
         }

@@ -10,7 +10,7 @@ import java.util.Collection;
 import java.util.Date;
 import java.util.List;
 
-@Document(collection = "communityHealth")
+@Document
 public class Form {
 
     @Id

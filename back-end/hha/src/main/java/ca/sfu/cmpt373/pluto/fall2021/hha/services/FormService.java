@@ -3,24 +3,13 @@ package ca.sfu.cmpt373.pluto.fall2021.hha.services;
 import ca.sfu.cmpt373.pluto.fall2021.hha.models.*;
 import ca.sfu.cmpt373.pluto.fall2021.hha.repositories.FormRepository;
 import ca.sfu.cmpt373.pluto.fall2021.hha.repositories.FormsDraftRepository;
+import com.opencsv.CSVWriter;
 import lombok.RequiredArgsConstructor;
-import org.bson.BsonBinarySubType;
-import org.bson.types.Binary;
 import org.springframework.stereotype.Service;
-import org.springframework.web.multipart.MultipartFile;
-import org.supercsv.io.CsvBeanWriter;
-import org.supercsv.io.CsvListWriter;
-import org.supercsv.io.ICsvBeanWriter;
-import org.supercsv.prefs.CsvPreference;
 
-import java.io.BufferedWriter;
-import java.io.OutputStreamWriter;
-import java.util.Optional;
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -48,33 +37,40 @@ public class FormService {
         formsDraftRepository.save(formsDraft);
     }
 
-    // Reference: https://www.codejava.net/frameworks/spring-boot/csv-export-example
-    public void exportFormToCsv(String label, HttpServletResponse response) throws IOException {
-        Form form = formRepository.findByLabel(label);
+    public void exportFormToCsv(Form form, HttpServletResponse response) throws IOException {
         response.setContentType("text/csv");
         response.setHeader("Content-Disposition",
                 "attachment; filename=" + form.getLabel() + "_" + form.getDate() + ".csv");
 
-//        ICsvBeanWriter writer = new CsvBeanWriter(response.getWriter(), CsvPreference.STANDARD_PREFERENCE);
-//
-//        for (Table table : form.getTables()) {
-//            List<String> csvHeader = new ArrayList<>();
-//            List<String> csvMapping = new ArrayList<>();
-//
-//            csvHeader.add(table.getCommonColumn().getLabel());
-//            csvMapping.add(table.getCommonColumn().getValues().toString());
-//
-//            for (SubTable subTable : table.getSubTables()) {
-//                for (Column column : subTable.getColumns()) {
-//                    csvHeader.add(column.getLabel());
-//                    csvMapping.add("cells.value");
-//                }
-//            }
-//            writer.writeComment(table.getLabel());
-//            writer.writeHeader(String.valueOf(csvHeader));
-//            writer.write(table, String.valueOf(csvMapping));
-//        }
-//
-//        writer.close();
+        CSVWriter writer = new CSVWriter(response.getWriter());
+
+        for (Table table : form.getTables()) {
+            List<String> csvHeader = new ArrayList<>();
+            csvHeader.add(table.getCommonColumn().getLabel());
+
+            for (SubTable subTable : table.getSubTables()) {
+                for (Column column : subTable.getColumns()) {
+                    csvHeader.add(column.getLabel());
+                }
+            }
+            writer.writeNext(csvHeader.toArray(new String[0]));
+        }
+
+        for (Table table : form.getTables()) {
+            int len = table.getCommonColumn().getValues().size();
+            for (int i = 0; i < len; i++) {
+                List<String> csvLines = new ArrayList<>();
+                csvLines.add(table.getCommonColumn().getValues().get(i));
+
+                for (SubTable subTable : table.getSubTables()) {
+                    for (Column column : subTable.getColumns()) {
+                        csvLines.add(column.getCells().get(i).getValue());
+                    }
+                }
+                writer.writeNext(csvLines.toArray(new String[0]));
+            }
+
+            writer.close();
+        }
     }
 }
