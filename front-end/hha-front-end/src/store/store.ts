@@ -53,6 +53,10 @@ export default class Store {
         return false;
     }
 
+    getUserEmail = () => {
+        return localStorage.getItem('email');
+    }
+
     async login (email: string, password: string){
         try {
             const response = await AuthService.login(email, password);
@@ -67,6 +71,7 @@ export default class Store {
     async logout() {
         try {
             localStorage.removeItem('token');
+            localStorage.removeItem('email');
             this.setIsAuthorized(false)
         } catch(e: any) {
             console.log(e.response?.data?.message)

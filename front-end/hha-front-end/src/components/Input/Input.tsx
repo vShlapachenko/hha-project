@@ -9,17 +9,18 @@ interface InputAttributes {
   type: string,
   error?: boolean,
   errorMessage?: string,
-  label: string
+  label: string,
   onChangeFunc: any,
-  
+  sx?: any,
+  value?: any
 }
 
-const Input = ({userInput, type, error = false, errorMessage = '', label, onChangeFunc }: InputAttributes) => {
+const Input = ({userInput, type, error = false, errorMessage = '', label, onChangeFunc, sx, value}: InputAttributes) => {
   
   return (
       <div>   
         <FormControl >
-          <TextField onChange={onChangeFunc} type={type} id="filled-basic" label={label} variant="filled" />
+          <TextField onChange={onChangeFunc} type={type} id="filled-basic" label={label} variant="filled" sx={sx} defaultValue={value} />
           {error &&  <FormHelperText  id="component-error-text">{userInput}</FormHelperText>}
         </FormControl>
       </div>
