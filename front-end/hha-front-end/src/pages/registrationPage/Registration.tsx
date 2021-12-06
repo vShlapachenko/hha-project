@@ -64,11 +64,14 @@ const Registration = () => {
 
     async function elegibleToBeSaved() {
 
-        const emailRegex = /^\w+@[a-zA-Z_0-9]+\.[a-zA-Z]+$/;
+        if (email.length > 50) {
+            alert("Your email or username is too long!");
+            return;
+        }
 
-        if (!emailRegex.test(email)) {
-            alert("Please enter a valid email.");
-            return false;
+        if (accountDropdown === "") {
+            alert("Accout field is required!");
+            return;
         }
         
 
@@ -225,7 +228,7 @@ const Registration = () => {
                 </div>
             </div>
             <div className={registrationStyle.assignEmail}>
-               Enter your email
+               Enter your email or a user name of your choice
             </div>
             <div className={registrationStyle.emailInput}>
                 {/* <input value="  staff@hha.com" className={registrationStyle.disableInput} disabled /> */}
@@ -252,7 +255,7 @@ const Registration = () => {
             <h5 >Choose type of account, (🚨:Only Admin and Head Of Depart have the right to create new accounts!)</h5>
             </div>
             <div className= {registrationStyle.chooseTypeAccountDropdown}>
-            <Dropdown listItems={accoutTypes} itemName={""} onChangeFunc={setAccountDropdownFunc} initialValue={accountDropdown} />
+                <Dropdown listItems={accoutTypes} itemName={""} onChangeFunc={setAccountDropdownFunc} initialValue={accountDropdown} />
             </div>
             <div className={registrationStyle.submitButton }>
                 <Button variant="contained" onClick={saveUser} >Submit</Button>
