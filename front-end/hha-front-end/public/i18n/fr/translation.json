@@ -52,7 +52,7 @@
         "choose": "Choisissez votre préféré"
     },
     "Changepw":{
-        "title": "Formulaire de changement de mot de passe",
+        "title": "Changer le formulaire de mot de passe",
         "enter_email": "Entrer votre Email",
         "curr_pw": "Saisissez le mot de passe actuel",
         "new_pw": "Entrez un nouveau mot de passe",
