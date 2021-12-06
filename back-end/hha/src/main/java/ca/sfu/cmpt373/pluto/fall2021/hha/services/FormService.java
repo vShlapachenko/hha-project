@@ -73,4 +73,8 @@ public class FormService {
             writer.close();
         }
     }
+    public Form getFormByDate(String date){
+        return formRepository.findByDate(date);
+    }
+
 }

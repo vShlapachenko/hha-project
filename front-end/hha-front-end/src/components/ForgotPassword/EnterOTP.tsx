@@ -61,24 +61,34 @@ const EnterOTP: React.FC<PropsInterface> = (props): JSX.Element => {
     return (
         <div>
             <div className={styles.alignment}>
-                <h1><Trans i18nKey ='EnterOTP.title'>Enter OTP</Trans></h1>
-                <input
-                    onChange={(e) => setUserOtp(e.target.value)}
-                    value={userOtp}
-                    type="text"
-                    placeholder="OTP"
-                    required={true}
-                />
+                <h1 className={styles.header_1}><Trans i18nKey ='EnterOTP.title'>Enter OTP</Trans></h1>
+                <div  className={styles.textInput}>
+                    <input className={styles.input}
+                        onChange={(e) => setUserOtp(e.target.value)}
+                        value={userOtp}
+                        type="text"
+                        placeholder="OTP"
+                        required={true}
+                    />
+                </div>
 
-                <Button className={styles.ForgotButton} onClick={validateOTP}
-                        sx={{width: "488px", height: "42px", background: '#009CC4'}}
+                <div className={styles.Button}>
+                <Button onClick={validateOTP}
+                        sx={{background: '#009CC4'}}
                         variant="contained">
                     <Trans i18nKey ='EnterOTP.validate'>Validate OTP</Trans>
                 </Button>
-                <Link to="#" onClick={redirectToForgotPassword}>
-                    <Trans i18nKey = 'EnterOTP.enter_email'>Enter Email again?</Trans>
-                </Link>
-                <Link to="/"><Trans i18nKey ='EnterOTP.link'>Go Back to Login Page</Trans></Link>
+                </div>
+
+                <div className={styles.link}>
+                    <Link to="#" onClick={redirectToForgotPassword}>
+                        <Trans i18nKey = 'EnterOTP.enter_email'>Enter Email again?</Trans>
+                    </Link>
+                </div>
+
+                <div className={styles.link}>
+                    <Link to="/"><Trans i18nKey ='EnterOTP.link'>Go Back to Login Page</Trans></Link>
+                </div>
             </div>
         </div>
     );

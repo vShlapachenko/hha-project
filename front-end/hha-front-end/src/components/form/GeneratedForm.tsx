@@ -9,19 +9,13 @@ import TableCell from '@mui/material/TableCell';
 import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
-import Paper from '@mui/material/Paper';
 import { CommonProps } from "@mui/material/OverridableComponent";
-import { Column } from "../../models/forms/Column";
 import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
-import { style } from "@mui/system";
 import { Bar } from 'react-chartjs-2';
-import { ChartOptions } from 'chart.js';
-import { type } from "os";
-import GetAppIcon from '@mui/icons-material/GetApp';
 import { Trans, useTranslation } from 'react-i18next';
 import FormService from "../../service/FormService";
 
@@ -375,4 +369,4 @@ const GeneratedForm = (props: FormProps) => {
   }
 }
 
-export default GeneratedForm
+export default GeneratedForm;

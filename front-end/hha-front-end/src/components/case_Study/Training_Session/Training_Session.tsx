@@ -12,7 +12,7 @@ import IconButton, { IconButtonProps } from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import Navbar from '../../Navbar/Navbar';
-
+import './Training_Session.css';
 
 interface CaseStudyAttributes {
     training_image ?: string,
@@ -49,7 +49,6 @@ const Training_Session = ({training_image, heading, training_date, training_topi
 
     return (
         <div>
-            <Navbar />
             <div className={'component'}>
                 <Card sx={{ maxWidth: 345 }}>
                     <CardHeader
