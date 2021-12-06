@@ -29,7 +29,7 @@ const Login: FC = () => {
             <div className= {styles.allignment}>
            
             <h1><b>Login</b></h1>
-            <div className={styles.plainText}>Enter your email and password to access the page </div>
+            <div className={styles.plainText}>Enter your email/username and password to access the page </div>
             <br />
             <div className={styles.textInput}>
             <div className={styles.plainText}><b>Username</b></div>
@@ -37,7 +37,7 @@ const Login: FC = () => {
                     onChange={e => setEmail(e.target.value)}
                     value={email}
                     type="text"
-                    placeholder="Email"
+                    placeholder="Email or username"
                 />
             </div>
             <div className={styles.textInput}>
