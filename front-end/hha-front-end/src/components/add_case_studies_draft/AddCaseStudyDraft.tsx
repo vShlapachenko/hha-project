@@ -16,9 +16,13 @@ import Alert from '@mui/material/Alert';
 interface listName {
     caseName: string
     questionsAndAnswers: Array<any>
+    childPhoto?: any
+    onChangeFunc: any
+    onChangeFunc2: any
 }
 
-const AddCaseStudyDraft = ({caseName, questionsAndAnswers}: listName) => {
+const AddCaseStudyDraft = ({caseName, questionsAndAnswers, childPhoto, onChangeFunc, onChangeFunc2}: listName) => {
+
     const history = useHistory();
     const [alert, setAlert] = useState(false);
     const { store } = useContext(Context);
@@ -49,6 +53,16 @@ const AddCaseStudyDraft = ({caseName, questionsAndAnswers}: listName) => {
         OTHER_STORY: "Other Story"
     }
 
+    const resetState = () => {
+        setSubmitDrafAlert(false);
+        setSubmitAnswerAlert(false);
+        setSubmitPhotoAlert(false);
+        setShouldRenderFailAlert(false);
+        setArray([]);
+        setDraftArray([]);
+        setAlert(false);
+    }
+
     let initialArray: any = [];
     const [ answer, setAnswer ] = useState("");
     const [ array, setArray ] = useState(initialArray);
@@ -63,9 +77,7 @@ const AddCaseStudyDraft = ({caseName, questionsAndAnswers}: listName) => {
         setAnswer(event.target.value);
     }
 
-    const submitSave = (event: any) => {
-        
-        
+    const submitSave = (event: any) => {   
         let splitStringArray = splitString(event.target.value, ",");
         for (let i = 0; i < splitStringArray.length; i++) {
             let strippedResult = splitString(splitStringArray[i], ":");
@@ -76,6 +88,7 @@ const AddCaseStudyDraft = ({caseName, questionsAndAnswers}: listName) => {
         const finalAnswer = arrayStringMap.get(1)[1];
 
         setAlert(true);
+        setShouldRenderFailAlert(false);
 
         let obj;
         if (answer === "") {
@@ -92,15 +105,18 @@ const AddCaseStudyDraft = ({caseName, questionsAndAnswers}: listName) => {
 
         setArray([...array, obj]);
         setDraftArray([...draftArray, answer]);
+        setAnswer("");
     }
 
     async function submitAnswer(e: any) {
         e.preventDefault();
 
         if (array.length == 0) {
-            console.log("didn't submit answer");
+            setShouldRenderFailAlert(true);
             return;
         }
+
+        const photoOption = photoId?photoId:childPhoto;
 
         const body = {
             "id": null,
@@ -108,7 +124,7 @@ const AddCaseStudyDraft = ({caseName, questionsAndAnswers}: listName) => {
             "caseName": caseName,
             "submittedDate": null,
             "entryList": array,
-            "photo": null
+            "photo": photoOption
         }
 
         try {
@@ -116,6 +132,12 @@ const AddCaseStudyDraft = ({caseName, questionsAndAnswers}: listName) => {
             console.log(response);
             
             setSubmitAnswerAlert(true);
+
+            setTimeout(()=> {
+                resetState();
+            }, 500)
+            
+            onChangeFunc2();
         } catch (e) {
             console.log(e);
         }
@@ -127,7 +149,6 @@ const AddCaseStudyDraft = ({caseName, questionsAndAnswers}: listName) => {
         e.preventDefault();
 
         if (array.length == 0) {
-            console.log("didn't submit draft");
             setShouldRenderFailAlert(true);
             return;
         }
@@ -143,11 +164,13 @@ const AddCaseStudyDraft = ({caseName, questionsAndAnswers}: listName) => {
         let photoArray = [];
         photoArray.push(photo);
 
+        const photoOption = photoId?photoId:childPhoto
+
         const body = {
             "submittedBy": null,
             "caseName": caseName,
             "entryList": array,
-            "photoId": photoId
+            "photoId": photoOption
         }
         
         
@@ -155,9 +178,11 @@ const AddCaseStudyDraft = ({caseName, questionsAndAnswers}: listName) => {
             const response = await CaseStudyService.submitAsDraft(body.caseName, body.submittedBy, body.entryList, body.photoId);
             console.log(response);
             setSubmitDrafAlert(true);
-            setTimeout(() => {
-                document.location.reload();
-            },1000);
+            setTimeout(()=> {
+                resetState();
+            }, 500)
+            setPhotoId("");
+            onChangeFunc();
         } catch (e) {
             console.log(e);
         }
@@ -218,8 +243,6 @@ const AddCaseStudyDraft = ({caseName, questionsAndAnswers}: listName) => {
 
     
     const onFileChange = async (event: any) => {
-        // console.log("the email of the user is ", localStorage.getItem("email"));
-        
         event.preventDefault();
               
         if (event.target.files[0]) {
@@ -238,17 +261,15 @@ const AddCaseStudyDraft = ({caseName, questionsAndAnswers}: listName) => {
                <div className={AddCaseStudyDraftStyle.questions}>
                     <h3>{formatQuestions(item.questions)}</h3>
                     {item?<Input key={item.caseStudyId} userInput={answer} type="text" label="" value={item.answers} onChangeFunc={setPatientNameFunc} sx={{width: "43rem"}} />: <div></div>}
-                    {/* <Button variant="outlined" onClick={submitSave} value={item.questions} >save</Button> */}
                     <Button variant="outlined" onClick={submitSave} value={JSON.stringify(item)} >save</Button>
                </div>
                )
-           })} 
+           })}
             {submitPhotoAlert?submitPhotoSuccess(): renderNothing()}
             {shouldRenderFailAlert?renderFailAlert():renderNothing()}
             {questionsAndAnswers.length > 0?
             <div className={AddCaseStudyDraftStyle.uploadSection} >
            <label htmlFor="file-upload" className={AddCaseStudyDraftStyle.fileUpload}>
-                {/* Choose a photo  */}
                 <input id="file-upload" type="file" onChange={onFileChange} />
             </label>
                 
