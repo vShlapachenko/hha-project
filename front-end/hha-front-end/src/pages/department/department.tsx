@@ -1,30 +1,89 @@
 import React from "react";
-import Avatar from '@mui/material/Avatar';
-import Chip from '@mui/material/Chip';
-import { styled } from '@mui/material/styles';
-import Card from '@mui/material/Card';
-import CardHeader from '@mui/material/CardHeader';
-import CardMedia from '@mui/material/CardMedia';
-import CardContent from '@mui/material/CardContent';
-import CardActions from '@mui/material/CardActions';
-import Collapse from '@mui/material/Collapse';
-import IconButton, { IconButtonProps } from '@mui/material/IconButton';
-import Typography from '@mui/material/Typography';
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-// import Navbar from '.../components/Navbar/Navbar';
-
+import TextField from '@mui/material/TextField';
+import AdapterDateFns from '@mui/lab/AdapterDateFns';
+import LocalizationProvider from '@mui/lab/LocalizationProvider';
+import DesktopDatePicker from '@mui/lab/DesktopDatePicker';
+// import $api from '../../http'
 
 interface departmentAttributes {
-    name ?: string;
+    department_name ?: string;
 }
 
-const department = ({name}: departmentAttributes) => {
+const Department = ({department_name = 'Department Name'}: departmentAttributes) => {
+
     
+    
+
+    const [value, setValue] = React.useState<Date | null>(
+        new Date(),
+      );
+
+    // function randomStuff() {
+    //     $api.post("/getForm", data).then((r) => {
+    //     })
+    // }
+
+    const handleChange = (newValue: Date | null) => {
+        if(newValue)
+        {
+        console.log(newValue.getUTCMonth() + 1)
+        console.log(newValue.getFullYear())
+        }
+        
+
+    setValue(newValue);
+    };
+
     return (
         <div>
-            {/* <Navbar /> */}
+            <h1> { department_name } </h1>
+
+             {/* <FormControl variant="standard" sx={{ m: 1, minWidth: 120 }}>
+                <InputLabel>Month</InputLabel>
+                <Select
+                labelId="Mpnth"
+                id="month"
+                label="Month"
+                >
+                    <MenuItem value={1}>January</MenuItem>
+                    <MenuItem value={2}>February</MenuItem>
+                    <MenuItem value={3}>March</MenuItem>
+                    <MenuItem value={4}>April</MenuItem>
+                    <MenuItem value={5}>May</MenuItem>
+                    <MenuItem value={6}>June</MenuItem>
+                    <MenuItem value={7}>July</MenuItem>
+                    <MenuItem value={8}>August</MenuItem>
+                    <MenuItem value={9}>September</MenuItem>
+                    <MenuItem value={10}>October</MenuItem>
+                    <MenuItem value={11}>November</MenuItem>
+                    <MenuItem value={12}>December</MenuItem>
+
+                </Select>
+            </FormControl>
             
+
+            <FormControl variant="standard" sx={{ m: 1, minWidth: 120 }}>
+                <InputLabel>Year</InputLabel>
+                <Select
+                labelId="Year"
+                id="Year"
+                label="Year"
+                ></Select>
+            </FormControl>
+             */}
+
+            <LocalizationProvider dateAdapter={AdapterDateFns}>
+                    <DesktopDatePicker
+                    label="Select Month and Year for the form"
+                    inputFormat="MM/yyyy"
+                    value={value}
+                    onChange={handleChange}
+                    renderInput={(params) => <TextField {...params} />}
+                    />
+            </LocalizationProvider>     
+
+            {/* <button onClick={randomStuff}>Some random text</button> */}
         </div>
     );
 }
-export default department;
+export default Department;
