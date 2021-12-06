@@ -4,6 +4,6 @@ import {Form} from "../models/forms/Form"
 
 export default class FormService{
     static exportForm(){
-        return $api.post<Form> ('/form/export', )
+        return $api.post<Form> ('/form/export')
     }
 }
