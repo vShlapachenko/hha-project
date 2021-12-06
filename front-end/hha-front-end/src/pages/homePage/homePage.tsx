@@ -15,23 +15,25 @@ const HomePage = () => {
     const startForm = () => {history.push("/forms")}
     const createStory = () => {history.push("/caseStudy")}
     const [points, setPoints] = useState<Points[]>([])
+    const [check, setCheck] = useState<Boolean>()
 
     useEffect(() => {
-        async function fetchData(){
-            const request = await $api.get('/leaderboard/monthDepartments');
-            setPoints(request.data);
-            return request;
-        }
-        fetchData();
-        // $api.get<Points[]>('/leaderboard/monthDepartments').then((r) => {
-        //     console.log(r.data)
-        //     setPoints(r.data)
-        // });
-
+        // async function fetchData(){
+        //     const request = await $api.get('/leaderboard/monthDepartments');
+        //     setPoints(request.data);
+        //     console.log(points);
+        //     return request;
+        // }
+        // fetchData();
+        $api.get<Points[]>('/leaderboard/monthDepartments').then((r) => {
+            console.log(r.data)
+            setPoints(r.data)
+            setCheck(true)
+        });
     }, []);
     
     if (points.length > 0)
-        console.log(points[0].depPoints+"");
+        console.log(check);
 
     return(
         <>
@@ -43,9 +45,11 @@ const HomePage = () => {
             Best department of the month
         </h2>
         <div>
-
-            {/* <Leaderboard FirstDepartmentName={points[0] + ""} SecondDepartmentName={points[1].depName} ThirdDepartmentName={points[2].depName}
-            FirstPoints={points[0].depPoints + " points"} SecondPoints={points[1].depPoints + " points"} ThirdPoints={points[2].depPoints + " points"} /> */}
+            {check ?
+            <Leaderboard FirstDepartmentName={points[0].depName} SecondDepartmentName={points[1].depName} ThirdDepartmentName={points[2].depName}
+            FirstPoints={points[0].depPoint + " points"} SecondPoints={points[1].depPoint + " points"} ThirdPoints={points[2].depPoint + " points"} />:
+            <h2 className = {styles.textBest}>Loading...</h2>
+            }
         </div>
                     
         <h1 className = {styles.textTODO}>
