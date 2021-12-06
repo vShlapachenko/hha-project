@@ -1,9 +1,6 @@
 package ca.sfu.cmpt373.pluto.fall2021.hha.controllers;
 
-import ca.sfu.cmpt373.pluto.fall2021.hha.models.CaseStudy;
-import ca.sfu.cmpt373.pluto.fall2021.hha.models.CaseStudyTemplate;
-import ca.sfu.cmpt373.pluto.fall2021.hha.models.CaseStudyTruncated;
-import ca.sfu.cmpt373.pluto.fall2021.hha.models.HhaUser;
+import ca.sfu.cmpt373.pluto.fall2021.hha.models.*;
 import ca.sfu.cmpt373.pluto.fall2021.hha.repositories.CaseStudyRepository;
 import ca.sfu.cmpt373.pluto.fall2021.hha.repositories.PhotoRepository;
 import ca.sfu.cmpt373.pluto.fall2021.hha.services.CaseStudyService;
@@ -13,6 +10,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
+import java.security.Principal;
 import java.util.List;
 
 @RestController
@@ -31,10 +29,26 @@ public class CaseStudyController {
         return caseStudyService.getCaseStudy(id);
     }
 
-    @PostMapping("create")
-    public void createCaseStudy() {
-        caseStudyService.createCaseStudy();
+    @GetMapping("getAllCaseStudies")
+    public List<CaseStudy> getAllCaseStudies() {
+        return caseStudyService.getAllCaseStudies();
     }
+
+    @GetMapping("create")
+    public List<CaseStudyDraft> createCaseStudy(Principal principal) {
+        return caseStudyService.createCaseStudy(principal);
+    }
+
+    @GetMapping("photo/getAllPhotos")
+    public List<Photo> getAllPhotos() {
+        return caseStudyService.getAllPhotos();
+    }
+
+    @GetMapping("photo/getPhotosByCurrentUser")
+    public List<Photo> getPhotosByCurrentUser(Principal principal) {
+        return caseStudyService.getPhotosByCurrentUser(principal);
+    }
+
 
     @PostMapping("questions")
     public CaseStudyTemplate getQuestions(@RequestParam String caseName) {
@@ -42,14 +56,32 @@ public class CaseStudyController {
     }
 
     @PostMapping("photo/add")
-    public void savePhoto(@RequestBody MultipartFile photo)
+    public Photo savePhoto(Principal principal, @RequestPart("file")  MultipartFile photo)
             throws IOException {
-        caseStudyService.savePhoto(photo);
+        return caseStudyService.savePhoto(principal,photo);
+    }
+
+    @DeleteMapping("photo/delete/{id}")
+    public void deletePhoto(@PathVariable("id") String id) {
+        caseStudyService.deletePhoto(id);
     }
 
     @PostMapping("submit")
-    public void saveCaseStudy(HttpServletRequest request,
+    public void saveCaseStudy(Principal principal,
                               @RequestBody CaseStudy caseStudy) {
-        caseStudyService.saveCaseStudy(request, caseStudy);
+        caseStudyService.saveCaseStudy(principal, caseStudy);
     }
+
+    @PostMapping("submitAsDraft")
+    public void saveCaseStudyDraft(Principal principal,
+                                   @RequestBody CaseStudyDraft caseStudyDraft) {
+        caseStudyService.saveCaseStudyDraft(principal, caseStudyDraft);
+    }
+
+
+    @DeleteMapping("delete/{id}")
+    public void deleteCasetStudyDraftById(@PathVariable("id") String id) {
+       caseStudyService.deleteCasetStudyDraftById(id);
+    }
+
 }

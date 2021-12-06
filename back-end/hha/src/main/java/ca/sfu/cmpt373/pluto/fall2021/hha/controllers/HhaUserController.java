@@ -13,13 +13,18 @@ import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("api/hha-user")
+@RequestMapping("api/hha-user") 
 public class HhaUserController {
     private final HhaUserService userService;
 
     @GetMapping("getUsers")
     public List<HhaUser> getUser() {
         return userService.getUsers();
+    }
+
+    @GetMapping("getCurrentUser")
+    public HhaUser getCurrentUser(@RequestParam String email) {
+        return userService.getUser(email);
     }
 
     @PostMapping("invite")

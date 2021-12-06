@@ -1,3 +1,92 @@
 .mainDiv {
+    display: flex;
+    padding: 8em;
+    background-color: #EEEEEE;
+    min-height: 800px;
+}
+
+.heading {
     text-align: center;
+    color: #00A0B8;
+    padding-top: 5px;
+}
+
+.allCaseStudies {
+    width: 100%;
+    padding-top: 30px;
+    min-height: 300px;
+    text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: 10px;
+}
+
+.caseStudyBox {
+   cursor: pointer;
+}
+
+.singleCaseStudy {
+    margin: 5px;
+    flex: 1;
+}
+
+.filler {
+    width: 150px;
+    height: 150px;
+    text-align: center;
+    margin: auto;
+}
+
+.caseStudies {
+    flex: 3;
+}
+
+.caseStudiesDropdown {
+    margin-left: 18rem;
+}
+
+.caseStudiesDropdownDisplay {
+    margin: 3rem;
+    padding: 1rem;
+}
+
+.caseStudiesDropdownDisplayCustom {
+    margin: 3rem;
+    padding: 1rem;
+    border-radius: 5px;
+    border: solid #54AF31;
+}
+
+.leftPane {
+    flex: 1;
+}
+
+.leftPaneTitle {
+    margin-top: 2em;
+    color: #55AF31;
+}
+
+.draftParentStyle {
+    flex-direction: column;
+}
+
+.draftButtonStyle {
+    flex: 1;
+    padding: 0.5rem;
+}
+
+.footer {
+    min-height: 3em; 
+    background-color: #FFF;
+    text-align: center;
+    margin: 2em;
+}
+
+.castStudiesTitle {
+    padding-left: 3rem;
+    color: #00A0B8
+}
+
+.draftPhoto {
+    margin: 10px;
 }

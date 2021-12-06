@@ -4,4 +4,5 @@ export interface User {
     lastName: string;
     firstTimeUser: boolean;
     activationLink: string;
+    roles: Array<any>;
 }

@@ -17,14 +17,11 @@ import HomePage from "./pages/homePage/homePage";
 import userProfile from "./components/user_profile/userProfile";
 import ChangePassword from "./components/changePassword/changePassword";
 import Forms from './pages/formsPage/Forms';
-
-
-
+import Department from "./pages/department/department";
 
 function App() {
     return (
         <Switch>
-            <Route exact path="/forms" component={Forms} />
             <Route exact path="/" component={ Login } />
             <Route exact path="/login" component={ Login } />
             <Route exact path="/forgotPassword" component={ForgotPassword}/>
@@ -35,6 +32,8 @@ function App() {
             <PrivateRoute path="/register" Component={Registration} />
             <PrivateRoute path="/addUser" Component={AddUser} />
             <PrivateRoute path="/homePage" Component={HomePage} />
+            <PrivateRoute path="/forms" Component={Forms} />
+            <PrivateRoute path="/department" Component={Department} />
             <Redirect from="*" to="/" />
         </Switch>
     );
