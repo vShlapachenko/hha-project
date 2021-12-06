@@ -28,12 +28,12 @@ const Department = ({department_name = 'Department Name'}: departmentAttributes)
         }        
 
         function getForm() {
-            $api.post("/getForm", data).then((r) => {
+            $api.post("http://localhost:8080/api/form/getForm", data).then((r) => {
             })
         }
         
 
-        // setValue(newValue);
+        setValue(newValue);
     };
 
     return (

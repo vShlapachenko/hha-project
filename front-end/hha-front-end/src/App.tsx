@@ -17,6 +17,7 @@ import HomePage from "./pages/homePage/homePage";
 import userProfile from "./components/user_profile/userProfile";
 import ChangePassword from "./components/changePassword/changePassword";
 import Forms from './pages/formsPage/Forms';
+import Department from "./pages/department/department";
 
 function App() {
     return (
