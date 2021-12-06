@@ -13,9 +13,10 @@ roles = db.role.find().toArray()
 db.createCollection('department', {capped: false});
 
 db.department.insert([
-    {"name": "Rehab"},
-    {"name": "Maternity"},
-    {"name": "Community Health"}
+    {"name": "REHAB"},
+    {"name": "MAT"},
+    {"name": "COMMUNITY HEALTH"},
+    {"name": "NICUPEAD"}
 ])
 
 departments = db.department.find().toArray()
@@ -35,6 +36,28 @@ db.hhaUser.insert([
         activationStatus: "ACTIVATED",
         confirmationLink: null
     }
+])
+
+db.createCollection('departmentPoints', {capped: false});
+
+db.departmentPoints.insert([
+    {
+        department: new DBRef('department', departments[0]._id),
+        monthPoints: 0,
+        yearPoints: 0
+    }, {
+        department: new DBRef('department', departments[1]._id),
+        monthPoints: 0,
+        yearPoints: 0
+    }, {
+        department: new DBRef('department', departments[2]._id),
+        monthPoints: 0,
+        yearPoints: 0
+    }, {
+        department: new DBRef('department', departments[3]._id),
+        monthPoints: 0,
+        yearPoints: 0
+    },
 ])
 
 db.createCollection('caseTemplate', {capped: false});

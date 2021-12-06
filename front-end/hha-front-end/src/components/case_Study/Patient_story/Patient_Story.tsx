@@ -12,7 +12,8 @@ import IconButton, { IconButtonProps } from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import Navbar from "../../Navbar/Navbar";
-import styles from './case_Study.module.css'
+import styles from './Patient_Story.module.css'
+import Button from '@mui/material/Button';
 import { Trans, useTranslation } from "react-i18next";
 
 
@@ -20,14 +21,15 @@ interface CaseStudyAttributes {
     patient_image ?: string,
     case_image ?: string,
     heading ?: string,
-    patient_name ?: string,
-    patient_age ?: string,
-    patient_location ?: string,
-    reason_hcbh ?: string, 
-    duration_hcbh ?: string,
-    diagnosis ?: string,
-    story ?:string,
-    employee_story ?: string
+    patient_name ?: any,
+    patient_age ?: any,
+    patient_location ?: any,
+    reason_hcbh ?: any, 
+    duration_hcbh ?: any,
+    diagnosis ?: any,
+    story ?:any,
+    employee_story ?: any
+    onChangeFunc: any
 
 }
 
@@ -47,7 +49,7 @@ const ExpandMore = styled((props: ExpandMoreProps) => {
   }));
 
 const Patient_Story = ({patient_image, case_image, heading, patient_name = '', patient_age= '', patient_location= '',
-    reason_hcbh, duration_hcbh,  diagnosis= '', story, employee_story}: CaseStudyAttributes) => {
+    reason_hcbh, duration_hcbh,  diagnosis= '', story, employee_story, onChangeFunc}: CaseStudyAttributes) => {
     
     const [expanded, setExpanded] = React.useState(false);
     const {t,i18n} = useTranslation();
@@ -57,33 +59,43 @@ const Patient_Story = ({patient_image, case_image, heading, patient_name = '', p
 
     return (
         <div>
-            <Navbar />
             <div className={styles.component}>
-                <Card sx={{ maxWidth: 345 }}>
-                    <CardHeader
+                {/* <Card sx={{ maxWidth: 345}}> */}
+                <Card sx={{width:700}} >
+                <Button className={styles.exitButton} onClick={()=>onChangeFunc()}>X</Button>
+                    <CardHeader className={styles.title}
                         avatar={
-                            <Avatar src={patient_image}> </Avatar>
+                            patient_image?<Avatar src={patient_image}> </Avatar>:<></>
                         }
                         title={heading}
                     />
-
+                    
                     <CardMedia
                         component="img"
-                        height="194"
                         image={case_image}
                     />
 
                     <CardContent>
-                        <Typography variant="body2" color="text.secondary">
+                        <Typography variant="body2" >
 
                             {employee_story && 
                                 <div className={styles.employeeStory}>
                                     {employee_story}
                                 </div>
                             }
+                             {
+                                patient_name&& <div>
+                                <h2>{patient_name.question.replace(/[\?\"\(\)]/g, "")}</h2>
+                                <p>{patient_name.answer}</p></div>
+                             }
+                            {/* {patient_name && <Chip label={patient_name.question} + {patient_name.answer}/> }
                             
-                            {patient_name && <Chip label={<Trans i18nKey='Case.name'>Patient`s Name: </Trans> + patient_name}/> }
-                            {patient_age && <Chip label={<Trans i18nKey='Case.age'>Patient`s Age: </Trans> + patient_age}/> }
+                            {patient_age && <Chip label={'Patient`s Age: ' + patient_age}/> } */}
+                            {
+                                patient_age&& <div><h2>{patient_age.question.replace(/[\?\"\(\)]/g, "")}</h2>
+                                <p>{patient_age.answer}</p></div>
+                            }
+                           
                             
                         </Typography>
                     </CardContent>
@@ -108,18 +120,39 @@ const Patient_Story = ({patient_image, case_image, heading, patient_name = '', p
                         <CardContent>
                             <div className={styles.moreInfo}>
                                 <CardContent>
-                                        <Typography variant="body2" color="text.secondary">
-                                        {patient_location && <Chip sx={{marginLeft: -3, marginRight: 2}} label={<Trans i18nKey='Case.location'>Patient`s Location: </Trans> + patient_location}/> }
-                                        {reason_hcbh && <Chip label={<Trans i18nKey='Case.reason'>Reason: </Trans> + reason_hcbh}/> }
-                                        {duration_hcbh && <Chip sx={{marginLeft: -3, marginTop: 2}} label={<Trans i18nKey='Case.duration'>Duration at HCBH: </Trans> + duration_hcbh}/> }
-                                        {diagnosis && <Chip sx={{marginLeft: -3, marginTop: 2}} label={<Trans i18nKey='Case.diagnosis'>Patient`s Diagnosis: </Trans> + diagnosis}/> } 
+                                        <Typography variant="body2">
+                                        {/* {patient_location && <Chip sx={{marginLeft: -3, marginRight: 2}} label={'Patient`s Location: ' + patient_location}/> } */}
+                                        {patient_location&&<div>
+                                        <h2>{patient_location.question.replace(/[\?\"\(\)]/g, "")}</h2>
+                                        <p>{patient_location.answer}</p></div>
+                                        }   
+
+                                        {reason_hcbh&&<div>
+                                        <h2>{reason_hcbh.question.replace(/[\?\"\(\)]/g, "")}</h2>
+                                        <p>{reason_hcbh.answer}</p></div>
+                                        }   
+                                        {/* {reason_hcbh && <Chip label={'Reason: ' + reason_hcbh}/> } */}
+
+                                        {duration_hcbh&&<div>
+                                        <h2>{duration_hcbh.question.replace(/[\?\"\(\)]/g, "")}</h2>
+                                        <p>{duration_hcbh.answer}</p></div>
+                                        }   
+                                        {/* {duration_hcbh && <Chip sx={{marginLeft: -3, marginTop: 2}} label={'Duration at HCBH: ' + duration_hcbh}/> } */}
+                                        {diagnosis&&<div>
+                                        <h2>{diagnosis.question.replace(/[\?\"\(\)]/g, "")}</h2>
+                                        <p>{diagnosis.answer}</p></div>
+                                        }  
+                                        {/* {diagnosis && <Chip sx={{marginLeft: -3, marginTop: 2}} label={'Patient`s Diagnosis: ' + diagnosis}/> }  */}
                                         </Typography>
                                 </CardContent>
                             </div>
                             
                                 <Typography paragraph>
                                     <div className={styles.story}>
-                                        {story}
+                                        {story&&<div>
+                                        <h2>{story.question.replace(/[\?\"\(\)]/g, "")}</h2>
+                                        <p>{story.answer}</p></div>
+                                        } 
                                     </div>
                                 </Typography>
                             

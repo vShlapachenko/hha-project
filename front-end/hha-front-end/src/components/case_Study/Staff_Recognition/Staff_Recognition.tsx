@@ -12,7 +12,7 @@ import IconButton, { IconButtonProps } from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import Navbar from '../../Navbar/Navbar';
-// import './Patient_Story.css'
+import './Staff_Recognition.css'
 
 
 interface CaseStudyAttributes {
@@ -50,7 +50,6 @@ const Staff_Recognition = ({staff_image, name, heading, job_title, department, d
 
     return (
         <div>
-            <Navbar />
             <div className={'component'}>
                 <Card sx={{ maxWidth: 345 }}>
                     <CardHeader
