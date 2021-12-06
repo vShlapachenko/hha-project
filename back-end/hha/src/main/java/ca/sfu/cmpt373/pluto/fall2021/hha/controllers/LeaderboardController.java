@@ -15,10 +15,6 @@ import java.util.List;
 @RequestMapping("api/leaderboard")
 public class LeaderboardController {
     private final LeaderboardService leaderboardService;
-    @GetMapping("help")
-    public String getHelp() {
-        return "";
-    }
 
     @GetMapping("monthDepartments")
     public List<DepartmentRank> getMonthDepartments() {

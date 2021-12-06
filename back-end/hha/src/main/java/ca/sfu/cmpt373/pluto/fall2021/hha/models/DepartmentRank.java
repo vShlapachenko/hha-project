@@ -2,11 +2,11 @@ package ca.sfu.cmpt373.pluto.fall2021.hha.models;
 
 public class DepartmentRank {
     private String depName;
-    private int DepPoint;
+    private int depPoint;
 
     public DepartmentRank(String depName, int depPoint) {
         this.depName = depName;
-        DepPoint = depPoint;
+        this.depPoint = depPoint;
     }
 
     public String getDepName() {
@@ -18,10 +18,10 @@ public class DepartmentRank {
     }
 
     public int getDepPoint() {
-        return DepPoint;
+        return depPoint;
     }
 
     public void setDepPoint(int depPoint) {
-        DepPoint = depPoint;
+        this.depPoint = depPoint;
     }
 }

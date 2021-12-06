@@ -13,25 +13,15 @@ roles = db.role.find().toArray()
 db.createCollection('department', {capped: false});
 
 db.department.insert([
-    {"name": "Rehab"},
-    {"name": "Maternity"},
-    {"name": "Community Health"}
+    {"name": "REHAB"},
+    {"name": "MAT"},
+    {"name": "COMMUNITY HEALTH"},
+    {"name": "NICUPEAD"}
 ])
 
 departments = db.department.find().toArray()
 
 db.createCollection('hhaUser', {capped: false});
-
-db.createCollection('department', {capped: false});
-
-db.department.insert([
-    {"name": "NICUPEAD"},
-    {"name": "MAT"},
-    {"name": "REHAB"},
-    {"name": "COMMUNITY HEALTH"}
-])
-
-departments = db.department.find().toArray()
 
 //default password of default user is 1234
 db.hhaUser.insert([
