@@ -3,7 +3,7 @@ import TextField from '@mui/material/TextField';
 import AdapterDateFns from '@mui/lab/AdapterDateFns';
 import LocalizationProvider from '@mui/lab/LocalizationProvider';
 import DesktopDatePicker from '@mui/lab/DesktopDatePicker';
-// import $api from '../../http'
+import $api from '../../http'
 
 interface departmentAttributes {
     department_name ?: string;
@@ -11,27 +11,29 @@ interface departmentAttributes {
 
 const Department = ({department_name = 'Department Name'}: departmentAttributes) => {
 
-    
-    
-
     const [value, setValue] = React.useState<Date | null>(
         new Date(),
       );
 
-    // function randomStuff() {
-    //     $api.post("/getForm", data).then((r) => {
-    //     })
-    // }
-
     const handleChange = (newValue: Date | null) => {
+        var data = {}
         if(newValue)
         {
-        console.log(newValue.getUTCMonth() + 1)
-        console.log(newValue.getFullYear())
+            data = {
+                "month": newValue.getUTCMonth() + 1,
+                "year": newValue.getFullYear()
+            };
+            console.log("month: " + (newValue.getUTCMonth() + 1))
+            console.log("year: " + newValue.getFullYear())
+        }        
+
+        function getForm() {
+            $api.post("/getForm", data).then((r) => {
+            })
         }
         
 
-    setValue(newValue);
+        // setValue(newValue);
     };
 
     return (

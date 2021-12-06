@@ -5,12 +5,9 @@ import {observer} from "mobx-react-lite"
 import styles from "./Login.module.css";
 import logo_HHA from "./logo.svg"
 import {Button} from "@mui/material";
-<<<<<<< HEAD
 import Department from "../department/department";
-=======
 import {Trans, useTranslation} from 'react-i18next';
 
->>>>>>> master
 
 
 const Login: FC = () => {
@@ -29,11 +26,9 @@ const Login: FC = () => {
      const {t, i18n} = useTranslation('translation');
 
     return (
-<<<<<<< HEAD
         <div>
             <Department/>
-=======
-        <div className={styles.div}>
+        {/* <div className={styles.div}>
             <img src={logo_HHA} className={styles.logoHHA} alt="logo" />
             <div className= {styles.allignment}>
            
@@ -78,9 +73,8 @@ const Login: FC = () => {
                 </Trans>
             </div>
         </div>
->>>>>>> master
-        </div>
-        // <div className={styles.div}>
+        </div> */}
+        {/* // <div className={styles.div}>
         //     <img src={logo_HHA} className={styles.logoHHA} alt="logo" />
         //     <div className= {styles.allignment}>
            
@@ -118,8 +112,8 @@ const Login: FC = () => {
         //     <br />
         //     <br />
         //     <div className={styles.plainText}>If you are having any difficulties connecting to your account, please contact your <b>IT service</b> or <b>HHA representative</b> at <b>support@hha.com</b> </div>
-        // </div>
-        // </div>
+        // </div> */}
+         </div> 
     );
 };
 
