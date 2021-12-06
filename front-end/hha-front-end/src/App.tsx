@@ -1,5 +1,5 @@
 import React from 'react';
-import {Switch, Route, Redirect} from 'react-router-dom';
+import {Switch, Route, useRouteMatch, Redirect} from 'react-router-dom';
 import Login from './pages/loginPage/Login';
 import Navbar from './components/Navbar/Navbar';
 import {Context} from "./index";
@@ -16,9 +16,7 @@ import CaseStudy from './pages/caseStudyPage/CaseStudy';
 import HomePage from "./pages/homePage/homePage";
 import userProfile from "./components/user_profile/userProfile";
 import ChangePassword from "./components/changePassword/changePassword";
-
-
-
+import Forms from './pages/formsPage/Forms';
 
 function App() {
     return (
@@ -27,16 +25,13 @@ function App() {
             <Route exact path="/login" component={ Login } />
             <Route exact path="/forgotPassword" component={ForgotPassword}/>
             <Route exact path="/forgotPassword/enterNewPassword" component={EnterNewPassword}/>
-            <Route exact path="/addUser" component={AddUser}/>
-            <Route exact path="/register" component={Registration} />
-            <Route exact path="/userProfile" component={userProfile} />
-            <Route exact path="/changePassword" component={ChangePassword} />
-            <Route exact path="/caseStudy" component={CaseStudy} />
-            {/* <PrivateRoute path="/register" Component={Registration} />
-            <PrivateRoute path="/addUser" Component={AddUser} /> */}
-            {/* <PrivateRoute path="/homePage" Component={HomePage} /> */}
-            <Route exact path="/homePage" component={HomePage} />
-            <Route exact path="/forms" component={Forms}/>
+            <PrivateRoute path="/changePassword" Component={ChangePassword} />
+            <PrivateRoute path="/userProfile" Component={userProfile} />
+            <PrivateRoute path="/caseStudy" Component={CaseStudy} />
+            <PrivateRoute path="/register" Component={Registration} />
+            <PrivateRoute path="/addUser" Component={AddUser} />
+            <PrivateRoute path="/homePage" Component={HomePage} />
+            <PrivateRoute path="/forms" Component={Forms} />
             <Redirect from="*" to="/" />
         </Switch>
     );

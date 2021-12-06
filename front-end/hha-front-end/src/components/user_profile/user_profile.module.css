@@ -1,0 +1,150 @@
+.InfoPane {
+    position: absolute;
+    height: 500px;
+    width: 660px;
+    left: 310px;
+    top: 200px;
+    border-radius: 8px;
+    background: #EEEEEE;
+    box-shadow: 0px 1px 2px rgba(58, 58, 68, 0.24), 0px 2px 4px rgba(90, 91, 106, 0.24);
+}
+
+.header_1 {
+    position: absolute;
+    width: 98px;
+    height: 50px;
+    left: calc(50% - 170px/2);
+    top: 150px;
+
+    font-family: Arial;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 30px;
+    line-height: 100%;
+    color: #000000;
+}
+
+.header_2 {
+    position: absolute;
+    left: calc(50% - 242px/2 + 9px);
+    top: 30px;
+
+    font-family: Arial;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 20%;
+    /* or 36px */
+    color: #000000;
+}
+
+.first_last_name{
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    /* padding: 0px; */
+
+    position: absolute;
+    width: 432px;
+    height: 62px;
+    left: 66px;
+    top: 85px;
+
+}
+
+.first_name {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px;
+
+    position: static;
+    left: 0px;
+    top: 0px;
+
+
+    /* Inside Auto Layout */
+    flex: none;
+    order: 0;
+    flex-grow: 1;
+    margin: 0px 0px;
+}
+
+.Last_Name{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px;
+
+    position: static;
+    left: 324px;
+    top: 0px;
+
+    /* Inside Auto Layout */
+
+    flex: none;
+    order: 1;
+    flex-grow: 1;
+    margin: 0px 16px;
+}
+
+.email_input {
+    position: absolute;
+    left: 66px;
+    top: 160px;
+
+    /* Base/White 100% */
+
+    background: #FFFFFF;
+    /* Gray / 30 */
+
+    border: 1px;
+    box-sizing: border-box;
+    border-radius: 4px;
+}
+
+.PSN_input {
+    position: absolute;
+    left: 66px;
+    top: 230px;
+
+    /* Base/White 100% */
+
+    background: #FFFFFF;
+    /* Gray / 30 */
+
+    border: 1px;
+    box-sizing: border-box;
+    border-radius: 4px;
+}
+.change_lang{
+    position: absolute;
+    width: 488px;
+    height: 40px;
+    left: calc(50% - 488px/2);
+    top: 300px;
+}
+.lang_button{
+    position: absolute;
+    width: 488px;
+    height: 40px;
+    left: calc(50% - 400px/2);
+    top: 330px;
+}
+.change_pass_button{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    /* padding: 6px 16px; */
+
+    position: absolute;
+    left: 86px;
+    top: 400px;
+
+    background: #009CC4;
+    /* Shadow Dark / 4dp */
+
+    box-shadow: 0px 2px 4px rgba(58, 58, 68, 0.2), 0px 4px 8px rgba(90, 91, 106, 0.2);
+    border-radius: 4px;
+}

@@ -1,10 +1,10 @@
 import React, {useContext, useState} from "react"
 import {Context} from "../../index";
 import logo_HHA from "../../pages/loginPage/logo.svg";
-import "./changePassword.css"
+import styles from "./changePassword.module.css"
 import {useHistory} from "react-router-dom";
 import {Button} from "@mui/material";
-
+import { useTranslation, Trans } from "react-i18next";
 const ChangePassword: React.FC<{}> = () => {
     const [oldPassword, setOldPassword] = useState<string>("");
     const [newPassword, setNewPassword] = useState<string>("");
@@ -33,54 +33,56 @@ const ChangePassword: React.FC<{}> = () => {
         }
     };
 
+    const {t,i18n} = useTranslation();
+
     return(
         <div>
-            <img src={logo_HHA} className="logoHHA" alt="logo" />
-            <h1 className={"header"}>Change Password Form</h1>
-            <div className={"emailInput"}>
-                <input
+            <img src={logo_HHA} className={styles.logo} alt="logo" />
+            <h1 className={styles.header}><Trans i18nKey = 'Changepw.title'>Change Password Form</Trans></h1>
+            <div className={styles.emailInput}>
+                <input className={styles.input}
                     onChange={(e) => setUserEmail(e.target.value)}
                     value={userEmail}
                     type="email"
-                    placeholder="Enter your email"
+                    placeholder={t('Changepw.enter_email')}
                 />
             </div>
-            <div className={"currPassInput"}>
-                <input
+            <div className={styles.currPassInput}>
+                <input className={styles.input}
                        onChange={(e) => setOldPassword(e.target.value)}
                        value={oldPassword}
                        type="password"
-                       placeholder="Enter current password"
+                       placeholder={t('Changepw.curr_pw')}
                 />
             </div>
-            <div className={"newPassInput"}>
-                <input
+            <div className={styles.newPassInput}>
+                <input className={styles.input}
                     onChange={(e) => setNewPassword(e.target.value)}
                     value={newPassword}
                     type="password"
-                    placeholder="Enter new password"
+                    placeholder={t('Changepw.new_pw')}
                 />
             </div>
-            <div className={"confirmPassInput"}>
-                <input
+            <div className={styles.confirmPassInput}>
+                <input className={styles.input}
                     onChange={(e) => setConfirmPassword(e.target.value)}
                     value={confirmPassword}
                     type="password"
-                    placeholder="Confirm new password"
+                    placeholder={t('Changepw.confirm_pw')}
                 />
             </div>
-            <div className={"submit"}>
+            <div className={styles.submit}>
                 <Button onClick={handleChangePassword}
                         sx={{width: "500px", height: "42px", background: '#009CC4'}}
                         variant="contained">
-                    Submit
+                    <Trans i18nKey='Changepw.submit'>Submit</Trans>
                 </Button>
             </div>
-            <div className={"profPage"}>
+            <div className={styles.profPage}>
                 <Button onClick={redirectPage}
                         sx={{width: "488px", height: "42px", background: '#009CC4'}}
                         variant="contained">
-                    Back to Profile Page
+                    <Trans i18nKey='Changepw.back'>Back to Profile Page</Trans>
                 </Button>
             </div>
 

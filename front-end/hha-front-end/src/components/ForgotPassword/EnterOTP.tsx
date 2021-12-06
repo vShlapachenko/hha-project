@@ -2,8 +2,9 @@ import React, { useState, useContext, useEffect } from "react";
 import { Context } from "../../index";
 import { observer } from "mobx-react-lite";
 import { Link, useHistory } from "react-router-dom";
-import "./ForgotPassword.css";
+import styles from "./ForgotPassword.module.css";
 import {Button} from "@mui/material";
+import {Trans, useTranslation} from 'react-i18next'
 
 interface PropsInterface {
     disableOtpPage: () => void;
@@ -14,6 +15,8 @@ const EnterOTP: React.FC<PropsInterface> = (props): JSX.Element => {
     const { store } = useContext(Context);
     const history = useHistory();
     const [storeOtp, setStoreOtp] = useState<string>("");
+
+    const {t, i18n} = useTranslation();
 
     const redirectToForgotPassword = () => {
         props.disableOtpPage();
@@ -57,8 +60,8 @@ const EnterOTP: React.FC<PropsInterface> = (props): JSX.Element => {
     }
     return (
         <div>
-            <div className="alignment">
-                <h1>Enter OTP</h1>
+            <div className={styles.alignment}>
+                <h1><Trans i18nKey ='EnterOTP.title'>Enter OTP</Trans></h1>
                 <input
                     onChange={(e) => setUserOtp(e.target.value)}
                     value={userOtp}
@@ -67,15 +70,15 @@ const EnterOTP: React.FC<PropsInterface> = (props): JSX.Element => {
                     required={true}
                 />
 
-                <Button className="ForgotButton" onClick={validateOTP}
+                <Button className={styles.ForgotButton} onClick={validateOTP}
                         sx={{width: "488px", height: "42px", background: '#009CC4'}}
                         variant="contained">
-                    Validate OTP
+                    <Trans i18nKey ='EnterOTP.validate'>Validate OTP</Trans>
                 </Button>
                 <Link to="#" onClick={redirectToForgotPassword}>
-                    Enter email again?
+                    <Trans i18nKey = 'EnterOTP.enter_email'>Enter Email again?</Trans>
                 </Link>
-                <Link to="/">Login Page?</Link>
+                <Link to="/"><Trans i18nKey ='EnterOTP.link'>Go Back to Login Page</Trans></Link>
             </div>
         </div>
     );
