@@ -18,6 +18,8 @@ const AddUser: FC = () => {
     const [dropdown, setDropdown] = useState("");
     const [password, setPassword] = useState("");
     const listItems = [ "Admin", "Staff", "Head Of Department"];
+    const firstTimeUser = true;
+   
 
     const {t, i18n} = useTranslation();
 
@@ -44,10 +46,10 @@ const AddUser: FC = () => {
     }
 
 
+
     async function createAccount() {
         try {
             console.log("save user hit API");
-            
         } catch (e) {
             console.log(e);
             
@@ -80,6 +82,24 @@ const AddUser: FC = () => {
                            value={email} type="text" placeholder="Email" onChange={setEmailFunc} />
                 </div>
 
+<<<<<<< HEAD
+            <div className={styles.chooseTypeAccount}>
+                <h5 >Choose type of account</h5>
+            </div>
+            <div className= {styles.chooseTypeAccountDropdown}>
+                <Dropdown listItems={listItems} itemName={""} onChangeFunc={setDropdownFunc} initialValue={dropdown} />
+            </div>
+            <div className={styles.choosePassword}>
+                <h5 >Choose your password</h5>
+            </div>
+            <div className= {styles.password} >                  
+                <Input userInput={password} type="text" label="" onChangeFunc={setPasswordFunc} />
+            </div>
+
+            <div className={styles.submitButton} >
+                <Button variant="contained" onClick={createAccount} >Submit</Button>
+            </div>
+=======
                 <div className={styles.confirmEmail}>
                     <h5 ><Trans i18nKey='Adduser.confirm'>Confirm email of a new user</Trans></h5>
                 </div>
@@ -105,6 +125,7 @@ const AddUser: FC = () => {
                 <div className={styles.Button} >
                     <Button sx={{ background: '#009CC4'}} variant="contained" onClick={createAccount} ><Trans i18nKey='Adduser.submit'>Submit</Trans></Button>
                 </div>
+>>>>>>> master
 
                 <div className={styles.Button} >
                     <Button sx={{ background: '#009CC4'}} variant="contained" onClick={backToHomePage} ><Trans i18nKey='Adduser.home'>Back to Home Page</Trans></Button>

@@ -3,6 +3,7 @@ import { Route, Redirect } from 'react-router-dom';
 import {Context} from "../index";
 import {User} from "../models/User";
 import { observer } from "mobx-react-lite";
+import UserService from '../service/UserService';
 
 
 
@@ -22,7 +23,16 @@ interface PrivateRouteAttributes {
     const render = () => {
         if (store.isLogin()) {
             console.log("is authorized!");
-            return ( <Component {...props} />);
+            var checker = store.checkCurrentEmailinList(store.currentUserEmail);
+            if(store.firstTimeUser === true &&  checker === false)
+            {
+                store.setFirstTimeUser(false);
+                store.addDataToList(store.currentUserEmail);
+                return <Redirect to={{ pathname: '/changePassword' }} />; 
+            }
+            else{
+                return ( <Component {...props} />);
+            }
         } else {
             console.log("NOT authorized!");
             return <Redirect to={{ pathname: '/' }} />;

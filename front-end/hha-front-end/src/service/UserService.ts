@@ -7,12 +7,17 @@ export default class UserService {
         return $api.get<User[]>('/hha-user/getUsers')
     }
 
+<<<<<<< HEAD
+    static saveUser(firstName: String, lastName: String, password: String, firstTimeUser: Boolean): Promise<AxiosResponse<User[]>> {
+        return $api.post<User[]>('/hha-user/saveUser', {firstName, lastName, password, firstTimeUser})
+=======
     static saveUser(firstName: String, lastName: String, password: String, email: string, roles: Array<any>): Promise<AxiosResponse<User[]>> {
         return $api.post<User[]>('/hha-user/saveUser', {firstName, lastName, password, email, roles})
     }
 
     static getCurrentUser(email: any): Promise<AxiosResponse<User>> {
         return $api.get<User>(`/hha-user/getCurrentUser?email=${email}`);
+>>>>>>> master
     }
 
     static getUser(): Promise<AxiosResponse<User>>{

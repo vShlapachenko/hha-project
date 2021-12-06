@@ -19,6 +19,7 @@ const Registration = () => {
     const [password, setPassword] = useState("");
     const [confirmPassword, setConfirmPassword] = useState("");
     const [personalStaffNumber, setPersonalStaffNumber] = useState("");
+    const [firstTimeUser] = useState(true);
     const [dropdown, setDropdown] = useState("");
     const [email, setEmail] = useState("");
     const {store} = useContext(Context);
@@ -26,6 +27,17 @@ const Registration = () => {
     const [accountDropdown, setAccountDropdown] = useState("");
     const accoutTypes = [ "Admin", "Staff", "Head Of Department"];
     const history = useHistory();
+<<<<<<< HEAD
+    const hhaUser = {
+        "firstName": firstName,
+        "lastName": lastName,
+        "password": password,
+        "confirmPassword": confirmPassword,
+        "personalStaffNumber": personalStaffNumber,
+        "firstTimeUser": firstTimeUser,
+        "languageOption": dropdown
+   };
+=======
 //     const hhaUser = {
 //         "firstName": firstName,
 //         "lastName": lastName,
@@ -46,6 +58,7 @@ const Registration = () => {
            country_code: 'gb'
        }
    ]
+>>>>>>> master
 
     const [sumbitSuccessMessage, setSumbitSuccessMessage] = useState(false);
    
@@ -162,7 +175,11 @@ const Registration = () => {
        };
 
         try {
+<<<<<<< HEAD
+          const response = await UserService.saveUser(hhaUser.firstName, hhaUser.lastName, hhaUser.password, hhaUser.firstTimeUser);
+=======
           const response = await UserService.saveUser(hhaUser.firstName, hhaUser.lastName, hhaUser.password, hhaUser.email, hhaUser.roles);
+>>>>>>> master
           console.log(response);
           console.log("register success");
           setTimeout(() => {
