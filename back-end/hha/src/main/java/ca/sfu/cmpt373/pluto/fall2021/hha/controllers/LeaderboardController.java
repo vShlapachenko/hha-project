@@ -25,3 +25,4 @@ public class LeaderboardController {
     public List<DepartmentRank> getYearDepartments() {
         return leaderboardService.getYearDesc();
     }
+}
