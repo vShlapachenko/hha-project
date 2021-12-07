@@ -44,6 +44,7 @@ public class FormController {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
     @PostMapping("getForm")
     public Date getFormByDate(@RequestBody Date date){
         System.out.println("hi" + date);
