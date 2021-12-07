@@ -23,23 +23,23 @@ function Todo(props: any) {
       </h1>
 
       <div>
-        <ToDoSingle firstLine={t('Todo.form')}
-                    secondLine={t('Todo.click')}
-                    thirdLine={t('Todo.start')}
+        <ToDoSingle firstLine={t('ToDo.form')}
+                    secondLine={t('ToDo.click')}
+                    thirdLine={t('ToDo.start')}
                     func={startForm}/>
       </div>
 
       <div>
-        <ToDoSingle firstLine={t('Todo.create')}
-                    secondLine={t('Todo.button')}
-                    thirdLine={t('Todo.new')}
+        <ToDoSingle firstLine={t('ToDo.create')}
+                    secondLine={t('ToDo.button')}
+                    thirdLine={t('ToDo.new')}
                     func={createStory}/>
       </div>
     </div>)
   }
   return (
     <h1 className={styles.textTODO}>
-      <Trans i18nKey='Todo.caught'>You are all caught Up! Great!</Trans>
+      <Trans i18nKey='ToDo.caught'>You are all caught Up! Great!</Trans>
     </h1>
   );
 }
