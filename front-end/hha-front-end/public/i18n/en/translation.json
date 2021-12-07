@@ -145,5 +145,14 @@
         "click": "Click on the arrow to know more",
         "show": "show more",
         "story": "Story: "
+    },
+    "ToDo":{
+        "form": "Form for Sep, 2021 is ready to fill in.",
+        "click": "Click on the button to start filling in the form for Sep, 2021 or go to Forms Tab to start the form.",]
+        "start": "Start the form",
+        "create": "Create New Story",
+        "button": "Click on the button to create a new story or go to Case Study Tab",
+        "new":"Create New Story",
+        "caught": "You are all caught Up! Great!"
     }
 }

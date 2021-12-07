@@ -2,6 +2,7 @@ import React from 'react';
 import styles from "./Todo.module.css";
 import ToDoSingle from "./ToDoSingle";
 import {useHistory} from "react-router";
+import {Trans, useTranslation} from 'react-i18next';
 
 function Todo(props: any) {
   let history = useHistory();
@@ -13,6 +14,7 @@ function Todo(props: any) {
     history.push("/caseStudy")
   }
 
+  const {i18n, t} = useTranslation();
 
   if (props.todoData.shouldBeSeen) {
     return (<div>
@@ -21,23 +23,23 @@ function Todo(props: any) {
       </h1>
 
       <div>
-        <ToDoSingle firstLine={"Form for Sep, 2021 is ready to fill in."}
-                    secondLine={"Click on the button to start filling in the form for Sep, 2021 or go to Forms Tab to start the form."}
-                    thirdLine={"Start the form"}
+        <ToDoSingle firstLine={t('Todo.form')}
+                    secondLine={t('Todo.click')}
+                    thirdLine={t('Todo.start')}
                     func={startForm}/>
       </div>
 
       <div>
-        <ToDoSingle firstLine={"Create New Story"}
-                    secondLine={"Click on the button to create a new story or go to Case Study Tab"}
-                    thirdLine={"Create New Story"}
+        <ToDoSingle firstLine={t('Todo.create')}
+                    secondLine={t('Todo.button')}
+                    thirdLine={t('Todo.new')}
                     func={createStory}/>
       </div>
     </div>)
   }
   return (
     <h1 className={styles.textTODO}>
-      You are all caught Up! Great!
+      <Trans i18nKey='Todo.caught'>You are all caught Up! Great!</Trans>
     </h1>
   );
 }
