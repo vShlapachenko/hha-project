@@ -18,6 +18,8 @@ const AddUser: FC = () => {
     const [dropdown, setDropdown] = useState("");
     const [password, setPassword] = useState("");
     const listItems = [ "Admin", "Staff", "Head Of Department"];
+    const firstTimeUser = true;
+   
 
     const {t, i18n} = useTranslation();
 
@@ -44,10 +46,10 @@ const AddUser: FC = () => {
     }
 
 
+
     async function createAccount() {
         try {
             console.log("save user hit API");
-            
         } catch (e) {
             console.log(e);
             

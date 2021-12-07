@@ -8,6 +8,7 @@ import ForgotPasswordService from "../service/ForgotPasswordService";
 import NewPasswordService from "../service/NewPasswordService";
 import ChangePasswordService from "../service/ChangePasswordService";
 import UserService from "../service/UserService";
+import { Analytics, FamilyRestroomTwoTone } from "@mui/icons-material";
 
 export default class Store {
     isAuthorized = false;
@@ -16,6 +17,8 @@ export default class Store {
     currentUserEmail = "";
     firstName = "";
     lastName = "";
+    firstTimeUser = false;
+    emailList: Array<String> = [];
 
     constructor() {
         makeAutoObservable(this)
@@ -44,6 +47,27 @@ export default class Store {
 
     setLastName(value: string) {
         this.lastName = value;
+    }
+
+    setFirstTimeUser(value: boolean){
+        this.firstTimeUser = value;
+    }
+
+    addDataToList(value: String){
+        this.emailList.push(value);
+    }
+
+    checkCurrentEmailinList(value: String){
+         var n = 1000;
+         for( var i = 0; i < n; i++){
+             if(value !== this.emailList[i]){
+                 return false;
+             }
+             else{
+                 return true;
+             }
+         }
+        
     }
 
     isLogin = () => {
@@ -127,6 +151,7 @@ export default class Store {
                 this.setCurrentUserEmail(response.data.email);
                 this.setFirstName(response.data.firstName);
                 this.setLastName(response.data.lastName);
+                this.setFirstTimeUser(response.data.firstTimeUser);
                 return true;
             }
             return false;

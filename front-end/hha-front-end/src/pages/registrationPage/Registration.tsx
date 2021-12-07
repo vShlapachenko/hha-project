@@ -19,6 +19,7 @@ const Registration = () => {
     const [password, setPassword] = useState("");
     const [confirmPassword, setConfirmPassword] = useState("");
     const [personalStaffNumber, setPersonalStaffNumber] = useState("");
+    const [firstTimeUser] = useState(true);
     const [dropdown, setDropdown] = useState("");
     const [email, setEmail] = useState("");
     const {store} = useContext(Context);
@@ -154,6 +155,7 @@ const Registration = () => {
             "firstName": firstName,
             "lastName": lastName,
             "email": email,
+            "firstTimeUser": firstTimeUser,
             "password": password,
             "confirmPassword": confirmPassword,
             "personalStaffNumber": personalStaffNumber,
